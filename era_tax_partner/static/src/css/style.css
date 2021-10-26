@@ -1,0 +1,9 @@
+/* english font */
+@font-face {
+  font-family: 'Cairo-Regular';
+  src: url('../fonts/Cairo-Regular.ttf');
+  }
+
+  .cairo-regular {
+    font-family: Cairo-Regular !important;
+ }
