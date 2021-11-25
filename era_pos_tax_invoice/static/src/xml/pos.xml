@@ -5,8 +5,18 @@
      <xpath expr="//div[hasclass('pos-receipt-contact')]" position="replace">
          <div class="pos-receipt-contact">
                 <t t-if="receipt.company.contact_address">
-                    <div><t t-esc="receipt.company.contact_address" /></div>
+                    <div>
+                        <t t-esc="receipt.company.contact_address"/>
+                    </div>
                 </t>
+                <div>
+                    <t t-if="receipt.company_address">
+                        <span t-esc="receipt.company_address"/>
+                    </t>
+                    <div>
+                        <span t-if="receipt.company_state"  t-esc="receipt.company_state"/>
+                    </div>
+                </div>
              <t t-if="receipt.company.phone">
                     <div>Tel:<t t-esc="receipt.company.phone"/></div>
                 </t>
@@ -67,6 +77,12 @@
                             <t t-esc="receipt.company.vat"/>
                         </td>
                     </tr>
+             <tr id="refund_id" style="border-bottom: 0px solid #cccccc; display:none">
+                        <td>Ref. Refunded: <br/>مرتجع من </td>
+                 <td>
+                     <div id="order_refunded"><span t-esc="receipt.order_refunded"/></div>
+                 </td>
+             </tr>
 
                 </table>
          <br/>
@@ -172,9 +188,8 @@
               </div>
             <span t-esc="env.pos.format_currency(receipt.change)" class="pos-receipt-right-align"
                   style="margin-top:10px"/>
-
-
          </div>
+
      </xpath>
 
      <!-- QR Code-->

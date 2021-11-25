@@ -33,6 +33,14 @@
                 <span t-if="o.name != '/'" t-field="o.name"/>
             </h3>
         </xpath>
+
+<!--        <xpath expr="//div[@name='informations']" position="inside">-->
+<!--            <div class="col-auto col-3 mw-100 mb-2" t-if="o.invoice_date" name="invoice_date">-->
+<!--                <strong>Invoice Date:</strong>-->
+<!--                <p class="m-0" t-field="o.invoice_date"/>-->
+<!--            </div>-->
+<!--        </xpath>-->
+
         <xpath expr="//table[@name='invoice_line_table']" position="replace">
             <table class="table table-sm o_main_table" name="invoice_line_table" style="font-size: 14px;">
                 <thead>
@@ -218,8 +226,5 @@
             </td>
         </xpath>
     </template>
-
-
-
 
 </odoo>

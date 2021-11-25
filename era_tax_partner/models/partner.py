@@ -3,13 +3,12 @@ import qrcode
 import base64
 from io import BytesIO
 from odoo import models, api, fields, _
-
+import binascii
 
 class AccountMoveLineInherit(models.Model):
     _inherit = 'account.move.line'
 
     tax_amount = fields.Float(string="Tax Amount", compute="_compute_tax_amount")
-
 
     @api.depends('tax_ids', 'price_unit','quantity')
     def _compute_tax_amount(self):
@@ -40,9 +39,33 @@ class AccountMoveInherit(models.Model):
             res = {'warning': warning}
             return res
 
+    def _string_to_hex(self, value):
+        if value:
+            string = str(value)
+            string_bytes = string.encode("UTF-8")
+            encoded_hex_value = binascii.hexlify(string_bytes)
+            hex_value = encoded_hex_value.decode("UTF-8")
+            # print("This : "+value +"is Hex: "+ hex_value)
+            return hex_value
+
+    def _get_hex(self, tag, length, value):
+        if tag and length and value:
+            # str(hex(length))
+            hex_string = self._string_to_hex(value)
+            length = len(value)
+            # print("LEN", length, " ", "LEN Hex", hex(length))
+            conversion_table = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f']
+            hexadecimal = ''
+            while (length > 0):
+                remainder = length % 16
+                hexadecimal = conversion_table[remainder] + hexadecimal
+                length = length // 16
+            # print(hexadecimal)
+            if len(hexadecimal) == 1:
+                hexadecimal = "0" + hexadecimal
+            return tag + hexadecimal + hex_string
+
     def get_qr_code_data(self):
-        customer_name = ""
-        customer_vat = ""
         if self.move_type in ('out_invoice', 'out_refund'):
             sellername = str(self.company_id.name)
             seller_vat_no = self.company_id.vat or ''
@@ -54,18 +77,40 @@ class AccountMoveInherit(models.Model):
             seller_vat_no = self.partner_id.vat
             customer_name = self.company_id.name
             customer_vat = self.company_id.vat
-        currency_id = self.currency_id
-        qr_code = " Seller Name: " + sellername
-        qr_code += " Seller VAT NO.: " + seller_vat_no if seller_vat_no else " "
-        qr_code += " | Date: " + str(self.invoice_date) if self.invoice_date else "| Date: " + str(self.create_date.date())
-        qr_code += " | Total Tax: " + str(round(self.amount_tax, 2)) + str(currency_id.symbol)
-        qr_code += " | Total Amount: " + str(round(self.amount_total, 2)) + str(currency_id.symbol)
-        if customer_name:
-            qr_code += " | Customer Name: " + customer_name
-        if customer_vat:
-            qr_code += " | Customer Vat: " + customer_vat
+        seller_length = len(sellername)
+        # print(seller_length)
+        seller_hex = self._get_hex("01", "0c", sellername)
+        vat_hex = self._get_hex("02", "0f", seller_vat_no)
+        time_stamp = str(self.create_date)
+        # print(self.create_date)
+        date_hex = self._get_hex("03", "14", time_stamp)
+        total_with_vat_hex = self._get_hex("04", "0a", str(round(self.amount_total,2)))
+        total_vat_hex = self._get_hex("05", "09", str(round(self.amount_tax,2)))
+
+        qr_hex = seller_hex+vat_hex+date_hex+total_with_vat_hex+total_vat_hex
+        encoded_base64_bytes = base64.b64encode(bytes.fromhex(qr_hex)).decode()
+        # encoded_hex = qr_test.encode("UTF-8")
+        # print(encoded_base64_bytes)
+        # encoded_base64_bytes = base64.b64encode(encoded_hex)
+        # base64_bytes = encoded_base64_bytes.decode("UTF-8")
+        # print(encoded_base64_bytes)
+
+        return encoded_base64_bytes
+
+        # customer_name = ""
+        # customer_vat = ""
+
+        # currency_id = self.currency_id
+        # qr_code = " Seller Name: " + sellername
+        # qr_code += " Seller VAT NO.: " + seller_vat_no if seller_vat_no else " "
+        # qr_code += " | Date: " + str(self.invoice_date) if self.invoice_date else "| Date: " + str(self.create_date.date())
+        # qr_code += " | Total Tax: " + str(round(self.amount_tax,2)) + str(currency_id.symbol)
+        # qr_code += " | Total Amount: " + str(round(self.amount_total,2)) + str(currency_id.symbol)
+        # if customer_name:
+        #     qr_code += " | Customer Name: " + customer_name
+        # if customer_vat:
+        #     qr_code += " | Customer Vat: " + customer_vat
         # print(qr_code)
-        return qr_code
 
     qr_code = fields.Binary(string="QR Code", attachment=True, store=True)
 
@@ -126,3 +171,6 @@ class PurchaseOrderInherit(models.Model):
         if warning:
             res = {'warning': warning}
             return res
+
+
+# 0115426f627320426173656d656e74205265636f72647302Of3130303032353930363730303030330314323032322d30342d32355431353a3330Ba30305a04Oa323130303130302e393905093331353031352e3135

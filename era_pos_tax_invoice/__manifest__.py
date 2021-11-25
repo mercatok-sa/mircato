@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "Electronic invoice KSA - POS",
+    'name': "Electronic invoice KSA - POS Encoded | qrcode | ZATCA | vat | e-invoice | tax | Zakat",
+    "version" : "15.0.0.2",
+    "category" : "Accounting",
     'description': """
         Electronic invoice KSA - POS
     """,
@@ -8,7 +10,7 @@
     'email': "aqlan@era.net.sa ",
     'website': "https://era.net.sa",
     'category': 'accounting',
-    'price': 169,  
+    'price': 0,  
     'currency': 'USD',
     'version': '0.1',
     'license': 'AGPL-3',

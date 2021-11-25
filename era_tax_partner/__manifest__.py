@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "Electronic invoice KSA - Sales & Purchase",
+    'name': "Electronic invoice KSA - Sales & Purchase Encoded | qrcode | ZATCA | vat | e-invoice | tax | Zakat",
+    "version" : "15.0.0.2",
+    "category" : "Accounting",
     'description': """
        Electronic invoice KSA - Sales & Purchase
     """,
@@ -9,7 +11,7 @@
     'website': "https://era.net.sa",
     'category': 'accounting',
     'version': '0.1',
-    'price': 294,  
+    'price': 0,  
     'currency': 'USD',
     'license': 'AGPL-3',
     'images': ['static/description/main_screenshot.png'],
