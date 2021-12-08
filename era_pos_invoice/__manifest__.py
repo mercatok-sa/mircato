@@ -16,7 +16,7 @@
     'license': 'AGPL-3',
     'images': ['static/description/main_screenshot.png'],
     # 'depends': ['base', 'account', 'point_of_sale'],
-    'depends': ['era_pos_tax_invoice', 'point_of_sale'],
+    'depends': ['point_of_sale'],
     "data": [],
     'qweb': ['static/src/xml/pos.xml'],
     "application": True,
