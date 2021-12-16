@@ -18,7 +18,9 @@
     # 'depends': ['base', 'account', 'point_of_sale', 'era_pos_tax_invoice'],
     'depends': ['base', 'account', 'point_of_sale'],
     "data": [
-        'report/pos_report.xml',
+        # 'report/pos_report.xml',
+        # 'report/action_pos_report.xml',
+        # 'wizard/pos_details_wizard.xml',
     ],
     'qweb': ['static/src/xml/pos.xml'],
     "application": True,

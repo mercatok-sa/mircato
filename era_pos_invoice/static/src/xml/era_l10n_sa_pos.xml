@@ -22,7 +22,12 @@
              <tr style="border-bottom: 1px solid #e6e6e6">
                  <td>Issue Date: <br/> تاريخ الإصدار </td>
                  <td>
-                     <span t-esc="receipt.date.localestring"/>
+                     <t t-if="receipt.date.localestring">
+                         <span t-esc="receipt.date.localestring"/>
+                     </t>
+                     <t t-else="">
+                         <span t-esc="receipt.date.validation_date" />
+                     </t>
                  </td>
              </tr>
          </table>
