@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 {
     'name': "Electronic invoice KSA - POS Encoded | qrcode | ZATCA | vat | e-invoice | tax | Zakat",
-    "version" : "15.0.0.3",
-    "category" : "Accounting",
+    "version": "15.0.0.4",
+    "category": "Accounting",
     'description': """
         Electronic invoice KSA - POS
     """,
@@ -15,7 +15,7 @@
     'version': '0.1',
     'license': 'AGPL-3',
     'images': ['static/description/main_screenshot.png'],
-    'depends': ['base', 'account', 'point_of_sale',],
+    'depends': ['base', 'account', 'point_of_sale'],
     "data": [],
     'qweb': ['static/src/xml/pos.xml'],
     "application": True,
