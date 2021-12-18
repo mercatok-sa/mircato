@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="template_point_of_sale_report_saledetails_new" model="ir.actions.report">
+        <field name="name">POS Order Report</field>
+        <field name="model">pos.order.report.wizard</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">pos_order_report_details.point_of_sale_report_saledetails_new</field>
+        <field name="report_file">pos_order_report_details.point_of_sale_report_saledetails_new</field>
+        <field name="binding_type">report</field>
+    </record>
+
+</odoo>
