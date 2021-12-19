@@ -6,6 +6,11 @@ from odoo import fields, models, api
 class PosOrderInherit(models.Model):
     _inherit = "pos.order"
 
+    config_id = fields.Many2one('pos.config',
+                                related='session_id.config_id',
+                                string="Point of Sale",
+                                readonly=False,
+                                store=True)
     pos_date_order = fields.Date(compute="_compute_pos_date_order", store=True)
 
     @api.depends('date_order')

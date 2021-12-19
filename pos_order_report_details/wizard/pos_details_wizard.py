@@ -30,22 +30,26 @@ class PosOrderReportWizard(models.TransientModel):
         if self.end_date and self.end_date < self.start_date:
             self.start_date = self.end_date
 
-    @api.model
-    def get_pos_order_details(self, date_start=False, date_stop=False, config_ids=False):
-        res = []
+    def _get_domain(self, date_stop=False, date_start=False):
         domain = [('state', 'in', ['paid', 'invoiced', 'done'])]
         domain = AND([domain,
                       [('pos_date_order', '>=', date_start),
                        ('pos_date_order', '<=', date_stop)]
                       ])
-        # orders = self.env['pos.order'].search(domain)
+        return domain
+
+    @api.model
+    def get_pos_order_details(self, date_start=False, date_stop=False, config_ids=False):
+        res = []
 
         for config_id in config_ids:
-            config_name = self.env['pos.config'].search([('id', '=', config_id)]).name
+            domain = self._get_domain(date_start, date_stop)
             domain = AND([domain, [('config_id', '=', config_id)]])
-            orders_ids = self.env['pos.order'].search(domain)
 
+            orders_ids = self.env['pos.order'].search(domain)
+            all_orders_ids = self.env['pos.order'].search([])
             if orders_ids:
+                config_name = self.env['pos.config'].search([('id', '=', config_id)]).name
                 sales_order_ids = orders_ids.filtered(lambda s: len(s.refunded_order_ids) == 0)
                 sale_amount_with_tax = sum(sales_order_ids.mapped('amount_total'))
 
