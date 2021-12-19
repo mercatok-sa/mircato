@@ -57,13 +57,14 @@ class PosOrderReportWizard(models.TransientModel):
                        ('date_order', '<=', fields.Datetime.to_string(date_stop))]
                       ])
 
-        orders = self.env['pos.order'].search(domain)
+        # orders = self.env['pos.order'].search(domain)
 
-        if orders:
-            for config_id in config_ids:
-                config_name = self.env['pos.config'].search([('id', '=', config_id)]).name
-                orders_ids = orders.search([('config_id', '=', config_id)])
+        for config_id in config_ids:
+            config_name = self.env['pos.config'].search([('id', '=', config_id)]).name
+            domain = AND([domain, [('config_id', 'in', config_ids)]])
+            orders_ids = self.env['pos.order'].search(domain)
 
+            if orders_ids:
                 sales_order_ids = orders_ids.filtered(lambda s: len(s.refunded_order_ids) == 0)
                 sale_amount_with_tax = sum(sales_order_ids.mapped('amount_total'))
 
@@ -88,9 +89,9 @@ class PosOrderReportWizard(models.TransientModel):
                 payment_ids = orders_ids.mapped('payment_ids')
 
                 # النقدية
-                cash_payment = sum(payment_ids.filtered(lambda payment: payment.payment_method_id.name == "Cash").mapped('amount'))
+                cash_payment = sum(payment_ids.filtered(lambda payment: payment.payment_method_id.journal_id.type == "cash").mapped('amount'))
                 # ماستر كارد
-                master_cart_payment = sum(payment_ids.filtered(lambda payment: payment.payment_method_id.name != "Cash").mapped('amount'))
+                master_cart_payment = sum(payment_ids.filtered(lambda payment: payment.payment_method_id.journal_id.type == "bank").mapped('amount'))
                 # الإجمالي
                 total_payment = cash_payment + master_cart_payment
 
