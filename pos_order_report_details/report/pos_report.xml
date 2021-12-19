@@ -8,7 +8,7 @@
                     <div class="page">
                         <div class="text-center">
                             <h2>POS Order Report</h2>
-                            <strong>Analysis from <span t-field="o.start_date" t-options="{'widget': 'datetime'}"/> to <span t-field="o.end_date" t-options="{'widget': 'datetime'}"/></strong>
+                            <strong>Analysis from <span t-field="o.start_date" t-options="{'widget': 'date'}"/> to <span t-field="o.end_date" t-options="{'widget': 'date'}"/></strong>
                         </div>
                         <br />
                         <br />
