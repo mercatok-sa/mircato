@@ -43,6 +43,10 @@
      </xpath>
 
      <xpath expr="//div[hasclass('orderlines')]" position="before">
+         <div style='text-align:center;border-bottom: 2px solid black;margin-bottom:3px'>
+                <div><strong> فاتورة ضريبية مبسطة </strong></div>
+                 <div> <strong> SIMPLIFIED TAX INVOICE </strong></div>
+            </div>
          <table class='receipt-orderlines'>
              <colgroup>
                  <col width='35%'/>

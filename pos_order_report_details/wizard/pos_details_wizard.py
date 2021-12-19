@@ -34,34 +34,15 @@ class PosOrderReportWizard(models.TransientModel):
     def get_pos_order_details(self, date_start=False, date_stop=False, config_ids=False):
         res = []
         domain = [('state', 'in', ['paid', 'invoiced', 'done'])]
-
-        if date_start:
-            date_start = fields.Datetime.from_string(date_start)
-        else:
-            # start by default today 00:00:00
-            user_tz = pytz.timezone(self.env.context.get('tz') or self.env.user.tz or 'UTC')
-            today = user_tz.localize(fields.Datetime.from_string(fields.Date.context_today(self)))
-            date_start = today.astimezone(pytz.timezone('UTC'))
-
-        if date_stop:
-            date_stop = fields.Datetime.from_string(date_stop)
-            # avoid a date_stop smaller than date_start
-            if (date_stop < date_start):
-                date_stop = date_start + timedelta(days=1, seconds=-1)
-        else:
-            # stop by default today 23:59:59
-            date_stop = date_start + timedelta(days=1, seconds=-1)
-
         domain = AND([domain,
-                      [('date_order', '>=', fields.Datetime.to_string(date_start)),
-                       ('date_order', '<=', fields.Datetime.to_string(date_stop))]
+                      [('pos_date_order', '>=', date_start),
+                       ('pos_date_order', '<=', date_stop)]
                       ])
-
         # orders = self.env['pos.order'].search(domain)
 
         for config_id in config_ids:
             config_name = self.env['pos.config'].search([('id', '=', config_id)]).name
-            domain = AND([domain, [('config_id', 'in', config_ids)]])
+            domain = AND([domain, [('config_id', '=', config_id)]])
             orders_ids = self.env['pos.order'].search(domain)
 
             if orders_ids:
