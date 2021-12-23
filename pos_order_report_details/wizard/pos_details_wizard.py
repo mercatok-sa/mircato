@@ -20,7 +20,7 @@ class PosOrderReportWizard(models.TransientModel):
     pos_config_ids = fields.Many2many('pos.config', 'pos_order_report_configs',
                                       default=lambda s: s.env['pos.config'].search([]))
 
-    def _get_domain(self, date_stop=False, date_start=False):
+    def _get_domain(self, date_start=False, date_stop=False):
         domain = [('state', 'in', ['paid', 'invoiced', 'done'])]
         domain = AND([domain,
                       [('pos_date_order', '>=', date_start),
