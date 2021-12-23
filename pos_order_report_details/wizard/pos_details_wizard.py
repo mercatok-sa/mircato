@@ -20,16 +20,6 @@ class PosOrderReportWizard(models.TransientModel):
     pos_config_ids = fields.Many2many('pos.config', 'pos_order_report_configs',
                                       default=lambda s: s.env['pos.config'].search([]))
 
-    @api.onchange('start_date')
-    def _onchange_start_date(self):
-        if self.start_date and self.end_date and self.end_date < self.start_date:
-            self.end_date = self.start_date
-
-    @api.onchange('end_date')
-    def _onchange_end_date(self):
-        if self.end_date and self.end_date < self.start_date:
-            self.start_date = self.end_date
-
     def _get_domain(self, date_stop=False, date_start=False):
         domain = [('state', 'in', ['paid', 'invoiced', 'done'])]
         domain = AND([domain,
