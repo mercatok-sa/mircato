@@ -41,9 +41,7 @@
 								<th>Partner</th>
 								<th>Account</th>
 								<th>Label</th>
-								<!--							<th>Due Date</th>-->
 								<th>Analytic Account</th>
-								<!--							<th>Taxes(%)</th>-->
 								<th>Debit</th>
 								<th>Credit</th>
 							</tr>
@@ -62,15 +60,9 @@
 									<td>
 										<span t-field="line.name" />
 									</td>
-									<!--							<td>-->
-									<!--								<span t-field="line.date_maturity" />-->
-									<!--							</td>-->
 									<td>
 										<span t-field="line.analytic_account_id" />
 									</td>
-									<!--							<td>-->
-									<!--								<span t-field="line.tax_ids" />-->
-									<!--							</td>-->
 									<td>
 										<span t-field="line.debit" />
 									</td>

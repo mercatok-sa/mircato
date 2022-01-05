@@ -23,7 +23,7 @@
     'currency': 'EUR',
     'author': 'BrowseInfo',
     'website': 'https://www.browseinfo.in',
-    'depends': ['base','account'],
+    'depends': ['base', 'account'],
     'data': [
             'report/report_journal_entries.xml',
             'report/report_journal_entries_view.xml',
