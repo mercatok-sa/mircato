@@ -28,7 +28,7 @@
     'company': 'Era Group',
     'website': "https://era.net.sa",
     'depends': [
-        'base', 'hr', 'account','hr_payroll'
+        'base', 'hr', 'account','hr_payroll','l10n_sa_hr_payroll_account',
     ],
     'data': [
         'security/ir.model.access.csv',
