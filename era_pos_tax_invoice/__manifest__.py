@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': "Electronic invoice KSA - POS Encoded | qrcode | ZATCA | vat | e-invoice | tax | Zakat",
-    "version": "15.0.0.4",
+    "version": "15.0.0.5",
     "category": "Accounting",
     'description': """
         Electronic invoice KSA - POS

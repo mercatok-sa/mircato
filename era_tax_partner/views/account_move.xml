@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+       <!-- Inherit Form View to Modify it -->
+       <record id="account_move_form_view_inherit" model="ir.ui.view">
+           <field name="name">account.move.form.view.inherit</field>
+           <field name="model">account.move</field>
+           <field name="inherit_id" ref="account.view_move_form"/>
+           <field name="arch" type="xml">
+               <xpath expr="//header/button[@name='button_draft']" position="after">
+                   <button name="button_draft" string="Reset to Draft" type="object" groups="era_tax_partner.show_rest_to_draft_button_journal_entry" attrs="{'invisible' : ['|', ('show_reset_to_draft_button', '=', False), ('move_type', '!=', 'entry')]}" data-hotkey="q"/>
+               </xpath>
+               <xpath expr="//header/button[@name='button_draft']" position="attributes">
+                   <attribute name="groups">era_tax_partner.show_rest_to_draft_button_invoice</attribute>
+                   <attribute name="attrs">{'invisible' : ['|', ('show_reset_to_draft_button', '=', False), ('move_type', '=', 'entry')]}</attribute>
+               </xpath>
+           </field>
+       </record>
+
+    </data>
+</odoo>

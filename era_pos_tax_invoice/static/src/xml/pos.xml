@@ -41,8 +41,11 @@
              </t>
          </div>
      </xpath>
-
      <xpath expr="//div[hasclass('orderlines')]" position="before">
+         <div style='text-align:center;border-bottom: 2px solid black;margin-bottom:3px'>
+                <div><strong> فاتورة ضريبية مبسطة </strong></div>
+                 <div> <strong> SIMPLIFIED TAX INVOICE </strong></div>
+            </div>
          <table class='receipt-orderlines'>
              <colgroup>
                  <col width='35%'/>
@@ -57,9 +60,10 @@
              <tr style="border-bottom: 1px solid #e6e6e6">
                  <td>Issue Date: <br/> تاريخ الإصدار </td>
                  <td>
-                     <span t-esc="receipt.date.localestring"/>
-                 </td>
-             </tr>
+                     <span t-if="!receipt.date.localestring" t-esc="receipt.date.isostring"/>
+                     <span t-if="receipt.date.localestring" t-esc="receipt.date.localestring"/>
+                </td>
+            </tr>
              <tr t-if="receipt.company.vat" style="border-bottom: 0px solid #cccccc;">
                  <td>VAT No: <br/>الرقم الضريبي </td>
                  <td>

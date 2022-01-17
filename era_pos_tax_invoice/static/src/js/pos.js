@@ -142,11 +142,9 @@ models.Order = models.Order.extend({
                     var len_seller_vat = decimalToHex(this.env.pos.company.vat.length);
                     var seller_vat_no = "02"+ len_seller_vat + ascii_to_hexa(this.env.pos.company.vat);
 
-                    var len_date = decimalToHex(order.creation_date.toISOString().length);
-                    console.log(order.creation_date.toISOString())
-//                    console.log(order['formatted_validation_date'])
-                    var dateTime = String(order.creation_date.toISOString())
-//                    dateTime = dateTime.replace("Z", " ")
+                    var date_time_tz = new Date(order.creation_date - order.creation_date.getTimezoneOffset()*60*1000).toISOString();
+                    var len_date = decimalToHex(date_time_tz.length);
+                    var dateTime = String(date_time_tz)
                     var order_date = "03"+ len_date + ascii_to_hexa(dateTime);
 
                     var total_with_vat = Math.round(order.get_total_with_tax()*100)/100;
@@ -161,20 +159,6 @@ models.Order = models.Order.extend({
                     let qrCodeBase64 = hexToBase64(qrCodeValueHex)
                     console.log(qrCodeBase64);
                     console.log(qrCodeValueHex);
-
-//                    var qr_code_data = "Company:"+this.env.pos.company.name;
-//                    if(this.env.pos.company.vat){
-//                         qr_code_data += "  | VAT NO.:"+ this.env.pos.company.vat;
-//                    }
-//                    if(order['formatted_validation_date']){
-//                        qr_code_data += "  | Order Date:"+ order['formatted_validation_date'];
-//                    }
-//                    if(order.get_total_with_tax()){
-//                        qr_code_data += "  | Total Amount:"+ Math.round(order.get_total_with_tax()*100)/100;
-//                    }
-//                    if(order.get_total_tax()){
-//                        qr_code_data += "  | Total Tax:"+ Math.round(order.get_total_tax()*100)/100;
-//                    }
                     var company_address =  this.env.pos.company.street;
                     if (this.env.pos.company.city){company_address += "-"+this.env.pos.company.city}
                     var company_state = this.env.pos.company.state_id[1];

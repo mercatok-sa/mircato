@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+       <record id="show_rest_to_draft_button_invoice" model="res.groups">
+           <field name="name">Show Rest To Draft (Invoices)</field>
+           <field name="category_id" ref="base.module_category_hidden"/>
+           <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+       </record>
+
+       <record id="show_rest_to_draft_button_journal_entry" model="res.groups">
+           <field name="name">Show Rest To Draft (Journal Entry)</field>
+           <field name="category_id" ref="base.module_category_hidden"/>
+           <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+       </record>
+
+    </data>
+</odoo>
