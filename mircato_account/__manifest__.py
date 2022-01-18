@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': "Mircato Account",
-    "version": "15.0.0.2",
+    "version": "15.0.0.3",
     "category": "Accounting",
     'description': """
        Mircato Accounting
