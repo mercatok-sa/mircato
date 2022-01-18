@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': "Mircato Account",
-    "version": "15.0.0.0",
+    "version": "15.0.0.1",
     "category": "Accounting",
     'description': """
        Mircato Accounting
@@ -14,6 +14,7 @@
     'images': [],
     'depends': ['account'],
     'data': [
+        'views/account_move.xml',
 
     ],
 }
