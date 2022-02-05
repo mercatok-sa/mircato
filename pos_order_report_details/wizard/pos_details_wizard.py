@@ -35,29 +35,8 @@ class PosOrderReportWizard(models.TransientModel):
         res = []
         domain = [('state', 'in', ['paid', 'invoiced', 'done'])]
 
-        if date_start:
-            date_start = fields.Datetime.from_string(date_start)
-        else:
-            # start by default today 00:00:00
-            user_tz = pytz.timezone(self.env.context.get('tz') or self.env.user.tz or 'UTC')
-            today = user_tz.localize(fields.Datetime.from_string(fields.Date.context_today(self)))
-            date_start = today.astimezone(pytz.timezone('UTC'))
-
-        if date_stop:
-            date_stop = fields.Datetime.from_string(date_stop)
-            # avoid a date_stop smaller than date_start
-            if (date_stop < date_start):
-                date_stop = date_start + timedelta(days=1, seconds=-1)
-        else:
-            # stop by default today 23:59:59
-            date_stop = date_start + timedelta(days=1, seconds=-1)
-
-        domain = AND([domain,
-                      [('date_order', '>=', fields.Datetime.to_string(date_start)),
-                       ('date_order', '<=', fields.Datetime.to_string(date_stop))]
-                      ])
-
-        orders = self.env['pos.order'].search(domain)
+        orders_ids = self.env['pos.order'].search(domain)
+        orders = orders_ids.filtered(lambda o: o.date_order.date() >= date_start and o.date_order.date() <= date_stop)
 
         if orders:
             for config_id in config_ids:
