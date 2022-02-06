@@ -35,14 +35,12 @@ class PosOrderReportWizard(models.TransientModel):
         res = []
         domain = [('state', 'in', ['paid', 'invoiced', 'done'])]
 
-        orders_ids = self.env['pos.order'].search(domain)
-        orders = orders_ids.filtered(lambda o: o.date_order.date() >= date_start and o.date_order.date() <= date_stop)
+        orders = self.env['pos.order'].search(domain)
 
-        if orders:
-            for config_id in config_ids:
-                config_name = self.env['pos.config'].search([('id', '=', config_id)]).name
-                orders_ids = orders.search([('config_id', '=', config_id)])
-
+        for config_id in config_ids:
+            config_name = self.env['pos.config'].search([('id', '=', config_id)]).name
+            orders_ids = orders.search([('config_id', '=', config_id)]).filtered(lambda o: o.date_order.date() >= date_start and o.date_order.date() <= date_stop)
+            if orders_ids:
                 sales_order_ids = orders_ids.filtered(lambda s: len(s.refunded_order_ids) == 0)
                 sale_amount_with_tax = sum(sales_order_ids.mapped('amount_total'))
 
