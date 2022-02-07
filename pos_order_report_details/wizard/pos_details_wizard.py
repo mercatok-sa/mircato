@@ -65,9 +65,11 @@ class PosOrderReportWizard(models.TransientModel):
                 payment_ids = orders_ids.mapped('payment_ids')
 
                 # النقدية
-                cash_payment = sum(payment_ids.filtered(lambda payment: payment.payment_method_id.name == "Cash").mapped('amount'))
+                cash_payment = sum(payment_ids.filtered(
+                    lambda payment: payment.payment_method_id.journal_id.type == "cash").mapped('amount'))
                 # ماستر كارد
-                master_cart_payment = sum(payment_ids.filtered(lambda payment: payment.payment_method_id.name != "Cash").mapped('amount'))
+                master_cart_payment = sum(payment_ids.filtered(
+                    lambda payment: payment.payment_method_id.journal_id.type == "bank").mapped('amount'))
                 # الإجمالي
                 total_payment = cash_payment + master_cart_payment
 
