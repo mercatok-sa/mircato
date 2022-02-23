@@ -1,0 +1,759 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* sales_commission_generic
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0+e-20201109\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-12-01 11:50+0000\n"
+"PO-Revision-Date: 2021-12-01 11:50+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: sales_commission_generic
+#: model_terms:ir.ui.view,arch_db:sales_commission_generic.sale_inv_comm_template
+msgid "<b>Sales Invoices Commission</b>"
+msgstr "<b> Comisión de facturas de venta </b>"
+
+#. module: sales_commission_generic
+#: model_terms:ir.ui.view,arch_db:sales_commission_generic.sale_inv_comm_template
+msgid "<span>Salesperson : </span>"
+msgstr "<span> Vendedora: </span>"
+
+#. module: sales_commission_generic
+#: model_terms:ir.ui.view,arch_db:sales_commission_generic.sale_inv_comm_template
+msgid "<strong>Total :</strong>"
+msgstr "<strong> Total: </strong>"
+
+#. module: sales_commission_generic
+#: model:ir.model.fields,field_description:sales_commission_generic.field_sale_commission_exception__above_margin_commission
+msgid "Above Margin Commission %"
+msgstr "% De comisión por encima del margen"
+
+#. module: sales_commission_generic
+#: model_terms:ir.ui.view,arch_db:sales_commission_generic.sale_commission_exception_form_view
+msgid "Above Margin Commission%"
+msgstr "% De comisión por encima del margen"
+
+#. module: sales_commission_generic
+#: model:ir.model.fields,field_description:sales_commission_generic.field_sale_commission_exception__price_percentage
+msgid "Above price Commission %"
+msgstr "% De comisión por encima del precio"
+
+#. module: sales_commission_generic
+#: model:ir.model.fields,help:sales_commission_generic.field_invoice_sale_commission__invoice_id
+msgid "Affected Invoice"
+msgstr "Factura afectada"
+
+#. module: sales_commission_generic
+#: model:ir.model.fields,help:sales_commission_generic.field_invoice_sale_commission__order_id
+msgid "Affected Sale Order"
+msgstr "Orden de venta afectada"
+
+#. module: sales_commission_generic
+#: model:ir.model.fields,field_description:sales_commission_generic.field_res_partner__is_affiliated
+#: model:ir.model.fields,field_description:sales_commission_generic.field_res_users__is_affiliated
+msgid "Affiliated"
+msgstr "Asociada"
+
+#. module: sales_commission_generic
+#: model:ir.model.fields.selection,name:sales_commission_generic.selection__invoice_sale_commission__partner_type__affiliated_partner
+msgid "Affiliated Partner"
+msgstr "Socio afiliado"
+
+#. module: sales_commission_generic
+#: model:ir.model.fields,field_description:sales_commission_generic.field_sale_commission__affiliated_partner_commission
+msgid "Affiliated Partner Commission percentage"
+msgstr "Porcentaje de comisión de socio afiliado"
+
+#. module: sales_commission_generic
+#: model_terms:ir.ui.view,arch_db:sales_commission_generic.sale_inv_comm_template
+msgid "Amount"
+msgstr "Cantidad"
+
+#. module: sales_commission_generic
+#: model_terms:ir.ui.view,arch_db:sales_commission_generic.invoice_sale_commission_search
+msgid "Analytic Account"
+msgstr "Cuenta analítica"
+
+#. module: sales_commission_generic
+#: model:ir.model.fields,field_description:sales_commission_generic.field_sale_commission_exception__based_on
+msgid "Based On"
+msgstr "Residencia en"
+
+#. module: sales_commission_generic
+#: model:ir.model.fields,field_description:sales_commission_generic.field_sale_commission_exception__below_margin_commission
+msgid "Below Margin Commission %"
+msgstr "Por debajo del margen de comisión%"
+
+#. module: sales_commission_generic
+#: model_terms:ir.ui.view,arch_db:sales_commission_generic.sale_commission_exception_form_view
+msgid "Below Margin Commission%"
+msgstr "Por debajo del margen de comisión%"
+
+#. module: sales_commission_generic
+#: model_terms:ir.ui.view,arch_db:sales_commission_generic.create_commission_invoice_form
+#: model_terms:ir.ui.view,arch_db:sales_commission_generic.wizard_invoice_sale_commission_form_view
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: sales_commission_generic
+#: model:ir.model.fields,field_description:sales_commission_generic.field_sale_commission_exception__category_store
+msgid "Category store"
+msgstr "Tienda de categoría"
+
+#. module: sales_commission_generic
+#: model:ir.model.fields,help:sales_commission_generic.field_res_partner__is_affiliated
+#: model:ir.model.fields,help:sales_commission_generic.field_res_users__is_affiliated
+msgid "Check this box if this customer is Affiliated."
+msgstr "Marque esta casilla si este cliente está afiliado."
+
+#. module: sales_commission_generic
+#: model:ir.model.fields,field_description:sales_commission_generic.field_discount_commission_rules__commission_percentage
+#: model:ir.model.fields,field_description:sales_commission_generic.field_sale_commission_exception__commission_precentage
+msgid "Commission %"
+msgstr "Comisión%"
+
+#. module: sales_commission_generic
+#: model:ir.model.fields,field_description:sales_commission_generic.field_res_company__commission_discount_account
+#: model:ir.model.fields,field_description:sales_commission_generic.field_res_config_settings__commission_discount_account
+msgid "Commission Account"
+msgstr "Cuenta de comisiones"
+
+#. module: sales_commission_generic
+#: model:ir.model.fields,field_description:sales_commission_generic.field_invoice_sale_commission__commission_amount
+msgid "Commission Amount"
+msgstr "Monto de la comisión"
+
+#. module: sales_commission_generic
+#: model:ir.model.fields.selection,name:sales_commission_generic.selection__sale_commission_exception__based_on_2__commission_exception
+msgid "Commission Exception"
+msgstr "Excepción de comisión"
+
+#. module: sales_commission_generic
+#: model:ir.actions.act_window,name:sales_commission_generic.sale_invoice_commission_lines_action_form
+#: model:ir.ui.menu,name:sales_commission_generic.menu_sale_invoice_commission_lines_action_form
+msgid "Commission Lines"
+msgstr "Líneas de Comisión"
+
+#. module: sales_commission_generic
+#: model:ir.model.fields,field_description:sales_commission_generic.field_invoice_sale_commission__type_name
+#: model:ir.model.fields,field_description:sales_commission_generic.field_sale_commission__name
+#: model_terms:ir.ui.view,arch_db:sales_commission_generic.sale_inv_comm_template
+msgid "Commission Name"
+msgstr "Nombre de la comisión"
+
+#. module: sales_commission_generic
+#: model:ir.actions.report,name:sales_commission_generic.report_pdf
+msgid "Commission Report"
+msgstr "Informe de la Comisión"
+
+#. module: sales_commission_generic
+#: model:ir.model.fields,field_description:sales_commission_generic.field_sale_commission__rule_ids
+#: model:ir.model.fields,help:sales_commission_generic.field_sale_commission__rule_ids
+msgid "Commission Rules"
+msgstr "Reglas de la Comisión"
+
+#. module: sales_commission_generic
+#: model:ir.model.fields,field_description:sales_commission_generic.field_invoice_sale_commission__comm_type
+#: model:ir.model.fields,field_description:sales_commission_generic.field_sale_commission__comm_type
+#: model_terms:ir.ui.view,arch_db:sales_commission_generic.sale_inv_comm_template
+msgid "Commission Type"
+msgstr "Tipo de comisión"
+
+#. module: sales_commission_generic
+#: model:ir.model.fields.selection,name:sales_commission_generic.selection__res_company__commission_configuration__invoice
+msgid "Commission based on invoice"
+msgstr "Comisión basada en factura"
+
+#. module: sales_commission_generic
+#: model:ir.model.fields.selection,name:sales_commission_generic.selection__res_company__commission_configuration__sale_order
+msgid "Commission based on sales order"
+msgstr "Comisión basada en factura"
+
+#. module: sales_commission_generic
+#: model:ir.model,name:sales_commission_generic.model_res_company
+msgid "Companies"
+msgstr "Compañías"
+
+#. module: sales_commission_generic
+#: model:ir.model,name:sales_commission_generic.model_res_config_settings
+msgid "Config Settings"
+msgstr "Opciones de configuración"
+
+#. module: sales_commission_generic
+#: model:ir.model,name:sales_commission_generic.model_res_partner
+msgid "Contact"
+msgstr "Contacto"
+
+#. module: sales_commission_generic
+#: model_terms:ir.ui.view,arch_db:sales_commission_generic.create_commission_invoice_form
+msgid "Create Commission Invoice"
+msgstr "Crear factura de comisión"
+
+#. module: sales_commission_generic
+#: model_terms:ir.ui.view,arch_db:sales_commission_generic.create_commission_invoice_form
+msgid "Create Invoices"
+msgstr "Crear facturas"
+
+#. module: sales_commission_generic
+#: model:ir.actions.act_window,name:sales_commission_generic.action_create_commission_invoice
+msgid "Create invoice"
+msgstr "Crear factura"
+
+#. module: sales_commission_generic
+#: model:ir.model.fields,field_description:sales_commission_generic.field_create_invoice_commission__create_uid
+#: model:ir.model.fields,field_description:sales_commission_generic.field_discount_commission_rules__create_uid
+#: model:ir.model.fields,field_description:sales_commission_generic.field_invoice_sale_commission__create_uid
+#: model:ir.model.fields,field_description:sales_commission_generic.field_sale_commission__create_uid
+#: model:ir.model.fields,field_description:sales_commission_generic.field_sale_commission_exception__create_uid
+#: model:ir.model.fields,field_description:sales_commission_generic.field_wizard_invoice_sale_commission__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: sales_commission_generic
+#: model:ir.model.fields,field_description:sales_commission_generic.field_create_invoice_commission__create_date
+#: model:ir.model.fields,field_description:sales_commission_generic.field_discount_commission_rules__create_date
+#: model:ir.model.fields,field_description:sales_commission_generic.field_invoice_sale_commission__create_date
+#: model:ir.model.fields,field_description:sales_commission_generic.field_sale_commission__create_date
+#: model:ir.model.fields,field_description:sales_commission_generic.field_sale_commission_exception__create_date
+#: model:ir.model.fields,field_description:sales_commission_generic.field_wizard_invoice_sale_commission__create_date
+msgid "Created on"
+msgstr "Creado en"
+
+#. module: sales_commission_generic
+#: model:ir.model.fields,field_description:sales_commission_generic.field_invoice_sale_commission__date
+#: model_terms:ir.ui.view,arch_db:sales_commission_generic.sale_inv_comm_template
+msgid "Date"
+msgstr "Fecha"
+
+#. module: sales_commission_generic
+#: model:ir.model.fields,field_description:sales_commission_generic.field_invoice_sale_commission__name
+msgid "Description"
+msgstr "Descripción"
+
+#. module: sales_commission_generic
+#: model:ir.model.fields,field_description:sales_commission_generic.field_discount_commission_rules__discount_percentage
+msgid "Discount %"
+msgstr "% De descuento"
+
+#. module: sales_commission_generic
+#: model:ir.model.fields,field_description:sales_commission_generic.field_sale_commission__gt_discount_commission_percentage
+msgid "Discount > 25% Commission %"
+msgstr "Descuento> 25% Comisión%"
+
+#. module: sales_commission_generic
+#: model:ir.model.fields.selection,name:sales_commission_generic.selection__invoice_sale_commission__comm_type__discount
+#: model:ir.model.fields.selection,name:sales_commission_generic.selection__sale_commission__comm_type__discount
+msgid "Discount Based"
+msgstr "Descuento basado"
+
+#. module: sales_commission_generic
+#: model:ir.model,name:sales_commission_generic.model_discount_commission_rules
+#: model_terms:ir.ui.view,arch_db:sales_commission_generic.discount_commission_rules_form_view
+#: model_terms:ir.ui.view,arch_db:sales_commission_generic.discount_commission_rules_tree_view
+msgid "Discount Commission Rules"
+msgstr "Reglas de la comisión de descuento"
+
+#. module: sales_commission_generic
+#: model:ir.model.fields,field_description:sales_commission_generic.field_account_move__display_name
+#: model:ir.model.fields,field_description:sales_commission_generic.field_account_move_line__display_name
+#: model:ir.model.fields,field_description:sales_commission_generic.field_create_invoice_commission__display_name
+#: model:ir.model.fields,field_description:sales_commission_generic.field_discount_commission_rules__display_name
+#: model:ir.model.fields,field_description:sales_commission_generic.field_invoice_sale_commission__display_name
+#: model:ir.model.fields,field_description:sales_commission_generic.field_report_sales_commission_generic_sale_inv_comm_template__display_name
+#: model:ir.model.fields,field_description:sales_commission_generic.field_res_company__display_name
+#: model:ir.model.fields,field_description:sales_commission_generic.field_res_config_settings__display_name
+#: model:ir.model.fields,field_description:sales_commission_generic.field_res_partner__display_name
+#: model:ir.model.fields,field_description:sales_commission_generic.field_sale_commission__display_name
+#: model:ir.model.fields,field_description:sales_commission_generic.field_sale_commission_exception__display_name
+#: model:ir.model.fields,field_description:sales_commission_generic.field_sale_order__display_name
+#: model:ir.model.fields,field_description:sales_commission_generic.field_sale_order_line__display_name
+#: model:ir.model.fields,field_description:sales_commission_generic.field_wizard_invoice_sale_commission__display_name
+msgid "Display Name"
+msgstr "Nombre mostrado"
+
+#. module: sales_commission_generic
+#: model:ir.model.fields,field_description:sales_commission_generic.field_wizard_invoice_sale_commission__end_date
+msgid "End Date"
+msgstr "Fecha final"
+
+#. module: sales_commission_generic
+#: model:ir.model.fields,help:sales_commission_generic.field_sale_commission_exception__product_id
+msgid "Exception based on product"
+msgstr "Excepción basada en el producto"
+
+#. module: sales_commission_generic
+#: model:ir.model.fields,help:sales_commission_generic.field_sale_commission_exception__categ_id
+msgid "Exception based on product category"
+msgstr "Excepción basada en la categoría de producto"
+
+#. module: sales_commission_generic
+#: model:ir.model.fields,help:sales_commission_generic.field_sale_commission_exception__sub_categ_id
+msgid "Exception based on product sub-category"
+msgstr "Excepción basada en la subcategoría de producto"
+
+#. module: sales_commission_generic
+#: model:ir.model.fields.selection,name:sales_commission_generic.selection__sale_commission_exception__based_on_2__fix_price
+msgid "Fix Price"
+msgstr "Ajustar el precio"
+
+#. module: sales_commission_generic
+#: model:ir.model.fields,field_description:sales_commission_generic.field_res_company__commission_configuration
+#: model:ir.model.fields,field_description:sales_commission_generic.field_res_config_settings__commission_configuration
+msgid "Generate Commision Entry Based On "
+msgstr "Generar entrada de comisión en función de"
+
+#. module: sales_commission_generic
+#: model:ir.model.fields,field_description:sales_commission_generic.field_create_invoice_commission__group_by
+msgid "Group By"
+msgstr "Agrupar por"
+
+#. module: sales_commission_generic
+#: model:ir.model.fields,field_description:sales_commission_generic.field_account_move__id
+#: model:ir.model.fields,field_description:sales_commission_generic.field_account_move_line__id
+#: model:ir.model.fields,field_description:sales_commission_generic.field_create_invoice_commission__id
+#: model:ir.model.fields,field_description:sales_commission_generic.field_discount_commission_rules__id
+#: model:ir.model.fields,field_description:sales_commission_generic.field_invoice_sale_commission__id
+#: model:ir.model.fields,field_description:sales_commission_generic.field_report_sales_commission_generic_sale_inv_comm_template__id
+#: model:ir.model.fields,field_description:sales_commission_generic.field_res_company__id
+#: model:ir.model.fields,field_description:sales_commission_generic.field_res_config_settings__id
+#: model:ir.model.fields,field_description:sales_commission_generic.field_res_partner__id
+#: model:ir.model.fields,field_description:sales_commission_generic.field_sale_commission__id
+#: model:ir.model.fields,field_description:sales_commission_generic.field_sale_commission_exception__id
+#: model:ir.model.fields,field_description:sales_commission_generic.field_sale_order__id
+#: model:ir.model.fields,field_description:sales_commission_generic.field_sale_order_line__id
+#: model:ir.model.fields,field_description:sales_commission_generic.field_wizard_invoice_sale_commission__id
+msgid "ID"
+msgstr "IDENTIFICACIÓN"
+
+#. module: sales_commission_generic
+#: model:ir.model.fields,field_description:sales_commission_generic.field_create_invoice_commission__date
+msgid "Invoice Date"
+msgstr "Fecha de la factura"
+
+#. module: sales_commission_generic
+#: model:ir.model.fields,field_description:sales_commission_generic.field_invoice_sale_commission__invoice_id
+msgid "Invoice Reference"
+msgstr "Referencia de la factura"
+
+#. module: sales_commission_generic
+#: model:ir.model,name:sales_commission_generic.model_invoice_sale_commission
+msgid "Invoice Sale Commission"
+msgstr "Comisión de venta de facturas"
+
+#. module: sales_commission_generic
+#: model_terms:ir.ui.view,arch_db:sales_commission_generic.sale_inv_comm_template
+msgid "Invoice/Sale References"
+msgstr "Referencias de factura / venta"
+
+#. module: sales_commission_generic
+#: model:ir.model.fields,field_description:sales_commission_generic.field_invoice_sale_commission__invoiced
+msgid "Invoiced"
+msgstr "Facturada"
+
+#. module: sales_commission_generic
+#: model:ir.model,name:sales_commission_generic.model_account_move
+msgid "Journal Entry"
+msgstr "Asiento contable"
+
+#. module: sales_commission_generic
+#: model:ir.model,name:sales_commission_generic.model_account_move_line
+msgid "Journal Item"
+msgstr "Apunte contable"
+
+#. module: sales_commission_generic
+#: model:ir.model.fields,field_description:sales_commission_generic.field_account_move____last_update
+#: model:ir.model.fields,field_description:sales_commission_generic.field_account_move_line____last_update
+#: model:ir.model.fields,field_description:sales_commission_generic.field_create_invoice_commission____last_update
+#: model:ir.model.fields,field_description:sales_commission_generic.field_discount_commission_rules____last_update
+#: model:ir.model.fields,field_description:sales_commission_generic.field_invoice_sale_commission____last_update
+#: model:ir.model.fields,field_description:sales_commission_generic.field_report_sales_commission_generic_sale_inv_comm_template____last_update
+#: model:ir.model.fields,field_description:sales_commission_generic.field_res_company____last_update
+#: model:ir.model.fields,field_description:sales_commission_generic.field_res_config_settings____last_update
+#: model:ir.model.fields,field_description:sales_commission_generic.field_res_partner____last_update
+#: model:ir.model.fields,field_description:sales_commission_generic.field_sale_commission____last_update
+#: model:ir.model.fields,field_description:sales_commission_generic.field_sale_commission_exception____last_update
+#: model:ir.model.fields,field_description:sales_commission_generic.field_sale_order____last_update
+#: model:ir.model.fields,field_description:sales_commission_generic.field_sale_order_line____last_update
+#: model:ir.model.fields,field_description:sales_commission_generic.field_wizard_invoice_sale_commission____last_update
+msgid "Last Modified on"
+msgstr "Última modificación el"
+
+#. module: sales_commission_generic
+#: model:ir.model.fields,field_description:sales_commission_generic.field_create_invoice_commission__write_uid
+#: model:ir.model.fields,field_description:sales_commission_generic.field_discount_commission_rules__write_uid
+#: model:ir.model.fields,field_description:sales_commission_generic.field_invoice_sale_commission__write_uid
+#: model:ir.model.fields,field_description:sales_commission_generic.field_sale_commission__write_uid
+#: model:ir.model.fields,field_description:sales_commission_generic.field_sale_commission_exception__write_uid
+#: model:ir.model.fields,field_description:sales_commission_generic.field_wizard_invoice_sale_commission__write_uid
+msgid "Last Updated by"
+msgstr "Actualizado por última vez por"
+
+#. module: sales_commission_generic
+#: model:ir.model.fields,field_description:sales_commission_generic.field_create_invoice_commission__write_date
+#: model:ir.model.fields,field_description:sales_commission_generic.field_discount_commission_rules__write_date
+#: model:ir.model.fields,field_description:sales_commission_generic.field_invoice_sale_commission__write_date
+#: model:ir.model.fields,field_description:sales_commission_generic.field_sale_commission__write_date
+#: model:ir.model.fields,field_description:sales_commission_generic.field_sale_commission_exception__write_date
+#: model:ir.model.fields,field_description:sales_commission_generic.field_wizard_invoice_sale_commission__write_date
+msgid "Last Updated on"
+msgstr "Ultima actualización en"
+
+#. module: sales_commission_generic
+#: model:res.groups,name:sales_commission_generic.group_sales_commission_manager
+msgid "Manager"
+msgstr "Gerente"
+
+#. module: sales_commission_generic
+#: model:ir.model.fields.selection,name:sales_commission_generic.selection__sale_commission_exception__based_on_2__margin
+msgid "Margin"
+msgstr "Margen"
+
+#. module: sales_commission_generic
+#: model:ir.model.fields,field_description:sales_commission_generic.field_sale_commission__max_discount_commission_percentage
+msgid "Max Discount %"
+msgstr "% De descuento máximo"
+
+#. module: sales_commission_generic
+#: model:ir.model.fields,help:sales_commission_generic.field_sale_commission__max_discount_commission_percentage
+msgid "Maximum Discount %"
+msgstr "% De descuento máximo"
+
+#. module: sales_commission_generic
+#: model_terms:ir.ui.view,arch_db:sales_commission_generic.sale_inv_comm_template
+msgid "Name"
+msgstr "Nombre"
+
+#. module: sales_commission_generic
+#: model:ir.model.fields,field_description:sales_commission_generic.field_sale_commission__no_discount_commission_percentage
+msgid "No Discount Commission %"
+msgstr "Sin% de comisión de descuento"
+
+#. module: sales_commission_generic
+#: model:ir.model.fields.selection,name:sales_commission_generic.selection__invoice_sale_commission__partner_type__non-affiliated_partner
+msgid "Non-Affiliated Partner"
+msgstr "Socio no afiliado"
+
+#. module: sales_commission_generic
+#: model:ir.model.fields,field_description:sales_commission_generic.field_sale_commission__nonaffiliated_partner_commission
+msgid "Non-Affiliated Partner Commission percentage"
+msgstr "Porcentaje de comisión de socios no afiliados"
+
+#. module: sales_commission_generic
+#: model_terms:ir.ui.view,arch_db:sales_commission_generic.view_sales_config_inherit_bi
+msgid "Option For Sales Commission Account"
+msgstr "Opción para cuenta de comisión de ventas"
+
+#. module: sales_commission_generic
+#: model_terms:ir.ui.view,arch_db:sales_commission_generic.view_sales_config_inherit_bi
+msgid "Option For Sales Commission Entry"
+msgstr "Opción para entrada de comisión de ventas"
+
+#. module: sales_commission_generic
+#: model_terms:ir.ui.view,arch_db:sales_commission_generic.wizard_invoice_sale_commission_form_view
+msgid "Or"
+msgstr "O"
+
+#. module: sales_commission_generic
+#: model:ir.model.fields,field_description:sales_commission_generic.field_invoice_sale_commission__order_id
+msgid "Order Reference"
+msgstr "Pedir Referencia"
+
+#. module: sales_commission_generic
+#: model:ir.model.fields,field_description:sales_commission_generic.field_invoice_sale_commission__partner_id
+#: model_terms:ir.ui.view,arch_db:sales_commission_generic.sale_inv_comm_template
+msgid "Partner"
+msgstr "Pareja"
+
+#. module: sales_commission_generic
+#: model:ir.model.fields.selection,name:sales_commission_generic.selection__invoice_sale_commission__comm_type__partner
+#: model:ir.model.fields.selection,name:sales_commission_generic.selection__sale_commission__comm_type__partner
+msgid "Partner Based"
+msgstr "Basado en socios"
+
+#. module: sales_commission_generic
+#: model:ir.model.fields,field_description:sales_commission_generic.field_invoice_sale_commission__partner_type
+msgid "Partner Type"
+msgstr "Tipo de socio"
+
+#. module: sales_commission_generic
+#: model_terms:ir.ui.view,arch_db:sales_commission_generic.sale_commission_exception_form_view
+msgid "Percentage"
+msgstr "Porcentaje"
+
+#. module: sales_commission_generic
+#: model_terms:ir.ui.view,arch_db:sales_commission_generic.sale_commission_exception_form_view
+msgid "Price%"
+msgstr "Precio%"
+
+#. module: sales_commission_generic
+#: model_terms:ir.ui.view,arch_db:sales_commission_generic.wizard_invoice_sale_commission_form_view
+msgid "Print Commission Report"
+msgstr "Imprimir informe de comisión"
+
+#. module: sales_commission_generic
+#: model:ir.model.fields,field_description:sales_commission_generic.field_invoice_sale_commission__product_id
+#: model:ir.model.fields,field_description:sales_commission_generic.field_sale_commission_exception__product_id
+#: model_terms:ir.ui.view,arch_db:sales_commission_generic.sale_inv_comm_template
+msgid "Product"
+msgstr "Producto"
+
+#. module: sales_commission_generic
+#: model:ir.model.fields.selection,name:sales_commission_generic.selection__sale_commission_exception__based_on__product_categories
+msgid "Product Categories"
+msgstr "Categorías de Producto"
+
+#. module: sales_commission_generic
+#: model:ir.model.fields,field_description:sales_commission_generic.field_invoice_sale_commission__categ_id
+#: model:ir.model.fields,field_description:sales_commission_generic.field_sale_commission_exception__categ_id
+msgid "Product Category"
+msgstr "categoria de producto"
+
+#. module: sales_commission_generic
+#: model:ir.model.fields.selection,name:sales_commission_generic.selection__sale_commission_exception__based_on__product_sub-categories
+msgid "Product Sub-Categories"
+msgstr "Subcategorías de productos"
+
+#. module: sales_commission_generic
+#: model:ir.model.fields,field_description:sales_commission_generic.field_invoice_sale_commission__sub_categ_id
+#: model:ir.model.fields,field_description:sales_commission_generic.field_sale_commission_exception__sub_categ_id
+msgid "Product Sub-Category"
+msgstr "Subcategorías de productos"
+
+#. module: sales_commission_generic
+#: model:ir.model.fields.selection,name:sales_commission_generic.selection__invoice_sale_commission__comm_type__mix
+#: model:ir.model.fields.selection,name:sales_commission_generic.selection__sale_commission__comm_type__mix
+msgid "Product/Category/Margin Based"
+msgstr "Producto / Categoría / Margen Basado"
+
+#. module: sales_commission_generic
+#: model:ir.model.fields.selection,name:sales_commission_generic.selection__sale_commission_exception__based_on__products
+msgid "Products"
+msgstr "Productos"
+
+#. module: sales_commission_generic
+#: model:ir.model.fields,help:sales_commission_generic.field_discount_commission_rules__commission_id
+#: model:ir.model.fields,help:sales_commission_generic.field_invoice_sale_commission__commission_id
+#: model:ir.model.fields,help:sales_commission_generic.field_sale_commission_exception__commission_id
+msgid "Related Commission"
+msgstr "Comisión relacionada"
+
+#. module: sales_commission_generic
+#: model:ir.model.fields,help:sales_commission_generic.field_sale_commission__no_discount_commission_percentage
+msgid "Related Commission % when No discount"
+msgstr "% De comisión relacionado cuando no hay descuento"
+
+#. module: sales_commission_generic
+#: model:ir.model.fields,help:sales_commission_generic.field_sale_commission__gt_discount_commission_percentage
+msgid "Related Commission % when discount '%' is greater than 25%"
+msgstr "% De comisión relacionado cuando el descuento '%' es superior al 25%"
+
+#. module: sales_commission_generic
+#: model:ir.model,name:sales_commission_generic.model_report_sales_commission_generic_sale_inv_comm_template
+msgid "Report sale inv comm template"
+msgstr "Informe plantilla de comunicación de inv de venta"
+
+#. module: sales_commission_generic
+#: model:ir.model.fields,field_description:sales_commission_generic.field_discount_commission_rules__commission_id
+#: model:ir.model.fields,field_description:sales_commission_generic.field_invoice_sale_commission__commission_id
+#: model:ir.model.fields,field_description:sales_commission_generic.field_sale_commission_exception__commission_id
+#: model_terms:ir.ui.view,arch_db:sales_commission_generic.invoice_sale_commission_search
+msgid "Sale Commission"
+msgstr "Comisión de venta"
+
+#. module: sales_commission_generic
+#: model:ir.model,name:sales_commission_generic.model_sale_commission_exception
+msgid "Sale Commission Exception"
+msgstr "Excepción de comisión de venta"
+
+#. module: sales_commission_generic
+#: model:ir.model.fields,help:sales_commission_generic.field_account_bank_statement_line__commission_ids
+#: model:ir.model.fields,help:sales_commission_generic.field_account_move__commission_ids
+#: model:ir.model.fields,help:sales_commission_generic.field_account_payment__commission_ids
+msgid "Sale Commission related to this invoice(based on sales person)"
+msgstr "Comisión de venta relacionada con esta factura (basada en el vendedor"
+
+#. module: sales_commission_generic
+#: model:ir.model.fields,help:sales_commission_generic.field_sale_order__commission_ids
+msgid "Sale Commission related to this order(based on sales person)"
+msgstr "Comisión de venta relacionada con este pedido (según el vendedor)"
+
+#. module: sales_commission_generic
+#: model:ir.model,name:sales_commission_generic.model_sale_commission
+msgid "Sale commission"
+msgstr ""
+
+#. module: sales_commission_generic
+#: model:ir.actions.act_window,name:sales_commission_generic.sale_commission_action_form
+#: model:ir.ui.menu,name:sales_commission_generic.menu_sale_commission_action_form
+#: model_terms:ir.ui.view,arch_db:sales_commission_generic.invoice_account_move_form_view
+#: model_terms:ir.ui.view,arch_db:sales_commission_generic.invoice_sale_commission_form1_view
+#: model_terms:ir.ui.view,arch_db:sales_commission_generic.invoice_sale_commission_tree_view
+#: model_terms:ir.ui.view,arch_db:sales_commission_generic.sale_commission_form_view
+#: model_terms:ir.ui.view,arch_db:sales_commission_generic.sale_commission_tree_view
+#: model_terms:ir.ui.view,arch_db:sales_commission_generic.view_order_form_inherit_bi
+#: model_terms:ir.ui.view,arch_db:sales_commission_generic.view_sales_config_inherit_bi
+msgid "Sales Commission"
+msgstr "Comisión de ventas"
+
+#. module: sales_commission_generic
+#: model:ir.module.category,name:sales_commission_generic.module_category_sales_commission_generic
+msgid "Sales Commission "
+msgstr "Comisión de ventas"
+
+#. module: sales_commission_generic
+#: model:ir.actions.act_window,name:sales_commission_generic.invoice_sale_commission_action
+#: model:ir.ui.menu,name:sales_commission_generic.menu_invoice_sale_commission_action
+msgid "Sales Commission Analysis"
+msgstr "Análisis de comisiones de ventas"
+
+#. module: sales_commission_generic
+#: model:ir.model.fields,field_description:sales_commission_generic.field_sale_commission__exception_ids
+#: model_terms:ir.ui.view,arch_db:sales_commission_generic.sale_commission_exception_form_view
+#: model_terms:ir.ui.view,arch_db:sales_commission_generic.sale_commission_exception_tree_view
+msgid "Sales Commission Exceptions"
+msgstr "Excepciones de la comisión de ventas"
+
+#. module: sales_commission_generic
+#: model:ir.actions.act_window,name:sales_commission_generic.action_commission_report_wizard
+#: model:ir.ui.menu,name:sales_commission_generic.menu_action_commission_report_wizard
+msgid "Sales Commission Report"
+msgstr "Informe de comisión de ventas"
+
+#. module: sales_commission_generic
+#: model_terms:ir.ui.view,arch_db:sales_commission_generic.wizard_invoice_sale_commission_form_view
+msgid "Sales Commission Report Wizard"
+msgstr "Asistente para informes de comisiones de ventas"
+
+#. module: sales_commission_generic
+#: model:ir.model.fields,field_description:sales_commission_generic.field_account_bank_statement_line__commission_ids
+#: model:ir.model.fields,field_description:sales_commission_generic.field_account_move__commission_ids
+#: model:ir.model.fields,field_description:sales_commission_generic.field_account_payment__commission_ids
+#: model:ir.model.fields,field_description:sales_commission_generic.field_sale_order__commission_ids
+msgid "Sales Commissions"
+msgstr "Comisiones de ventas"
+
+#. module: sales_commission_generic
+#: model:ir.model,name:sales_commission_generic.model_sale_order
+msgid "Sales Order"
+msgstr "Pedido de venta"
+
+#. module: sales_commission_generic
+#: model:ir.model,name:sales_commission_generic.model_sale_order_line
+#: model:ir.model.fields,field_description:sales_commission_generic.field_account_move_line__sol_id
+msgid "Sales Order Line"
+msgstr "Línea de pedido de venta"
+
+#. module: sales_commission_generic
+#: model:ir.model.fields,field_description:sales_commission_generic.field_invoice_sale_commission__user_id
+#: model:ir.model.fields,field_description:sales_commission_generic.field_sale_commission__user_ids
+#: model:ir.model.fields,field_description:sales_commission_generic.field_wizard_invoice_sale_commission__salesperson
+msgid "Sales Person"
+msgstr "Persona de ventas"
+
+#. module: sales_commission_generic
+#: model:ir.model.fields,help:sales_commission_generic.field_sale_commission__exception_ids
+msgid "Sales commission exceptions"
+msgstr "Excepciones de comisiones de ventas"
+
+#. module: sales_commission_generic
+#: model:ir.model.fields,help:sales_commission_generic.field_sale_commission__user_ids
+msgid "Select sales person associated with this type of commission"
+msgstr "Seleccione al vendedor asociado a este tipo de comisión"
+
+#. module: sales_commission_generic
+#: model:ir.model.fields,help:sales_commission_generic.field_invoice_sale_commission__comm_type
+#: model:ir.model.fields,help:sales_commission_generic.field_sale_commission__comm_type
+msgid "Select the type of commission you want to apply."
+msgstr "Seleccione el tipo de comisión que desea aplicar."
+
+#. module: sales_commission_generic
+#: model:ir.model.fields.selection,name:sales_commission_generic.selection__invoice_sale_commission__comm_type__standard
+#: model:ir.model.fields.selection,name:sales_commission_generic.selection__sale_commission__comm_type__standard
+msgid "Standard"
+msgstr "Estándar"
+
+#. module: sales_commission_generic
+#: model:ir.model.fields,field_description:sales_commission_generic.field_sale_commission__standard_commission
+msgid "Standard Commission percentage"
+msgstr "Porcentaje de comisión estándar"
+
+#. module: sales_commission_generic
+#: model:ir.model.fields,field_description:sales_commission_generic.field_wizard_invoice_sale_commission__start_date
+msgid "Start Date"
+msgstr "Fecha de inicio"
+
+#. module: sales_commission_generic
+#: model:ir.model.fields,field_description:sales_commission_generic.field_sale_commission_exception__margin_percentage
+msgid "Target Margin %"
+msgstr "% De margen objetivo"
+
+#. module: sales_commission_generic
+#: model:ir.model.fields,field_description:sales_commission_generic.field_sale_commission_exception__price
+#: model_terms:ir.ui.view,arch_db:sales_commission_generic.sale_commission_exception_form_view
+msgid "Target Price"
+msgstr "Precio objetivo"
+
+#. module: sales_commission_generic
+#: model_terms:ir.ui.view,arch_db:sales_commission_generic.invoice_sale_commission_form1_view
+#: model_terms:ir.ui.view,arch_db:sales_commission_generic.invoice_sale_commission_tree_view
+msgid "Total"
+msgstr "Total"
+
+#. module: sales_commission_generic
+#: model_terms:ir.ui.view,arch_db:sales_commission_generic.invoice_account_move_form_view
+#: model_terms:ir.ui.view,arch_db:sales_commission_generic.view_order_form_inherit_bi
+msgid "Total Commission"
+msgstr "Comisión total"
+
+#. module: sales_commission_generic
+#: model:res.groups,name:sales_commission_generic.group_sales_commission_user
+msgid "User"
+msgstr "Usuaria"
+
+#. module: sales_commission_generic
+#: model:ir.model.fields,field_description:sales_commission_generic.field_sale_commission_exception__based_on_2
+msgid "With"
+msgstr "Con"
+
+#. module: sales_commission_generic
+#: model:ir.model,name:sales_commission_generic.model_wizard_invoice_sale_commission
+msgid "Wizard Invoice Sale Commission"
+msgstr "Comisión de venta de facturas del asistente"
+
+#. module: sales_commission_generic
+#: model:ir.model.fields.selection,name:sales_commission_generic.selection__res_company__commission_configuration__payment
+msgid "commission based on payment"
+msgstr "comisión basada en el pago"
+
+#. module: sales_commission_generic
+#: model:ir.model.fields,help:sales_commission_generic.field_sale_commission_exception__based_on
+#: model:ir.model.fields,help:sales_commission_generic.field_sale_commission_exception__based_on_2
+msgid "commission exception based on"
+msgstr "excepción de comisión basada en"
+
+#. module: sales_commission_generic
+#: model:ir.model,name:sales_commission_generic.model_create_invoice_commission
+msgid "create invoice commission"
+msgstr "crear comisión de factura"
+
+#. module: sales_commission_generic
+#: model:ir.model.fields,help:sales_commission_generic.field_invoice_sale_commission__product_id
+msgid "product"
+msgstr "producto"
+
+#. module: sales_commission_generic
+#: model:ir.model.fields,help:sales_commission_generic.field_invoice_sale_commission__user_id
+msgid "sales person associated with this type of commission"
+msgstr "vendedor asociado a este tipo de comisión"
+
+#. module: sales_commission_generic
+#: model_terms:ir.ui.view,arch_db:sales_commission_generic.sale_inv_comm_template
+msgid "to"
+msgstr "a"

@@ -1,0 +1,226 @@
+<?xml version="1.0"?>
+<odoo>
+		<data>
+				<record id="sale_commission_tree_view" model="ir.ui.view">
+						<field name="name">sale.commission.tree</field>
+						<field name="model">sale.commission</field>
+						<field name="arch" type="xml">
+								<tree string="Sales Commission">
+										<field name="comm_type"/>
+										<field name="user_ids" widget="many2many_tags"/>
+										<field name="name"/>
+								</tree>
+						</field>
+				</record>
+
+				<record id="sale_commission_form_view" model="ir.ui.view">
+						<field name="name">sale.commission.form</field>
+						<field name="model">sale.commission</field>
+						<field name="arch" type="xml">
+								<form string="Sales Commission">
+										<sheet>
+												<group>
+														<group>
+																<field name="name"/>
+																<field name="user_ids" widget="many2many_tags"/>
+														</group>
+														<group>
+																<field name="comm_type"/>
+																<field name="standard_commission"
+																       attrs="{'invisible': [('comm_type','!=', 'standard')],'required': [('comm_type','==', 'standard')]}"/>
+														</group>
+												</group>
+												<group attrs="{'invisible': [('comm_type','!=', 'partner')]}">
+														<group>
+																<field name="affiliated_partner_commission" attrs="{ 'required': [('comm_type','==', 'partner')]}"/>
+														</group>
+														<group>
+																<field name="nonaffiliated_partner_commission" attrs="{ 'required': [('comm_type','==', 'partner')]}"/>
+														</group>
+												</group>
+												<group attrs="{'invisible': [('comm_type','!=', 'discount')]}">
+														<group>
+																<field name="no_discount_commission_percentage"
+																       attrs="{ 'required': [('comm_type','==', 'discount')]}"/>
+														</group>
+														<group>
+																<field name="max_discount_commission_percentage"
+																       attrs="{ 'required': [('comm_type','==', 'discount')]}"/>
+																<field name="gt_discount_commission_percentage"
+																       attrs="{ 'required': [('comm_type','==', 'discount')]}"/>
+														</group>
+												</group>
+												<group attrs="{'invisible': [('comm_type','!=', 'mix')]}">
+														<label for="exception_ids" colspan="4"/>
+														<field name="exception_ids" nolabel="1" attrs="{ 'required': [('comm_type','==', 'mix')]}"/>
+												</group>
+												<group attrs="{'invisible': [('comm_type','!=', 'discount')]}">
+														<label for="rule_ids" colspan="4"/>
+														<field name="rule_ids" nolabel="1" attrs="{ 'required': [('comm_type','==', 'discount')]}"/>
+												</group>
+										</sheet>
+								</form>
+						</field>
+				</record>
+
+				<record id="sale_commission_exception_tree_view" model="ir.ui.view">
+						<field name="name">sale.commission.exception.tree</field>
+						<field name="model">sale.commission.exception</field>
+						<field name="arch" type="xml">
+								<tree string="Sales Commission Exceptions">
+										<field name="based_on"/>
+										<field name="based_on_2"/>
+										<field name="product_id" attrs="{'invisible': [('based_on','!=', 'Products')],
+													'required': [('based_on','==', 'Products')]}"/>
+										<field name="category_store" widget="many2many_tags" invisible="1"/>
+										<field name="categ_id" attrs="{'invisible': [('based_on','!=', 'Product Categories')],
+												   'required': [('based_on','==', 'Product Categories')]}"/>
+										<field name="sub_categ_id" attrs="{'invisible': [('based_on','!=', 'Product Sub-Categories')],
+													  'required': [('based_on','==', 'Product Sub-Categories')]}"/>
+										<field name="commission_precentage" required='1'/>
+										<field name="margin_percentage"/>
+										<field name="above_margin_commission"/>
+										<field name="below_margin_commission"/>
+										<field name="price"/>
+										<field name="price_percentage"/>
+								</tree>
+						</field>
+				</record>
+
+				<record id="sale_commission_exception_form_view" model="ir.ui.view">
+						<field name="name">sale.commission.exception.form</field>
+						<field name="model">sale.commission.exception</field>
+						<field name="arch" type="xml">
+								<form string="Sales Commission Exceptions">
+										<sheet>
+												<group>
+														<group>
+																<field name="based_on"/>
+																<field name="based_on_2"/>
+																<!--  <field name="order_category" invisible="1"/> -->
+																<field name="categ_id"
+																       attrs="{'invisible': [('based_on','!=', 'Product Categories')],'required': [('based_on','==', 'Product Categories')]}"/>
+																<field name="product_id"
+																       attrs="{'invisible': [('based_on','!=', 'Products')],'required': [('based_on','==', 'Products')]}"/>
+																<field name="sub_categ_id"
+																       attrs="{'invisible': [('based_on','!=', 'Product Sub-Categories')],'required': [('based_on','==', 'Product Sub-Categories')]}"/>
+														</group>
+														<group>
+																<field name="commission_precentage"
+																       attrs="{'invisible': [('based_on_2','!=', 'Commission Exception')],'required': [('based_on_2','==', 'Commission Exception')]}"/>
+																<field name="margin_percentage"
+																       attrs="{'invisible': [('based_on_2','!=', 'Margin')],'required': [('based_on_2','==', 'Margin')]}"
+																       placeholder="Percentage" style="width: 60%%"/>
+																<field name="above_margin_commission"
+																       attrs="{'invisible': [('based_on_2','!=', 'Margin')],'required': [('based_on_2','==', 'Margin')]}"
+																       placeholder="Above Margin Commission%" style="width: 60%%"/>
+																<field name="below_margin_commission"
+																       attrs="{'invisible': [('based_on_2','!=', 'Margin')],'required': [('based_on_2','==', 'Margin')]}"
+																       placeholder="Below Margin Commission%" style="width: 60%%"/>
+																<field name="price"
+																       attrs="{'invisible': [('based_on_2','!=', 'Fix Price')],'required': [('based_on_2','==', 'Fix Price')]}"
+																       placeholder="Target Price" style="width: 60%%"/>
+																<field name="price_percentage"
+																       attrs="{'invisible': [('based_on_2','!=', 'Fix Price')],'required': [('based_on_2','==', 'Fix Price')]}"
+																       placeholder="Price%" style="width: 60%%"/>
+														</group>
+												</group>
+										</sheet>
+								</form>
+						</field>
+				</record>
+
+				<record id="discount_commission_rules_tree_view" model="ir.ui.view">
+						<field name="name">discount.commission.rules.tree</field>
+						<field name="model">discount.commission.rules</field>
+						<field name="arch" type="xml">
+								<form string="Discount Commission Rules">
+										<sheet>
+												<group>
+														<group>
+																<field name="discount_percentage" required='1'/>
+																<field name="commission_percentage" required='1'/>
+														</group>
+														<group>
+																<field name="commission_id" invisible="1"/>
+														</group>
+												</group>
+										</sheet>
+								</form>
+						</field>
+				</record>
+
+				<record id="discount_commission_rules_form_view" model="ir.ui.view">
+						<field name="name">discount.commission.rules.form</field>
+						<field name="model">discount.commission.rules</field>
+						<field name="arch" type="xml">
+								<tree string="Discount Commission Rules" editable="bottom">
+										<field name="discount_percentage" required='1'/>
+										<field name="commission_percentage" required='1'/>
+								</tree>
+						</field>
+				</record>
+
+
+				<record id="sale_commission_action_form" model="ir.actions.act_window">
+						<field name="name">Sales Commission</field>
+						<field name="type">ir.actions.act_window</field>
+						<field name="res_model">sale.commission</field>
+						<field name="view_mode">form,tree</field>
+						<field name="view_id" ref="sale_commission_tree_view"/>
+				</record>
+
+				<record id="sale_invoice_commission_lines_action_form" model="ir.actions.act_window">
+						<field name="name">Commission Lines</field>
+						<field name="type">ir.actions.act_window</field>
+						<field name="res_model">invoice.sale.commission</field>
+						<field name="view_mode">tree,form</field>
+				</record>
+
+				<menuitem
+					id="menu_sale_commission_action_form"
+					action="sale_commission_action_form"
+					parent="sale.menu_sale_config"
+					groups='sales_commission_generic.group_sales_commission_manager'
+				/>
+
+				<menuitem
+					id="menu_sale_invoice_commission_lines_action_form"
+					action="sale_invoice_commission_lines_action_form"
+					parent="sale.menu_sale_config"
+				/>
+
+				<record id="create_commission_invoice_form" model="ir.ui.view">
+						<field name="name">create.invoice.commission.form</field>
+						<field name="model">create.invoice.commission</field>
+						<field name="arch" type="xml">
+								<form string="Create Commission Invoice">
+
+										<group>
+												<group>
+														<field name="group_by"/>
+												</group>
+												<group>
+														<field name="date"/>
+												</group>
+										</group>
+										<footer>
+												<button string="Create Invoices" name="invoice_create" type="object" default_focus="1" class="btn-primary"/>
+												<button string="Cancel" class="btn-default" special="cancel"/>
+										</footer>
+								</form>
+						</field>
+				</record>
+
+				<record id="action_create_commission_invoice" model="ir.actions.act_window">
+						<field name="name">Create invoice</field>
+						<field name="res_model">create.invoice.commission</field>
+						<field name="view_mode">form</field>
+						<field name="target">new</field>
+						<field name="groups_id" eval="[(4, ref('sales_commission_generic.group_sales_commission_manager'))]"/>
+						<field name="binding_model_id" ref="sales_commission_generic.model_invoice_sale_commission"/>
+				</record>
+
+
+		</data>
+</odoo>

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+		<data>
+
+				<template id="sale_inv_comm_template">
+						<t t-call="web.html_container">
+								<t t-call="web.external_layout">
+										<t t-if="not o and doc">
+												<t t-set="o" t-value="doc"/>
+										</t>
+										<t t-if="o and 'company_id' in o">
+												<t t-set="company" t-value="o.company_id"/>
+										</t>
+										<t t-if="not o or not 'company_id' in o">
+												<t t-set="company" t-value="res_company"/>
+										</t>
+										<div class="page">
+												<center>
+														<h4>
+																<b>Sales Invoices Commission</b>
+														</h4>
+														<b>
+																<span t-esc="data['start_date']"/>
+																to
+																<span t-esc="data['end_date']"/>
+														</b>
+														<br/>
+														<b>
+																<span>Salesperson :</span>
+																<span t-esc="data['user']['name']"/>
+														</b>
+														<br/>
+														<br/>
+														<br/>
+														<div class="row">
+																<t t-set="total" t-value="0"/>
+																<table width='100%' style="border: 2px solid black;" class="table table-condensed">
+																		<thead>
+																				<tr style="border: 2px solid black;">
+																						<th style="border: 2px solid black;">Date</th>
+																						<th style="border: 2px solid black;">Name</th>
+																						<th style="border: 2px solid black;">Invoice/Sale References</th>
+																						<th style="border: 2px solid black;">Commission Type</th>
+																						<th style="border: 2px solid black;">Commission Name</th>
+																						<th style="border: 2px solid black;">Product</th>
+																						<th style="border: 2px solid black;">Partner</th>
+																						<th style="border: 2px solid black;">Amount</th>
+
+																				</tr>
+																		</thead>
+																		<tr t-foreach="ids" t-as="commission">
+																				<t t-set="total" t-value="total + commission.commission_amount"/>
+																				<td style="border: 2px solid black;">
+																						<span t-field="commission.date"/>
+																				</td>
+																				<td style="border: 2px solid black;">
+																						<span t-field="commission.name"/>
+																				</td>
+																				<td style="border: 2px solid black;">
+																						<t t-if="commission.order_id">
+																								<span t-field="commission.order_id"/>
+																						</t>
+																						<t t-if="commission.invoice_id">
+																								<span t-field="commission.invoice_id"/>
+																						</t>
+																				</td>
+																				<td style="border: 2px solid black;">
+																						<span t-field="commission.type_name"/>
+																				</td>
+																				<td style="border: 2px solid black;">
+																						<span t-field="commission.comm_type"/>
+																				</td>
+																				<td style="border: 2px solid black;">
+																						<span t-field="commission.product_id"/>
+																				</td>
+																				<td style="border: 2px solid black;">
+																						<span t-field="commission.partner_id"/>
+																				</td>
+																				<td style="border: 2px solid black;">
+																						<span t-field="commission.commission_amount"/>
+																				</td>
+																		</tr>
+
+																		<tr>
+																				<td></td>
+																				<td></td>
+																				<td></td>
+																				<td></td>
+																				<td></td>
+																				<td></td>
+																				<td style="border: 2px solid black;">
+																						<strong>Total :</strong>
+																				</td>
+																				<td style="border: 2px solid black;">
+																						<strong>
+																								<span t-esc="total"/>
+																						</strong>
+																				</td>
+
+
+																		</tr>
+
+																</table>
+														</div>
+												</center>
+										</div>
+								</t>
+						</t>
+				</template>
+
+		</data>
+</odoo>
