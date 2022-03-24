@@ -1,0 +1,39 @@
+<odoo>
+
+
+    <record id="view_petty_cash_transfer_form" model="ir.ui.view">
+        <field name="name">view_petty_cash_transfer_form</field>
+        <field name="model">petty.cash.transfer</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="employee_id" required="1"/>
+                        <field name="petty_id" required="1" options="{'no_create':True}"/>
+                        <field name="journal_id" required="1"/>
+                        <field name="balance"/>
+                        <field name="amount"/>
+
+                    </group>
+                    <footer>
+                        <button string="Transfer" name="action_transfer" type="object" class="btn-primary"/>
+                        <button string="Cancel" class="btn-default" special="cancel"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!--TODO the most powerfull window action-->
+    <record id="view_petty_cash_transfer_window_action" model="ir.actions.act_window">
+        <field name="name">Petty Cash Transfer</field>
+        <field name="res_model">petty.cash.transfer</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <!-- This Menu Item Must have a parent -->
+    <menuitem id="petty_cash_transfer_categ" name="Petty Cash Transfer" parent="petty_cash_management.menu_account_petty_cash_root" sequence="102" groups="petty_cash_management.group_petty_cash_user"/>
+    <menuitem id="petty_cash_transfer_action" name="Transfer To Journal" parent="petty_cash_transfer_categ" sequence="103" action="view_petty_cash_transfer_window_action"/>
+
+</odoo>

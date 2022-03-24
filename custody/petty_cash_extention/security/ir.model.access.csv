@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+petty_cash_management.access_petty_cash,access_petty_cash_all_users,petty_cash_management.model_petty_cash,,1,1,1,0
+access_petty_cash_administrator,access_petty_cash_administrator,petty_cash_management.model_petty_cash,group_petty_cash_administrator,1,1,1,1
+access_petty_cash_per_employee_wizard,petty_cash_per_employee_wizard.petty_cash_per_employee_wizard,model_petty_cash_per_employee_wizard,base.group_user,1,1,1,1
+access_petty_cash_transfer,petty_cash_transfer.petty_cash_transfer,model_petty_cash_transfer,base.group_user,1,1,1,1
+access_petty_cash_transfer_petty,petty_cash_transfer_petty,model_petty_cash_transfer_petty,base.group_user,1,1,1,1
+
