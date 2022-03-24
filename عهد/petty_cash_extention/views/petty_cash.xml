@@ -1,0 +1,41 @@
+<odoo>
+    <data>
+
+        <record id="petty_cash_tree_view_inh" model="ir.ui.view">
+            <field name="name">petty.cash.tree.inh</field>
+            <field name="model">petty.cash</field>
+            <field name="inherit_id" ref="petty_cash_management.petty_cash_tree_view"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='amount']" position="after">
+                    <field name="balance"/>
+                    <field name="payment_date"/>
+                    <field name="state"/>
+                </xpath>
+
+
+            </field>
+        </record>
+
+
+        <!-- Inherit Form View to Modify it -->
+        <record id="petty_cash_form_view_inh" model="ir.ui.view">
+            <field name="name">petty.cash.form.inh</field>
+            <field name="model">petty.cash</field>
+            <field name="inherit_id" ref="petty_cash_management.petty_cash_form_view"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//header" position="inside">
+                    <button name="action_cancel" string="Cancel" class="oe_highlight" states="paid" type="object"/>
+                </xpath>
+
+            </field>
+        </record>
+
+        <menuitem id="petty_cash_management.menu_account_petty_cash_root" name="Petty Cash"
+                  groups="petty_cash_management.group_petty_cash_user" sequence="10"
+                  web_icon="petty_cash_extention,static/description/icon.png"/>
+        <menuitem id="petty_cash_management.menu_account_petty_cash_type_root" name="Petty Cash Configuration"
+              parent="petty_cash_management.menu_account_petty_cash_root" groups="petty_cash_management.group_petty_cash_manager" sequence="150"/>
+    </data>
+</odoo>

@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <report id="petty_cash_per_employee_report_id"
+                model="petty.cash"
+                string="Petty Cash Per Employee Report"
+                report_type="qweb-pdf"
+                name="petty_cash_extention.petty_cash_per_employee_report_template"
+                file="petty_cash_extention.petty_cash_per_employee_report_template"
+                attachment_use="True"
+                menu="False"/>
+
+        <template id="petty_cash_per_employee_report_template">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <style>
+                            .mydiv {
+                            width: 100%;
+                            border: 3px solid black;
+                            border-color: #b4b4b4;
+                            padding-right: 5px;
+
+                            line-height: 25px;
+                            margin-left: 0px;
+                            margin-bottom: 15px;
+                            }
+                            .TFtable{
+                            width:100%;
+                            border-collapse:collapse;
+                            }
+                            .TFtable td{
+                            padding:7px;
+                            }
+
+                            .TFtable tr:nth-child(odd){
+                            background: #f2f3f4 ;
+                            }
+                            .TFtable tr:nth-child(even){
+                            background: #FFFFFF;
+                            }
+                        </style>
+                        <t t-foreach="data" t-as="o">
+                            <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y-%m-%d %H:%M')"/>
+                            <br/>
+                            <br/>
+                            <!--<table width="100%" >-->
+                            <!--<tbody>-->
+                            <!--<tr>-->
+                            <div class="row mydiv">
+                            <div class="col-12">
+                                <div class="row">
+                                    <div class="col-3" style="font-weight:bold;">
+                                        Start Date :
+                                    </div>
+                                    <div class="col-3">
+                                        <span t-esc="o['date_from']"/>
+
+                                    </div>
+                                    <div class="col-3" style="font-weight:bold;">
+                                        End Date :
+                                    </div>
+                                    <div class="col-3">
+                                        <span t-esc="o['date_to']"/>
+
+                                    </div>
+                                </div>
+                                <div class="row">
+
+                                    <div class="col-4">
+                                        <span t-esc="o['emp_name']"/>
+                                    </div>
+
+
+                                    <div class="col-4">
+                                        <span t-esc="o['emp_dept']"/>
+                                    </div>
+                                    <div class="col-4">
+                                        <span t-esc="o['emp_job']"/>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                            <table width="100%" class="TFtable">
+                                <thead>
+                                    <tr style="font-weight:bold;">
+                                        <td>
+                                            Reference
+                                        </td>
+                                        <td>
+                                            Notes
+                                        </td>
+
+                                        <td>
+                                            Payment Date
+                                        </td>
+                                        <td>
+                                            Adjustment Date
+                                        </td>
+                                        <td>
+                                            Amount Paid
+                                        </td>
+                                        <td>
+                                            Balance
+                                        </td>
+                                        <td>
+                                            Status
+                                        </td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-set="total" t-value="0.0"/>
+                                    <t t-set="total_paid" t-value="0.0"/>
+                                    <t t-foreach="o['employee_data']" t-as="employee">
+                                        <tr>
+                                            <td>
+                                                <span t-esc="employee['petty_cash_ref']"/>
+                                            </td>
+                                            <td>
+                                                <span t-esc="employee['note']"/>
+                                            </td>
+
+                                            <td>
+                                                <span t-esc="employee['payment_date']"/>
+                                            </td>
+                                            <td>
+                                                <span t-esc="employee['adjustment_date']"/>
+                                            </td>
+                                            <td align="right">
+                                                <span t-esc="'{:20,.2f}'.format(employee['paid_amount'])"/>
+                                                <t t-set="total_paid" t-value="total_paid + employee['paid_amount']"/>
+
+                                            </td>
+                                            <td align="right">
+                                                <span t-esc="'{:20,.2f}'.format(employee['balance'])"/>
+                                                <t t-set="total" t-value="total + employee['balance']"/>
+
+                                            </td>
+                                            <td>
+                                                <span t-esc="employee['status']"/>
+                                            </td>
+                                        </tr>
+                                    </t>
+                                    <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td align="right" style="font-weight:bold;"><span t-esc="'{:20,.2f}'.format(total_paid)"/></td>
+                                            <td align="right" style="font-weight:bold;"><span t-esc="'{:20,.2f}'.format(total)"/></td>
+                                            <td></td>
+                                        </tr>
+                                </tbody>
+                            </table>
+                            <!--<div class="clearfix">-->
+                                    <!--<div id="total" class="row mt32 mb32">-->
+                                        <!--<div class="col-4"></div>-->
+                                        <!--<div class="col-4"></div>-->
+                                        <!--<div class="col-4">-->
+                                            <!--<table class="table table-sm">-->
+                                                <!--<tr class="border-black o_total">-->
+                                                    <!--<td>-->
+                                                        <!--<strong>Total</strong>-->
+                                                    <!--</td>-->
+                                                    <!--<td class="text-right">-->
+                                                        <!--<span t-esc="total"></span>-->
+                                                    <!--</td>-->
+                                                <!--</tr>-->
+                                            <!--</table>-->
+                                        <!--</div>-->
+
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--<p style="page-break-after: always;"/>-->
+                        </t>
+
+                    </div>
+                </t>
+            </t>
+            <!--</t>-->
+        </template>
+    </data>
+</odoo>

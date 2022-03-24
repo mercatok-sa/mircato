@@ -1,0 +1,462 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* petty_cash_extention
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-12-29 10:58+0000\n"
+"PO-Revision-Date: 2021-12-29 10:58+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: petty_cash_extention
+#: model:ir.model.fields,field_description:petty_cash_extention.field_petty_cash_transfer_petty__employee_trans_id
+msgid " Employee"
+msgstr "موظف"
+
+#. module: petty_cash_extention
+#: model:ir.model.fields,field_description:petty_cash_extention.field_petty_cash_transfer_petty__petty_trans_id
+msgid " Petty Cash"
+msgstr "العهد"
+
+#. module: petty_cash_extention
+#: model_terms:ir.ui.view,arch_db:petty_cash_extention.res_config_settings_view_form
+msgid "<span class=\"o_form_label\">Petty Cash Type</span>"
+msgstr ""
+
+#. module: petty_cash_extention
+#: model_terms:ir.ui.view,arch_db:petty_cash_extention.petty_cash_per_employee_report_template
+msgid "Adjustment Date"
+msgstr "تاريخ التسوية"
+
+#. module: petty_cash_extention
+#: model:res.groups,name:petty_cash_extention.group_petty_cash_administrator
+msgid "Administrator"
+msgstr "مدير النظام"
+
+#. module: petty_cash_extention
+#: model:ir.model.fields,field_description:petty_cash_extention.field_invoice_petty_pay_wizard__amount
+#: model:ir.model.fields,field_description:petty_cash_extention.field_petty_cash_transfer__amount
+#: model:ir.model.fields,field_description:petty_cash_extention.field_petty_cash_transfer_petty__amount
+msgid "Amount"
+msgstr "المبلغ"
+
+#. module: petty_cash_extention
+#: model_terms:ir.ui.view,arch_db:petty_cash_extention.petty_cash_per_employee_report_template
+msgid "Amount Paid"
+msgstr "المبلغ الدفوع"
+
+#. module: petty_cash_extention
+#: model:ir.model.fields,field_description:petty_cash_extention.field_petty_cash_transfer_petty__balance
+#: model:ir.model.fields,field_description:petty_cash_extention.field_petty_cash_transfer_petty__balance_trans
+#: model:ir.model.fields,field_description:petty_cash_extention.field_petty_pay_invoice_wizard__balance
+#: model:ir.model.fields,field_description:petty_cash_extention.field_petty_pay_wizard__balance
+#: model_terms:ir.ui.view,arch_db:petty_cash_extention.petty_cash_per_employee_report_template
+msgid "Balance"
+msgstr "الرصيد"
+
+#. module: petty_cash_extention
+#: model_terms:ir.ui.view,arch_db:petty_cash_extention.invoice_petty_pay_wizard_from_view
+#: model_terms:ir.ui.view,arch_db:petty_cash_extention.petty_cash_form_view_inh
+#: model_terms:ir.ui.view,arch_db:petty_cash_extention.petty_cash_per_employee_view
+#: model_terms:ir.ui.view,arch_db:petty_cash_extention.view_petty_cash_transfer_form
+msgid "Cancel"
+msgstr "الغاء"
+
+#. module: petty_cash_extention
+#: model:ir.model,name:petty_cash_extention.model_res_config_settings
+msgid "Config Settings"
+msgstr "ضبط الاعدادات"
+
+#. module: petty_cash_extention
+#: model_terms:ir.ui.view,arch_db:petty_cash_extention.invoice_petty_pay_wizard_from_view
+msgid "Create"
+msgstr "انشاء"
+
+#. module: petty_cash_extention
+#: code:addons/petty_cash_extention/models/account_invoice_inh.py:0
+#, python-format
+msgid "Create Petty Cash"
+msgstr "انشاء طلب عهدة"
+
+#. module: petty_cash_extention
+#: model:ir.model.fields,field_description:petty_cash_extention.field_invoice_petty_pay_wizard__create_uid
+#: model:ir.model.fields,field_description:petty_cash_extention.field_petty_cash_per_employee_wizard__create_uid
+#: model:ir.model.fields,field_description:petty_cash_extention.field_petty_cash_transfer__create_uid
+#: model:ir.model.fields,field_description:petty_cash_extention.field_petty_cash_transfer_petty__create_uid
+msgid "Created by"
+msgstr "انشاء بواسطة"
+
+#. module: petty_cash_extention
+#: model:ir.model.fields,field_description:petty_cash_extention.field_invoice_petty_pay_wizard__create_date
+#: model:ir.model.fields,field_description:petty_cash_extention.field_petty_cash_per_employee_wizard__create_date
+#: model:ir.model.fields,field_description:petty_cash_extention.field_petty_cash_transfer__create_date
+#: model:ir.model.fields,field_description:petty_cash_extention.field_petty_cash_transfer_petty__create_date
+msgid "Created on"
+msgstr "انشاء فى"
+
+#. module: petty_cash_extention
+#: model:ir.model.fields,field_description:petty_cash_extention.field_invoice_petty_pay_wizard__currency_id
+#: model:ir.model.fields,field_description:petty_cash_extention.field_petty_cash_transfer__currency_id
+#: model:ir.model.fields,field_description:petty_cash_extention.field_petty_cash_transfer_petty__currency_id
+msgid "Currency"
+msgstr "العملة"
+
+#. module: petty_cash_extention
+#: model:ir.model.fields,field_description:petty_cash_extention.field_invoice_petty_pay_wizard__date
+msgid "Date"
+msgstr "تاريخ"
+
+#. module: petty_cash_extention
+#: model:ir.model.fields,field_description:petty_cash_extention.field_account_move__display_name
+#: model:ir.model.fields,field_description:petty_cash_extention.field_account_payment__display_name
+#: model:ir.model.fields,field_description:petty_cash_extention.field_hr_expense_sheet__display_name
+#: model:ir.model.fields,field_description:petty_cash_extention.field_invoice_petty_pay_wizard__display_name
+#: model:ir.model.fields,field_description:petty_cash_extention.field_petty_cash__display_name
+#: model:ir.model.fields,field_description:petty_cash_extention.field_petty_cash_per_employee_wizard__display_name
+#: model:ir.model.fields,field_description:petty_cash_extention.field_petty_cash_transfer__display_name
+#: model:ir.model.fields,field_description:petty_cash_extention.field_petty_cash_transfer_petty__display_name
+#: model:ir.model.fields,field_description:petty_cash_extention.field_petty_pay_invoice_wizard__display_name
+#: model:ir.model.fields,field_description:petty_cash_extention.field_petty_pay_wizard__display_name
+#: model:ir.model.fields,field_description:petty_cash_extention.field_res_config_settings__display_name
+#: model:ir.model.fields,field_description:petty_cash_extention.field_res_users__display_name
+msgid "Display Name"
+msgstr "الاسم المعروض"
+
+#. module: petty_cash_extention
+#: model:ir.model.fields,field_description:petty_cash_extention.field_account_bank_statement_line__employee_id
+#: model:ir.model.fields,field_description:petty_cash_extention.field_account_move__employee_id
+#: model:ir.model.fields,field_description:petty_cash_extention.field_account_payment__employee_id
+#: model:ir.model.fields,field_description:petty_cash_extention.field_invoice_petty_pay_wizard__employee_id
+#: model:ir.model.fields,field_description:petty_cash_extention.field_petty_cash_transfer__employee_id
+#: model:ir.model.fields,field_description:petty_cash_extention.field_petty_cash_transfer_petty__employee_id
+msgid "Employee"
+msgstr "موظف"
+
+#. module: petty_cash_extention
+#: model:ir.model.fields,field_description:petty_cash_extention.field_petty_cash_per_employee_wizard__employee_ids
+#: model_terms:ir.ui.view,arch_db:petty_cash_extention.petty_cash_per_employee_view
+msgid "Employees"
+msgstr "موظفين"
+
+#. module: petty_cash_extention
+#: model:ir.model,name:petty_cash_extention.model_petty_cash
+msgid "Employees Petty Cash"
+msgstr "عهد الموظفين"
+
+#. module: petty_cash_extention
+#: model:ir.model.fields,field_description:petty_cash_extention.field_petty_cash__is_empty
+msgid "Empty"
+msgstr "فارغ"
+
+#. module: petty_cash_extention
+#: model:ir.model.fields,field_description:petty_cash_extention.field_petty_cash_per_employee_wizard__date_to
+msgid "End Date"
+msgstr "تاريخ النهاية"
+
+#. module: petty_cash_extention
+#: model_terms:ir.ui.view,arch_db:petty_cash_extention.petty_cash_per_employee_report_template
+msgid "End Date :"
+msgstr "تاريخ النهاية"
+
+#. module: petty_cash_extention
+#: model:ir.model.fields,field_description:petty_cash_extention.field_account_payment__expens_id
+msgid "Expense"
+msgstr "مصروف"
+
+#. module: petty_cash_extention
+#: model:ir.model,name:petty_cash_extention.model_hr_expense_sheet
+msgid "Expense Report"
+msgstr "تقرير المصروف"
+
+#. module: petty_cash_extention
+#: model:ir.model.fields,field_description:petty_cash_extention.field_account_move__id
+#: model:ir.model.fields,field_description:petty_cash_extention.field_account_payment__id
+#: model:ir.model.fields,field_description:petty_cash_extention.field_hr_expense_sheet__id
+#: model:ir.model.fields,field_description:petty_cash_extention.field_invoice_petty_pay_wizard__id
+#: model:ir.model.fields,field_description:petty_cash_extention.field_petty_cash__id
+#: model:ir.model.fields,field_description:petty_cash_extention.field_petty_cash_per_employee_wizard__id
+#: model:ir.model.fields,field_description:petty_cash_extention.field_petty_cash_transfer__id
+#: model:ir.model.fields,field_description:petty_cash_extention.field_petty_cash_transfer_petty__id
+#: model:ir.model.fields,field_description:petty_cash_extention.field_petty_pay_invoice_wizard__id
+#: model:ir.model.fields,field_description:petty_cash_extention.field_petty_pay_wizard__id
+#: model:ir.model.fields,field_description:petty_cash_extention.field_res_config_settings__id
+#: model:ir.model.fields,field_description:petty_cash_extention.field_res_users__id
+msgid "ID"
+msgstr "المُعرف"
+
+#. module: petty_cash_extention
+#: model:ir.model.fields,field_description:petty_cash_extention.field_invoice_petty_pay_wizard__invoice_id
+msgid "Invoice"
+msgstr "الفاتورة"
+
+#. module: petty_cash_extention
+#: model:ir.model.fields,field_description:petty_cash_extention.field_petty_cash__inv_ref
+msgid "Invoice Ref"
+msgstr "مرجع الفاتورة"
+
+#. module: petty_cash_extention
+#: model:ir.model.fields,field_description:petty_cash_extention.field_petty_cash_transfer__journal_id
+#: model:ir.model.fields,field_description:petty_cash_extention.field_petty_cash_transfer_petty__journal_id
+msgid "Journal"
+msgstr "اليومية"
+
+#. module: petty_cash_extention
+#: model:ir.model,name:petty_cash_extention.model_account_move
+msgid "Journal Entry"
+msgstr "قيد اليومية"
+
+#. module: petty_cash_extention
+#: model:ir.model.fields,field_description:petty_cash_extention.field_account_move____last_update
+#: model:ir.model.fields,field_description:petty_cash_extention.field_account_payment____last_update
+#: model:ir.model.fields,field_description:petty_cash_extention.field_hr_expense_sheet____last_update
+#: model:ir.model.fields,field_description:petty_cash_extention.field_invoice_petty_pay_wizard____last_update
+#: model:ir.model.fields,field_description:petty_cash_extention.field_petty_cash____last_update
+#: model:ir.model.fields,field_description:petty_cash_extention.field_petty_cash_per_employee_wizard____last_update
+#: model:ir.model.fields,field_description:petty_cash_extention.field_petty_cash_transfer____last_update
+#: model:ir.model.fields,field_description:petty_cash_extention.field_petty_cash_transfer_petty____last_update
+#: model:ir.model.fields,field_description:petty_cash_extention.field_petty_pay_invoice_wizard____last_update
+#: model:ir.model.fields,field_description:petty_cash_extention.field_petty_pay_wizard____last_update
+#: model:ir.model.fields,field_description:petty_cash_extention.field_res_config_settings____last_update
+#: model:ir.model.fields,field_description:petty_cash_extention.field_res_users____last_update
+msgid "Last Modified on"
+msgstr "آخر تعديل في"
+
+#. module: petty_cash_extention
+#: model:ir.model.fields,field_description:petty_cash_extention.field_invoice_petty_pay_wizard__write_uid
+#: model:ir.model.fields,field_description:petty_cash_extention.field_petty_cash_per_employee_wizard__write_uid
+#: model:ir.model.fields,field_description:petty_cash_extention.field_petty_cash_transfer__write_uid
+#: model:ir.model.fields,field_description:petty_cash_extention.field_petty_cash_transfer_petty__write_uid
+msgid "Last Updated by"
+msgstr "اخر تعديل بواسطة"
+
+#. module: petty_cash_extention
+#: model:ir.model.fields,field_description:petty_cash_extention.field_invoice_petty_pay_wizard__write_date
+#: model:ir.model.fields,field_description:petty_cash_extention.field_petty_cash_per_employee_wizard__write_date
+#: model:ir.model.fields,field_description:petty_cash_extention.field_petty_cash_transfer__write_date
+#: model:ir.model.fields,field_description:petty_cash_extention.field_petty_cash_transfer_petty__write_date
+msgid "Last Updated on"
+msgstr "اخر تعديل فى"
+
+#. module: petty_cash_extention
+#: model:ir.model.fields,field_description:petty_cash_extention.field_invoice_petty_pay_wizard__memo
+msgid "Memo"
+msgstr "ملاحظات"
+
+#. module: petty_cash_extention
+#: code:addons/petty_cash_extention/wizard/petty_cash_per_employee_wizard.py:0
+#, python-format
+msgid "No Data!"
+msgstr "لا يوجد تاريخ!"
+
+#. module: petty_cash_extention
+#: model:ir.model.fields,field_description:petty_cash_extention.field_petty_cash__notes
+#: model_terms:ir.ui.view,arch_db:petty_cash_extention.petty_cash_per_employee_report_template
+msgid "Notes"
+msgstr "ملاحظات"
+
+#. module: petty_cash_extention
+#: model:ir.model.fields,field_description:petty_cash_extention.field_petty_cash__origin
+msgid "Origin"
+msgstr "رقم المرجع"
+
+#. module: petty_cash_extention
+#: code:addons/petty_cash_extention/models/account_invoice_inh.py:0
+#, python-format
+msgid "Pay With Petty Cash"
+msgstr "ادفع بواسطة العهدة"
+
+#. module: petty_cash_extention
+#: model_terms:ir.ui.view,arch_db:petty_cash_extention.petty_cash_per_employee_report_template
+msgid "Payment Date"
+msgstr "تاريخ الدفع"
+
+#. module: petty_cash_extention
+#: model:ir.model,name:petty_cash_extention.model_account_payment
+msgid "Payments"
+msgstr "المدفوعات"
+
+#. module: petty_cash_extention
+#: model:ir.model.fields,field_description:petty_cash_extention.field_petty_cash_transfer__petty_id
+#: model:ir.model.fields,field_description:petty_cash_extention.field_petty_cash_transfer_petty__petty_id
+#: model:ir.model.fields,field_description:petty_cash_extention.field_petty_pay_invoice_wizard__petty_id
+#: model:ir.model.fields,field_description:petty_cash_extention.field_petty_pay_wizard__petty_id
+msgid "Petty Cash"
+msgstr "العهد"
+
+#. module: petty_cash_extention
+#: model:ir.model.fields,field_description:petty_cash_extention.field_petty_cash_transfer__balance
+msgid "Petty Cash Balance"
+msgstr "رصيد العهد"
+
+#. module: petty_cash_extention
+#: model_terms:ir.ui.view,arch_db:petty_cash_extention.res_config_settings_view_form
+msgid "Petty Cash Configuration"
+msgstr "اعدادت نظام العهد"
+
+#. module: petty_cash_extention
+#: model:ir.actions.act_window,name:petty_cash_extention.petty_cash_per_employee_wizard_action
+#: model:ir.actions.report,name:petty_cash_extention.petty_cash_per_employee_report_id
+#: model:ir.ui.menu,name:petty_cash_extention.petty_cash_per_employee_menu
+#: model_terms:ir.ui.view,arch_db:petty_cash_extention.petty_cash_per_employee_view
+msgid "Petty Cash Per Employee Report"
+msgstr "تقرير العد لكل موظف"
+
+#. module: petty_cash_extention
+#: model:ir.actions.act_window,name:petty_cash_extention.petty_cash_to_approve
+#: model:ir.ui.menu,name:petty_cash_extention.petty_cash_to_approve_menu
+#: model_terms:ir.actions.act_window,help:petty_cash_extention.petty_cash_to_approve
+#: model_terms:ir.actions.act_window,help:petty_cash_extention.petty_cash_to_pay
+msgid "Petty Cash To Approve"
+msgstr "عهد تحتاج الى موافقه"
+
+#. module: petty_cash_extention
+#: model:ir.actions.act_window,name:petty_cash_extention.petty_cash_to_pay
+#: model:ir.ui.menu,name:petty_cash_extention.petty_cash_to_pay_menu
+msgid "Petty Cash To Pay"
+msgstr "عهد تحتاج الى الدفع"
+
+#. module: petty_cash_extention
+#: model:ir.actions.act_window,name:petty_cash_extention.view_petty_cash_transfer_window_action
+#: model:ir.ui.menu,name:petty_cash_extention.petty_cash_transfer_categ
+msgid "Petty Cash Transfer"
+msgstr "تحويل العهد"
+
+#. module: petty_cash_extention
+#: model:ir.model.fields,field_description:petty_cash_extention.field_res_config_settings__petty_cash_type_id
+#: model_terms:ir.ui.view,arch_db:petty_cash_extention.res_config_settings_view_form
+msgid "Petty Cash Type"
+msgstr "نوع العهده"
+
+#. module: petty_cash_extention
+#: code:addons/petty_cash_extention/wizard/invoice_petty_pay_wizard.py:0
+#, python-format
+msgid "Petty Cash of %s"
+msgstr " العهد ل %s"
+
+#. module: petty_cash_extention
+#: model:ir.model.fields,field_description:petty_cash_extention.field_invoice_petty_pay_wizard__journal_id
+msgid "Petty Journal"
+msgstr "يومية العهد"
+
+#. module: petty_cash_extention
+#: code:addons/petty_cash_extention/wizard/invoice_petty_pay_wizard.py:0
+#, python-format
+msgid "Please Select Amount"
+msgstr "من فضلك اختار القيمة"
+
+#. module: petty_cash_extention
+#: code:addons/petty_cash_extention/wizard/invoice_petty_pay_wizard.py:0
+#, python-format
+msgid "Please Select Amount <= Invoice Amount"
+msgstr "من فضلك اختار قيمة الفاتورة"
+
+#. module: petty_cash_extention
+#: code:addons/petty_cash_extention/models/account_invoice_inh.py:0
+#, python-format
+msgid "Please Select Employee..."
+msgstr "من فضلك اختار الموظفين"
+
+#. module: petty_cash_extention
+#: model_terms:ir.ui.view,arch_db:petty_cash_extention.petty_cash_per_employee_view
+msgid "Print"
+msgstr "طباعة"
+
+#. module: petty_cash_extention
+#: model_terms:ir.ui.view,arch_db:petty_cash_extention.petty_cash_per_employee_report_template
+msgid "Reference"
+msgstr "مرجع"
+
+#. module: petty_cash_extention
+#: model:ir.ui.menu,name:petty_cash_extention.petty_cash_rep_categ
+msgid "Report"
+msgstr "تقرير"
+
+#. module: petty_cash_extention
+#: model:ir.model.fields,field_description:petty_cash_extention.field_account_bank_statement_line__show_emps_petty_cashes
+#: model:ir.model.fields,field_description:petty_cash_extention.field_account_move__show_emps_petty_cashes
+#: model:ir.model.fields,field_description:petty_cash_extention.field_account_payment__show_emps_petty_cashes
+msgid "Show Emps Petty Cashes"
+msgstr "اعرض عهد الموطفين"
+
+#. module: petty_cash_extention
+#: model:ir.model.fields,field_description:petty_cash_extention.field_res_users__show_emps_petty_cashes
+msgid "Show emps Petty Cashes"
+msgstr "عرض عهد الموظفين"
+
+#. module: petty_cash_extention
+#: model_terms:ir.ui.view,arch_db:petty_cash_extention.petty_cash_per_employee_report_template
+msgid "Start Date :"
+msgstr "تاريخ البداية"
+
+#. module: petty_cash_extention
+#: model:ir.model.fields,field_description:petty_cash_extention.field_petty_cash_per_employee_wizard__date_from
+msgid "Start From"
+msgstr "تاريخ البداية"
+
+#. module: petty_cash_extention
+#: model_terms:ir.ui.view,arch_db:petty_cash_extention.petty_cash_per_employee_report_template
+msgid "Status"
+msgstr "الحالة"
+
+#. module: petty_cash_extention
+#: code:addons/petty_cash_extention/wizard/petty_cash_per_employee_wizard.py:0
+#, python-format
+msgid "To date must be greater than from date"
+msgstr "التاريخ الى لابد ان يكون أكبر من التاريخ من"
+
+#. module: petty_cash_extention
+#: model:ir.model.fields,field_description:petty_cash_extention.field_petty_pay_wizard__total_balance
+msgid "Total Balance"
+msgstr "اجمالى الرصيد"
+
+#. module: petty_cash_extention
+#: model_terms:ir.ui.view,arch_db:petty_cash_extention.view_petty_cash_transfer_form
+msgid "Transfer"
+msgstr "تحويل"
+
+#. module: petty_cash_extention
+#: model:ir.ui.menu,name:petty_cash_extention.petty_cash_transfer_action
+msgid "Transfer To Journal"
+msgstr "التحويل الى اليومية"
+
+#. module: petty_cash_extention
+#: model:ir.model,name:petty_cash_extention.model_res_users
+msgid "Users"
+msgstr "المستخدمون"
+
+#. module: petty_cash_extention
+#: model:ir.model,name:petty_cash_extention.model_invoice_petty_pay_wizard
+msgid "invoice.petty.pay.wizard"
+msgstr ""
+
+#. module: petty_cash_extention
+#: model:ir.model,name:petty_cash_extention.model_petty_cash_per_employee_wizard
+msgid "petty.cash.per.employee.wizard"
+msgstr ""
+
+#. module: petty_cash_extention
+#: model:ir.model,name:petty_cash_extention.model_petty_cash_transfer
+msgid "petty.cash.transfer"
+msgstr ""
+
+#. module: petty_cash_extention
+#: model:ir.model,name:petty_cash_extention.model_petty_cash_transfer_petty
+msgid "petty.cash.transfer.petty"
+msgstr ""
+
+#. module: petty_cash_extention
+#: model:ir.model,name:petty_cash_extention.model_petty_pay_invoice_wizard
+msgid "petty.pay.invoice.wizard"
+msgstr ""
+
+#. module: petty_cash_extention
+#: model:ir.model,name:petty_cash_extention.model_petty_pay_wizard
+msgid "petty.pay.wizard"
+msgstr ""
