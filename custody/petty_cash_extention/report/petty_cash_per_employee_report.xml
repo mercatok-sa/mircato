@@ -1,14 +1,25 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
     <data>
-        <report id="petty_cash_per_employee_report_id"
-                model="petty.cash"
-                string="Petty Cash Per Employee Report"
-                report_type="qweb-pdf"
-                name="petty_cash_extention.petty_cash_per_employee_report_template"
-                file="petty_cash_extention.petty_cash_per_employee_report_template"
-                attachment_use="True"
-                menu="False"/>
+<!--        <report id="petty_cash_per_employee_report_id"-->
+<!--                model="petty.cash"-->
+<!--                string="Petty Cash Per Employee Report"-->
+<!--                report_type="qweb-pdf"-->
+<!--                name="petty_cash_extention.petty_cash_per_employee_report_template"-->
+<!--                file="petty_cash_extention.petty_cash_per_employee_report_template"-->
+<!--                attachment_use="True"-->
+<!--                menu="False"/>-->
+<!--        -->
+        <record id="petty_cash_per_employee_report_id" model="ir.actions.report">
+            <field name="name">Petty Cash Per Employee Report</field>
+            <field name="model">petty.cash</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">petty_cash_extention.petty_cash_per_employee_report_template</field>
+            <field name="report_file">petty_cash_extention.petty_cash_per_employee_report_template</field>
+            <field name="print_report_name">'Petty Cash Per Employee Report'</field>
+            <field name="binding_model_id" eval="False"/>
+            <field name="binding_type">report</field>
+        </record>
 
         <template id="petty_cash_per_employee_report_template">
             <t t-call="web.html_container">
