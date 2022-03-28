@@ -1,0 +1,17 @@
+<odoo>
+    <!-- Inherit Form View to Modify it -->
+    <record id="hr_expense_view_form" model="ir.ui.view">
+        <field name="name">hr.expense.sheet.form.petty.cash</field>
+        <field name="model">hr.expense</field>
+        <field name="inherit_id" ref="hr_expense.hr_expense_view_form"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//field[@name='employee_id']" position="after">
+                <field name="petty_id" readonly="1" widget="many2many_tags"/>
+<!--                <field name="branch_id" required="1"/>-->
+            </xpath>
+
+
+        </field>
+    </record>
+</odoo>
