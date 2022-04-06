@@ -23,8 +23,8 @@ class HrContract(models.Model):
     ], string='Scheduled Pay', index=True, default='monthly',
         help="Defines the frequency of the wage payment.")
     resource_calendar_id = fields.Many2one(required=True, help="Employee's working schedule.")
-    hra = fields.Monetary(string='housing allowance', tracking=True, help="House rent allowance.")
-    hra_per = fields.Integer(string='HRA', tracking=True, help="House rent allowance.")
+    hra = fields.Monetary(string='housing allowance', help="House rent allowance.")
+    hra_per = fields.Integer(string='HRA', help="House rent allowance.")
     travel_allowance = fields.Monetary(string="Transport Allowance", help="Transport allowance")
     travel_allowance_per = fields.Integer(string="Transport Allowance", help="Transport allowance")
     da = fields.Monetary(string="Phone allowance", help="Phone allowance")

@@ -27,7 +27,7 @@ class PettyCashType(models.Model):
     state = fields.Selection([
         ('draft', 'Draft'),
         ('confirm', 'Confirmed')], string='State',
-        copy=False, default='draft', track_visibility='onchange')
+        copy=False, default='draft')
 
     type = fields.Selection([
         ('temp', 'Temporary'),
@@ -76,17 +76,17 @@ class PettyCash(models.Model):
         ('draft', 'Draft'),
         ('approved', 'Approved'),('refuse', 'Refused'),
         ('paid', 'Paid'), ('reconciled', 'Reconciled')], string='State',
-        copy=False, default='draft', track_visibility='onchange')
+        copy=False, default='draft')
 
     name = fields.Char(
         'Reference', copy=False, readonly=True, default=lambda x: _('New'))
     type_id = fields.Many2one(comodel_name='petty.cash.type', string='Petty Cash Type',
                               domain="[('state', '=', 'confirm')]")
     
-    petty_type = fields.Selection([
-        ('temp', 'Temporary'),
-        ('per', 'Permanent')], string='Type',
-        copy=False, default='temp',related="type_id.type",store=True)
+    petty_type = fields.Selection(string='Type',
+                                  copy=False,
+                                  related="type_id.type",
+                                  store=True)
 
     amount = fields.Monetary('Amount')
     account_move_id = fields.Many2one('account.move', 'Accounting Entry', readonly=True, copy=False)
@@ -94,7 +94,7 @@ class PettyCash(models.Model):
     line_ids = fields.One2many(comodel_name='petty.cash.line', inverse_name='petty_id', string='Lines')
 
     remain_amount = fields.Monetary('Remaining Amount')
-    employee_id = fields.Many2one(comodel_name='hr.employee', string='Employee To assign', required=True, default=lambda self: self.env.user.employee_id.id, track_visibility='onchange')
+    employee_id = fields.Many2one(comodel_name='hr.employee', string='Employee To assign', required=True, default=lambda self: self.env.user.employee_id.id)
     currency_id = fields.Many2one('res.currency', string='Currency',
                                   default=lambda self: self.env.user.company_id.currency_id.id)
     payment_date = fields.Date('Payment Date',default=fields.Date.context_today)
@@ -340,8 +340,7 @@ class PettyCash(models.Model):
             credit_account_id = petty.pay_journal_id.default_account_id.id
 
             # create payment
-            payment_methods = (
-                                          amount < 0) and pay_journal.outbound_payment_method_ids or pay_journal.inbound_payment_method_ids
+            # payment_methods = (amount < 0) and pay_journal.outbound_payment_method_ids or pay_journal.inbound_payment_method_ids
             journal_currency = pay_journal.currency_id or pay_journal.company_id.currency_id
             # payment = self.env['account.payment'].create({
             #     'payment_method_id': payment_methods and payment_methods[0].id or False,
@@ -574,7 +573,7 @@ class PettyCashAdjustment(models.Model):
         ('draft', 'Draft'),
         ('approved', 'Approved'),
         ('paid', 'Paid'), ('reconciled', 'Reconciled')], string='State',
-        copy=False, default='draft', track_visibility='onchange')
+        copy=False, default='draft')
 
     name = fields.Char(
         'Reference', copy=False, readonly=True, default=lambda x: _('New'))
@@ -664,7 +663,7 @@ class PettyCashAdjustment(models.Model):
             credit_account_id = adj.pay_journal_id.default_account_id.id
 
             # create payment
-            payment_methods = (amount < 0) and pay_journal.outbound_payment_method_ids or pay_journal.inbound_payment_method_ids
+            # payment_methods = (amount < 0) and pay_journal.outbound_payment_method_ids or pay_journal.inbound_payment_method_ids
             # print('ammount is', amount)
             if debit_account_id:
                 debit_line = (0, 0, {
