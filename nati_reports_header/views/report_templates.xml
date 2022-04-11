@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+ <template id="nati_exlyt_background">
+        <div t-attf-class="o_company_#{company.id}_layout header" t-att-style="report_header_style">
+            <div >
+            <div class="row mt32 mb32">
+            <div class="col-4.5">
+              <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" style="max-height: 100px;" />
+              <img t-if="not company.logo" t-att-src="'/nati_reports_header/static/src/img/blank.png'" style="max-height: 100px;"/>
+            </div>
+            <div class="col-2.5">
+              <img t-if="company.imager" t-att-src="image_data_uri(company.imager)" style="max-height: 70px;"/>
+              <img t-if="not company.imager" t-att-src="'/nati_reports_header/static/src/img/blank.png'" style="max-height: 70px;"/>
+            </div>
+            <div class="col-2">
+              <img t-if="company.imagem" t-att-src="image_data_uri(company.imagem)" style="max-height: 70px;"/>
+              <img t-if="not company.imagem" t-att-src="'/nati_reports_header/static/src/img/blank.png'" style="max-height: 70px;"/>
+
+            </div>
+            <div class="col-3">
+              <img t-if="company.imagel" t-att-src="image_data_uri(company.imagel)" style="max-height: 70px;"/>
+              <img t-if="not company.imagel" t-att-src="'/nati_reports_header/static/src/img/blank.png'" style="max-height: 70px;"/>
+            </div>
+          </div>
+            </div>
+        </div>
+        <div t-attf-class="o_company_#{company.id}_layout article o_report_layout"  t-att-data-oe-model="o and o._name" t-att-data-oe-id="o and o.id" t-att-data-oe-lang="o and o.env.context.get('lang')">
+            <t t-call="web.address_layout"/>
+            <t t-raw="0"/>
+        </div>
+
+        <div t-attf-class="o_company_#{company.id}_layout footer o_background_footer">
+            <div class="text-center">
+                <ul class="list-inline">
+                    <li t-if="company.phone" class="list-inline-item"><i class="fa fa-phone" role="img" aria-label="Phone" title="Phone"/> <span class="o_force_ltr" t-field="company.phone"/></li>
+                    <li t-if="company.email" class="list-inline-item"><i class="fa fa-at" role="img" aria-label="Email" title="Email"/> <span t-field="company.email"/></li>
+                    <li t-if="company.website" class="list-inline-item"><i class="fa fa-globe" role="img" aria-label="Website" title="Website"/> <span t-field="company.website"/></li>
+                    <li t-if="company.vat" class="list-inline-item"><i class="fa fa-building-o" role="img" aria-label="Fiscal number"/><t t-esc="company.country_id.vat_label or 'Tax ID'"/>: <span t-field="company.vat"/></li>
+                </ul>
+              <div class="text-center">
+                <div t-field="company.report_footer"/>
+<!--                <div  class="text-muted">-->
+<!--                    <span class="page"/>/<span class="topage"/>-->
+<!--                </div>-->
+            </div>
+                <div class="row mt32 mb32">
+            <div class="col-12">
+              <img t-if="company.imagef" t-att-src="image_data_uri(company.imagef)" style="max-height: 100px;" />
+              <img t-if="not company.imagef" t-att-src="'/nati_reports_header/static/src/img/blank.png'" style="max-height: 100px;"/>
+            </div>
+          </div>
+            </div>
+        </div>
+    </template>
+
+     <template id="nati_freestyle">
+        <div t-attf-class="o_company_#{company.id}_layout header" t-att-style="report_header_style">
+            <div >
+            <div class="row mt32 mb32">
+            <div class="col-12">
+              <img t-if="company.imageh" t-att-src="image_data_uri(company.imageh)" style="max-height: 100px;"/>
+              <img t-if="not company.imageh" t-att-src="'/nati_reports_header/static/src/img/blank.png'" style="max-height: 100px;"/>
+            </div>
+          </div>
+            </div>
+        </div>
+        <div t-attf-class="o_company_#{company.id}_layout article o_report_layout"  t-att-data-oe-model="o and o._name" t-att-data-oe-id="o and o.id" t-att-data-oe-lang="o and o.env.context.get('lang')">
+            <t t-call="web.address_layout"/>
+            <t t-raw="0"/>
+        </div>
+
+        <div t-attf-class="o_company_#{company.id}_layout footer o_background_footer">
+            <div class="text-center">
+                <div t-field="company.report_footer"/>
+<!--                <div  class="text-muted">-->
+<!--                    <span class="page"/>/<span class="topage"/>-->
+<!--                </div>-->
+            </div>
+            <div class="row mt32 mb32">
+            <div class="col-12">
+              <img t-if="company.imagef" t-att-src="image_data_uri(company.imagef)" style="max-height: 100px;"/>
+              <img t-if="not company.imagef" t-att-src="'/nati_reports_header/static/src/img/blank.png'" style="max-height: 100px;"/>
+            </div>
+          </div>
+        </div>
+    </template>
+     <template id="styles_company_report_inherited" inherit_id="web.styles_company_report">
+
+           <xpath expr="//t[@t-set='layout']" position="after">
+
+               <t t-if="layout == 'nati_reports_header.nati_exlyt_background'">
+                .o_background_header {
+                    h3 {
+                        color: <t t-esc='primary'/>;
+                    }
+                }
+                .o_background_footer {
+                    ul {
+                        li {
+                            color: <t t-esc='secondary'/>;
+                        }
+                    }
+                }
+                .o_report_layout {
+                   strong {
+                        color: <t t-esc='secondary'/>;
+                    }
+                    h2 {
+                        color: <t t-esc='primary'/>;
+                    }
+                    thead tr th {
+                        color: <t t-esc='secondary'/>;
+                    }
+                }
+                .row > div > table,
+                div#total table {
+                    :first-child,
+                    :last-child,
+                    .o_subtotal,
+                    .o_total {
+                        strong {
+                            color: <t t-esc='primary'/>;
+                        }
+                    }
+                }
+            </t>
+            <t t-if="layout == 'nati_reports_header.nati_freestyle'">
+                .o_background_header {
+                    h3 {
+                        color: <t t-esc='primary'/>;
+                    }
+                }
+                .o_background_footer {
+                    ul {
+                        li {
+                            color: <t t-esc='secondary'/>;
+                        }
+                    }
+                }
+                .o_report_layout {
+                   strong {
+                        color: <t t-esc='secondary'/>;
+                    }
+                    h2 {
+                        color: <t t-esc='primary'/>;
+                    }
+                    thead tr th {
+                        color: <t t-esc='secondary'/>;
+                    }
+                }
+                .row > div > table,
+                div#total table {
+                    :first-child,
+                    :last-child,
+                    .o_subtotal,
+                    .o_total {
+                        strong {
+                            color: <t t-esc='primary'/>;
+                        }
+                    }
+                }
+            </t>
+
+           </xpath>
+
+     </template>
+
+</odoo>
