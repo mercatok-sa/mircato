@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+<!--><-->
+         <record id="nati_rpt_lyt_bkground" model="report.layout">
+            <field name="name">Modern</field>
+            <field name="sequence">1</field>
+            <field name="view_id" ref="nati_reports_header.nati_exlyt_background"/>
+            <field name="image">/nati_reports_header/static/img/preview_background.png</field>
+            <field name="pdf">/nati_reports_header/static/pdf/preview_background.pdf</field>
+        </record>
+        <record id="nati_rpt_freestyle" model="report.layout">
+            <field name="name">FreeStyle</field>
+            <field name="sequence">1</field>
+            <field name="view_id" ref="nati_reports_header.nati_freestyle"/>
+            <field name="image">/nati_reports_header/static/img/preview_background.png</field>
+            <field name="pdf">/nati_reports_header/static/pdf/preview_background.pdf</field>
+        </record>
+
+    </data>
+</odoo>

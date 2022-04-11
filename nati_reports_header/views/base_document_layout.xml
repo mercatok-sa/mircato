@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="base_document_layout_custom" model="ir.ui.view">
+            <field name="name">base_document_layout_custom.inherit_form_view</field>
+            <field name="model">base.document.layout</field>
+            <field name="inherit_id" ref="web.view_base_document_layout" />
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                 <field name="logo" position="after">
+                         <field name="imagel"  widget='image' class="oe_avatar"/>
+                        <field name="imagem"  widget='image' class="oe_avatar"/>
+                        <field name="imager" widget='image' class="oe_avatar"/>
+                        <field name="imageh" widget='image' class="oe_avatar"/>
+                        <field name="imagef" widget='image' class="oe_avatar"/>
+            </field>
+            </field>
+        </record>
+
+    </data>
+</odoo>

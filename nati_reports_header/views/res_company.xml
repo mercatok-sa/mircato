@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="res_company_custom_inherit_form_view" model="ir.ui.view">
+            <field name="name">res_company_inherit.inherit_form_view</field>
+            <field name="model">res.company</field>
+            <field name="inherit_id" ref="base.view_company_form" />
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                 <xpath expr="//page" position="after">
+                 <page string="Report Image" name="Nati_report_image">
+                 
+                    <group>
+                        <field name="imagel"  widget='image' class="oe_avatar"/>
+                        <field name="imagem"  widget='image' class="oe_avatar"/>
+                        <field name="imager" widget='image' class="oe_avatar"/>
+                        <field name="imageh" widget='image' class="oe_avatar"/>
+                        <field name="imagef" widget='image' class="oe_avatar"/>
+                        
+                    </group>
+               </page>
+                    
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

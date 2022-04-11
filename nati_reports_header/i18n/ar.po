@@ -1,0 +1,224 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* nati_reports_header
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0+e-20201112\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-11-22 02:07+0000\n"
+"PO-Revision-Date: 2020-11-22 05:12+0300\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: ar\n"
+"X-Generator: Poedit 1.8\n"
+
+#. module: nati_reports_header
+#: model_terms:ir.ui.view,arch_db:nati_reports_header.styles_company_report_inherited
+msgid ""
+".o_background_header {\n"
+"                    h3 {\n"
+"                        color:"
+msgstr ""
+
+#. module: nati_reports_header
+#: model_terms:ir.ui.view,arch_db:nati_reports_header.styles_company_report_inherited
+msgid ""
+";\n"
+"                        }\n"
+"                    }\n"
+"                }\n"
+"                .o_report_layout {\n"
+"                   strong {\n"
+"                        color:"
+msgstr ""
+
+#. module: nati_reports_header
+#: model_terms:ir.ui.view,arch_db:nati_reports_header.styles_company_report_inherited
+msgid ""
+";\n"
+"                    }\n"
+"                    h2 {\n"
+"                        color:"
+msgstr ""
+
+#. module: nati_reports_header
+#: model_terms:ir.ui.view,arch_db:nati_reports_header.styles_company_report_inherited
+msgid ""
+";\n"
+"                    }\n"
+"                    thead tr th {\n"
+"                        color:"
+msgstr ""
+
+#. module: nati_reports_header
+#: model_terms:ir.ui.view,arch_db:nati_reports_header.styles_company_report_inherited
+msgid ""
+";\n"
+"                    }\n"
+"                }\n"
+"                .o_background_footer {\n"
+"                    ul {\n"
+"                        li {\n"
+"                            color:"
+msgstr ""
+
+#. module: nati_reports_header
+#: model_terms:ir.ui.view,arch_db:nati_reports_header.styles_company_report_inherited
+msgid ""
+";\n"
+"                    }\n"
+"                }\n"
+"                .row &gt; div &gt; table,\n"
+"                div#total table {\n"
+"                    :first-child,\n"
+"                    :last-child,\n"
+"                    .o_subtotal,\n"
+"                    .o_total {\n"
+"                        strong {\n"
+"                            color:"
+msgstr ""
+
+#. module: nati_reports_header
+#: model_terms:ir.ui.view,arch_db:nati_reports_header.nati_exlyt_background
+msgid "<i class=\"fa fa-at\" role=\"img\" aria-label=\"Email\" title=\"Email\"/>"
+msgstr ""
+"<i class=\"fa fa-at\" role=\"img\" aria-label=\"البريد الإلكتروني\" title=\"البريد "
+"الإلكتروني\"/>"
+
+#. module: nati_reports_header
+#: model_terms:ir.ui.view,arch_db:nati_reports_header.nati_exlyt_background
+msgid "<i class=\"fa fa-building-o\" role=\"img\" aria-label=\"Fiscal number\"/>"
+msgstr "<i class=\"fa fa-building-o\" role=\"img\" aria-label=\"الرقم المالي\"/>"
+
+#. module: nati_reports_header
+#: model_terms:ir.ui.view,arch_db:nati_reports_header.nati_exlyt_background
+msgid "<i class=\"fa fa-globe\" role=\"img\" aria-label=\"Website\" title=\"Website\"/>"
+msgstr "<i class=\"fa fa-globe\" role=\"img\" aria-label=\"الموقع\" title=\"الموقع\"/>"
+
+#. module: nati_reports_header
+#: model_terms:ir.ui.view,arch_db:nati_reports_header.nati_exlyt_background
+msgid "<i class=\"fa fa-phone\" role=\"img\" aria-label=\"Phone\" title=\"Phone\"/>"
+msgstr "<i class=\"fa fa-phone\" role=\"img\" aria-label=\"الهاتف\" title=\"الهاتف\"/>"
+
+#. module: nati_reports_header
+#: model:ir.model.fields.selection,name:nati_reports_header.selection__res_company__font__almarai
+msgid "Almarai"
+msgstr "المراعي"
+
+#. module: nati_reports_header
+#: model:ir.model.fields.selection,name:nati_reports_header.selection__res_company__font__cairo
+msgid "Cairo"
+msgstr "القاهرة"
+
+#. module: nati_reports_header
+#: model:ir.model,name:nati_reports_header.model_res_company
+msgid "Companies"
+msgstr "شركات"
+
+#. module: nati_reports_header
+#: model:ir.model,name:nati_reports_header.model_base_document_layout
+msgid "Company Document Layout"
+msgstr "تخطيط مستندات الشركة"
+
+#. module: nati_reports_header
+#: model:ir.model.fields,field_description:nati_reports_header.field_base_document_layout__display_name
+#: model:ir.model.fields,field_description:nati_reports_header.field_res_company__display_name
+msgid "Display Name"
+msgstr "الاسم المعروض"
+
+#. module: nati_reports_header
+#: model:ir.model.fields.selection,name:nati_reports_header.selection__res_company__font__droid_arabic_kufi
+msgid "Droid Arabic Kufi"
+msgstr "دريود كوفي"
+
+#. module: nati_reports_header
+#: model:ir.model.fields.selection,name:nati_reports_header.selection__res_company__font__droid_arabic_naskh
+msgid "Droid Arabic Naskh"
+msgstr "دريود نسخ"
+
+#. module: nati_reports_header
+#: model:ir.model.fields,field_description:nati_reports_header.field_res_company__font
+msgid "Font"
+msgstr "خط"
+
+#. module: nati_reports_header
+#: model:ir.model.fields,field_description:nati_reports_header.field_base_document_layout__id
+#: model:ir.model.fields,field_description:nati_reports_header.field_res_company__id
+msgid "ID"
+msgstr "المُعرف"
+
+#. module: nati_reports_header
+#: model:ir.model.fields,field_description:nati_reports_header.field_base_document_layout__imagef
+#: model:ir.model.fields,field_description:nati_reports_header.field_res_company__imagef
+msgid "Image Footer"
+msgstr "صورة التذييل"
+
+#. module: nati_reports_header
+#: model:ir.model.fields,field_description:nati_reports_header.field_base_document_layout__imageh
+#: model:ir.model.fields,field_description:nati_reports_header.field_res_company__imageh
+msgid "Image Header"
+msgstr "صورة الرأس"
+
+#. module: nati_reports_header
+#: model:ir.model.fields,field_description:nati_reports_header.field_base_document_layout__imagel
+#: model:ir.model.fields,field_description:nati_reports_header.field_res_company__imagel
+msgid "Image Left"
+msgstr "شعار يسار"
+
+#. module: nati_reports_header
+#: model:ir.model.fields,field_description:nati_reports_header.field_base_document_layout__imagem
+#: model:ir.model.fields,field_description:nati_reports_header.field_res_company__imagem
+msgid "Image Medium"
+msgstr "شعار وسط"
+
+#. module: nati_reports_header
+#: model:ir.model.fields,field_description:nati_reports_header.field_base_document_layout__imager
+#: model:ir.model.fields,field_description:nati_reports_header.field_res_company__imager
+msgid "Image Right"
+msgstr "شعار يمين"
+
+#. module: nati_reports_header
+#: model:ir.model.fields,field_description:nati_reports_header.field_base_document_layout____last_update
+#: model:ir.model.fields,field_description:nati_reports_header.field_res_company____last_update
+msgid "Last Modified on"
+msgstr "آخر تعديل في"
+
+#. module: nati_reports_header
+#: model:ir.model.fields.selection,name:nati_reports_header.selection__res_company__font__lato
+msgid "Lato"
+msgstr ""
+
+#. module: nati_reports_header
+#: model:ir.model.fields.selection,name:nati_reports_header.selection__res_company__font__montserrat
+msgid "Montserrat"
+msgstr "مونتسيرات"
+
+#. module: nati_reports_header
+#: model:ir.model.fields.selection,name:nati_reports_header.selection__res_company__font__open_sans
+msgid "Open Sans"
+msgstr ""
+
+#. module: nati_reports_header
+#: model:ir.model.fields.selection,name:nati_reports_header.selection__res_company__font__oswald
+msgid "Oswald"
+msgstr ""
+
+#. module: nati_reports_header
+#: model:ir.model.fields.selection,name:nati_reports_header.selection__res_company__font__raleway
+msgid "Raleway"
+msgstr ""
+
+#. module: nati_reports_header
+#: model_terms:ir.ui.view,arch_db:nati_reports_header.res_company_custom_inherit_form_view
+msgid "Report Image"
+msgstr "صورة التقرير"
+
+#. module: nati_reports_header
+#: model:ir.model.fields.selection,name:nati_reports_header.selection__res_company__font__roboto
+msgid "Roboto"
+msgstr ""
