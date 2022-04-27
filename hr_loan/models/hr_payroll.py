@@ -67,12 +67,12 @@ class HrPayslip(models.Model):
         # for r in worked_days_line_ids:
         #     worked_days_lines += worked_days_lines.new(r)
         # self.worked_days_line_ids = worked_days_lines
+        input_line_ids = []
         if contracts:
             input_line_ids = self.get_inputs(contracts, date_from, date_to)
             print(input_line_ids,"uuuuuuuuuu")
             input_lines = self.input_line_ids.browse([])
             print(input_lines,"assssssss")
-
 
         if input_line_ids:
             for r in input_line_ids:
@@ -81,43 +81,35 @@ class HrPayslip(models.Model):
             self.input_line_ids = input_lines
         return
 
-
-
     def get_inputs(self, contract_ids, date_from, date_to):
         """This Compute the other inputs to employee payslip.
                            """
-        # res = super(HrPayslip, self).get_inputs(contract_ids, date_from, date_to)
         res = []
-        # inputs = self.env.ref("hr_rule_loan").id
-        inputs = self.env['hr.salary.rule'].search([])
+
+        hr_salary_rule_ids = self.struct_id.mapped('rule_ids')
+        inputs = self.env['hr.salary.rule'].search([('id', 'in', hr_salary_rule_ids.ids)])
         for contract in contract_ids:
             for input in inputs:
                 if input.code == 'LO':
-                   input_data = {
-                    'name': input.name,
-                    'code': input.code,
-                    'contract_id': self.contract_id,
-                    'payslip_id':self.id,
-                    'input_type_id': self.env.ref("hr_loan.hr_rule_input_type_loan").id,
-                    'code'  : input.code,
-                    'sequence': 16
-                   }
-                   res += [input_data]
-                   print(res)
+                    input_data = {
+                        'name': input.name,
+                        'code': input.code,
+                        'contract_id': self.contract_id,
+                        'payslip_id':self.id,
+                        'input_type_id': self.env.ref("hr_loan.hr_rule_input_type_loan").id,
+                        'sequence': 16
+                    }
+                    res += [input_data]
         contract_obj = self.env['hr.contract']
         emp_id = contract_obj.browse(contract_ids[0].id).employee_id
         lon_obj = self.env['hr.loan'].search([('employee_id', '=', emp_id.id), ('state', '=', 'approve')])
         for loan in lon_obj:
-            print("The loan is goted"*10)
             for loan_line in loan.loan_lines:
                 if date_from <= loan_line.date <= date_to and not loan_line.paid:
-                    print("osman"*10)
                     for result in res:
                         if result.get("code") == 'LO':
-                            print("The loan line is goted" * 10)
                             result['amount'] = loan_line.amount
                             result['loan_line_id'] = loan_line.id
-                            # print(res['loan_line_id'])
 
                             return res
 

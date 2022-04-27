@@ -18,7 +18,7 @@
             <field name="code">Loan</field>
             <field name="sequence">5</field>
             <field name="amount_select">code</field>
-            <field name="amount_python_compute">result = inputs.LO and - (inputs.LO.amount)s</field>
+            <field name="amount_python_compute">result = inputs.LO and - (inputs.LO.amount)</field>
             <field name="struct_id" ref="l10n_sa_hr_payroll.ksa_expat_employee_payroll_structure"/>
         </record>
 
@@ -34,11 +34,11 @@
 
 
 
-<!--        <record id="hr_rule_input_type_loan" model="hr.payslip.input.type">-->
-<!--            <field name="code">LO</field>-->
-<!--            <field name="name">Loan</field>-->
-<!--&lt;!&ndash;            <field name="input_id" ref="hr_rule_loan"/>&ndash;&gt;-->
-<!--        </record>-->
+        <record id="hr_rule_input_type_loan" model="hr.payslip.input.type">
+            <field name="code">LO</field>
+            <field name="name">Loan</field>
+<!--            <field name="input_id" ref="hr_rule_loan"/>-->
+        </record>
 
 	</data>
 </odoo>
