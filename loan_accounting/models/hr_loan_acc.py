@@ -45,7 +45,7 @@ class HrLoanAcc(models.Model):
                 debit_account_id = loan.treasury_account_id.id
                 credit_account_id = loan.employee_account_id.id
                 debit_vals = {
-                    'name': loan_name,
+                    'name': 'Debit - ' + loan_name,
                     'account_id': debit_account_id,
                     'journal_id': journal_id,
                     'date': timenow,
@@ -54,7 +54,7 @@ class HrLoanAcc(models.Model):
                     'loan_id': loan.id,
                 }
                 credit_vals = {
-                    'name': loan_name,
+                    'name': 'Credit - ' + loan_name,
                     'account_id': credit_account_id,
                     'journal_id': journal_id,
                     'date': timenow,
@@ -91,7 +91,7 @@ class HrLoanAcc(models.Model):
             debit_account_id = loan.treasury_account_id.id
             credit_account_id = loan.employee_account_id.id
             debit_vals = {
-                'name': loan_name,
+                'name': 'Debit - ' + loan_name,
                 'account_id': debit_account_id,
                 'journal_id': journal_id,
                 'date': timenow,
@@ -100,7 +100,7 @@ class HrLoanAcc(models.Model):
                 'loan_id': loan.id,
             }
             credit_vals = {
-                'name': loan_name,
+                'name': 'Credit - ' + loan_name,
                 'account_id': credit_account_id,
                 'journal_id': journal_id,
                 'date': timenow,
@@ -138,8 +138,10 @@ class HrLoanLineAcc(models.Model):
             journal_id = line.loan_id.journal_id.id
             debit_account_id = line.loan_id.employee_account_id.id
             credit_account_id = line.loan_id.treasury_account_id.id
+            date_loan = fields.Date.to_string(line.date)
+
             debit_vals = {
-                'name': loan_name,
+                'name': 'Debit - ' + loan_name,
                 'account_id': debit_account_id,
                 'journal_id': journal_id,
                 'date': timenow,
@@ -147,7 +149,7 @@ class HrLoanLineAcc(models.Model):
                 'credit': amount < 0.0 and -amount or 0.0,
             }
             credit_vals = {
-                'name': loan_name,
+                'name': 'Credit - ' + loan_name,
                 'account_id': credit_account_id,
                 'journal_id': journal_id,
                 'date': timenow,
@@ -155,7 +157,7 @@ class HrLoanLineAcc(models.Model):
                 'credit': amount > 0.0 and amount or 0.0,
             }
             vals = {
-                'name': 'Loan For' + ' ' + loan_name,
+                'name': 'Loan For' + ' ' + loan_name + ' ' + date_loan,
                 'narration': loan_name,
                 'ref': reference,
                 'journal_id': journal_id,
@@ -171,6 +173,7 @@ class HrPayslipAcc(models.Model):
     _inherit = 'hr.payslip'
 
     def action_payslip_done(self):
+
         for line in self.input_line_ids:
             if line.loan_line_id:
                 line.loan_line_id.action_paid_amount()
