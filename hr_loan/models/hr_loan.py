@@ -98,6 +98,8 @@ class HrLoan(models.Model):
         return self.write({'state': 'refuse'})
 
     def action_submit(self):
+        if len(self.loan_lines) == 0:
+            raise ValidationError(_("Please Compute installment"))
         self.write({'state': 'waiting_approval_1'})
 
     def action_cancel(self):
