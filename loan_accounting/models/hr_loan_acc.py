@@ -3,8 +3,16 @@ import time
 from odoo import models, api, fields
 from odoo.exceptions import UserError
 
+from collections import defaultdict
+from markupsafe import Markup
+
+from odoo import api, fields, models, _
+from odoo.exceptions import UserError, ValidationError
+from odoo.tools import float_compare, float_is_zero, plaintext2html
+
 
 class HrLoanAcc(models.Model):
+
     _inherit = 'hr.loan'
 
     employee_account_id = fields.Many2one('account.account', string="Loan Account")
