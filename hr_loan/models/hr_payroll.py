@@ -118,12 +118,12 @@ class HrPayslipEmployees(models.TransientModel):
     def compute_sheet(self):
         self.ensure_one()
 
-        structure_ids = self.structure_id.rule_ids.mapped('code')
+        # structure_ids = self.structure_id.rule_ids.mapped('code')
 
-        if 'LO' in structure_ids:
-            success_result = self.compute_sheet_mercato()
-        else:
-            success_result = super(HrPayslipEmployees, self).compute_sheet()
+        # if 'LO' in structure_ids:
+        success_result = self.compute_sheet_mercato()
+        # else:
+        #     success_result = super(HrPayslipEmployees, self).compute_sheet()
 
         return success_result
 
@@ -211,8 +211,9 @@ class HrPayslip(models.Model):
 
         hr_salary_rule_ids = self.struct_id.mapped('rule_ids')
         inputs = self.env['hr.salary.rule'].search([('id', 'in', hr_salary_rule_ids.ids)])
-        # for contract in contract_ids:
+        # for contract compute_in contract_ids:
         for input in inputs:
+            print('wwwwwww-----------', input.code)
             if input.code == 'LO':
                 input_data = {
                     'name': input.name,
