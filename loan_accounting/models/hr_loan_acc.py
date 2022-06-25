@@ -8,8 +8,10 @@ class HrLoanAcc(models.Model):
     _inherit = 'hr.loan'
 
     employee_account_id = fields.Many2one('account.account', string="Loan Account")
-    treasury_account_id = fields.Many2one('account.account', string="Treasury Account")
-    journal_id = fields.Many2one('account.journal', string="Journal")
+
+    treasury_journal_id = fields.Many2one('account.journal', string="Treasury journal",
+                                          domain=[('type', 'in', ('bank', 'cash'))])
+    journal_id = fields.Many2one('account.journal', string="Journal", domain=[('type', '=', 'general')])
 
     state = fields.Selection([
         ('draft', 'Draft'),
@@ -32,8 +34,8 @@ class HrLoanAcc(models.Model):
         if loan_approve:
             self.write({'state': 'waiting_approval_2'})
         else:
-            if not self.employee_account_id or not self.treasury_account_id or not self.journal_id:
-                raise UserError("You must enter employee account & Treasury account and journal to approve ")
+            if not self.employee_account_id or not self.treasury_journal_id or not self.journal_id:
+                raise UserError("You must enter employee account & Treasury journal and journal to approve ")
             if not self.loan_lines:
                 raise UserError('You must compute Loan Request before Approved')
             timenow = time.strftime('%Y-%m-%d')
@@ -43,13 +45,19 @@ class HrLoanAcc(models.Model):
                 reference = loan.name
                 journal_id = loan.journal_id.id
                 debit_account_id = loan.employee_account_id.id
-                credit_account_id = loan.treasury_account_id.id
+
+                pay_account_id = loan.treasury_journal_id.outbound_payment_method_line_ids.mapped('payment_account_id')
+                if pay_account_id:
+                    credit_account_id = pay_account_id.id
+                else:
+                    credit_account_id = self.company_id.account_journal_payment_credit_account_id.id
 
                 debit_vals = {
                     'name': 'Debit - ' + loan_name + 'pay loan value',
                     'account_id': debit_account_id,
                     'journal_id': journal_id,
                     'date': timenow,
+                    'partner_id': loan.employee_id.address_home_id.id,
                     'debit': amount > 0.0 and amount or 0.0,
                     'credit': amount < 0.0 and -amount or 0.0,
                     'loan_id': loan.id,
@@ -58,6 +66,7 @@ class HrLoanAcc(models.Model):
                     'name': 'Credit - ' + loan_name + 'pay loan value',
                     'account_id': credit_account_id,
                     'journal_id': journal_id,
+                    'partner_id': loan.employee_id.address_home_id.id,
                     'date': timenow,
                     'debit': amount < 0.0 and -amount or 0.0,
                     'credit': amount > 0.0 and amount or 0.0,
@@ -79,8 +88,8 @@ class HrLoanAcc(models.Model):
     def action_double_approve(self):
         """This create account move for request in case of double approval.
             """
-        if not self.employee_account_id or not self.treasury_account_id or not self.journal_id:
-            raise UserError("You must enter employee account & Treasury account and journal to approve ")
+        if not self.employee_account_id or not self.treasury_journal_id or not self.journal_id:
+            raise UserError("You must enter employee account & Treasury journal and journal to approve ")
         if not self.loan_lines:
             raise UserError('You must compute Loan Request before Approved')
         timenow = time.strftime('%Y-%m-%d')
@@ -90,12 +99,19 @@ class HrLoanAcc(models.Model):
             reference = loan.name
             journal_id = loan.journal_id.id
             debit_account_id = loan.employee_account_id.id
-            credit_account_id = loan.treasury_account_id.id
+
+            pay_account_id = loan.treasury_journal_id.outbound_payment_method_line_ids.mapped('payment_account_id')
+            if pay_account_id:
+                credit_account_id = pay_account_id.id
+            else:
+                credit_account_id = self.company_id.account_journal_payment_credit_account_id.id
+
             debit_vals = {
                 'name': 'Debit - ' + loan_name + 'pay loan value',
                 'account_id': debit_account_id,
                 'journal_id': journal_id,
                 'date': timenow,
+                'partner_id': loan.employee_id.address_home_id.id,
                 'debit': amount > 0.0 and amount or 0.0,
                 'credit': amount < 0.0 and -amount or 0.0,
                 'loan_id': loan.id,
@@ -105,6 +121,7 @@ class HrLoanAcc(models.Model):
                 'account_id': credit_account_id,
                 'journal_id': journal_id,
                 'date': timenow,
+                'partner_id': loan.employee_id.address_home_id.id,
                 'debit': amount < 0.0 and -amount or 0.0,
                 'credit': amount > 0.0 and amount or 0.0,
                 'loan_id': loan.id,

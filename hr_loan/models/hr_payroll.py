@@ -119,11 +119,10 @@ class HrPayslipEmployees(models.TransientModel):
         self.ensure_one()
 
         # structure_ids = self.structure_id.rule_ids.mapped('code')
-
         # if 'LO' in structure_ids:
         success_result = self.compute_sheet_mercato()
         # else:
-        #     success_result = super(HrPayslipEmployees, self).compute_sheet()
+        # success_result = super(HrPayslipEmployees, self).compute_sheet()
 
         return success_result
 

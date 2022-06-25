@@ -19,7 +19,7 @@
                 </xpath>
                 <xpath expr="//field[@name='loan_amount']" position="after">
                     <field name="employee_account_id"  attrs="{'invisible':[('state', '=','draft')],'readonly':[('state','in',('approve', 'refuse'))]}"/>
-                    <field name="treasury_account_id"  attrs="{'invisible':[('state', '=','draft')],'readonly':[('state','in',('approve', 'refuse'))]}"/>
+                    <field name="treasury_journal_id" attrs="{'invisible':[('state', '=','draft')],'readonly':[('state','in',('approve', 'refuse'))]}"/>
                     <field name="journal_id"  attrs="{'invisible':[('state', '=','draft')],'readonly':[('state','in',('approve', 'refuse'))]}"/>
                 </xpath>
             </field>

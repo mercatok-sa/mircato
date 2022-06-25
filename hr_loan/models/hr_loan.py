@@ -83,8 +83,12 @@ class HrLoan(models.Model):
         for loan in self:
             loan.loan_lines.unlink()
             date_start = datetime.strptime(str(loan.payment_date), '%Y-%m-%d')
-            amount = loan.loan_amount / loan.installment
+            amount = loan.loan_amount // loan.installment
+            total = 0
             for i in range(1, loan.installment + 1):
+                if i == loan.installment:
+                    amount = loan.loan_amount - total
+                total += amount
                 self.env['hr.loan.line'].create({
                     'date': date_start,
                     'amount': amount,
