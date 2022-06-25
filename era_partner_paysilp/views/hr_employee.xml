@@ -9,7 +9,6 @@
             <field name="address_home_id" position="attributes">
                    <attribute name="required">1</attribute>
             </field>
-
         </field>
     </record>
 

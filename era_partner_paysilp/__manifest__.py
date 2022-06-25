@@ -20,4 +20,3 @@
     'auto_install': False,
 
 }
-
