@@ -205,8 +205,8 @@ class HrPayslip(models.Model):
         return
 
     def get_inputs(self, contract_ids, date_from, date_to):
-        """ This Compute the other inputs to employee payslip. """
-
+        """This Compute the other inputs to employee payslip.
+                           """
         res = []
 
         hr_salary_rule_ids = self.struct_id.mapped('rule_ids')

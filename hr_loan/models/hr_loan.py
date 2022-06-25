@@ -62,7 +62,7 @@ class HrLoan(models.Model):
         ('approve', 'Approved'),
         ('refuse', 'Refused'),
         ('cancel', 'Canceled'),
-    ], string="State", default='draft', copy=False)
+    ], string="State", default='draft', track_visibility='onchange', copy=False, )
 
     @api.model
     def create(self, values):
@@ -98,8 +98,6 @@ class HrLoan(models.Model):
         return self.write({'state': 'refuse'})
 
     def action_submit(self):
-        if len(self.loan_lines) == 0:
-            raise ValidationError(_("Please Compute installment"))
         self.write({'state': 'waiting_approval_1'})
 
     def action_cancel(self):
@@ -129,6 +127,7 @@ class InstallmentLine(models.Model):
     amount = fields.Float(string="Amount", required=True, help="Amount")
     paid = fields.Boolean(string="Paid", help="Paid")
     loan_id = fields.Many2one('hr.loan', string="Loan Ref.", help="Loan")
+    state = fields.Selection('hr.loan',related='loan_id.state', string="Loan Ref.", help="Loan")
     payslip_id = fields.Many2one('hr.payslip', string="Payslip Ref.", help="Payslip")
 
 
