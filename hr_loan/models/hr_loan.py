@@ -55,6 +55,7 @@ class HrLoan(models.Model):
     balance_amount = fields.Float(string="Balance Amount", store=True, compute='_compute_loan_amount', help="Balance amount")
     total_paid_amount = fields.Float(string="Total Paid Amount", store=True, compute='_compute_loan_amount',
                                      help="Total paid amount")
+    is_notif = fields.Boolean()
 
     state = fields.Selection([
         ('draft', 'Draft'),
@@ -67,14 +68,15 @@ class HrLoan(models.Model):
     @api.model
     def create(self, values):
         loan_count = self.env['hr.loan'].search_count(
-            [('employee_id', '=', values['employee_id']), ('state', '=', 'approve'),
-             ('balance_amount', '!=', 0)])
+            [('employee_id', '=', values['employee_id']), ('state', 'in', ('waiting_approval_1', 'waiting_approval_2', 'approve')),
+             ('loan_amount', '!=', 0)])
+
         if loan_count:
-            raise ValidationError(_("The employee has already a pending installment"))
-        else:
-            values['name'] = self.env['ir.sequence'].get('hr.loan.seq') or ' '
-            res = super(HrLoan, self).create(values)
-            return res
+            values['is_notif'] = True
+
+        values['name'] = self.env['ir.sequence'].get('hr.loan.seq') or ' '
+        res = super(HrLoan, self).create(values)
+        return res
 
     def compute_installment(self):
         """This automatically create the installment the employee need to pay to
@@ -102,6 +104,7 @@ class HrLoan(models.Model):
         return self.write({'state': 'refuse'})
 
     def action_submit(self):
+
         self.write({'state': 'waiting_approval_1'})
 
     def action_cancel(self):
