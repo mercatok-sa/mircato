@@ -69,7 +69,7 @@ class HrLoan(models.Model):
     def create(self, values):
         loan_count = self.env['hr.loan'].search_count(
             [('employee_id', '=', values['employee_id']), ('state', 'in', ('waiting_approval_1', 'waiting_approval_2', 'approve')),
-             ('loan_amount', '!=', 0)])
+             ('balance_amount', '!=', 0)])
 
         if loan_count:
             values['is_notif'] = True

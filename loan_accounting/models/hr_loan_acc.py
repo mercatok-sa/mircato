@@ -114,7 +114,6 @@ class HrLoanAcc(models.Model):
                     'account_id': debit_account_id,
                     'journal_id': journal_id,
                     'date': timenow,
-                    'partner_id': loan.employee_id.address_home_id.id,
                     'debit': amount > 0.0 and amount or 0.0,
                     'credit': amount < 0.0 and -amount or 0.0,
                     'loan_id': loan.id,
@@ -164,7 +163,6 @@ class HrLoanAcc(models.Model):
                 'account_id': debit_account_id,
                 'journal_id': journal_id,
                 'date': timenow,
-                'partner_id': loan.employee_id.address_home_id.id,
                 'debit': amount > 0.0 and amount or 0.0,
                 'credit': amount < 0.0 and -amount or 0.0,
                 'loan_id': loan.id,
@@ -218,16 +216,12 @@ class HrLoanAcc(models.Model):
 
             debit_account_id = loan.employee_id.address_home_id.property_account_payable_id.id
 
-            # credit_account_id = loan.pay_journal_id.default_account_id.id
-
             pay_account_id = loan.treasury_journal_id.outbound_payment_method_line_ids.mapped('payment_account_id')
             if pay_account_id:
                 credit_account_id = pay_account_id.id
             else:
                 credit_account_id = self.company_id.account_journal_payment_credit_account_id.id
 
-            # create payment
-            # journal_currency = pay_journal.currency_id or pay_journal.company_id.currency_id
            
             if debit_account_id:
                 debit_line = (0, 0, {

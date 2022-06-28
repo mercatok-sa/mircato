@@ -225,7 +225,7 @@ class HrPayslip(models.Model):
                 res += [input_data]
         contract_obj = self.env['hr.contract']
         emp_id = contract_obj.browse(contract_ids[0].id).employee_id
-        lon_obj = self.env['hr.loan'].search([('employee_id', '=', emp_id.id), ('state', '=', 'approve')])
+        lon_obj = self.env['hr.loan'].search([('employee_id', '=', emp_id.id), ('state', '=', 'paid')])
         for loan in lon_obj:
             for loan_line in loan.loan_lines:
                 if date_from <= loan_line.date <= date_to and not loan_line.paid:
