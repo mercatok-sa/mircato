@@ -129,7 +129,7 @@ class HrLoanAcc(models.Model):
                     'loan_id': loan.id,
                 }
                 vals = {
-                    'name': 'Loan For' + ' ' + loan_name,
+                    'name': 'Loan For' + ' ' + loan_name + ' ' + loan.name,
                     'narration': loan_name,
                     'ref': reference,
                     'journal_id': journal_id,
@@ -178,7 +178,7 @@ class HrLoanAcc(models.Model):
                 'loan_id': loan.id,
             }
             vals = {
-                'name': 'Loan For' + ' ' + loan_name,
+                'name': 'Loan For' + ' ' + loan_name + ' ' + loan.name,
                 'narration': loan_name,
                 'ref': reference,
                 'journal_id': journal_id,
