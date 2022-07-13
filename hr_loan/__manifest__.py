@@ -18,17 +18,18 @@
 ###################################################################################
 {
     'name': 'HR Loan Management',
-    'version': '14.0.1.0.0',
+    'version': '15.0.2.0.0',
     'summary': 'Manage Loan Requests',
     'description': """
         Helps you to manage Loan Requests of your company's staff.
+        Note: you should duplicate loan rule in salary structure which you want
         """,
     'category': 'Human Resources',
     'author': 'ُEra Group',
     'company': 'Era Group',
     'website': "https://era.net.sa",
     'depends': [
-        'base', 'hr', 'account','hr_payroll','l10n_sa_hr_payroll_account',
+        'base', 'hr', 'account', 'hr_payroll'
     ],
     'data': [
         'security/ir.model.access.csv',
@@ -36,7 +37,7 @@
         'views/hr_loan_seq.xml',
         'data/salary_rule_loan.xml',
         'views/hr_loan.xml',
-        #'views/hr_payroll.xml',
+        'views/hr_payroll.xml',
     ],
     # 'images': ['static/description/banner.png'],
     'license': 'AGPL-3',

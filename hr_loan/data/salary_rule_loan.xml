@@ -9,7 +9,7 @@
             <field name="sequence">9</field>
             <field name="amount_select">code</field>
             <field name="amount_python_compute">result = inputs.LO and - (inputs.LO.amount)</field>
-            <field name="struct_id" ref="l10n_sa_hr_payroll.ksa_saudi_employee_payroll_structure"/>
+            <field name="struct_id" ref="hr_payroll.structure_worker_001"/>
         </record>
 
         <record id="ksa_expat_loan_salary_rule" model="hr.salary.rule">
@@ -19,7 +19,7 @@
             <field name="sequence">5</field>
             <field name="amount_select">code</field>
             <field name="amount_python_compute">result = inputs.LO and - (inputs.LO.amount)</field>
-            <field name="struct_id" ref="l10n_sa_hr_payroll.ksa_expat_employee_payroll_structure"/>
+            <field name="struct_id" ref="hr_payroll.structure_worker_001"/>
         </record>
 
 <!--		<record id="hr_rule_loan" model="hr.salary.rule">-->
