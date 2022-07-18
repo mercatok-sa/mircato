@@ -129,7 +129,6 @@ class HrLoanAcc(models.Model):
                     'loan_id': loan.id,
                 }
                 vals = {
-                    'name': 'Loan For' + ' ' + loan_name + ' ' + loan.name,
                     'narration': loan_name,
                     'ref': reference,
                     'journal_id': journal_id,
@@ -178,7 +177,6 @@ class HrLoanAcc(models.Model):
                 'loan_id': loan.id,
             }
             vals = {
-                'name': 'Loan For' + ' ' + loan_name + ' ' + loan.name,
                 'narration': loan_name,
                 'ref': reference,
                 'journal_id': journal_id,
@@ -222,7 +220,6 @@ class HrLoanAcc(models.Model):
             else:
                 credit_account_id = self.company_id.account_journal_payment_credit_account_id.id
 
-           
             if debit_account_id:
                 debit_line = (0, 0, {
                     'name': loan.name,

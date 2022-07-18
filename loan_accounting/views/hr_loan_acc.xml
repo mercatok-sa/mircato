@@ -36,21 +36,12 @@
                         Payments
                     </button>
                 </xpath>
-
-                <xpath expr="//sheet/div[@name='button_box']" position="after">
-                    <div class="alert alert-warning" attrs="{'invisible': [('is_notif', '=', False)]}">
-                        <strong>The employee has already a pending installment</strong><br/>
-                    </div>
-                </xpath>
-
-
                 <xpath expr="//field[@name='loan_amount']" position="after">
                     <field name="employee_account_id"  attrs="{'invisible':[('state', '=','draft')],'readonly':[('state','in',('approve', 'refuse'))]}"/>
                     <field name="treasury_journal_id" attrs="{'invisible':[('state', '=','draft')],'readonly':[('state','in',('approve', 'refuse'))]}"/>
                     <field name="journal_id"  attrs="{'invisible':[('state', '=','draft')],'readonly':[('state','in',('approve', 'refuse'))]}"/>
                     <field name="account_move_id"  invisible="1"/>
                     <field name="payment_move_id"  invisible="1"/>
-                    <field name="is_notif"  invisible="1"/>
                 </xpath>
             </field>
         </record>

@@ -55,7 +55,8 @@ class HrLoan(models.Model):
     balance_amount = fields.Float(string="Balance Amount", store=True, compute='_compute_loan_amount', help="Balance amount")
     total_paid_amount = fields.Float(string="Total Paid Amount", store=True, compute='_compute_loan_amount',
                                      help="Total paid amount")
-    is_notif = fields.Boolean()
+    has_double_loan = fields.Boolean(compute='_compute_double_loan')
+    has_double_loan_warning = fields.Char(compute='_compute_double_loan')
 
     state = fields.Selection([
         ('draft', 'Draft'),
@@ -67,16 +68,23 @@ class HrLoan(models.Model):
 
     @api.model
     def create(self, values):
-        loan_count = self.env['hr.loan'].search_count(
-            [('employee_id', '=', values['employee_id']), ('state', 'in', ('waiting_approval_1', 'waiting_approval_2', 'approve')),
-             ('balance_amount', '!=', 0)])
-
-        if loan_count:
-            values['is_notif'] = True
-
         values['name'] = self.env['ir.sequence'].get('hr.loan.seq') or ' '
         res = super(HrLoan, self).create(values)
         return res
+
+    @api.depends('employee_id', 'state', 'balance_amount')
+    def _compute_double_loan(self):
+        for record in self:
+            record.has_double_loan = False
+            record.has_double_loan_warning = ''
+            loan_count = self.env['hr.loan'].search_count(
+                [('employee_id', '=', record.employee_id.id),
+                 ('id', '!=', record._origin.id),
+                 ('state', 'in', ('draft', 'waiting_approval_1', 'waiting_approval_2', 'approve', 'done')),
+                 ('balance_amount', '!=', 0)])
+            if loan_count > 0:
+                record.has_double_loan = True
+                record.has_double_loan_warning = (_('Warning, This employee already has an active loan.'))
 
     def compute_installment(self):
         """This automatically create the installment the employee need to pay to
