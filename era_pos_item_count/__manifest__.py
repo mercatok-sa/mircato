@@ -9,15 +9,16 @@
     'website': 'https://era.net.sa',
     'summary': 'Pos Item count module show you number of products in cart.',
     'description': """ This module show you number of products in cart.""",
-    'depends': ['point_of_sale'],
+    'depends': ['point_of_sale', 'base'],
     'data': [
+        # 'security/pos_security.xml',
     ],
     'images': [
     ],
-
-     'assets': {
+    'assets': {
         'web.assets_qweb': [
             'era_pos_item_count/static/src/xml/pos.xml',
+            'era_pos_item_count/static/src/xml/ClosePosPopup.xml',
         ],
         'point_of_sale.assets': [
             'era_pos_item_count/static/src/js/pos.js',
