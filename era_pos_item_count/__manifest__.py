@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'ERA Pos Item count',
-    'version': '15.0.1.0',
+    'version': '15.0.2.0',
     'category': 'Point of Sale',
     'sequence': 6,
     'auther': 'ERA Group',
@@ -15,17 +15,6 @@
     ],
     'images': [
     ],
-    # 'assets': {
-    #     'web.assets_qweb': [
-    #         'era_pos_item_count/static/src/xml/pos.xml',
-    #         'era_pos_item_count/static/src/xml/ClosePosPopup.xml',
-    #     ],
-    #     'point_of_sale.assets': [
-    #         'era_pos_item_count/static/src/js/pos.js',
-    #     ]
-    # },
-
-
     'assets': {
             'point_of_sale.assets': [
                 'era_pos_item_count/static/src/**/*',
