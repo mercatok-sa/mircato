@@ -11,19 +11,29 @@
     'description': """ This module show you number of products in cart.""",
     'depends': ['point_of_sale', 'base'],
     'data': [
-        # 'security/pos_security.xml',
+        'views/res_users_view.xml',
     ],
     'images': [
     ],
+    # 'assets': {
+    #     'web.assets_qweb': [
+    #         'era_pos_item_count/static/src/xml/pos.xml',
+    #         'era_pos_item_count/static/src/xml/ClosePosPopup.xml',
+    #     ],
+    #     'point_of_sale.assets': [
+    #         'era_pos_item_count/static/src/js/pos.js',
+    #     ]
+    # },
+
+
     'assets': {
-        'web.assets_qweb': [
-            'era_pos_item_count/static/src/xml/pos.xml',
-            'era_pos_item_count/static/src/xml/ClosePosPopup.xml',
-        ],
-        'point_of_sale.assets': [
-            'era_pos_item_count/static/src/js/pos.js',
-        ]
-    },
+            'point_of_sale.assets': [
+                'era_pos_item_count/static/src/**/*',
+            ],
+            'web.assets_qweb': [
+                'era_pos_item_count/static/src/**/*',
+            ],
+        },
 
     'installable': True,
     'auto_install': False,
