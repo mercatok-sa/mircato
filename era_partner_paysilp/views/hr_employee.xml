@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record model="ir.ui.view" id="era_hr_employee_inherit_form_view">
+        <field name="name">era.hr.employee.form.view</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <field name="address_home_id" position="attributes">
+                   <attribute name="required">1</attribute>
+            </field>
+        </field>
+    </record>
+
+</odoo>

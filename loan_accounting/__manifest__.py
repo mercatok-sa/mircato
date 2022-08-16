@@ -18,7 +18,7 @@
 ###################################################################################
 {
     'name': ' Loan Accounting',
-    'version': '14.0.1.0.0',
+    'version': '15.0.2.0.0',
     'summary': 'Loan Accounting',
     'description': """
         Create accounting entries for loan requests.

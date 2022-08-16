@@ -55,6 +55,8 @@ class HrLoan(models.Model):
     balance_amount = fields.Float(string="Balance Amount", store=True, compute='_compute_loan_amount', help="Balance amount")
     total_paid_amount = fields.Float(string="Total Paid Amount", store=True, compute='_compute_loan_amount',
                                      help="Total paid amount")
+    has_double_loan = fields.Boolean(compute='_compute_double_loan')
+    has_double_loan_warning = fields.Char(compute='_compute_double_loan')
 
     state = fields.Selection([
         ('draft', 'Draft'),
@@ -62,19 +64,27 @@ class HrLoan(models.Model):
         ('approve', 'Approved'),
         ('refuse', 'Refused'),
         ('cancel', 'Canceled'),
-    ], string="State", default='draft', copy=False)
+    ], string="State", default='draft', track_visibility='onchange', copy=False, )
 
     @api.model
     def create(self, values):
-        loan_count = self.env['hr.loan'].search_count(
-            [('employee_id', '=', values['employee_id']), ('state', '=', 'approve'),
-             ('balance_amount', '!=', 0)])
-        if loan_count:
-            raise ValidationError(_("The employee has already a pending installment"))
-        else:
-            values['name'] = self.env['ir.sequence'].get('hr.loan.seq') or ' '
-            res = super(HrLoan, self).create(values)
-            return res
+        values['name'] = self.env['ir.sequence'].get('hr.loan.seq') or ' '
+        res = super(HrLoan, self).create(values)
+        return res
+
+    @api.depends('employee_id', 'state', 'balance_amount')
+    def _compute_double_loan(self):
+        for record in self:
+            record.has_double_loan = False
+            record.has_double_loan_warning = ''
+            loan_count = self.env['hr.loan'].search_count(
+                [('employee_id', '=', record.employee_id.id),
+                 ('id', '!=', record._origin.id),
+                 ('state', 'in', ('draft', 'waiting_approval_1', 'waiting_approval_2', 'approve', 'done')),
+                 ('balance_amount', '!=', 0)])
+            if loan_count > 0:
+                record.has_double_loan = True
+                record.has_double_loan_warning = (_('Warning, This employee already has an active loan.'))
 
     def compute_installment(self):
         """This automatically create the installment the employee need to pay to
@@ -83,8 +93,12 @@ class HrLoan(models.Model):
         for loan in self:
             loan.loan_lines.unlink()
             date_start = datetime.strptime(str(loan.payment_date), '%Y-%m-%d')
-            amount = loan.loan_amount / loan.installment
+            amount = loan.loan_amount // loan.installment
+            total = 0
             for i in range(1, loan.installment + 1):
+                if i == loan.installment:
+                    amount = loan.loan_amount - total
+                total += amount
                 self.env['hr.loan.line'].create({
                     'date': date_start,
                     'amount': amount,
@@ -98,8 +112,7 @@ class HrLoan(models.Model):
         return self.write({'state': 'refuse'})
 
     def action_submit(self):
-        if len(self.loan_lines) == 0:
-            raise ValidationError(_("Please Compute installment"))
+
         self.write({'state': 'waiting_approval_1'})
 
     def action_cancel(self):
@@ -129,6 +142,7 @@ class InstallmentLine(models.Model):
     amount = fields.Float(string="Amount", required=True, help="Amount")
     paid = fields.Boolean(string="Paid", help="Paid")
     loan_id = fields.Many2one('hr.loan', string="Loan Ref.", help="Loan")
+    state = fields.Selection('hr.loan',related='loan_id.state', string="Loan Ref.", help="Loan")
     payslip_id = fields.Many2one('hr.payslip', string="Payslip Ref.", help="Payslip")
 
 
