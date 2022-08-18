@@ -118,12 +118,11 @@ class HrPayslipEmployees(models.TransientModel):
     def compute_sheet(self):
         self.ensure_one()
 
-        structure_ids = self.structure_id.rule_ids.mapped('code')
-
-        if 'LO' in structure_ids:
-            success_result = self.compute_sheet_mercato()
-        else:
-            success_result = super(HrPayslipEmployees, self).compute_sheet()
+        # structure_ids = self.structure_id.rule_ids.mapped('code')
+        # if 'LO' in structure_ids:
+        success_result = self.compute_sheet_mercato()
+        # else:
+        # success_result = super(HrPayslipEmployees, self).compute_sheet()
 
         return success_result
 
@@ -131,7 +130,7 @@ class HrPayslipEmployees(models.TransientModel):
 class HrPayslipInput(models.Model):
     _inherit = 'hr.payslip.input'
 
-    loan_line_id = fields.Many2one('hr.loan.line', string="Loan Installment", help="Loan installment")
+    loan_line_ids = fields.Many2many('hr.loan.line', string="Loan Installment", help="Loan installment")
 
 
 class HrPayslip(models.Model):
@@ -211,11 +210,10 @@ class HrPayslip(models.Model):
 
         hr_salary_rule_ids = self.struct_id.mapped('rule_ids')
         inputs = self.env['hr.salary.rule'].search([('id', 'in', hr_salary_rule_ids.ids)])
-        # for contract in contract_ids:
+        # for contract compute_in contract_ids:
         for input in inputs:
             if input.code == 'LO':
                 input_data = {
-                    'name': input.name,
                     'code': input.code,
                     'contract_id': self.contract_id.id,
                     'payslip_id': self.id,
@@ -225,20 +223,22 @@ class HrPayslip(models.Model):
                 res += [input_data]
         contract_obj = self.env['hr.contract']
         emp_id = contract_obj.browse(contract_ids[0].id).employee_id
-        lon_obj = self.env['hr.loan'].search([('employee_id', '=', emp_id.id), ('state', '=', 'approve')])
-        for loan in lon_obj:
-            for loan_line in loan.loan_lines:
-                if date_from <= loan_line.date <= date_to and not loan_line.paid:
-                    for result in res:
-                        if result.get("code") == 'LO':
-                            result['amount'] = loan_line.amount
-                            result['loan_line_id'] = loan_line.id
+        lon_obj = self.env['hr.loan'].search([('employee_id', '=', emp_id.id), ('state', '=', 'paid')])
+        loan_lines_ids = lon_obj.loan_lines.mapped('id')
+        loan_lines = self.env['hr.loan.line'].search([('id', 'in', loan_lines_ids)])
 
-                            return res
+        loan_lines_used = loan_lines.filtered(lambda l: l.date and date_from <= l.date <= date_to and not l.paid)
+        for result in res:
+            if result.get("code") == 'LO' and loan_lines_used:
+                result['amount'] = sum(loan_lines_used.mapped('amount'))
+                result['loan_line_ids'] = [(4, lo.id, None) for lo in loan_lines_used]
+                result['name'] = ', '.join(loan_lines_used.mapped('loan_id.name'))
+                return res
 
     def action_payslip_done(self):
         for line in self.input_line_ids:
-            if line.loan_line_id:
-                line.loan_line_id.paid = True
-                line.loan_line_id.loan_id._compute_loan_amount()
+            if line.loan_line_ids:
+                for rec in line.loan_line_ids:
+                    rec.paid = True
+                    rec.loan_id._compute_loan_amount()
         return super(HrPayslip, self).action_payslip_done()
