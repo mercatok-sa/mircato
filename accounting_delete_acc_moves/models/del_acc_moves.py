@@ -8,7 +8,7 @@ class _del_acc_move(models.Model):
         # self.env.cr.execute("delete from account_move where id in (select id from account_move limit 2)")
         
 
-        for rec in self.env['account.move'].search([()], limit =100):
-
+        for rec in self.env['account.move'].search([('state','!=','posted')], limit =1000):
             rec.unlink()
-            _logger.warning("Record deleted :" + str(rec.id)) 
+            
+            # _logger.warning("Record deleted :" + str(rec.id)) 
