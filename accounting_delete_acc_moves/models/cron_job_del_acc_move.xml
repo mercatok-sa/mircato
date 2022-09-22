@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+    
+       <record id="ir_cron_module_del_acc_move" model="ir.cron">
+            <field name="name">Delete account Move</field>
+            <field name="active" eval="True" />
+            <field name="model_id" ref="accounting_delete_acc_moves.del_acc_moves"/>
+            <field name="state">code</field>
+            <field name="code">model.del_acc_move()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field name="doall" eval="False" />
+    </record>
+
+
+    </data>
+
+
+
+
+</odoo>
+
