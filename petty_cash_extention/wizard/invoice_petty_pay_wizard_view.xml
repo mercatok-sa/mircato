@@ -1,0 +1,32 @@
+<odoo>
+    <data>
+
+        <record id="invoice_petty_pay_wizard_from_view" model="ir.ui.view">
+            <field name="name">invoice.petty.pay.wizard.form.view</field>
+            <field name="model">invoice.petty.pay.wizard</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="amount" widget="monetary"/>
+                                <field name="journal_id" domain="[('type','in',['bank','cash'])]"/>
+                            </group>
+                            <group>
+                                <field name="date"/>
+                                <field name="employee_id"/>
+                                <field name="memo"/>
+                                <field name="currency_id" invisible="1"/>
+                            </group>
+                        </group>
+                        <footer>
+                            <button string="Create" name="create_petty_cash" class="btn-primary" type="object"/>
+                            <button string="Cancel" class="btn-default" special="cancel"/>
+                        </footer>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</odoo>
