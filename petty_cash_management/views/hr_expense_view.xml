@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Inherit Form View to Modify it -->
+        <record id="view_hr_expense_sheet_form_petty_cash" model="ir.ui.view">
+            <field name="name">hr.expense.sheet.form.petty.cash</field>
+            <field name="model">hr.expense.sheet</field>
+            <field name="inherit_id" ref="hr_expense.view_hr_expense_sheet_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//button[@name='reset_expense_sheets']" position="before">
+                    <button name="petty_pay" type="object" string="Pay with Petty Cash"
+                            class="oe_highlight o_expense_sheet_pay"
+                            attrs="{'invisible': [('state', '!=', 'post')]}"
+                            groups="account.group_account_manager" context="{'expense_sheet': 'id'}"/>
+
+                </xpath>
+
+
+            </field>
+        </record>
+
+    </data>
+</odoo>

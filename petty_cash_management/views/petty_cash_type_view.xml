@@ -1,0 +1,82 @@
+<odoo>
+
+
+    <record id="petty_cash_type_form_view" model="ir.ui.view">
+        <field name="name">petty.cash.type.form.view</field>
+        <field name="model">petty.cash.type</field>
+        <field name="arch" type="xml">
+            <form string="Petty Cash Types">
+                <header>
+                    <button name="action_confirm" states="draft" string="Confirm" type="object"
+                            class="oe_highlight"/>
+                    <button name="action_draft" states="confirm" string="Set To Draft" type="object"
+                            class="oe_highlight"/>
+
+                    <field name="state" widget="statusbar" statusbar_visible="draft,confirm"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only"/>
+                        <h1>
+                            <field name="name" placeholder="Petty Cash Type Name" attrs="{'readonly':[('state', '=' ,'confirm')], 'required': True}"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="type" attrs="{'readonly':[('state', '=' ,'confirm')]}"
+                                   required="1"/>
+                            <field name="journal_id" attrs="{'readonly':[('state', '=' ,'confirm')]}" required="1"/>
+                            <field name="reference" attrs="{'readonly':[('state', '=' ,'confirm')]}"/>
+                        </group>
+                        <group>
+                            <field name="payment_date" attrs="{'readonly':[('state', '=' ,'confirm')]}" required="1" invisible ="0"/>
+                            <field name="adj_date" attrs="{'readonly':[('state', '=' ,'confirm')]}" require="1"/>
+                        </group>
+
+                    </group>
+
+                    <group string="Additional Option">
+                        <field name="force_date" attrs="{'readonly':[('state', '=' ,'confirm')]}" />
+                        <field name="move_group" attrs="{'readonly':[('state', '=' ,'confirm')]}"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="itss_petty_cash_type_tree_view" model="ir.ui.view">
+        <field name="name">itss.petty.cash.type.tree.view</field>
+        <field name="model">petty.cash.type</field>
+        <field name="arch" type="xml">
+            <tree string="">
+                <field name="name"/>
+                <field name="type"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_view_petty_cash_type" model="ir.actions.act_window">
+        <field name="name">Petty Cash Types</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">petty.cash.type</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                <!-- Add Text Here -->
+            </p>
+            <p>
+                <!-- More details about what a user can do with this object will be OK -->
+            </p>
+        </field>
+    </record>
+    <menuitem id="menu_finance_petty_cash" name="Petty Cash" parent="account.menu_finance" sequence="5"/>
+
+
+    <menuitem id="menu_account_petty_cash_type_root" name="Petty Cash Configuration"
+              parent="menu_finance_petty_cash" groups="petty_cash_management.group_petty_cash_manager" sequence="150"/>
+    <menuitem id="menu_account_petty_cash_type_action" name="Petty Cash Types"
+              parent="menu_account_petty_cash_type_root" action="action_view_petty_cash_type"
+    />
+
+</odoo>
