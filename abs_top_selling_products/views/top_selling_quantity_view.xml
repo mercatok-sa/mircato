@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- tree view for Quantity--> 
+    <record id="view_product_quantity_tree" model="ir.ui.view">
+        <field name="name">sale.quantity.tree</field>
+        <field name="model">sale.quantity</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="product"/>
+                <field name="quantity"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="open_view_products_quantity_details_tree" model="ir.actions.act_window">
+        <field name="name">Products</field>
+        <field name="res_model">sale.quantity</field>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="view_product_quantity_tree" />
+    </record>
+
+</odoo>
+
+

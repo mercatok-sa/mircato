@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- create a submenu in menu Sales name as 'Top Selling Products'-->
+    <menuitem id = "menu_top_selling_products"
+        name = "Top Selling Products"
+        parent = "sale.sale_menu_root"
+        action = "open_menu_top_selling_product"/>
+
+</odoo>

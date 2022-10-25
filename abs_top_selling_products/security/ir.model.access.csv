@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_sale_products_user,access_sale_products,model_sale_products,sales_team.group_sale_salesman,1,0,0,0
+access_sale_products_manager,access_sale_products,model_sale_products,sales_team.group_sale_manager,1,1,1,1
+access_sale_quantity_user,access_sale_quantity,model_sale_quantity,sales_team.group_sale_salesman,1,0,0,0
+access_sale_quantity_manager,access_sale_quantity,model_sale_quantity,sales_team.group_sale_manager,1,1,1,1
+
+abs_top_selling_products.access_topselling_orderline,access_topselling_orderline,abs_top_selling_products.model_topselling_orderline,base.group_user,1,1,1,1
+
+

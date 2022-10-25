@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<!--Wizard view with from_date,to_date and order with selection field for amount and quantity-->
+    <record id="view_top_selling_product" model="ir.ui.view">
+        <field name="name">topselling.orderline.form</field>
+        <field name="model">topselling.orderline</field>
+        <field name="arch" type="xml">
+            <form string ="Products">
+                <group>
+                    <group>
+                        <field name = "date_from" required = 'True'/>
+                        <field name = "date_to" required = 'True'/>
+                        <field name= "state" widget='selection' string = "Order by" required="1"/>
+                    </group>
+                </group>
+                <footer>
+                    <button string='Submit' name = "top_selling_product" type='object' class='btn-primary'/>
+                    <button string='Cancel' class='btn-default' special="cancel"/>	
+                </footer>
+            </form>		
+        </field>
+    </record>
+
+    <record id="open_menu_top_selling_product" model="ir.actions.act_window">
+        <field name="name">Top Selling Product</field>
+        <field name="res_model">topselling.orderline</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="view_id" ref="view_top_selling_product"/>	
+    </record>
+
+</odoo>
