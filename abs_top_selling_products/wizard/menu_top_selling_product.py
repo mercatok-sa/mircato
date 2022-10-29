@@ -28,8 +28,8 @@ class TopSelling(models.TransientModel):
     _name = "topselling.orderline"
     _description = "Top Selling Product"
 
-    date_from = fields.Date('From Date')
-    date_to = fields.Date('To Date')
+    date_from = fields.Datetime('From Date')
+    date_to = fields.Datetime('To Date')
     state = fields.Selection([('price','Price'),('qty','Quantity')])    
 
     @api.onchange('date_to')
@@ -47,7 +47,7 @@ class TopSelling(models.TransientModel):
             final_list = []
             order_line_list = []
             product_topselling = self.env['sale.products']
-            sale_order_ids = self.env['pos.order'].search([('date_order','<=',self.date_to),('date_order','>=',self.date_from),('state','in',['sale','done'])])
+            sale_order_ids = self.env['pos.order'].search([('date_order','<=',self.date_to),('date_order','>=',self.date_from),('state','in',['paid','done'])])
             if sale_order_ids:
                 for order in sale_order_ids:
                     sale_order_list.append(order)
@@ -82,18 +82,21 @@ class TopSelling(models.TransientModel):
             final_list = []
             order_line_list = []
             product_topselling = self.env['sale.quantity']
-            sale_order_ids = self.env['pos.order'].search([('date_order','<=',self.date_to),('date_order','>=',self.date_from),('state','in',('sale','done'))])
+            sale_order_ids = self.env['pos.order'].search([('date_order','<=',self.date_to),('date_order','>=',self.date_from),('state','in',('paid','done'))])
+            print(" First Sale_order_lids:::::",sale_order_ids,"\n\n\n")
             if sale_order_ids:
+                print("Sale_order_lids:::::",sale_order_ids,"\n\n\n")
                 for order in sale_order_ids:
                     sale_order_list.append(order)
                 for order in sale_order_list:
-                    for order_lines in order.line:
+                    for order_lines in order.lines:
+                        print("order_lines:::::",order_lines,"\n\n\n")
                         line_list.append(order_lines)
                 for product in line_list:
                     total_amount = 0
                     for same_product in line_list:
                         if product.product_id == same_product.product_id:
-                            total_amount = total_amount + same_product.product_uom_qty
+                            total_amount = total_amount + same_product.qty
                     product_dict = { 'product' : product.product_id.id, 'quantity' : total_amount }
                     topselling_product_id = product_topselling.create(product_dict)
                     if topselling_product_id.product not in final_list: 
