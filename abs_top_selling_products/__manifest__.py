@@ -20,14 +20,14 @@
 #################################################################################
 {
     'name': "Top Selling Product",
-    'author': 'Ascetic Business Solution',
-    'category': 'Sales',
+    'author': 'TeleNOC',
+    'category': 'POS',
     'summary': """Display Top selling Products Based On Price or Quantity of Product""",
-    'website': 'http://www.asceticbs.com',
+    'website': 'http://www.telenoc.org',
     'license': 'AGPL-3',
     'description': """ """,
     'version': '1.0',
-    'depends': ['base','sale_management'],
+    'depends': ['base','sale_management','pos'],
     'data': ['security/ir.model.access.csv','wizard/menu_top_selling_product_view.xml','views/menu_sales_view.xml','views/top_selling_products_view.xml','views/top_selling_quantity_view.xml'],
     'images': ['static/description/banner.png'],
     'installable': True,
