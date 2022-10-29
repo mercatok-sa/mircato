@@ -52,7 +52,7 @@ class TopSelling(models.TransientModel):
                 for order in sale_order_ids:
                     sale_order_list.append(order)
                 for order in sale_order_list:
-                    for order_lines in order.order_line:
+                    for order_lines in order.pos_order_line:
                         line_list.append(order_lines)
                 for product in line_list:
                     total_amount = 0
@@ -87,7 +87,7 @@ class TopSelling(models.TransientModel):
                 for order in sale_order_ids:
                     sale_order_list.append(order)
                 for order in sale_order_list:
-                    for order_lines in order.order_line:
+                    for order_lines in order.pos_order_line:
                         line_list.append(order_lines)
                 for product in line_list:
                     total_amount = 0
