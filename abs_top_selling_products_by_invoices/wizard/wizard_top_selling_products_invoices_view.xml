@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<!-- wizard view with from_date and to_date -->
+<record id="view_top_selling_product" model="ir.ui.view">
+    <field name="name">topselling.invoices.form</field>
+    <field name="model">topselling.invoices</field>
+    <field name="arch" type="xml">
+        <form string ="Products">
+            <group>
+                <group>
+                    <field name = "date_from" required = 'True'/>
+                    <field name = "date_to" required = 'True'/>
+                </group>
+            </group>
+            <footer>
+                <button string='Submit' name = "top_selling_product" type='object' class='btn-primary'/>
+                <button string='Cancel' class='btn-default' special="cancel"/>	
+            </footer>
+        </form>		
+    </field>
+</record>
+
+<record id="open_menu_top_selling_product" model="ir.actions.act_window">
+    <field name="name">Top Selling Product</field>
+    <field name="res_model">topselling.invoices</field>
+    <field name="view_mode">form</field>
+    <field name="target">new</field>
+    <field name="view_id" ref="view_top_selling_product"/>	
+</record>
+
+</odoo>
