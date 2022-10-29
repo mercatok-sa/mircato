@@ -47,7 +47,7 @@ class TopSelling(models.TransientModel):
             final_list = []
             order_line_list = []
             product_topselling = self.env['sale.products']
-            sale_order_ids = self.env['sale.order'].search([('date_order','<=',self.date_to),('date_order','>=',self.date_from),('state','in',['sale','done'])])
+            sale_order_ids = self.env['pos.order'].search([('date_order','<=',self.date_to),('date_order','>=',self.date_from),('state','in',['sale','done'])])
             if sale_order_ids:
                 for order in sale_order_ids:
                     sale_order_list.append(order)
@@ -87,7 +87,7 @@ class TopSelling(models.TransientModel):
                 for order in sale_order_ids:
                     sale_order_list.append(order)
                 for order in sale_order_list:
-                    for order_lines in order.pos_order_line:
+                    for order_lines in order.line:
                         line_list.append(order_lines)
                 for product in line_list:
                     total_amount = 0
