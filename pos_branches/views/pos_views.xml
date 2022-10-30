@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="pos_branch_pos_config_form_inherit" model="ir.ui.view">
+        <field name="name">pos_branch_pos_config_form_inherit</field>
+        <field name="model">pos.config</field>
+        <field name="inherit_id" ref="point_of_sale.pos_config_view_form"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//div[@id='company']/div" position="inside">
+                <label for="branch_id"/>
+                <div>
+                    <field name="branch_id" options="{'no_create': False, 'no_edit': False, 'no_open': False}"/>
+                </div>
+            </xpath>
+
+        </field>
+    </record>
+
+<!--    <div id="company" class="col-12 col-lg-6 o_setting_box" groups="base.group_multi_company">-->
+<!--        <div class="o_setting_right_pane">-->
+<!--            <label for="company_id"/>-->
+<!--            <div>-->
+<!--                <field name="company_id" readonly="1"/>-->
+<!--            </div>-->
+<!--            <div class="o_notification_alert alert alert-warning"-->
+<!--                 attrs="{'invisible':[('company_has_template','=',True)]}" role="alert">-->
+<!--                There is no Chart of Accounts configured on the company. Please go to the invoicing settings to install-->
+<!--                a Chart of Accounts.-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+
+</odoo>

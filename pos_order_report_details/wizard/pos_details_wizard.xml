@@ -11,7 +11,10 @@
                     <field name="end_date"/>
                 </group>
                 <group>
-                    <field name="pos_config_ids" mode="tree" colspan="4" nolabel="1" />
+                    <field name="branch_ids" mode="tree" colspan="4" nolabel="1" force_save="1"/>
+                    <field name="has_many_branches" invisible="1"/>
+                    <field name="detailed_report" attrs="{'invisible': [('has_many_branches', '=', False)]}"/>
+                    <field name="pos_config_ids" mode="tree" colspan="4" nolabel="1" attrs="{'invisible': [('has_many_branches', '=', True)]}"/>
                 </group>
                 <footer>
                     <button name="generate_report" string="Print" type="object" class="btn-primary" data-hotkey="q"/>
