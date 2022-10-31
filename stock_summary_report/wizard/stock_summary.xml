@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+        <record id='stock_wizard_form' model='ir.ui.view' >
+            <field name="name">wizard.stock.summary.form</field>
+            <field name="model">wizard.stock.summary</field>
+            <field name="arch" type="xml">
+                <form string="Stock Summary">
+                <group>
+                    <group>
+                        <field name="start_date"/>
+			            <!-- <field name="product_id" /> -->
+                    </group>
+                    <group>
+                        <field name="end_date"/>
+			            <!-- <field name="location_ids" widget="many2many_tags"/> -->
+                    </group>
+                </group>
+                <group>
+                    <field name="company_id"/>
+                        <field name ="warehouse_id"/>
+                        <field name="location_id"/>
+                </group>
+                    <footer>
+                        <button name="print_stock_report" type="object" default_focus="1"
+                                string="Print Stock Summary" icon="fa-download" 
+                                class="oe_highlight"/>
+                        <button string="Cancel" class="oe_link" special="cancel" />
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record model='ir.actions.act_window' id='stock_act_window'>
+            <field name="name">Stock Summary Report</field>
+            <field name="res_model">wizard.stock.summary</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="stock_wizard_form"/>
+            <field name="target">new</field>
+        </record>
+
+        <report
+            id="stock_summary_xlsx"
+            model="wizard.stock.summary"
+            string="Stock Sumary Report"
+            report_type="xlsx"
+            name="stock_summary_report.stock_summary_report.xlsx"
+            file="Stock Summary Report"
+            menu="False"
+            attachment_use="False"
+        />
+
+        <menuitem name="Stock Summary (Excel)"
+                  parent="stock.menu_warehouse_report"
+                  id="stock_summary_excel"
+                  action="stock_act_window"
+                  sequence="3"/>
+    </data>
+</odoo>
