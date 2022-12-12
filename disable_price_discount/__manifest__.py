@@ -17,10 +17,13 @@
     'application': False,
     'assets': {
         'point_of_sale.assets': [
-            'disable_price_discount/static/src/js/models.js',
+            'disable_price_discount_1/static/src/js/models.js',
         ],
         'web.assets_qweb': [
-            'disable_price_discount/static/src/xml/pos_return.xml',
+            'disable_price_discount_1/static/src/xml/pos_return.xml',
+            'disable_price_discount_1/static/src/xml/remove_popup.xml',
+            # 'disable_price_discount_1/static/src/xml/close_popup_rmv.xml',
+            
         ],
     },
 }
