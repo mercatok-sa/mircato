@@ -148,6 +148,8 @@ class InstallmentLine(models.Model):
 
 class HrEmployee(models.Model):
     _inherit = "hr.employee"
+    
+    dest_location_id = fields.Many2one('stock.location')
 
     def _compute_employee_loans(self):
         """This compute the loan amount and total loans count of an employee.
