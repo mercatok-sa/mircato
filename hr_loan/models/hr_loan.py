@@ -157,3 +157,10 @@ class HrEmployee(models.Model):
         self.loan_count = self.env['hr.loan'].search_count([('employee_id', '=', self.id)])
 
     loan_count = fields.Integer(string="Loan Count", compute='_compute_employee_loans')
+    
+
+class HrEmployeepublic(models.Model):
+    _inherit = "hr.employee.public"
+    
+    dest_location_id = fields.Many2one('stock.location')
+
