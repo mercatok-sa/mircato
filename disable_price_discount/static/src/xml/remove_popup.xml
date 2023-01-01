@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates id="temp" xml:space="preserve">
+   <t t-inherit="point_of_sale.CashOpeningPopup" t-inherit-mode="extension">
+      <xpath expr="//div[@class='modal-dialog']" position="replace">
+        
+       
+      </xpath>
+   </t>
+   
+</templates>
+
