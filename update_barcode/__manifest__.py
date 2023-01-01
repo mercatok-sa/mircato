@@ -14,7 +14,7 @@
     'depends': ['sale'],
     "data": [
         #'security/ir.model.access.csv',
-        #'views/pos_branch_view.xml',
+        # 'data/view.xml',
         #'views/pos_views.xml',
         # 'report/action_pos_report.xml',
         # 'wizard/pos_details_wizard.xml',
