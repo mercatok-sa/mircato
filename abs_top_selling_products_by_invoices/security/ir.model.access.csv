@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+access_products_customerinvoices,access_products_customerinvoices,model_products_customerinvoices,base.group_user,1,1,1,1
+access_topselling_invoices,access_topselling_invoices,model_topselling_invoices,base.group_user,1,1,1,1

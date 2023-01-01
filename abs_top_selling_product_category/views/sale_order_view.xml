@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--  tree view for Top Product Category -->:
+    <record id="view_top_product_category" model="ir.ui.view">
+        <field name="name">top.product.category.tree</field>
+        <field name="model">top.product.category</field>
+        <field name="arch" type="xml">
+            <tree create='false' edit='false' string="Top Selling Product Category" >
+                <field name="product_category_id"/>
+                <field name="amount"/>		
+            </tree>
+        </field>
+    </record>
+
+    <!-- add menu in saleorder -->
+    <menuitem id="menu_top_selling_product_category"
+    name="Top Selling Product Category" 
+    sequence='2' 
+    parent="sale.sale_menu_root"
+    action="open_view_top_product_category_wizard_form_action" />
+</odoo>

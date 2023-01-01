@@ -15,7 +15,7 @@
     'version': '0.1',
     'license': 'AGPL-3',
     'images': [],
-    'depends': ['point_of_sale'],
+    'depends': ['point_of_sale', 'pos_branches'],
     "data": [
         'security/ir.model.access.csv',
         'report/pos_report.xml',
