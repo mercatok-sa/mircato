@@ -48,13 +48,13 @@ class PosSession(models.Model):
                          self.with_context(account_analytic_id=account_analytic_id.id), )._get_tax_vals(key, amount, amount_converted, base_amount_converted)
         return super()._get_tax_vals(key, amount, amount_converted, base_amount_converted)
 
-    def _prepare_balancing_line_vals(self, imbalance_amount, move):
-        account_analytic_id = self.config_id.account_analytic_id
-        if account_analytic_id:
-            return super(PosSession,
-                         self.with_context(account_analytic_id=account_analytic_id.id), )._prepare_balancing_line_vals(
-                imbalance_amount, move)
-        return super()._prepare_balancing_line_vals( imbalance_amount, move)
+    # def _prepare_balancing_line_vals(self, imbalance_amount, move):
+    #     account_analytic_id = self.config_id.account_analytic_id
+    #     if account_analytic_id:
+    #         return super(PosSession,
+    #                      self.with_context(account_analytic_id=account_analytic_id.id), )._prepare_balancing_line_vals(
+    #             imbalance_amount, move)
+    #     return super()._prepare_balancing_line_vals( imbalance_amount, move)
 
     def _get_stock_output_vals(self, out_account, amount, amount_converted):
         account_analytic_id = self.config_id.account_analytic_id
