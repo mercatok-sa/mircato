@@ -58,7 +58,7 @@
                         <col width='65%'/>
                     </colgroup>
              <tr style="border-bottom: 1px solid #e6e6e6">
-                        <td style='text-align:left'>Invoice No:<br/> رقم الفاتورة </td>
+                        <td style='text-align:right'>Invoice No:<br/> رقم الفاتورة </td>
                  <td>
                             <span t-esc="receipt.name"/>
                         </td>
