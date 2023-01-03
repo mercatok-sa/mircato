@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        
+        <report
+            id="report_purchase_requisition"
+            model="purchase.requisition" 
+            string="Purchase Requisition" 
+            report_type="qweb-pdf"
+            name="material_purchase_requisitions.purchase_requisition" 
+            file="material_purchase_requisitions.purchase_requisition"
+        />
+        
+        <template id="purchase_requisition">
+               <t t-foreach="docs" t-as="doc">
+                    <t t-call="report.internal_layout">
+                         <div class="page">
+                             <div class="text-center">
+                                 <h2>
+                                    <strong><p>Purchase Requisition <span t-field="doc.name"/> - <span t-field="doc.state"/> </p></strong><br/>
+                                 </h2>
+                             </div>
+                             <table class="table table-responsive">
+                                <tr style="border: 2px solid black;">
+                                   <td><strong>Employee</strong></td><td> <span t-field="doc.employee_id"/></td>
+                                   <td><strong>Requisition Date</strong></td><td> <span t-field="doc.request_date"/></td>
+                               </tr>
+                               <tr style="border: 2px solid black;">
+                                   <td><strong>Department </strong></td><td> <span t-field="doc.department_id.name"/></td>
+                                   <td><strong>Received Date</strong></td><td> <span t-field="doc.receive_date"/></td>
+                               </tr>
+                               <tr style="border: 2px solid black;">
+                                   <td><strong>Requisition Responsible</strong></td><td> <span t-field="doc.requisiton_responsible_id.name"/></td>
+                                   <td><strong>Requisition Deadline</strong></td><td> <span t-field="doc.date_end"/></td>
+                               </tr>
+                               <tr style="border: 2px solid black;">
+                                   <td><strong>Company</strong></td><td> <span t-field="doc.company_id.name"/></td>
+                                   <td><strong>Analytic Account</strong></td><td> <span t-field="doc.analytic_account_id.name"/></td>
+                               </tr>
+                            </table>
+                            <strong><h3>Other Information</h3></strong>
+                            <table class="table table-responsive">
+                               <tr style="border: 2px solid black;">
+                                   <td><strong>Confirmed By</strong></td><td> <span t-field="doc.employee_confirm_id"/></td>
+                                   <td><strong>Confirmed Date</strong></td><td> <span t-field="doc.confirm_date"/></td>
+                               </tr>
+                               <tr style="border: 2px solid black;">
+                                   <td><strong>Department Manager</strong></td><td> <span t-field="doc.approve_manager_id"/></td>
+                                   <td><strong>Department Approval Date</strong></td><td> <span t-field="doc.managerapp_date"/></td>
+                               </tr>
+                               <tr style="border: 2px solid black;">
+                                   <td><strong>Approved By </strong></td><td> <span t-field="doc.approve_employee_id"/></td>
+                                   <td><strong>Approved Date </strong></td><td> <span t-field="doc.userrapp_date"/></td>
+                               </tr>
+                               <tr style="border: 2px solid black;">
+                                   <td><strong>Rejected By </strong></td><td> <span t-field="doc.reject_employee_id"/></td>
+                                   <td><strong>Rejected Date</strong></td><td> <span t-field="doc.userreject_date"/></td>
+                               </tr>
+                            </table>
+                            <strong><h3>Picking Details</h3></strong>
+                            <table class="table table-responsive">
+                               <tr style="border: 2px solid black;">
+                                   <td><strong>Source Location</strong></td><td> <span t-field="doc.location_id.name"/></td>
+                                   <td><strong>Destination Location </strong></td><td> <span t-field="doc.dest_location_id.name"/></td>
+                               </tr>
+                               <tr style="border: 2px solid black;">
+                                   <td><strong>Internal Picking</strong></td><td> <span t-field="doc.delivery_picking_id.name"/></td>
+                                   <td></td><td></td>
+                               </tr>
+                            </table>
+                            <t t-if="doc.reason">
+                                <strong><h3>Reason for Requisition</h3></strong>
+                                <table class="table table-responsive">
+                                   <tr style="border: 2px solid black;">
+                                       <td> <span t-field="doc.reason"/></td>
+                                   </tr>
+                                </table>
+                            </t>
+                            <strong><h3>Requisition Lines</h3></strong>
+                            <table class="table table-responsive">
+                               <tr style="border: 2px solid black;">
+                                    <td><strong>Requisition Action</strong></td>
+                                    <td><strong>Product</strong></td>
+                                    <td><strong>Description</strong></td>
+                                    <td><strong>Quantity</strong></td>
+                                    <td><strong>Unit of Measure</strong></td>
+                                    <td><strong>Vendors</strong></td>
+                               </tr>
+                               <t t-foreach ="doc.requisition_line_ids" t-as="line">
+                                   <tr style="border: 2px solid grey;">
+                                    <td><span t-field="line.requisition_type"/></td>
+                                    <td><span t-field="line.product_id.name"/></td>
+                                    <td><span t-esc="line.description"/></td>
+                                    <td class="text-right"><span t-esc="line.qty"/></td>
+                                    <td class="text-right"><span t-esc="line.uom.name"/></td>
+                                    <td><t t-foreach ="line.partner_id" t-as="vendore"><span t-field="vendore.name"/>,</t></td>
+                               </tr>
+                               </t>
+                         </table>
+                         <div class="row mt32 mb32">
+                             <div class="col-xs-6 text-left">
+                                <strong>Employee Signature:____________________</strong>
+                             </div>
+                             <div class="col-xs-6 text-left">
+                                <strong>Date:____________________</strong>
+                             </div>
+                         </div>
+                          <div class="row mt32 mb32">
+                             <div class="col-xs-6 text-left">
+                                <strong>Manager Signature:____________________</strong>
+                             </div>
+                             <div class="col-xs-6 text-left">
+                                <strong>Date:____________________</strong>
+                             </div>
+                         </div>
+                         <div class="row mt32 mb32">
+                             <div class="col-xs-6 text-left">
+                                <strong>Approve Signature:____________________</strong>
+                             </div>
+                             <div class="col-xs-6 text-left">
+                                <strong>Date:____________________</strong>
+                             </div>
+                         </div>
+                        </div>
+                    </t>
+               </t>
+        </template>
+        
+  </data>
+</odoo>

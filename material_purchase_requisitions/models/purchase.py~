@@ -1,0 +1,14 @@
+# -*- coding: utf-8 -*-
+
+from odoo import models, fields,api, _
+from odoo.exceptions import UserError
+
+class Purchase(models.Model):
+    _inherit = 'purchase.order'
+
+    purchase_id = fields.Many2one(
+        ''
+    )
+
+# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
+

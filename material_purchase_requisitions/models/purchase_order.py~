@@ -1,0 +1,11 @@
+# -*- coding: utf-8 -*-
+
+from odoo import models, fields, api, _
+
+class PurchaseOrder(models.Model):
+    _name = 'purchase.order'
+    
+    requisition_id = fields.Many2one(
+        'purchase.requisition',
+        string='Requisitions', 
+    )
