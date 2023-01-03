@@ -1,0 +1,44 @@
+# -*- coding: utf-8 -*-
+
+from odoo import models, fields, api, _
+import odoo.addons.decimal_precision as dp
+
+class RequisitionLine(models.Model):
+    _name = "requisition.line"
+    
+    requisition_id = fields.Many2one(
+        'internal.requisition',
+        string='Requisitions', 
+    )
+    product_id = fields.Many2one(
+        'product.product',
+        string='Product',
+        required=True,
+    )
+    layout_category_id = fields.Many2one(
+        'sale.layout_category',
+        string='Section',
+    )
+    description = fields.Char(
+        string='Description',
+        required=True,
+    )
+    qty = fields.Float(
+        string='Ordered Quantity',
+        default=1,
+        required=True,
+    )
+    uom = fields.Many2one(
+        'product.uom',
+        string='Unit of Measure',
+        required=True,
+    )
+    
+    @api.onchange('product_id')
+    def set_uom(self):
+        print 'sssssssssssssssssssssssssssssssss'
+        for rec in self:
+            print 'nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn'
+            rec.description = rec.product_id.name
+
+# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

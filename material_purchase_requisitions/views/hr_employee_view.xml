@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="purchase_requisition_employee_form_view" model="ir.ui.view">
+            <field name="name">hr.employee.form.view</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook/page[last()]" position="after">
+                     <page name="purchase_settings" string="Purchase Requisition Settings">
+                        <group>
+                            <group>
+                                <field name="dest_location_id"/>
+                            </group>
+                        </group>
+                     </page>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

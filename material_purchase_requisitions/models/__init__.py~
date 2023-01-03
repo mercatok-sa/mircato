@@ -1,0 +1,10 @@
+# -*- coding: utf-8 -*-
+
+import purchase_requisition
+import purchase_requisition_line
+import hr_employee
+import hr_department
+import stock_picking
+import purchase_order
+
+# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
