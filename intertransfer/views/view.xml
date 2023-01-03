@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>    
+        <!-- company -->
+
+        <record id="view_location_form_inherit_accounts" model="ir.ui.view">
+            <field name="name">view.location.form.inherit.accounts</field>
+            <field name="model">stock.location</field>
+            <field name="inherit_id" ref="stock.view_location_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='company_id']" position="before">
+                        <field name="location_acc_valuation" options="{'no_create': True}" attrs="{'invisible':[('usage','not in',('internal'))]}"/>
+                        <field name="location_stock_journal" options="{'no_create': True}" attrs="{'invisible':[('usage','not in',('internal'))]}"/>
+                </xpath>
+            </field>
+        </record>
+    <record id="company_locations" model="ir.ui.view">
+        <field name="name">company.locations</field>
+        <field name="model">res.company</field>
+        <field name="inherit_id" ref="base.view_company_form"/>
+        <field name="arch" type="xml">
+        <xpath expr="//form[1]/sheet[1]/notebook[1]" position="inside">
+            <page string="locations" name="locations">
+              <group name="locations">
+                <field name="activat_internal_trans"/>
+                <field name="inter_locations_clearing_account_id" />
+              </group>
+            </page>
+        </xpath>
+        </field>
+    </record>
+   <!-- res_conf_setting -->
+        <record id="view_account_config" model="ir.ui.view">
+            <field name="name">res.config.settings.form.inherit.discount</field>
+            <field name="model">res.config.settings</field>
+            <field name="inherit_id" ref="account.res_config_settings_view_form"/>
+            <field name="arch" type="xml">
+            <xpath expr="//div[@id='default_accounts']" position="inside">
+                    <field name="module_account_accountant" invisible="1"/>
+                    <div class="col-12 col-lg-6 o_setting_box" attrs="{'invisible': [('chart_template_id','=',False), ('module_account_accountant','=',False)]}">
+                        <div class="o_setting_left_pane">
+                            <field name="activat_internal_trans"/>
+                        </div>
+                        <div class="o_setting_right_pane">
+                            <label for="activat_internal_trans"/>
+                            <div class="text-muted">
+                                Activate accounts when transfer between different storage locations
+                            </div>
+                            <div class="content-group" attrs="{'invisible': [('activat_internal_trans', '=', False)]}">
+                                <div class="mt16">
+                                    <label for="inter_locations_clearing_account_id"/>
+                                    <field name="inter_locations_clearing_account_id" class="oe_inline"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>
