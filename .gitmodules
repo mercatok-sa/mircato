@@ -1,0 +1,4 @@
+[submodule "Tariqlab/tariq_private_repo"]
+	path = Tariqlab/tariq_private_repo
+	url = git@github.com:Tariqlab/tariq_private_repo.git
+	branch = main
