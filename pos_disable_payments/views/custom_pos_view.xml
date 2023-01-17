@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<!-- custom fields in res_users view -->
+		<record id="inherit_view_bi_res_users_form" model="ir.ui.view">
+			<field name="name">inherit_view_res_users_form</field>
+			<field name="model">res.users</field>
+			<field name="inherit_id" ref="base.view_users_form"/>
+			<field name="arch" type="xml">
+				<xpath expr="//page" position="after">
+					<page name="pos" string="Point Of Sale">
+						<group>
+							<field name="is_allow_numpad"/>
+							<field name="is_allow_payments"/>
+							<field name="is_allow_discount"/>
+							<field name="is_allow_qty"/>
+							<field name="is_edit_price"/>
+							<field name="is_allow_remove_orderline"/>
+							<field name="is_allow_customer_selection"/>
+							<field name="is_allow_plus_minus_button"/>
+						</group>
+					</page>
+				</xpath>
+			</field>
+		</record>
+
+		<record id="inherit_view_bi_hr_employee_form" model="ir.ui.view">
+			<field name="name">inherit_view_bi_hr_employee_form</field>
+			<field name="model">hr.employee</field>
+			<field name="inherit_id" ref="hr.view_employee_form"/>
+			<field name="arch" type="xml">
+				<page name="hr_settings" position="after">
+					<page name="pos_access" string='Point Of Sale' groups='hr.group_hr_manager'>
+						<group attrs="{'invisible': [('user_id','!=',False)]}">
+							<field name="is_allow_numpad"/>
+							<field name="is_allow_payments"/>
+							<field name="is_allow_discount"/>
+							<field name="is_allow_qty"/>
+							<field name="is_edit_price"/>
+							<field name="is_allow_remove_orderline"/>
+							<field name="is_allow_customer_selection"/>
+							<field name="is_allow_plus_minus_button"/>
+						</group>
+						<group attrs="{'invisible': [('user_id','=',False)]}">
+							<div>
+								<p>POS-related settings are managed on <button name="open_employee_user" type="object" string="The related user" class="oe_link"/></p>
+							</div>
+						</group>
+					</page>
+				</page>
+			</field>
+		</record>
+
+	</data>
+</odoo>

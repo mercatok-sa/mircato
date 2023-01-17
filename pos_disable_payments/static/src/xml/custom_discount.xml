@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<templates id="pos_disc_template" inherit_id="pos_discount.template" xml:space="preserve">
+	<t t-name="DiscountButton" t-inherit="pos_discount.DiscountButton" t-inherit-mode="extension" owl="1">
+		<xpath expr="//span[hasclass('js_discount')]" position="replace">
+		    <span t-attf-class="control-button js_discount {{(env and env.pos and env.pos.get_cashier() and env.pos.get_cashier().is_allow_discount) ? '' : 'oe_hidden'}}">
+	            <i class="fa fa-tag"></i>
+	            <span> </span>
+	            <span>Discount</span>
+	        </span>
+		</xpath>
+	</t>
+</templates>

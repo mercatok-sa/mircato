@@ -1,0 +1,21 @@
+Date 30th june 2022
+---Improvement Version 15.0.0.1
+(1)Allow Customer Selection
+(2)Allow Numpad 
+(3)Allow +/- Button.
+
+=> 15.0.0.2 : Improved an index according to latest changes.
+
+=> 15.0.0.3 : Add French, Spanish , Arabic and Dutch translation in module also improved an index.
+
+Version 15.0.0.4 : (02-09-22)
+        -- Solved numpad hide/show issue.
+
+Version 15.0.0.5 : (12-09-22)
+        -- Refund buttons is not working fixed that issue.
+
+Version 15.0.0.6 : (19/09/22)
+        - When not allow numpad and select employee it not wokring hide funtionality solve issue.
+
+Version 15.0.0.7 : (22/09/22)
+        -- When not allow discount at that time golble discount is visible and not Allow Remove Order Line then from the ticket screen we can remove order. 

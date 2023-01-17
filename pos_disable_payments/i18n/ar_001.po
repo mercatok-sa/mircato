@@ -1,0 +1,146 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_disable_payments
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-08-23 08:05+0000\n"
+"PO-Revision-Date: 2022-08-23 08:05+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: pos_disable_payments
+#: model:ir.model.fields,field_description:pos_disable_payments.field_hr_employee__is_allow_plus_minus_button
+#: model:ir.model.fields,field_description:pos_disable_payments.field_hr_employee_base__is_allow_plus_minus_button
+#: model:ir.model.fields,field_description:pos_disable_payments.field_hr_employee_public__is_allow_plus_minus_button
+#: model:ir.model.fields,field_description:pos_disable_payments.field_res_users__is_allow_plus_minus_button
+msgid "Allow +/- Button"
+msgstr "زر السماح +/-"
+
+#. module: pos_disable_payments
+#: model:ir.model.fields,field_description:pos_disable_payments.field_hr_employee__is_allow_customer_selection
+#: model:ir.model.fields,field_description:pos_disable_payments.field_hr_employee_base__is_allow_customer_selection
+#: model:ir.model.fields,field_description:pos_disable_payments.field_hr_employee_public__is_allow_customer_selection
+#: model:ir.model.fields,field_description:pos_disable_payments.field_res_users__is_allow_customer_selection
+msgid "Allow Customer Selection"
+msgstr "السماح باختيار العميل"
+
+#. module: pos_disable_payments
+#: model:ir.model.fields,field_description:pos_disable_payments.field_hr_employee__is_allow_discount
+#: model:ir.model.fields,field_description:pos_disable_payments.field_hr_employee_base__is_allow_discount
+#: model:ir.model.fields,field_description:pos_disable_payments.field_hr_employee_public__is_allow_discount
+#: model:ir.model.fields,field_description:pos_disable_payments.field_res_users__is_allow_discount
+msgid "Allow Discount"
+msgstr "السماح بالخصم"
+
+#. module: pos_disable_payments
+#: model:ir.model.fields,field_description:pos_disable_payments.field_hr_employee__is_edit_price
+#: model:ir.model.fields,field_description:pos_disable_payments.field_hr_employee_base__is_edit_price
+#: model:ir.model.fields,field_description:pos_disable_payments.field_hr_employee_public__is_edit_price
+#: model:ir.model.fields,field_description:pos_disable_payments.field_res_users__is_edit_price
+msgid "Allow Edit Price"
+msgstr "السماح بتحرير السعر"
+
+#. module: pos_disable_payments
+#: model:ir.model.fields,field_description:pos_disable_payments.field_hr_employee__is_allow_numpad
+#: model:ir.model.fields,field_description:pos_disable_payments.field_hr_employee_base__is_allow_numpad
+#: model:ir.model.fields,field_description:pos_disable_payments.field_hr_employee_public__is_allow_numpad
+#: model:ir.model.fields,field_description:pos_disable_payments.field_res_users__is_allow_numpad
+msgid "Allow Numpad"
+msgstr "السماح Numpad"
+
+#. module: pos_disable_payments
+#: model:ir.model.fields,field_description:pos_disable_payments.field_hr_employee__is_allow_payments
+#: model:ir.model.fields,field_description:pos_disable_payments.field_hr_employee_base__is_allow_payments
+#: model:ir.model.fields,field_description:pos_disable_payments.field_hr_employee_public__is_allow_payments
+#: model:ir.model.fields,field_description:pos_disable_payments.field_res_users__is_allow_payments
+msgid "Allow Payments"
+msgstr "السماح بالدفعات"
+
+#. module: pos_disable_payments
+#: model:ir.model.fields,field_description:pos_disable_payments.field_hr_employee__is_allow_qty
+#: model:ir.model.fields,field_description:pos_disable_payments.field_hr_employee_base__is_allow_qty
+#: model:ir.model.fields,field_description:pos_disable_payments.field_hr_employee_public__is_allow_qty
+#: model:ir.model.fields,field_description:pos_disable_payments.field_res_users__is_allow_qty
+msgid "Allow Qty"
+msgstr "السماح بالكمية"
+
+#. module: pos_disable_payments
+#: model:ir.model.fields,field_description:pos_disable_payments.field_hr_employee__is_allow_remove_orderline
+#: model:ir.model.fields,field_description:pos_disable_payments.field_hr_employee_base__is_allow_remove_orderline
+#: model:ir.model.fields,field_description:pos_disable_payments.field_hr_employee_public__is_allow_remove_orderline
+#: model:ir.model.fields,field_description:pos_disable_payments.field_res_users__is_allow_remove_orderline
+msgid "Allow Remove Order Line"
+msgstr "السماح بإزالة سطر الطلب"
+
+#. module: pos_disable_payments
+#. openerp-web
+#: code:addons/pos_disable_payments/static/src/xml/pos_disable_payments.xml:0
+#, python-format
+msgid "Backspace"
+msgstr "مسافة للخلف"
+
+#. module: pos_disable_payments
+#: model:ir.model,name:pos_disable_payments.model_hr_employee_base
+msgid "Basic Employee"
+msgstr "الموظف الأساسي"
+
+#. module: pos_disable_payments
+#. openerp-web
+#: code:addons/pos_disable_payments/static/src/js/pos_disable_payments.js:0
+#, python-format
+msgid "Change Cashier"
+msgstr "تغيير أمين الصندوق"
+
+#. module: pos_disable_payments
+#. openerp-web
+#: code:addons/pos_disable_payments/static/src/xml/pos_disable_payments.xml:0
+#, python-format
+msgid "Disc"
+msgstr "قرص"
+
+#. module: pos_disable_payments
+#: model:ir.model,name:pos_disable_payments.model_hr_employee
+msgid "Employee"
+msgstr "موظف"
+
+#. module: pos_disable_payments
+#: model_terms:ir.ui.view,arch_db:pos_disable_payments.inherit_view_bi_hr_employee_form
+msgid "POS-related settings are managed on"
+msgstr "تتم إدارة الإعدادات المتعلقة بنقاط البيع"
+
+#. module: pos_disable_payments
+#: model_terms:ir.ui.view,arch_db:pos_disable_payments.inherit_view_bi_hr_employee_form
+#: model_terms:ir.ui.view,arch_db:pos_disable_payments.inherit_view_bi_res_users_form
+msgid "Point Of Sale"
+msgstr "نقطة البيع"
+
+#. module: pos_disable_payments
+#. openerp-web
+#: code:addons/pos_disable_payments/static/src/xml/pos_disable_payments.xml:0
+#, python-format
+msgid "Price"
+msgstr "سعر"
+
+#. module: pos_disable_payments
+#. openerp-web
+#: code:addons/pos_disable_payments/static/src/xml/pos_disable_payments.xml:0
+#, python-format
+msgid "Qty"
+msgstr "الكمية"
+
+#. module: pos_disable_payments
+#: model_terms:ir.ui.view,arch_db:pos_disable_payments.inherit_view_bi_hr_employee_form
+msgid "The related user"
+msgstr "المستخدم المرتبط"
+
+#. module: pos_disable_payments
+#: model:ir.model,name:pos_disable_payments.model_res_users
+msgid "Users"
+msgstr "المستخدمون"

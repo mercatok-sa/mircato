@@ -1,0 +1,146 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_disable_payments
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-08-23 08:06+0000\n"
+"PO-Revision-Date: 2022-08-23 08:06+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: pos_disable_payments
+#: model:ir.model.fields,field_description:pos_disable_payments.field_hr_employee__is_allow_plus_minus_button
+#: model:ir.model.fields,field_description:pos_disable_payments.field_hr_employee_base__is_allow_plus_minus_button
+#: model:ir.model.fields,field_description:pos_disable_payments.field_hr_employee_public__is_allow_plus_minus_button
+#: model:ir.model.fields,field_description:pos_disable_payments.field_res_users__is_allow_plus_minus_button
+msgid "Allow +/- Button"
+msgstr "Knop +/- toestaan"
+
+#. module: pos_disable_payments
+#: model:ir.model.fields,field_description:pos_disable_payments.field_hr_employee__is_allow_customer_selection
+#: model:ir.model.fields,field_description:pos_disable_payments.field_hr_employee_base__is_allow_customer_selection
+#: model:ir.model.fields,field_description:pos_disable_payments.field_hr_employee_public__is_allow_customer_selection
+#: model:ir.model.fields,field_description:pos_disable_payments.field_res_users__is_allow_customer_selection
+msgid "Allow Customer Selection"
+msgstr "Klantselectie toestaan"
+
+#. module: pos_disable_payments
+#: model:ir.model.fields,field_description:pos_disable_payments.field_hr_employee__is_allow_discount
+#: model:ir.model.fields,field_description:pos_disable_payments.field_hr_employee_base__is_allow_discount
+#: model:ir.model.fields,field_description:pos_disable_payments.field_hr_employee_public__is_allow_discount
+#: model:ir.model.fields,field_description:pos_disable_payments.field_res_users__is_allow_discount
+msgid "Allow Discount"
+msgstr "Korting toestaan"
+
+#. module: pos_disable_payments
+#: model:ir.model.fields,field_description:pos_disable_payments.field_hr_employee__is_edit_price
+#: model:ir.model.fields,field_description:pos_disable_payments.field_hr_employee_base__is_edit_price
+#: model:ir.model.fields,field_description:pos_disable_payments.field_hr_employee_public__is_edit_price
+#: model:ir.model.fields,field_description:pos_disable_payments.field_res_users__is_edit_price
+msgid "Allow Edit Price"
+msgstr "Wijzig prijs toestaan"
+
+#. module: pos_disable_payments
+#: model:ir.model.fields,field_description:pos_disable_payments.field_hr_employee__is_allow_numpad
+#: model:ir.model.fields,field_description:pos_disable_payments.field_hr_employee_base__is_allow_numpad
+#: model:ir.model.fields,field_description:pos_disable_payments.field_hr_employee_public__is_allow_numpad
+#: model:ir.model.fields,field_description:pos_disable_payments.field_res_users__is_allow_numpad
+msgid "Allow Numpad"
+msgstr "Numpad toestaan"
+
+#. module: pos_disable_payments
+#: model:ir.model.fields,field_description:pos_disable_payments.field_hr_employee__is_allow_payments
+#: model:ir.model.fields,field_description:pos_disable_payments.field_hr_employee_base__is_allow_payments
+#: model:ir.model.fields,field_description:pos_disable_payments.field_hr_employee_public__is_allow_payments
+#: model:ir.model.fields,field_description:pos_disable_payments.field_res_users__is_allow_payments
+msgid "Allow Payments"
+msgstr "Betalingen toestaan"
+
+#. module: pos_disable_payments
+#: model:ir.model.fields,field_description:pos_disable_payments.field_hr_employee__is_allow_qty
+#: model:ir.model.fields,field_description:pos_disable_payments.field_hr_employee_base__is_allow_qty
+#: model:ir.model.fields,field_description:pos_disable_payments.field_hr_employee_public__is_allow_qty
+#: model:ir.model.fields,field_description:pos_disable_payments.field_res_users__is_allow_qty
+msgid "Allow Qty"
+msgstr "Aantal toestaan"
+
+#. module: pos_disable_payments
+#: model:ir.model.fields,field_description:pos_disable_payments.field_hr_employee__is_allow_remove_orderline
+#: model:ir.model.fields,field_description:pos_disable_payments.field_hr_employee_base__is_allow_remove_orderline
+#: model:ir.model.fields,field_description:pos_disable_payments.field_hr_employee_public__is_allow_remove_orderline
+#: model:ir.model.fields,field_description:pos_disable_payments.field_res_users__is_allow_remove_orderline
+msgid "Allow Remove Order Line"
+msgstr "Orderregel verwijderen toestaan"
+
+#. module: pos_disable_payments
+#. openerp-web
+#: code:addons/pos_disable_payments/static/src/xml/pos_disable_payments.xml:0
+#, python-format
+msgid "Backspace"
+msgstr "Backspace"
+
+#. module: pos_disable_payments
+#: model:ir.model,name:pos_disable_payments.model_hr_employee_base
+msgid "Basic Employee"
+msgstr "Basismedewerker"
+
+#. module: pos_disable_payments
+#. openerp-web
+#: code:addons/pos_disable_payments/static/src/js/pos_disable_payments.js:0
+#, python-format
+msgid "Change Cashier"
+msgstr "Kassier wijzigen"
+
+#. module: pos_disable_payments
+#. openerp-web
+#: code:addons/pos_disable_payments/static/src/xml/pos_disable_payments.xml:0
+#, python-format
+msgid "Disc"
+msgstr "Schijf"
+
+#. module: pos_disable_payments
+#: model:ir.model,name:pos_disable_payments.model_hr_employee
+msgid "Employee"
+msgstr "Medewerker"
+
+#. module: pos_disable_payments
+#: model_terms:ir.ui.view,arch_db:pos_disable_payments.inherit_view_bi_hr_employee_form
+msgid "POS-related settings are managed on"
+msgstr "POS-gerelateerde instellingen worden beheerd op"
+
+#. module: pos_disable_payments
+#: model_terms:ir.ui.view,arch_db:pos_disable_payments.inherit_view_bi_hr_employee_form
+#: model_terms:ir.ui.view,arch_db:pos_disable_payments.inherit_view_bi_res_users_form
+msgid "Point Of Sale"
+msgstr "Verkooppunt"
+
+#. module: pos_disable_payments
+#. openerp-web
+#: code:addons/pos_disable_payments/static/src/xml/pos_disable_payments.xml:0
+#, python-format
+msgid "Price"
+msgstr "Prijs"
+
+#. module: pos_disable_payments
+#. openerp-web
+#: code:addons/pos_disable_payments/static/src/xml/pos_disable_payments.xml:0
+#, python-format
+msgid "Qty"
+msgstr "aantal"
+
+#. module: pos_disable_payments
+#: model_terms:ir.ui.view,arch_db:pos_disable_payments.inherit_view_bi_hr_employee_form
+msgid "The related user"
+msgstr "De gerelateerde gebruiker"
+
+#. module: pos_disable_payments
+#: model:ir.model,name:pos_disable_payments.model_res_users
+msgid "Users"
+msgstr "Gebruikers"
