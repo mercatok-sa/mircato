@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<templates id="template" xml:space="preserve">
+    <!-- Orderline WIdget -->
+	<t t-extend="OrderReceipt">
+		<t t-jquery="t[t-if='taxincluded']" t-operation="after">
+			<br />
+			<div>
+				Total Items:
+				<strong><span t-esc="order.get_total_items()" class="pos-receipt-right-align"/></strong>
+			</div>
+			<br/>
+		</t>
+	</t>
+	<!-- Total Items in OrderWidget -->
+	<t t-extend="OrderWidget">
+
+		<t t-jquery=".summary" t-operation="after">
+			<div class='item_count' style="padding-bottom: 10px; padding-left: 15px;padding-right: 15px;"><i><b style="font-weight: bold; color: #0075AC;font-size: 20px;">Total Items: <span class="val">0</span></b></i></div>
+		</t>
+	</t>
+
+	</templates>
+
+
