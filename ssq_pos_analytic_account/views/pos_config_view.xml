@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="pos_config_return_restriction_form_view" model="ir.ui.view">
+        <field name="name">pos.config.return.restriction.form.view</field>
+        <field name="model">pos.config</field>
+        <field name="inherit_id" ref="point_of_sale.pos_config_view_form" />
+        <field name="arch" type="xml">
+
+            <xpath expr="//div[@id='accounting_section']/div[hasclass('o_setting_box')]" position="after">
+                <div class="col-12 col-lg-6 o_setting_box pos_analytic_account" title="Analytic account to be passed in journal entries">
+                    <div class="o_setting_right_pane">
+                        <span class="o_form_label">Analytic Account</span>
+                        <div class="text-muted">
+                            Configuration for passing analytic account in journal entries
+                        </div>
+                        <div class="content-group">
+                            <div class="row mt16">
+                                <label string="Analytic Account" for="analytic_account_id" class="col-lg-3 o_light_label" options="{'no_open': True, 'no_create': True}"/>
+                                <field name="analytic_account_id" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+
+        </field>
+    </record>
+</odoo>
