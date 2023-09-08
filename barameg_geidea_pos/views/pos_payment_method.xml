@@ -1,0 +1,36 @@
+<odoo>
+    <data>
+       <record id="barameg_geidea_pos_pos_payment_method_view_form" model="ir.ui.view">
+            <field name="name">
+                barameg_geidea_pos_pos_payment_method_view_form
+            </field>
+            <field name="model">pos.payment.method</field>
+            <field name="priority" eval="60"/>
+            <field name="inherit_id"
+                   ref="point_of_sale.pos_payment_method_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//form/sheet" position="inside">
+                    <notebook>
+                        <page string="Geidea Settings">
+                            <group>
+                                <group>
+                                    <field name="EnableGeidea" string="Enable Geidea"/>
+                                    <field
+                                            name="GeideaPort"
+                                            string="Geidea Port"
+                                            attrs="{'invisible':[('EnableGeidea','=',False)], 'required':[('EnableGeidea','!=',False)]}"/>
+                                    <field
+                                            name="GeideaTerminal"
+                                            string="Geidea Terminal"
+                                            context="{'form_view_ref':'barameg_geidea_pos_geidea_terminals_form','tree_view_ref':'barameg_geidea_pos_geidea_terminals_list'}"
+                                            attrs="{'invisible':[('EnableGeidea','=',False)], 'required':[('EnableGeidea','!=',False)]}"/>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

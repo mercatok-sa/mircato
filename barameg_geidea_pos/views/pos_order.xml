@@ -1,0 +1,43 @@
+<odoo>
+    <data>
+       <record id="barameg_geidea_pos_pos_order_view_form" model="ir.ui.view">
+            <field name="name">
+                barameg_geidea_pos_pos_order_view_form
+            </field>
+            <field name="model">pos.order</field>
+            <field name="priority" eval="60"/>
+            <field name="inherit_id"
+                   ref="point_of_sale.view_pos_pos_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='payment_ids']" position="replace">
+                    <field name="payment_ids" context="{'tree_view_ref':'barameg_geidea_pos_pos_payment_view_tree'}"/>
+                </xpath>
+                <xpath expr="//form/sheet/notebook" position="inside">
+                        <page string="Geidea Info">
+                            <group>
+                                <group>
+                                    <field name="ecr_number" string="ECR Number"/>
+                                </group>
+                            </group>
+                        </page>
+                </xpath>
+            </field>
+        </record>
+
+       <record id="barameg_geidea_pos_pos_order_view_tree" model="ir.ui.view">
+            <field name="name">
+                barameg_geidea_pos_pos_order_view_tree
+            </field>
+            <field name="model">pos.order</field>
+            <field name="priority" eval="60"/>
+            <field name="inherit_id"
+                   ref="point_of_sale.view_pos_order_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="after">
+                    <field name="ecr_number" string="ECR Number"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>
