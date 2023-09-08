@@ -38,6 +38,6 @@
         "static/src/xml/pos_receipt.xml"
     ],
     "installable": True,
-    "auto_install": True,
+    "auto_install": False,
     "application": True,
 }
