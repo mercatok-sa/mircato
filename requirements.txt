@@ -1,0 +1,7 @@
+# python-docx
+# asn1crypto
+# xlrd
+# html2text
+# PyKCS11
+xlsxwriter
+xlrd
