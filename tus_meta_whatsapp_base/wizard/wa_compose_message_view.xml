@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="ir.ui.view" id="wa_compose_message_wizard_form">
+        <field name="name">wa.compose.message.form</field>
+        <field name="model">wa.compose.message</field>
+        <field name="arch" type="xml">
+            <form string="Compose WA">
+                <group>
+                    <field name="partner_id" placeholder="Add contacts to notify..."/>
+                    <field name="model" invisible="1"/>
+                    <field name="res_id" invisible="1"/>
+                </group>
+                <field name="body" options="{'style-inline': true}"/>
+                <group col="4">
+                    <field name="provider_id" required="1" domain="[('company_id','=',company_id),('id','in',allowed_provider_ids)]" />
+                    <field name="template_id" domain="[('provider_id','=',provider_id)]"/>
+                    <field name="company_id" invisible="1"/>
+                    <field name="allowed_provider_ids" invisible="1"/>
+                </group>
+<!--                <group col="4">-->
+<!--                    <field name="provider_id" required="1"/>-->
+<!--                    <field name="template_id"/>-->
+<!--                    <field name="allowed_provider_ids"/>-->
+<!--                </group>-->
+                <group col="4">
+                    <field name="attachment_ids" widget="many2many_binary" string="Attach a file" nolabel="1" colspan="2"/>
+                </group>
+                <footer>
+                    <button name="send_whatsapp_message" string="Send Message" type="object"
+                            class="oe_highlight"/>
+                    <button string="Cancel" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <act_window id="action_wa_compose_message_wizard"
+                name="Compose WA"
+                res_model="wa.compose.message"
+                view_mode="form"
+                target="new"/>
+
+<!--    <record id="action_wa_compose_message_wizard_wizard" model="ir.actions.act_window">-->
+<!--        <field name="name">WA Composer</field>-->
+<!--        <field name="type">ir.actions.act_window</field>-->
+<!--        <field name="res_model">wa.compose.message</field>-->
+<!--        <field name="view_mode">form</field>-->
+<!--        <field name="view_id" ref="wa_compose_message_wizard_form"/>-->
+<!--        <field name="target">new</field>-->
+<!--    </record>-->
+
+<!--       <record model="ir.actions.act_window" id="wa_msgs_action">-->
+<!--        <field name="name">Whatsapp Message</field>-->
+<!--        <field name="res_model">wa.msgs</field>-->
+<!--        <field name="view_mode">tree,form</field>-->
+<!--    </record>-->
+
+</odoo>

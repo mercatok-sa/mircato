@@ -1,0 +1,36 @@
+<odoo>
+    <data>
+        <record id="pos_config_view_form_inherit_is_chatter" model="ir.ui.view">
+            <field name="name">pos config view form inherit is chatter</field>
+            <field name="model">pos.config</field>
+            <field name="inherit_id" ref="point_of_sale.pos_config_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[@id='posbox_reference']" position="after">
+                    <h2 name="pos_chat" groups="tus_meta_wa_pos.whatsapp_group_pos_user">Whatsapp</h2>
+                    <div class="row mt16 o_settings_container" groups="tus_meta_wa_pos.whatsapp_group_pos_user">
+                        <div class="col-xs-12 col-md-6 o_setting_box">
+                            <div class="o_setting_left_pane">
+                                <field name="send_pos_receipt_on_validate" class="oe_inline"/>
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label for="send_pos_receipt_on_validate" class="col-lg-3 o_light_label"/>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-6 o_setting_box" attrs="{'invisible':[('send_pos_receipt_on_validate','=',False)]}">
+                            <div class="o_setting_right_pane">
+                                <div class="row">
+                                    <label for="provider_id" class="col-lg-3 o_light_label"/>
+                                    <field name="provider_id" domain="[('company_id','=',company_id),('id','in',allowed_provider_ids)]" />
+                                    <label for="template_id" class="col-lg-3 o_light_label"/>
+                                    <field name="template_id" domain="[('provider_id','=',provider_id)]"/>
+                                    <field name="allowed_provider_ids" invisible="1"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </xpath>
+
+            </field>
+        </record>
+    </data>
+</odoo>

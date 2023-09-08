@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="mail_channel_view_form_inherit" model="ir.ui.view">
+            <field name="name">mail.channel.form.view</field>
+            <field name="model">mail.channel</field>
+            <field name="inherit_id" ref="mail.mail_channel_view_form"/>
+            <field name="arch" type="xml">
+                <field name="description" position="before">
+                    <field name="whatsapp_channel"/>
+                </field>
+            </field>
+        </record>
+    </data>
+</odoo>

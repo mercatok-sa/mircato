@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="graph_provider_inherit_form_view" model="ir.ui.view">
+        <field name="name">provider.inherit.form</field>
+        <field name="model">provider</field>
+        <field name="inherit_id" ref="tus_meta_whatsapp_base.provider_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr='//group[@name="provider"]' position='inside'>
+                <field name="graph_api_url" attrs="{'invisible': [('provider', '!=', 'graph_api')]}"/>
+                <field name="graph_api_instance_id" attrs="{'invisible': [('provider', '!=','graph_api')]}"/>
+                <field name="graph_api_business_id" attrs="{'invisible': [('provider', '!=','graph_api')]}"/>
+                <field name="graph_api_token" attrs="{'invisible': [('provider', '!=', 'graph_api')]}"/>
+                <field name="graph_api_authentication" attrs="{'invisible': [('provider', '!=', 'graph_api')]}"/>
+                <field name="graph_api_authenticated" attrs="{'invisible': [('provider', '!=', 'graph_api')]}"/>
+                <field name="user_id" attrs="{'invisible': [('provider', '!=', 'graph_api')]}"/>
+            </xpath>
+            <xpath expr='//group[@name="provider"]' position='after'>
+                <h2>
+                    <field name="call_back_url" attrs="{'invisible': [('is_token_generated', '!=', True)]}" readonly="1" force_save="1"/>
+                    <field name="is_token_generated" invisible="1"/>
+                </h2>
+                <div class="row" style="float:right;" attrs="{'invisible': [('provider', '!=', 'graph_api')]}">
+                    <div class="col-12">
+                        <button name="reload_with_get_status"
+                                type="object"
+                                class="oe_stat_button"
+                                icon="fa-refresh">
+                            Reload / Get Status
+                        </button>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>

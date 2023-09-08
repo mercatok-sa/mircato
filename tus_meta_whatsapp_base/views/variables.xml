@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="variables_view_form" model="ir.ui.view">
+            <field name="name">variables.view.form</field>
+            <field name="model">variables</field>
+            <field name="arch" type="xml">
+                <form string="Variables">
+                    <sheet>
+<!--                        <div class="oe_title">-->
+<!--                            <label for="name" class="oe_edit_only" string="WA Template"/>-->
+<!--                            <h1>-->
+<!--                                <field name="name" required="1"/>-->
+<!--                            </h1>-->
+                            <group>
+                                <field name="field_id"/>
+                                <field name="model_id" invisible="1"/>
+                            </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="variables_view_tree" model="ir.ui.view">
+            <field name="name">variables.view.tree</field>
+            <field name="model">variables</field>
+            <field name="arch" type="xml">
+                <tree string="Components" editable="bottom">
+                    <field name="field_id"/>
+                    <field name="model_id" force_save = "1" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+
+    </data>
+</odoo>

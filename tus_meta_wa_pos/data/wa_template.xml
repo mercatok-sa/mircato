@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <record id="point_of_sale_wa_template" model="wa.template">
+            <field name="name">point_of_sale_template</field>
+            <field name="provider_id" ref="tus_meta_whatsapp_base.provider_1"></field>
+            <field name="model_id" ref="point_of_sale.model_pos_order"/>
+            <field name="category">alert_update</field>
+            <field name="lang" ref="base.lang_en"/>
+            <field name="body_html" type="html">
+                <div style="margin: 0px; padding: 0px;">
+                    <div style="margin: 0px; padding: 0px;">
+                        <p style="margin: 0px; padding: 0px; font-size: 13px;">
+                            Hello <t t-out="object.partner_id.name or 'Customer'"/>,
+                            <br/><br/>
+                            Your quotation <strong t-out="object.name or ''" contenteditable="false">Shop/0001</strong> amounting in <strong t-out="format_amount(object.amount_total, object.pricelist_id.currency_id) or ''" contenteditable="false">$ 10.00</strong> is ready for review.
+                            <br/><br/>
+                            Do not hesitate to contact us if you have any questions.
+                            <br/>
+                        </p>
+                    </div>
+                </div>
+            </field>
+        </record>
+
+        <record id="point_of_sale_wa_template_header" model="components">
+            <field name="type">header</field>
+            <field name="formate">media</field>
+            <field name="wa_template_id" ref="tus_meta_wa_pos.point_of_sale_wa_template"/>
+            <field name="media_type">image</field>
+        </record>
+
+        <record id="point_of_sale_wa_template_body" model="components">
+            <field name="type">body</field>
+            <field name="formate">text</field>
+            <field name="wa_template_id" ref="tus_meta_wa_pos.point_of_sale_wa_template"/>
+            <field name="text">Hello {{1}},
+
+Your quotation {{2}} amounting in {{3}} is ready for review.
+
+Do not hesitate to contact us if you have any questions.
+            </field>
+        </record>
+    </data>
+</odoo>

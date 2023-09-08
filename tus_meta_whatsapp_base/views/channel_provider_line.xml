@@ -1,0 +1,27 @@
+<odoo>
+    <record model="ir.ui.view" id="channel_provider_line_form_view">
+        <field name="name">channel.provider.line.form</field>
+        <field name="model">channel.provider.line</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="channel_id"/>
+                        <field name="provider_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="channel_provider_line_tree_view">
+        <field name="name">channel.provider.line.tree</field>
+        <field name="model">channel.provider.line</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="channel_id"/>
+                <field name="provider_id"/>
+            </tree>
+        </field>
+    </record>
+</odoo>

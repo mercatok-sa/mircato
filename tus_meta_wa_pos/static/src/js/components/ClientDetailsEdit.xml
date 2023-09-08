@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template id="template">
+    <t t-name="ClientDetailsEdit" t-inherit="point_of_sale.ClientDetailsEdit" t-inherit-mode="extension" owl="1">
+        <xpath expr="//section/div/div[hasclass('client-details-right')]/div[3]" position="after">
+            <div class="client-detail">
+                <span class="label">Mobile</span>
+                <input class="detail client-mobile" name="mobile" type="tel"
+                       t-on-change="captureChange"
+                       t-att-value="props.partner.mobile || ''" />
+            </div>
+        </xpath>
+    </t>
+</template>

@@ -1,0 +1,1155 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Odoo</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+          integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap" rel="stylesheet">
+    <link href="https://apps.odoocdn.com/web/content/7297172-19e3d31/1/web.assets_frontend.css" rel="stylesheet">
+
+</head>
+<!-- odoo description page css -->
+
+<body>
+<!--header-->
+<section id="header">
+
+    <style>
+		#header a:link{
+		   	color: white !important;
+		   	background-color: transparent;
+		   	text-decoration: none;
+			}
+
+		#header a:hover{
+		    color: #46536b !important;;
+		    background-color: transparent;
+			}
+		/* Footer */
+		@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+
+		#footer h5{
+			padding-left: 10px;
+		    border-left: 3px solid #eeeeee;
+		    padding-bottom: 6px;
+		    margin-bottom: 20px;
+		    color:#ffffff;
+		}
+
+
+		#footer ul.social li:hover a i{
+			font-size:30px;
+			margin-top:-10px;
+		}
+
+
+		#footer ul.social li a:hover{
+			color:#eeeeee;
+		}
+
+		#footer ul.quick-links li:hover{
+			padding: 3px 0;
+			margin-left:5px;
+			font-weight:700;
+		}
+
+		#footer ul.quick-links li:hover a i{
+		    font-weight: 700;
+		}
+
+		@media (max-width:767px){
+			#footer h5 {
+		    padding-left: 0;
+		    border-left: transparent;
+		    padding-bottom: 0px;
+		    margin-bottom: 10px;
+		}}
+
+    </style>
+<!--                <section class="oe_container lead" style="background:#f9ffa5!important;">-->
+<!--                    <div>-->
+<!--                        <div>-->
+<!--                            <p class="oe_slogan" style="color:#ff0000; font-size:30px; font-weight:900!important;">WARNING</p>-->
+<!--                            <p class="oe_slogan" style="color:#49a3fe; font-size:25px; font-weight:900!important; margin-top: -25px!important; margin-bottom: -25px!important;">Included Dependencies</p>-->
+<!--                            <p class="oe_slogan" style="font-size:25px; color:##21B799;">This Module will not work Independently, You have to purchase following Module from Odoo App Store.-->
+<!--                                <br><a class="text-center" style="color:#21B799; font-weight:900!important;" href="https://apps.odoo.com/apps/modules/15.0/tus_meta_whatsapp_base/" target="_blank">Odoo Meta WhatsApp Graph API</a></p>-->
+
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </section>-->
+    <div class="col-md-12">
+
+        <img src="ltrhdthree.png" alt="Logo" style="width: 100%;"/>
+    </div>
+</section>
+
+            <section class="oe_container lead">
+                <div class="tab-pane active" id="ept_features">
+                    <div class="container">
+
+                        <section class="oe_container lead">
+                            <div>
+                                <div>
+                                    <h2 class="oe_slogan" style="color:#000000;"><b>Odoo Facebook/Graph/Meta/WhatsApp Integration - WhatsApp Business Platform Cloud API</b></h2>
+                                    <h3 class="oe_slogan" style="color:#000000;"><b>Connecting your business with WhatsApp is a boon for you!</b></h3>
+                                    <p class="oe_slogan" style="font-size:20px;">Communicating with customers through WhatsApp shows positive impact on your business.<br>
+                                        The WhatsApp Business Platform Cloud API is based on Meta/Facebook's Graph API Which allows medium and large businesses to communicate with their customers at scale.<br>
+                                        Send and receive whatsapp messages quickly & easily directly from Odoo to WhatsApp and WhatsApp to Odoo.<br>
+                                        Let's have a look at how communicate through WhatsApp in Odoo Works!</p>
+
+                                </div>
+                            </div>
+                        </section>
+
+        <!-- tab view start -->
+ <section class="oe_container lead">
+     <div>
+         <div class="justify-content-center d-flex">
+             <!-- Nav pills -->
+             <ul class="nav o_tab_nav"
+                 style="border: 1px solid #203038; border-radius: 6px 6px; overflow: hidden; background-color: transparent;">
+                 <li class="nav-item" style="border-radius: 6px 0 0 6px;">
+                     <a class="nav-link px-md-4 list-group-item list-group-item-action active" data-toggle="pill"
+                        href="#overview" role="tab" aria-controls="pills-overviews" aria-selected="true"
+                        style="border-radius: 6px 0 0 6px; border-right: 1px solid #203038; opacity: 1; padding: 16px;">Overview</a>
+                 </li>
+                 <li class="nav-item">
+                     <a class="nav-link px-md-4 list-group-item list-group-item-action" data-toggle="pill"
+                        href="#support" role="tab" aria-controls="pills-support" aria-selected="false"
+                        style="border-radius: 0px; border-right: 1px solid #203038; opacity: 1; padding: 16px;" data-target="#support">Support</a>
+                 </li>
+                 <li class="nav-item">
+                     <a class="nav-link px-md-4 list-group-item list-group-item-action" data-toggle="pill"
+                        href="#guides" role="tab" aria-controls="pills-guides" aria-selected="false"
+                        style="border-radius: 0px; opacity: 1; padding: 16px;" data-target="#guides">User Guides</a>
+                 </li>
+                 <li class="nav-item">
+                     <a class="nav-link px-md-4 list-group-item list-group-item-action" data-toggle="pill"
+                        href="#releases" role="tab" aria-controls="pills-releases" aria-selected="false"
+                        style="border-radius: 0px; opacity: 1; padding: 16px;" data-target="#releases">Releases</a>
+                 </li>
+             </ul>
+         </div>
+
+         <style>
+  .nav-pills .nav-item .active {
+    background-color: blue; /* Change this to the desired color */
+    color: white; /* Change this to the desired text color */
+  }
+
+
+         </style>
+
+
+        <!-- Tab panes -->
+        <div class="tab-content py-5">
+            <div class="tab-pane active" id="overview">
+                <div class="row">
+                    <div class="col-12 col-md-12 pt-4 pt-md-0">
+                        <div class="tab-content h-100">
+                            <div class="tab-pane active" id="Advance1">
+
+                    <section class="oe_container">
+                        <h3 class="text-center alert"
+                            style="font-family: Roboto;font-weight:500;color: #091E42;background: #F0F4F7;border-radius: 10px;">
+                            Odoo-WhatsApp Integration Features
+                        </h3>
+                    </section>
+                        <section class="oe_container lead">
+                        <div class="row mb16 mp-features">
+                            <div class="col-md-6 mt16 mb16" style="display:flex">
+                                <div class="col-md-12 shadow-sm">
+                                    <div class="container">
+                                        <li style="font-weight:bold;color: #ff8303;">Official WhatsApp Cloud API - By Meta(Facebook)</li>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mt16 mb16" style="display:flex">
+                                <div class="col-md-12 shadow-sm">
+                                    <div class="container">
+                                        <li style="font-weight:bold;color: #ff8303;">Multi Company and Multi Providers</li>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mt16 mb16" style="display:flex">
+                                <div class="col-md-12 shadow-sm">
+                                    <div class="container">
+                                        <li style="font-weight:bold; color: #ff8303;">User can Create/Edit/Remove/Delete WhatsApp Templates</li>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mt16 mb16" style="display:flex">
+                                <div class="col-md-12 shadow-sm">
+                                    <div class="container">
+                                        <li style="font-weight:bold;color: #ff8303;">Showing All WhatsApp Chat History</li>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mt16 mb16" style="display:flex">
+                                <div class="col-md-12 shadow-sm">
+                                    <div class="container">
+                                        <li style="font-weight:bold;color: #ff8303;">Configure WhatsApp Templates in Particular User/Customer</li>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mt16 mb16" style="display:flex">
+                                <div class="col-md-12 shadow-sm">
+                                    <div class="container">
+                                        <li style="font-weight:bold;color: #ff8303;">Media files such as product videos, pictures, PDF, .doc files etc can be sent within a single click. </li>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </section>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-pane fade" id="support">
+                <div class="card-body p-0">
+                    <section class="oe_container">
+                        <h3 class="text-center alert"
+                            style="font-family: Roboto;font-weight:500;color: #091E42;background: #F0F4F7;border-radius: 10px;">
+                            Support Charges
+                        </h3>
+                    </section>
+                    <section class="oe_container lead">
+                        <div class="row mb16 mp-features">
+                            <div class="col-md-12 mt16 mb16" style="display:flex">
+                                <div class="col-md-12 shadow-sm">
+                                    <div class="container">
+                                        <li style="font-weight:bold;color: #ff8303;">1 - Meta Setup Support: <span style="font-weight:bold;color: #1f82ff;">200$</span></li>
+                                        <li style="font-weight:bold;color: #ff8303;">2 - Whatsapp + Meta Support: <span style="font-weight:bold;color: #1f82ff;">300$</span></li>
+                                        <li style="font-weight:bold;color: #ff8303;">3 - Template Creation + Support Charges: <span style="font-weight:bold;color: #1f82ff;">20$ per template creation</span></li>
+                                    </div>
+                                    <div class="" style="background-color: #FFA500;top: 50%;min-width: 65px; left: 0;box-sizing: border-box;padding: 10px;text-align: center; color: #fff;border-top-left-radius: 5px;border-bottom-left-radius: 5px;">
+                                        <li style="font-weight:bold;color: #1f82ff;display: block; text-align: left;">NOTE:</li>
+                                        <li style="font-size: 20px;font-weight: 700;text-align: left;">Any issue related to modules will have free support of 90 days</li>
+                                        <li style="font-size: 20px;font-weight: 700;text-align: left;">Support will be available From Monday to Friday between 10:00 AM to 7:00 PM Indian Standard Time – (IST) Time Zone.</li>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+            
+            <div class="tab-pane fade" id="guides">
+                <div class="card-body p-0">
+                    <section class="oe_container">
+                        <h3 class="text-center alert"
+                            style="font-family: Roboto;font-weight:500;color: #091E42;background: #F0F4F7;border-radius: 10px;">
+                            User Guides
+                        </h3>
+                    </section>
+                    <section class="oe_container lead">
+                        <div class="row mb16 mp-features">
+                            <div class="col-md-12 mt16 mb16" style="display:flex">
+                                <div class="col-md-12 shadow-sm">
+                                    <div class="container">
+                                        <li style="font-weight:bold;color: #ff8303;">1 - How to generate Permanent Access Token in WhatsApp Cloud API? : <a style="font-weight:bold;color: #1f82ff;" href="https://www.google.com/search?q=how+to+generate+permanent+token+for+whatsapp+cloud+api&sxsrf=APwXEddbv4w7W8g3qkQe0KbWVL5unO0hlg%3A1681375871565&ei=f8I3ZMv7IceVseMPt86DmAw&ved=0ahUKEwiLt7ucvab-AhXHSmwGHTfnAMMQ4dUDCA8&uact=5&oq=how+to+generate+permanent+token+for+whatsapp+cloud+api&gs_lcp=Cgxnd3Mtd2l6LXNlcnAQAzIFCCEQoAEyCAghEBYQHhAdOgQIABBHOgUIABCiBDoECCEQCkoECEEYAFDqB1jFf2CfmAFoAXADeACAAbYCiAG0HZIBCDAuMTEuNy4xmAEAoAEByAEIwAEB&sclient=gws-wiz-serp" target="_blank">Click Here</a> </li>
+                                        <li style="font-weight:bold;color: #ff8303;">2 - WhatsApp Cloud API are charged per conversation? : <a style="font-weight:bold;color: #1f82ff;" href="https://developers.facebook.com/docs/whatsapp/pricing/" target="_blank">Click Here</a> </li>
+                                        <li style="font-weight:bold;color: #ff8303;">3 - WhatsApp 24-hour rule? : <a style="font-weight:bold;color: #1f82ff;" href="https://developers.facebook.com/docs/whatsapp/conversation-types" target="_blank">Click Here</a> </li>
+                                        <li style="font-weight:bold;color: #ff8303;">4 - Install phonenumbers Python Library Package : <span style="font-weight:bold;color: #1f82ff;">sudo pip3 install phonenumbers</span> </li>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+
+            <div class="tab-pane fade" id="releases">
+                <section class="card mb-5" style="border: none;">
+                    <div class="card-body pb-5 active">
+                        <section class="oe_container">
+                            <h3 class="text-center alert"
+                                style="font-family: Roboto;font-weight:500;color: #091E42;background: #F0F4F7;border-radius: 10px;">
+                                Our Releases
+                            </h3>
+                        </section>
+                        <br>
+
+                        <div class="row justify-content-center">
+                            <div class="col-sm-8 col-xl-6 mx-auto">
+                                <span style="background-color: #203038;width:4px;height:100%;top: 0;left: 55px;"></span>
+                                <div class="pb-3">
+                                    <div class="" style="background-color: #FFA500;top: 50%;min-width: 65px; left: 0;box-sizing: border-box;padding: 10px;text-align: center; color: #fff;border-top-left-radius: 5px;border-bottom-left-radius: 5px;">
+                                        <span style="font-size: 20px;font-weight: 700;display: block;">Latest Release - 1.6</span>
+                                    </div>
+                                    <div style="padding: 1.5rem 2rem;border-top-right-radius: 10px;box-shadow: 0 15px 35px rgb(173 156 36), 0 5px 15px rgb(204 241 0 / 7%);background-color: #fff;border-bottom-right-radius: 10px;">
+                                        <div class="timeline__content">
+                                            <h3 style="font-weight: 400; margin-bottom:20px">Bug Fixes & Improvements:</h3>
+                                            <li style="color: #666; margin-bottom: 10px;"> </span>
+                                            Issue: import json package/library added in discuss module  - v15.
+                                             </li>
+                                            <li style="color: #666; margin-bottom: 10px;"> </span>
+                                            Issue: import WebHookMeta package/library added in pos module  - v15.
+                                             </li>
+                                            <li style="color: #666; margin-bottom: 10px;"> </span>
+                                            Improvements: When Odoo Message Sent, Delivered, Read in WhatsApp - Single, Double Gray Tick and Double Blue Tick (Read Receipts) in Odoo Chatter and Discuss - v15.
+                                             </li>
+                                            <li style="color: #666; margin-bottom: 10px;"> </span>
+                                            Improvements: In Odoo Chatter and Discuss, WhatsApp Tab Design changed to same as WhatsApp Screen - v15.
+                                             </li>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+
+                                <div class="pb-3">
+                                    <div class="" style="background-color: #FFA500;top: 50%;min-width: 65px; left: 0;box-sizing: border-box;padding: 10px;text-align: center; color: #fff;border-top-left-radius: 5px;border-bottom-left-radius: 5px;">
+                                        <span style="font-size: 20px;font-weight: 700;display: block;">Release - 1.5</span>
+                                    </div>
+                                    <div style="padding: 1.5rem 2rem;border-top-right-radius: 10px;box-shadow: 0 15px 35px rgb(173 156 36), 0 5px 15px rgb(204 241 0 / 7%);background-color: #fff;border-bottom-right-radius: 10px;">
+                                        <div class="timeline__content">
+                                            <h3 style="font-weight: 400; margin-bottom:20px">Bug Fixes & Improvements:</h3>
+                                             <li style="color: #666; margin-bottom: 10px;"> </span>
+                                            Improvements: When Incoming WhatsApp Message Seen/Read in odoo, Double Blue Tick (Read Receipts) in WhatsApp - v15.
+                                             </li>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+
+                                <div class="pb-3">
+                                    <div class="" style="background-color: #FFA500;top: 50%;min-width: 65px; left: 0;box-sizing: border-box;padding: 10px;text-align: center; color: #fff;border-top-left-radius: 5px;border-bottom-left-radius: 5px;">
+                                        <span style="font-size: 20px;font-weight: 700;display: block;">Release - 1.4</span>
+                                    </div>
+                                    <div style="padding: 1.5rem 2rem;border-top-right-radius: 10px;box-shadow: 0 15px 35px rgb(173 156 36), 0 5px 15px rgb(204 241 0 / 7%);background-color: #fff;border-bottom-right-radius: 10px;">
+                                        <div class="timeline__content">
+                                            <h3 style="font-weight: 400; margin-bottom:20px">Bug Fixes & Improvements:</h3>
+                                             <li style="color: #666; margin-bottom: 10px;"> </span>
+                                            In WhatsApp, Reply on Message will be added in same thread/message/channel in Odoo - v15.
+                                             </li>
+                                            <li style="color: #666; margin-bottom: 10px;"> </span>
+                                            Pre WhatsApp Message Templates Functionality Updated - v16.
+                                             </li>
+                                             <li style="color: #666; margin-bottom: 10px;"> </span>
+                                            Rebranding of Discuss Screen - v15.
+                                             </li>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+
+                                <div class="pb-3">
+                                    <div class="" style="background-color: #FFA500;top: 50%;min-width: 65px; left: 0;box-sizing: border-box;padding: 10px;text-align: center; color: #fff;border-top-left-radius: 5px;border-bottom-left-radius: 5px;">
+                                        <span style="font-size: 20px;font-weight: 700;display: block;">Release - 1.3</span>
+                                    </div>
+                                    <div style="padding: 1.5rem 2rem;border-top-right-radius: 10px;box-shadow: 0 15px 35px rgb(173 156 36), 0 5px 15px rgb(204 241 0 / 7%);background-color: #fff;border-bottom-right-radius: 10px;">
+                                        <div class="timeline__content">
+                                            <h3 style="font-weight: 400; margin-bottom:20px">Bug Fixes & Improvements:</h3>
+                                             <li style="color: #666; margin-bottom: 10px;"> </span>
+                                            Pre WhatsApp Message Templates Functionality Added in Discuss Sidebar - v15.
+                                             </li>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+                                
+                                <div class="pb-3">
+                                    <div class="" style="background-color: #FFA500;top: 50%;min-width: 65px; left: 0;box-sizing: border-box;padding: 10px;text-align: center; color: #fff;border-top-left-radius: 5px;border-bottom-left-radius: 5px;">
+                                        <span style="font-size: 20px;font-weight: 700;display: block;">Release - 1.2</span>
+                                    </div>
+                                    <div style="padding: 1.5rem 2rem;border-top-right-radius: 10px;box-shadow: 0 15px 35px rgb(173 156 36), 0 5px 15px rgb(204 241 0 / 7%);background-color: #fff;border-bottom-right-radius: 10px;">
+                                        <div class="timeline__content">
+                                            <h3 style="font-weight: 400; margin-bottom:20px">Bug Fixes & Improvements:</h3>
+                                            <li style="color: #666; margin-bottom: 10px;"> </span>
+                                            Added Smart Buttons in WhatsApp Marketing History - v15
+                                             </li>
+                                            <li style="color: #666; margin-bottom: 10px;"> </span>
+                                            Added Related Model Field in WhatsApp History - v15
+                                             </li>
+                                            <li style="color: #666; margin-bottom: 10px;"> </span>
+                                            Added Filter, Groupby, Searchby in WhatsApp History - v15
+                                             </li>
+                                            <li style="color: #666; margin-bottom: 10px;"> </span>
+                                            Error Message Handling - Input/Output Error, Message Failed, Wrong Paramenters, 24 hours rule, etc., - v15
+                                             </li>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+
+                                <div class="pb-3">
+                                    <div class="" style="background-color: #FFA500;top: 50%;min-width: 65px; left: 0;box-sizing: border-box;padding: 10px;text-align: center; color: #fff;border-top-left-radius: 5px;border-bottom-left-radius: 5px;">
+                                        <span style="font-size: 20px;font-weight: 700;display: block;">Latest Release - 1.1</span>
+                                    </div>
+                                    <div style="padding: 1.5rem 2rem;border-top-right-radius: 10px;box-shadow: 0 15px 35px rgb(173 156 36), 0 5px 15px rgb(204 241 0 / 7%);background-color: #fff;border-bottom-right-radius: 10px;">
+                                        <div class="timeline__content">
+                                            <h3 style="font-weight: 400; margin-bottom:20px">Bug Fixes & Improvements:</h3>
+                                             <li style="color: #666; margin-bottom: 10px;"> </span>
+                                            Dynamic Placeholder When we click on Normal & WhatsApp Button in Sidebar Chatter - v15
+                                             </li>
+                                             <li style="color: #666; margin-bottom: 10px;"> </span>
+                                            Header Condition for Live/WhatsApp Tab - In Chat Window - v15
+                                             </li>
+                                             <li style="color: #666; margin-bottom: 10px;"> </span>
+                                            Click on Reload/Get Status Button - If Disconnected - Error/Warning Message Shown - v15
+                                             </li>
+                                             <li style="color: #666; margin-bottom: 10px;"> </span>
+                                            In Channel, Discussion, Live chat - provider_id - Bug Resolved - v15
+                                             </li>
+                                             <li style="color: #666; margin-bottom: 10px;"> </span>
+                                            In Discuss, Channels unable to load & send normal messages - Bug Fixed - v15
+                                             </li>
+                                             <li style="color: #666; margin-bottom: 10px;"> </span>
+                                            New Meta WhatsApp v16.0 API - New Categories added in Message Templates - v15
+                                             </li>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+
+                                <div class="pb-3">
+                                    <div class="" style="background-color: #FFA500;top: 50%;min-width: 65px; left: 0;box-sizing: border-box;padding: 10px;text-align: center; color: #fff;border-top-left-radius: 5px;border-bottom-left-radius: 5px;">
+                                        <span style="font-size: 20px; font-weight: 700;display: block;">Initial Release - 1.0</span>
+                                    </div>
+                                    <div style="padding: 1.5rem 2rem;border-top-right-radius: 10px;box-shadow: 0 15px 35px rgb(247 125 0), 0 5px 15px rgb(0 0 0 / 7%);background-color: #fff;border-bottom-right-radius: 10px;">
+                                        <div class="timeline__content">
+                                            <h3 style="font-weight: 400; margin-bottom:20px">First Release</h3>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+
+        </div>
+        <!-- tab view / end -->
+    </div>
+ </section>
+
+                        <section class="oe_container">
+                            <h3 class="text-center alert"
+                                style="font-family: Roboto;font-weight:500;color: #091E42;background: #F0F4F7;border-radius: 10px;">
+                                Setup & Configuration
+                            </h3>
+                        </section>
+                        <section class="oe_container lead">
+                            <div>
+                                <div>
+                                    <p class="oe_slogan" style="font-size:30px; font-weight:bolder; color: #ff8303;">Create Facebook Developers Account</p>
+                                    <p class="oe_slogan" style="font-size: 20px;font-family: sans-serif;"> Create your Facebook Developers Account on the <a target="_blank" href="https://developers.facebook.com">Facebook Developers Website</a> using your personal profile. </p>
+                                    <img class="img-fluid" style="border:3px solid blue;" src="screenshots/1-Meta-Odoo.png">
+                                </div>
+                            </div>
+                        </section>
+                        <section class="oe_container lead">
+                            <div>
+                                <div>
+                                    <p class="oe_slogan" style="font-size:30px; font-weight:bolder; color: #ff8303;">Before You Start</p>
+                                    <p class="oe_slogan" style="font-size:20px;">To interact with Facebook Graph API, you must have a registered Facebook App. If you already have an App that you want to use with WhatsApp, you can skip the next section. Otherwise, proceed with the next section and register an App. </p>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="oe_container lead">
+                            <div>
+                                <div>
+                                    <p class="oe_slogan" style="font-size:30px; font-weight:bolder; color: #ff8303;">Register your App</p>
+                                    <p class="oe_slogan" style="font-size: 20px;font-family: sans-serif;"> Create & Register a Facebook app from <a target="_blank" href="https://developers.facebook.com/apps/create/">Create App</a> Button. </p>
+                                    <img class="img-fluid" style="border:3px solid blue;" src="screenshots/2-Meta-Odoo.png">
+                                     <p class="oe_slogan" style="font-size:20px;"> Create an app </p>
+                                    <img class="img-fluid" style="border:3px solid blue;" src="screenshots/3-Meta-Odoo.png">
+                                </div>
+                            </div>
+                        </section>
+                        <section class="oe_container lead">
+                            <div>
+                                <div>
+                                    <p class="oe_slogan" style="font-size:30px; font-weight:bolder; color: #ff8303;">Facebook App Credentials & Configuration - 1</p>
+                                    <p class="oe_slogan" style="font-size: 20px;font-family: sans-serif;"> After Successfully Reviewed App, Go to My Apps > Click on App to see credentials </p>
+                                    <img class="img-fluid" style="border:3px solid blue;" src="screenshots/4-Meta-Odoo.png">
+                                </div>
+                            </div>
+                        </section>
+                        <section class="oe_container lead">
+                            <div>
+                                <div>
+                                    <p class="oe_slogan" style="font-size:30px; font-weight:bolder; color: #ff8303;">Facebook App Credentials & Configuration - 2</p>
+                                    <p class="oe_slogan" style="font-size:20px;font-family: sans-serif;"> Under WhatsApp Menu on Sidebar > Click on Getting Started <br>
+                                    Here you can see all the Facebook App Credentials like App ID, Phone Number ID, WhatsApp Business ID, Access Token, etc.,</p>
+                                    <img class="img-fluid" style="border:3px solid blue;" src="screenshots/5-Meta-Odoo.png">
+                                </div>
+                            </div>
+                        </section>
+                        <section class="oe_container lead">
+                            <div>
+                                <div>
+                                    <p class="oe_slogan" style="font-size:30px; font-weight:bolder; color: #ff8303;">Now, Install Odoo Meta WhatsApp Facebook/Meta/Graph Integration Module</p>
+                                    <p class="oe_slogan" style="font-size: 20px;font-family: sans-serif;"> From App Menu > Install Module </p>
+                                    <img class="img-fluid" style="border:3px solid blue;" src="screenshots/6-1-Meta-Odoo.png">
+                                </div>
+                            </div>
+                        </section>
+                        <section class="oe_container lead">
+                            <div>
+                                <div>
+                                    <p class="oe_slogan" style="font-size:30px; font-weight:bolder; color: #ff8303;">Add New Provider Details</p>
+                                    <p class="oe_slogan" style="font-size:20px;font-family: sans-serif;"> After installing the module, Go to Whatsapp Message Menu > Configuration > Provider </p>
+                                    <p class="oe_slogan" style="font-size:20px;font-family: sans-serif;"> Under Provider Menu, Click on Create Button </p>
+                                    <p class="oe_slogan" style="font-size:20px;font-family: sans-serif;"> Add Whatsapp Graph API Credentials like Graph API, URL, Instance, Business ID, Access Token, etc., </p>
+                                    <img class="img-fluid" style="border:3px solid blue;" src="screenshots/6-Meta-Odoo.png">
+                                    <p class="oe_slogan" style="font-size:20px;"> After Setup, Click on Reload / Get Status where you will get Facebook Configurations like Call Back URL & Verify Token.<br>
+                                    You need to set these configurations to Facebook Webhook Configuration.
+                                    </p>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="oe_container lead">
+                            <div>
+                                <div>
+                                    <p class="oe_slogan" style="font-size:30px; font-weight:bolder; color: #ff8303;">Setup Webhook Configuration</p>
+                                    <p class="oe_slogan" style="font-size:20px;font-family: sans-serif;"> Under WhatsApp Menu on Sidebar > Click on Configuration <br>
+                                    Here you need to set Odoo Provider's Configuration like Callback URL & Verify Token and Click on Verify & Save Button</p>
+                                    <img class="img-fluid" style="border:3px solid blue;" src="screenshots/7-Meta-Odoo.png">
+                                </div>
+                            </div>
+                        </section>
+                        <section class="oe_container lead">
+                            <div>
+                                <div>
+                                    <p class="oe_slogan" style="font-size:30px; font-weight:bolder; color: #ff8303;">WhatsApp Manager</p>
+                                    <p class="oe_slogan" style="font-size:20px;font-family: sans-serif;"> Under App Dashboard Menu on Topbar > Click on WhatsApp Manager <br>
+                                    For WhatsApp Message Templates & Other Facebook Business Account Details</p>
+                                    <img class="img-fluid" style="border:3px solid blue;" src="screenshots/8-Meta-Odoo.png">
+                                </div>
+                            </div>
+                        </section>
+                        <section class="oe_container lead">
+                            <div>
+                                <div>
+                                    <p class="oe_slogan" style="font-size:30px; font-weight:bolder; color: #ff8303;">Message Templates</p>
+                                    <p class="oe_slogan" style="font-size:20px;font-family: sans-serif;"> Under Account Tools Menu, Click on Message Templates <br>
+                                    Here you can Create/Edit/Delete WhatsApp Message Templates</p>
+                                    <img class="img-fluid" style="border:3px solid blue;" src="screenshots/9-Meta-Odoo.png">
+                                </div>
+                            </div>
+                        </section>
+
+
+                    </div>
+                </div>
+            </section>
+
+<!--    <section class="oe_container lead">-->
+<!--        <div class="tab-pane active" id="ept_features">-->
+<!--            <div class="container">-->
+
+<!--                <section class="oe_container lead">-->
+<!--                    <div>-->
+<!--                        <div>-->
+<!--                            <h2 class="oe_slogan" style="color:#000000;"><b>Odoo Meta WhatsApp Base</b></h2>-->
+<!--                            <h3 class="oe_slogan" style="color:#000000;"><b>Connecting your business with WhatsApp is a boon for you!</b></h3>-->
+<!--                            <p class="oe_slogan" style="font-size:20px;">This WhatsApp Base Module which allows the user to Create/Edit/Remove/Delete WhatsApp Templates, Showing WhatsApp Chat History, Configure WhatsApp Templates in Particular User via Odoo. Let's have a look at Setup & Configuration!</p>-->
+
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </section>-->
+
+
+<!--            <section class="oe_container">-->
+<!--                <h3 class="text-center alert"-->
+<!--                    style="font-family: Roboto;font-weight:500;color: #091E42;background: #F0F4F7;border-radius: 10px;">-->
+<!--                    Setup & Configuration-->
+<!--                </h3>-->
+<!--            </section>-->
+<!--            <section class="oe_container lead">-->
+<!--                <div>-->
+<!--                    <div>-->
+<!--                        <p class="oe_slogan" style="font-size:30px; font-weight:bolder; color:##000000;">Install Odoo Meta WhatsApp Base Module</p>-->
+<!--                        <p class="oe_slogan" style="font-size:20px;"> From App Menu > Install Module </p>-->
+<!--                        <img class="img-fluid" style="border:3px solid blue;" src="screenshots/tus_wp_base.png">-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </section>-->
+            <section class="oe_container lead">
+                <div>
+                    <div>
+                        <p class="oe_slogan" style="font-size:30px; font-weight:bolder; color: #ff8303;">WhatsApp History</p>
+                        <p class="oe_slogan" style="font-size:20px;font-family: sans-serif;"> Go to Whatsapp Message Menu > Click on  WhatsApp History Menu </p>
+                        <img class="img-fluid" style="border:3px solid blue;" src="screenshots/tus_meta_whatsapp_base_0.png">
+                    </div>
+                </div>
+            </section>
+            <section class="oe_container lead">
+                <div>
+                    <div>
+                        <p class="oe_slogan" style="font-size:30px; font-weight:bolder; color: #ff8303;">Create/Edit/Delete WhatsApp Templates</p>
+                        <p class="oe_slogan" style="font-size:20px;font-family: sans-serif;"> Go to Whatsapp Message Menu > Click on  WA Templates Menu Where User can Create/Edit/Remove/Delete WhatsApp Templates </p>
+                        <img class="img-fluid" style="border:3px solid blue;" src="screenshots/tus_meta_whatsapp_base_1.png">
+                    </div>
+                </div>
+            </section>
+            <section class="oe_container lead">
+                <div>
+                    <div>
+                        <p class="oe_slogan" style="font-size:30px; font-weight:bolder; color: #ff8303;">ADD WHATSAPP TEMPLATE in WhatsApp Graph API</p>
+                        <p class="oe_slogan" style="font-size:20px;font-family: sans-serif;"> User can ADD WHATSAPP TEMPLATE in WhatsApp Graph API </p>
+                        <img class="img-fluid" style="border:3px solid blue;" src="screenshots/tus_meta_whatsapp_base_2.png">
+                    </div>
+                </div>
+            </section>
+            <section class="oe_container lead">
+                <div>
+                    <div>
+                        <p class="oe_slogan" style="font-size:30px; font-weight:bolder; color: #ff8303;">REMOVE WHATSAPP TEMPLATE in WhatsApp Graph API</p>
+                        <p class="oe_slogan" style="font-size:20px;font-family: sans-serif;"> User can REMOVE WHATSAPP TEMPLATE in WhatsApp Graph API </p>
+                        <img class="img-fluid" style="border:3px solid blue;" src="screenshots/tus_meta_whatsapp_base_3.png">
+                    </div>
+                </div>
+            </section>
+            <section class="oe_container lead">
+                <div>
+                    <div>
+                        <p class="oe_slogan" style="font-size:30px; font-weight:bolder; color: #ff8303;">Configure Provider for WhatsApp Graph API</p>
+                        <p class="oe_slogan" style="font-size:20px;font-family: sans-serif;"> Configure WhatsApp Templates & Manage User rights in Particular Contact</p>
+                        <img class="img-fluid" style="border:3px solid blue;" src="screenshots/tus_meta_whatsapp_base_4.png">
+                    </div>
+                </div>
+            </section>
+            <section class="oe_container lead">
+                <div>
+                    <div>
+                        <p class="oe_slogan" style="font-size:30px; font-weight:bolder; color: #ff8303;">Configure Mobile Number</p>
+                        <p class="oe_slogan" style="font-size:20px;font-family: sans-serif;"> Configure WhatsApp Mobile Number in Particular Contact</p>
+                        <img class="img-fluid" style="border:3px solid blue;" src="screenshots/tus_meta_whatsapp_base_5.png">
+                    </div>
+                </div>
+            </section>
+            <section class="oe_container lead">
+                <div>
+                    <div>
+                        <p class="oe_slogan" style="font-size:30px; font-weight:bolder; color: #ff8303;">WhatsApp Composer for Send Dynamic WhatsApp Message</p>
+                        <p class="oe_slogan" style="font-size:20px;font-family: sans-serif;"> Click on WhatsApp Icon > WhatsApp Composer for Send Dynamic WhatsApp Message</p>
+                        <img class="img-fluid" style="border:3px solid blue;" src="screenshots/tus_meta_whatsapp_base_6.png">
+                    </div>
+                </div>
+            </section>
+            <section class="oe_container lead">
+                <div>
+                    <div>
+                        <p class="oe_slogan" style="font-size:30px; font-weight:bolder; color: #ff8303;">WhatsApp Message</p>
+                        <p class="oe_slogan" style="font-size:20px;font-family: sans-serif;">Now, Go to WhatsApp Application,
+                        <br> Here you can Receive WhatsApp Message with Attachments, You can Reply on this message directly from WhatsApp too.</p>
+                        <img class="img-fluid" style="border:3px solid blue;" src="screenshots/tus_meta_whatsapp_base_7.png">
+                    </div>
+                </div>
+            </section>
+                <section class="oe_container lead">
+                <div>
+                    <div>
+                        <p class="oe_slogan" style="font-size:30px; font-weight:bolder; color: #ff8303;">Chat Window</p>
+                        <p class="oe_slogan" style="font-size:20px;font-family: sans-serif;"> Here you can Receive or Send WhatsApp Messages</p>
+                        <img class="img-fluid" style="border:3px solid blue;" src="screenshots/tus_meta_whatsapp_base_8.png">
+                    </div>
+                </div>
+            </section>
+            <section class="oe_container lead">
+                <div>
+                    <div>
+                        <p class="oe_slogan" style="font-size:30px; font-weight:bolder; color: #ff8303;">WhatsApp Configuration for Different Other WhatsApp Modules</p>
+                        <p class="oe_slogan" style="font-size:20px;font-family: sans-serif;"> Go to Settings Menu > From Settings Right Tab Menu > Click on WhatsApp, <br>
+                            This will allow WhatsApp Configurations for Different Other WhatsApp Modules.</p>
+                        <img class="img-fluid" style="border:3px solid blue;" src="screenshots/tus_meta_whatsapp_base_9.png">
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</section>
+<!-- Start Related Products -->
+
+            <section class="oe_container">
+                <div class="heading" style="text-align: center;">
+                    <br/>
+                    <h1>
+                        <b><br/>Related Products</b>
+                    </h1>
+                    <div class="section-heading-line"></div>
+            <style>.section-heading-line {
+    content: '';
+    display: block;
+    width: 224px;
+    height: 3px;
+    background: #3e4095;
+    border-radius: 25%;
+    margin: auto;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+            </style>
+                </div>
+            </section>
+            <br>
+
+           <section class="oe_container">
+                <div id="tus_carousel" class="container carousel slide mb32 mt64">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <div class="row">
+                                    <div class="col-md-3 col-sm-3 col-xs-12 mt16 mb16 text-center">
+                                        <a href="https://apps.odoo.com/apps/modules/15.0/tus_meta_whatsapp_base/" target="_blank">
+                                            <div>
+                                                <img class="img img-responsive" src="sliders/tusWhatsappBase.jpg" style="height: 100px;">
+                                                <div class="mt8" style="font-size:20px;">
+                                                    Odoo Meta WhatsApp Base
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-3 col-sm-3 col-xs-12 mt16 mb16 text-center">
+                                        <a href="https://apps.odoo.com/apps/modules/15.0/tus_meta_whatsapp_base/" target="_blank">
+                                            <div>
+                                                <img class="img img-responsive" src="sliders/tusWhatsappChatAPI.jpg" style="height: 100px;">
+                                                <div class="mt8" style="font-size:20px;">
+                                                   Odoo Meta WhatsApp Graph API
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-3 col-sm-3 col-xs-12 mt16 mb16 text-center">
+                                        <a href="https://apps.odoo.com/apps/modules/15.0/tus_meta_wa_discuss/" target="_blank">
+                                            <div>
+                                                <img class="img img-responsive" src="sliders/tusWhatsappDiscuss.jpg" style="height: 100px;">
+                                                <div class="mt8" style="font-size:20px;">
+                                                     Odoo Meta WhatsApp Discuss
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-3 col-sm-3 col-xs-12 mt16 mb16 text-center">
+                                        <a href="https://apps.odoo.com/apps/modules/15.0/tus_meta_wa_marketing/" target="_blank">
+                                            <div>
+                                                <img class="img img-responsive" src="sliders/tusWhatsappMarketing.jpg" style="height: 100px;">
+                                                <div class="mt8" style="font-size:20px;">
+                                                     Odoo Meta WhatsApp Marketing
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-3 col-sm-3 col-xs-12 mt16 mb16 text-center">
+                                        <a href="https://apps.odoo.com/apps/modules/15.0/tus_meta_wa_crm/" target="_blank">
+                                            <div>
+                                                <img class="img img-responsive" src="sliders/tusWhatsappCRM.jpg" style="height: 100px;">
+                                                <div class="mt8" style="font-size:20px;">
+                                                     Odoo Meta WhatsApp CRM
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-3 col-sm-3 col-xs-12 mt16 mb16 text-center">
+                                        <a href="https://apps.odoo.com/apps/modules/15.0/tus_meta_wa_crm_in_discuss/" target="_blank">
+                                            <div>
+                                                <img class="img img-responsive" src="sliders/tusWhatsappCRMDiscuss.jpg" style="height: 100px;">
+                                                <div class="mt8" style="font-size:20px;">
+                                                     Odoo Meta WhatsApp CRM In Discuss
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-3 col-sm-3 col-xs-12 mt16 mb16 text-center">
+                                        <a href="https://apps.odoo.com/apps/modules/15.0/tus_meta_wa_sale/" target="_blank">
+                                            <div>
+                                                <img class="img img-responsive" src="sliders/tusWhatsappSale.jpg" style="height: 100px;">
+                                                <div class="mt8" style="font-size:20px;">
+                                                     Odoo Meta WhatsApp Sale
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-3 col-sm-3 col-xs-12 mt16 mb16 text-center">
+                                        <a href="https://apps.odoo.com/apps/modules/15.0/tus_meta_wa_sale_in_discuss/" target="_blank">
+                                            <div>
+                                                <img class="img img-responsive" src="sliders/tusWhatsappSaleDiscuss.jpg" style="height: 100px;">
+                                                <div class="mt8" style="font-size:20px;">
+                                                     Odoo Meta WhatsApp Sale In Discuss
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="carousel-item">
+                                <div class="row">
+                                    <div class="col-md-3 col-sm-3 col-xs-12 mt16 mb16 text-center">
+                                        <a href="https://apps.odoo.com/apps/modules/15.0/tus_meta_wa_purchase/" target="_blank">
+                                            <div>
+                                                <img class="img img-responsive" src="sliders/tusWhatsappPurchase.jpg" style="height: 100px;">
+                                                <div class="mt8" style="font-size:20px;">
+                                                     Odoo Meta WhatsApp Purchase
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-3 col-sm-3 col-xs-12 mt16 mb16 text-center">
+                                        <a href="https://apps.odoo.com/apps/modules/15.0/tus_meta_wa_purchase_in_discuss/" target="_blank">
+                                            <div>
+                                                <img class="img img-responsive" src="sliders/tusWhatsappPurchaseDiscuss.jpg" style="height: 100px;">
+                                                <div class="mt8" style="font-size:20px;">
+                                                     Odoo Meta WhatsApp Purchase In Discuss
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-3 col-sm-3 col-xs-12 mt16 mb16 text-center">
+                                        <a href="https://apps.odoo.com/apps/modules/15.0/tus_meta_wa_invoice/" target="_blank">
+                                            <div>
+                                                <img class="img img-responsive" src="sliders/tusWhatsappInvoice.jpg" style="height: 100px;">
+                                                <div class="mt8" style="font-size:20px;">
+                                                     Odoo Meta WhatsApp Invoice
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-3 col-sm-3 col-xs-12 mt16 mb16 text-center">
+                                        <a href="https://apps.odoo.com/apps/modules/15.0/tus_meta_wa_invoice_in_discuss/" target="_blank">
+                                            <div>
+                                                <img class="img img-responsive" src="sliders/tusWhatsappInvoiceDiscuss.jpg" style="height: 100px;">
+                                                <div class="mt8" style="font-size:20px;">
+                                                     Odoo Meta WhatsApp Invoice In Discuss
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-3 col-sm-3 col-xs-12 mt16 mb16 text-center">
+                                        <a href="https://apps.odoo.com/apps/modules/15.0/tus_meta_wa_helpdesk/" target="_blank">
+                                            <div>
+                                                <img class="img img-responsive" src="sliders/tusWhatsappHelpDesk.jpg" style="height: 100px;">
+                                                <div class="mt8" style="font-size:20px;">
+                                                     Odoo Meta WhatsApp Helpdesk
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-3 col-sm-3 col-xs-12 mt16 mb16 text-center">
+                                        <a href="https://apps.odoo.com/apps/modules/15.0/tus_meta_wa_helpdesk_in_discuss/" target="_blank">
+                                            <div>
+                                                <img class="img img-responsive" src="sliders/tusWhatsappHelpDeskDiscuss.jpg" style="height: 100px;">
+                                                <div class="mt8" style="font-size:20px;">
+                                                     Odoo Meta WhatsApp Helpdesk In Discuss
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-3 col-sm-3 col-xs-12 mt16 mb16 text-center">
+                                        <a href="https://apps.odoo.com/apps/modules/15.0/tus_meta_wa_stock_picking/" target="_blank">
+                                            <div>
+                                                <img class="img img-responsive" src="sliders/tusWhatsappStockPicking.jpg" style="height: 100px;">
+                                                <div class="mt8" style="font-size:20px;">
+                                                     Odoo Meta WhatsApp Stock Picking
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-3 col-sm-3 col-xs-12 mt16 mb16 text-center">
+                                        <a href="https://apps.odoo.com/apps/modules/15.0/tus_meta_wa_follow_up_report/" target="_blank">
+                                            <div>
+                                                <img class="img img-responsive" src="sliders/WhatsappFollowUpReport.jpg" style="height: 100px;">
+                                                <div class="mt8" style="font-size:20px;">
+                                                     Odoo Meta WhatsApp Follow Up Report
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#tus_carousel" data-slide="prev" style="width:25px; color:#00000;">
+                            <span class="carousel-control-prev-icon" style="font-size:25px; color:#000000; margin-top:-50px">
+                                <i class="fa fa-chevron-left" aria-hidden="false"></i>
+                            </span>
+                        </a>
+                        <a class="carousel-control-next" href="#tus_carousel" data-slide="next" style="width:35px; color:#00000;">
+                            <span class="carousel-control-next-icon" style="font-size:25px; color:#000000; margin-top:-50px">
+                                <i class="fa fa-chevron-right" aria-hidden="false"></i>
+                            </span>
+                        </a>
+                    </div>
+           </section>
+            <!-- End Related Products -->
+<!--footer-->
+<section class="services_sec left art-work-services o_colored_level">
+    <div class="container">
+        <div class="heading" style="text-align: center;">
+            <br/>
+            <h1>
+                <b><br/>Our Services</b>
+            </h1>
+            <div class="section-heading-line"></div>
+            <style>.section-heading-line {
+    content: '';
+    display: block;
+    width: 224px;
+    height: 3px;
+    background: #3e4095;
+    border-radius: 25%;
+    margin: auto;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+            </style>
+        </div>
+
+        <div style="display: flex;">
+            <div class="text-center col-xs-12 col-sm-3 col-md-2 mb16 mt16 " style="overflow: hidden;margin-top: 50px;list-style-type:none!important;
+    margin-bottom: 1rem;    box-sizing: border-box; display: flex;">
+                <a href="https://techultrasolutions.com/odoo-development">
+                    <div style="width:150px;height:120px;
+                  position:relative;
+                  transition:all .3s ease-in-out;overflow:hidden;
+                  border-radius:4px ;background-color:#faad18!important;" data-original-title="" title=""
+                         aria-describedby="tooltip515225">
+                        <img alt="" src="web-programming.png" loading="lazy"
+                             data-original-title="" title="" aria-describedby="tooltip259108"
+                             style="width: 50%;position: absolute; left: 0; right: 0; margin: auto; padding-top: 22px!important;"
+                             data-original-id="1187" data-original-src="/web/image/1187-02a72c73/web-programming.png"
+                             data-mimetype="image/png" data-resize-width="82"/>
+                    </div>
+                    <span class="cat-headings" data-original-title="" title="" aria-describedby="tooltip548555">Odoo Development</span>
+                </a>
+            </div>
+
+            <div class="text-center col-xs-12 col-sm-3 col-md-2 mb16 mt16 " style="overflow: hidden;margin-top: 50px;list-style-type:none!important;
+    margin-bottom: 1rem;    box-sizing: border-box; display: flex;">
+                <a href="https://techultrasolutions.com/odoo-implementation">
+                    <div style="width:150px;height:120px;
+                  position:relative;
+                  transition:all .3s ease-in-out;overflow:hidden;
+                  border-radius:4px;background-color:#faad18!important;" data-original-title="" title=""
+                         aria-describedby="tooltip515225">
+                        <img alt="" src="integrations_png.png" loading="lazy"
+                             data-original-title="" title="" aria-describedby="tooltip259108"
+                             style="width: 50%;position: absolute; left: 0; right: 0; margin: auto;  padding-top: 22px!important;"
+                             data-original-id="1187" data-original-src="/web/image/1187-02a72c73/web-programming.png"
+                             data-mimetype="image/png" data-resize-width="82"/>
+                    </div>
+                    <span class="cat-headings">Odoo Implementation</span>
+                </a>
+            </div>
+
+            <div class="text-center col-xs-12 col-sm-3 col-md-2 mb16 mt16 " style="overflow: hidden;margin-top: 50px;list-style-type:none!important;
+    margin-bottom: 1rem;    box-sizing: border-box; display: flex;">
+                <a href="https://techultrasolutions.com/odoo-consulting">
+                    <div style="width:150px;height:120px;
+                  position:relative;
+                  transition:all .3s ease-in-out;overflow:hidden;
+                  border-radius:4px;background-color:#faad18!important;" data-original-title="" title=""
+                         aria-describedby="tooltip515225">
+                        <img alt="" src="consultation_png.png" loading="lazy"
+                             data-original-title="" title="" aria-describedby="tooltip259108"
+                             style="width: 50%;position: absolute; left: 0; right: 0; margin: auto;  padding-top: 22px!important;"
+                             data-original-id="1187" data-original-src="/web/image/1187-02a72c73/web-programming.png"
+                             data-mimetype="image/png" data-resize-width="82"/>
+                    </div>
+                    <span class="cat-headings">Odoo Consulting</span>
+                </a>
+            </div>
+
+
+            <div class="text-center col-xs-12 col-sm-3 col-md-2 mb16 mt16 " style="overflow: hidden;margin-top: 50px;list-style-type:none!important;
+    margin-bottom: 1rem;    box-sizing: border-box; display: flex;">
+                <a href="https://techultrasolutions.com/odoo-migrations">
+                    <div style="width:150px;height:120px;
+                  position:relative;
+                  transition:all .3s ease-in-out;overflow:hidden;
+                  border-radius:4px;background-color:#faad18!important;" data-original-title="" title=""
+                         aria-describedby="tooltip515225">
+                        <img alt="" src="migration_png.png" loading="lazy"
+                             data-original-title="" title="" aria-describedby="tooltip259108"
+                             style="width: 50%;position: absolute; left: 0; right: 0; margin: auto;  padding-top: 22px!important;"
+                             data-original-id="1187" data-original-src="/web/image/1187-02a72c73/web-programming.png"
+                             data-mimetype="image/png" data-resize-width="82"/>
+                    </div>
+                    <span class="cat-headings">Odoo Migration</span>
+                </a>
+            </div>
+
+
+            <div class="text-center col-xs-12 col-sm-3 col-md-2 mb16 mt16 " style="overflow: hidden;margin-top: 50px;list-style-type:none!important;
+    margin-bottom: 1rem;    box-sizing: border-box; display: flex;">
+                <a href="https://techultrasolutions.com/odoo-integrations">
+                    <div style="width:150px;height:120px;position:relative;
+                  transition:all .3s ease-in-out;overflow:hidden;
+                  border-radius:4px;background-color:#faad18!important;" data-original-title="" title=""
+                         aria-describedby="tooltip515225">
+                        <img alt="" src="intgrtn_png.png" loading="lazy"
+                             data-original-title="" title="" aria-describedby="tooltip259108"
+                             style="width: 50%;position: absolute; left: 0; right: 0; margin: auto;  padding-top: 22px!important;;"
+                             data-original-id="1187" data-original-src="/web/image/1187-02a72c73/web-programming.png"
+                             data-mimetype="image/png" data-resize-width="82"/>
+                    </div>
+                    <span class="cat-headings" data-original-title="" title="" aria-describedby="tooltip630746">Odoo Integration</span>
+                </a>
+            </div>
+
+            <div class="text-center col-xs-12 col-sm-3 col-md-2 mb16 mt16 " style="overflow: hidden;margin-top: 50px;list-style-type:none!important;
+    margin-bottom: 1rem;    box-sizing: border-box; display: flex;">
+                <a href="https://techultrasolutions.com/odoo-seo-services">
+                    <div style="width:150px;height:120px; position:relative;
+                  transition:all .3s ease-in-out;overflow:hidden;
+                  border-radius:4px;background-color:#faad18!important;" data-original-title="" title=""
+                         aria-describedby="tooltip515225">
+                        <img alt="" src="profits.png" loading="lazy"
+                             data-original-title="" title="" aria-describedby="tooltip259108"
+                             style="width: 50%;position: absolute; left: 0; right: 0; margin: auto; padding-top: 22px!important;"
+                             data-original-id="1187" data-original-src="/web/image/1187-02a72c73/web-programming.png"
+                             data-mimetype="image/png" data-resize-width="82"/>
+                    </div>
+                    <span class="cat-headings">Odoo SEO Service</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="footer"
+         style="background-color: black !important; padding: 60px 0;  color: #007b5e; margin-bottom: 50px; text-transform: uppercase;">
+    <div class="container" style="padding-left: 40px;">
+        <div class="row text-md-left">
+            <div class="col-xs-12 col-sm-2 col-md-3"> <!-- col-md-offset-1 -->
+                <h4><font style="color:#FAAD17;">Quick links</font></h4>
+                <ul class="list-unstyled quick-links">
+                    <li style="padding: 3px 0; -webkit-transition: .5s all ease; -moz-transition: .5s all ease; transition: .5s all ease;">
+                        <a href="https://www.techultrasolutions.com/#" target="_blank"
+                           style="color:#ffffff; text-decoration: none !important; background-color: transparent; -webkit-text-decoration-skip: objects;"><i
+                                class="fa fa-angle-double-right" style="color:#FAAD17; margin-right: 5px;"></i>Home</a>
+                    </li>
+                    <li style="padding: 3px 0; -webkit-transition: .5s all ease; -moz-transition: .5s all ease; transition: .5s all ease;">
+                        <a href="https://www.techultrasolutions.com/overview" target="_blank" style="color:#ffffff;"><i
+                                class="fa fa-angle-double-right" style="color:#FAAD17; margin-right: 5px;"></i>About</a>
+                    </li>
+                    <li style="padding: 3px 0; -webkit-transition: .5s all ease; -moz-transition: .5s all ease; transition: .5s all ease;">
+                        <a href="https://www.techultrasolutions.com/contact-us" target="_blank" style="color:#ffffff;"><i
+                                class="fa fa-angle-double-right" style="color:#FAAD17; margin-right: 5px;"></i>Contact
+                            US</a></li>
+                </ul>
+            </div>
+            <div class="col-xs-12 col-sm-2 col-md-5">
+                <h4><font style="color:#FAAD17;">Our Products</font></h4>
+                <ul class="list-unstyled quick-links">
+                    <li style="padding: 3px 0; -webkit-transition: .5s all ease; -moz-transition: .5s all ease; transition: .5s all ease;">
+                        <a href="https://apps.odoo.com/apps/modules/11.0/menus/" target="_blank"
+                           style="color:#ffffff; text-decoration: none !important; background-color: transparent; -webkit-text-decoration-skip: objects;"><i
+                                class="fa fa-angle-double-right" style="color:#FAAD17; margin-right: 5px;"></i>Menus
+                            Ascending Order</a></li>
+                    <li style="padding: 3px 0; -webkit-transition: .5s all ease; -moz-transition: .5s all ease; transition: .5s all ease;">
+                        <a href="https://apps.odoo.com/apps/modules/10.0/customers_statement_multiple_email/"
+                           target="_blank"
+                           style="color:#ffffff; text-decoration: none !important; background-color: transparent; -webkit-text-decoration-skip: objects;"><i
+                                class="fa fa-angle-double-right" style="color:#FAAD17; margin-right: 5px;"></i>Customers
+                            Statement Multiple Email</a></li>
+                    <li style="padding: 3px 0; -webkit-transition: .5s all ease; -moz-transition: .5s all ease; transition: .5s all ease;">
+                        <a href="https://apps.odoo.com/apps/modules/10.0/product_sale_on_event/" target="_blank"
+                           style="color:#ffffff; text-decoration: none !important; background-color: transparent; -webkit-text-decoration-skip: objects;"><i
+                                class="fa fa-angle-double-right" style="color:#FAAD17; margin-right: 5px;"></i>Product
+                            Sale On Event</a></li>
+                    <li style="padding: 3px 0; -webkit-transition: .5s all ease; -moz-transition: .5s all ease; transition: .5s all ease;">
+                        <a href="https://apps.odoo.com/apps/modules/9.0/custom_list/" target="_blank"
+                           style="color:#ffffff; text-decoration: none !important; background-color: transparent; -webkit-text-decoration-skip: objects;"><i
+                                class="fa fa-angle-double-right" style="color:#FAAD17; margin-right: 5px;"></i>Listview
+                            Buttton Header</a></li>
+                    <li style="padding: 3px 0; -webkit-transition: .5s all ease; -moz-transition: .5s all ease; transition: .5s all ease;">
+                        <a href="https://apps.odoo.com/apps/modules/10.0/odoo_linkedin/" target="_blank"
+                           style="color:#ffffff; text-decoration: none !important; background-color: transparent; -webkit-text-decoration-skip: objects;"><i
+                                class="fa fa-angle-double-right" style="color:#FAAD17; margin-right: 5px;"></i>Odoo
+                            LinkedIn</a></li>
+                </ul>
+            </div>
+
+            <div class="col-xs-12 col-sm-2 col-md-4">
+                <h4><font style="color:#FAAD17;">Our Products</font></h4>
+                <ul class="list-unstyled quick-links">
+                    <li style="padding: 3px 0; -webkit-transition: .5s all ease; -moz-transition: .5s all ease; transition: .5s all ease;">
+                        <a href="https://apps.odoo.com/apps/modules/10.0/web_hide_button_in_tree/" target="_blank"
+                           style="color:#ffffff; text-decoration: none !important; background-color: transparent; -webkit-text-decoration-skip: objects;"><i
+                                class="fa fa-angle-double-right" style="color:#FAAD17; margin-right: 5px;"></i>Web Hide
+                            Button in Tree</a></li>
+                    <li style="padding: 3px 0; -webkit-transition: .5s all ease; -moz-transition: .5s all ease; transition: .5s all ease;">
+                        <a href="https://apps.odoo.com/apps/modules/10.0/task_delegation/" target="_blank"
+                           style="color:#ffffff; text-decoration: none !important; background-color: transparent; -webkit-text-decoration-skip: objects;"><i
+                                class="fa fa-angle-double-right" style="color:#FAAD17; margin-right: 5px;"></i>Project
+                            Subtasks</a></li>
+                    <li style="padding: 3px 0; -webkit-transition: .5s all ease; -moz-transition: .5s all ease; transition: .5s all ease;">
+                        <a href="https://apps.odoo.com/apps/modules/10.0/odoo_json_rpc/" target="_blank"
+                           style="color:#ffffff; text-decoration: none !important; background-color: transparent; -webkit-text-decoration-skip: objects;"><i
+                                class="fa fa-angle-double-right" style="color:#FAAD17; margin-right: 5px;"></i>ODOO JSON
+                            RPC</a></li>
+                    <li style="padding: 3px 0; -webkit-transition: .5s all ease; -moz-transition: .5s all ease; transition: .5s all ease;">
+                        <a href="https://apps.odoo.com/apps/modules/10.0/payment_verifone/" target="_blank"
+                           style="color:#ffffff; text-decoration: none !important; background-color: transparent; -webkit-text-decoration-skip: objects;"><i
+                                class="fa fa-angle-double-right" style="color:#FAAD17; margin-right: 5px;"></i>Verifone
+                            Payment</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="row text-md-center">
+            <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
+                <p class="h6" style="color:white;">@copy All right Reversed.<a class="text-green ml-2"
+                                                                               href="https://www.techultrasolutions.com/"
+                                                                               target="_blank"
+                                                                               style="color:#FAAD17;">TechUltraSolutions</a>
+                </p>
+            </div>
+            <hr/>
+        </div>
+        <div class="row text-md-center">
+            <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
+                <ul class="list-unstyled list-inline social text-center">
+                    <li class="list-inline-item" style="padding: 3px 0;"><a
+                            href="https://www.facebook.com/TechUltraSolutions/" target="_blank"
+                            style="color:#ffffff; text-decoration: none !important; background-color: transparent; -webkit-text-decoration-skip: objects;"><i
+                            class="fa fa-facebook"
+                            style="margin-right: 5px; font-size:25px; -webkit-transition: .5s all ease; -moz-transition: .5s all ease; transition: .5s all ease;"></i></a>
+                    </li>
+                    <li class="list-inline-item" style="padding: 3px 0;"><a href="https://twitter.com/MyTechUltra"
+                                                                            target="_blank"
+                                                                            style="color:#ffffff; text-decoration: none !important; background-color: transparent; -webkit-text-decoration-skip: objects;"><i
+                            class="fa fa-twitter"
+                            style="margin-right: 5px; font-size:25px; -webkit-transition: .5s all ease; -moz-transition: .5s all ease; transition: .5s all ease;"></i></a>
+                    </li>
+                    <!-- 						<li class="list-inline-item" ><a href="javascript:void();"><i class="fa fa-instagram"></i></a></li> -->
+                    <li class="list-inline-item" style="padding: 3px 0;"><a
+                            href="https://plus.google.com/101351678872156055595" target="_blank"
+                            style="color:#ffffff; text-decoration: none !important; background-color: transparent; -webkit-text-decoration-skip: objects;"><i
+                            class="fa fa-google-plus"
+                            style="margin-right: 5px; font-size:25px; -webkit-transition: .5s all ease; -moz-transition: .5s all ease; transition: .5s all ease;"></i></a>
+                    </li>
+                    <li class="list-inline-item" style="padding: 3px 0;"><a
+                            href="https://www.linkedin.com/company/techultrasolutions/" target="_blank"
+                            style="color:#ffffff; text-decoration: none !important; background-color: transparent; -webkit-text-decoration-skip: objects;"><i
+                            class="fa fa-linkedin"
+                            style="margin-right: 5px; font-size:25px; -webkit-transition: .5s all ease; -moz-transition: .5s all ease; transition: .5s all ease;"></i></a>
+                    </li>
+                    <li class="list-inline-item" style="padding: 3px 0;"><a
+                            href="mailto:contact@techultrasolutions.com" target="_blank"
+                            style="color:#ffffff; text-decoration: none !important; background-color: transparent; -webkit-text-decoration-skip: objects;"><i
+                            class="fa fa-envelope"
+                            style="margin-right: 5px; font-size:25px; -webkit-transition: .5s all ease; -moz-transition: .5s all ease; transition: .5s all ease;"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>

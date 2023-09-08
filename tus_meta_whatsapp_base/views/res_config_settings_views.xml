@@ -1,0 +1,154 @@
+<odoo>
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.fleet.tracking</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="6"/>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('settings')]" position="inside">
+                <div class="app_settings_block" data-string="WhatsApp" string="WhatsApp" data-key="tus_meta_whatsapp_base">
+                    <h2>WhatsApp</h2>
+                    <div class="row mt16 o_settings_container">
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_left_pane">
+                                <field name="module_tus_meta_wa_discuss" class="oe_inline"/>
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label for="module_tus_meta_wa_discuss" string="Discuss"
+                                       class=" o_light_label"/>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_left_pane">
+                                <field name="module_tus_meta_wa_marketing" class="oe_inline"/>
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label for="module_tus_meta_wa_marketing" string="Marketing"
+                                       class=" o_light_label"/>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_left_pane">
+                                <field name="module_tus_meta_wa_crm" class="oe_inline"/>
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label for="module_tus_meta_wa_crm" string="CRM" class=" o_light_label"/>
+
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_left_pane">
+                                <field name="module_tus_meta_wa_crm_in_discuss" class="oe_inline"/>
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label for="module_tus_meta_wa_crm_in_discuss" string="CRM In Discuss"
+                                       class=" o_light_label"/>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_left_pane">
+                                <field name="module_tus_meta_wa_sale" class="oe_inline"/>
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label for="module_tus_meta_wa_sale" string="Sales" class=" o_light_label"/>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_left_pane">
+                                <field name="module_tus_meta_wa_sale_in_discuss" class="oe_inline"/>
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label for="module_tus_meta_wa_sale_in_discuss" string="Sales In Discuss"
+                                       class=" o_light_label"/>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_left_pane">
+                                <field name="module_tus_meta_wa_purchase" class="oe_inline"/>
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label for="module_tus_meta_wa_purchase" string="Purchase"
+                                       class=" o_light_label"/>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_left_pane">
+                                <field name="module_tus_meta_wa_purchase_in_discuss" class="oe_inline"/>
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label for="module_tus_meta_wa_purchase_in_discuss" string="Purchase In Discuss"
+                                       class=" o_light_label"/>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_left_pane">
+                                <field name="module_tus_meta_wa_invoice" class="oe_inline"/>
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label for="module_tus_meta_wa_invoice" string="Invoice"
+                                       class=" o_light_label"/>
+
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_left_pane">
+                                <field name="module_tus_meta_wa_invoice_in_discuss" class="oe_inline"/>
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label for="module_tus_meta_wa_invoice_in_discuss" string="Invoice In Discuss"
+                                       class=" o_light_label"/>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_left_pane">
+                                <field name="module_tus_meta_wa_helpdesk" class="oe_inline"/>
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label for="module_tus_meta_wa_helpdesk" string="Helpdesk"
+                                       class=" o_light_label"/>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_left_pane">
+                                <field name="module_tus_meta_wa_helpdesk_in_discuss" class="oe_inline"/>
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label for="module_tus_meta_wa_helpdesk_in_discuss" string="Helpdesk In Discuss"
+                                       class=" o_light_label"/>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_left_pane">
+                                <field name="module_tus_meta_wa_stock_picking" class="oe_inline"/>
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label for="module_tus_meta_wa_stock_picking" string="Stock Picking"
+                                       class=" o_light_label"/>
+
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_left_pane">
+                                <field name="module_tus_meta_wa_follow_up_report" class="oe_inline"/>
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label for="module_tus_meta_wa_follow_up_report" string="Follow Up Report"
+                                       class=" o_light_label"/>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_left_pane">
+                                <field name="module_tus_meta_wa_pos" class="oe_inline"/>
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label for="module_tus_meta_wa_pos" string="POS"
+                                       class=" o_light_label"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>

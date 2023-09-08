@@ -1,0 +1,20 @@
+<odoo>
+    <record model="ir.ui.view" id="mail_message_view_form_inherit_1">
+        <field name="name">mail.message.view.form.inherit</field>
+        <field name="model">mail.message</field>
+        <field name="inherit_id" ref="mail.mail_message_view_form"/>
+        <field name="arch" type="xml">
+            <field name="is_internal" position="after">
+                <field name="isWaMsgs"/>
+                <field name="wa_message_id"/>
+                <field name="company_id"/>
+                <field name="chatter_wa_model"/>
+                <field name="chatter_wa_res_id"/>
+                <field name="chatter_wa_message_id"/>
+                <field name="wa_delivery_status"/>
+                <field name="wa_error_message"/>
+                <field name="isWaMsgsRead" readonly="1"/>
+            </field>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,18 @@
+<odoo>
+    <data>
+        <record id="whatsapp_group_pos_user" model="res.groups">
+            <field name="name">Allow to send message from POS</field>
+            <field name="category_id" ref="tus_meta_whatsapp_base.module_quotation_whatsapp_category"/>
+            <field name="implied_ids"
+                   eval="[(4,ref('tus_meta_whatsapp_base.whatsapp_group_user'))]"/>
+        </record>
+
+        <record id="base.default_user" model="res.users">
+            <field name="groups_id" eval="[(4,ref('tus_meta_wa_pos.whatsapp_group_pos_user'))]"/>
+        </record>
+
+        <record id="tus_meta_whatsapp_base.whatsapp_group_manager" model="res.groups">
+            <field name="implied_ids" eval="[(4,ref('tus_meta_wa_pos.whatsapp_group_pos_user'))]"/>
+        </record>
+    </data>
+</odoo>
