@@ -81,4 +81,5 @@ odoo.define('barameg_geidea_pos.models', function (require) {
             return json
         },
     });
+
 })

@@ -26,6 +26,7 @@ odoo.define('barameg_geidea_pos.screens', function(require) {
 		constructor (){
             super(...arguments);
 		}
+
         addNewPaymentLine({ detail: paymentMethod }) {
             var self = this
             let order = self.currentOrder
@@ -39,22 +40,13 @@ odoo.define('barameg_geidea_pos.screens', function(require) {
                     }
                 })
                 if (paymentMethod.EnableGeidea){
-                    if(self.terminal != undefined){
+                    if(self.terminal != null){
                         self.terminal.send(JSON.stringify({
                             "Event": "CONNECTION",
                             "Operation": "DISCONNECT"
                         }))
                         self.terminal.close()
-                        self.terminal = undefined
-                        console.log(this)
-                        console.log(self)
-                        console.log(this.env)
-                        console.log(self.env)
-                        self.showPopup('ErrorPopup', {
-                            title: self.env._t('Error'),
-                            body: self.env._t('rrrrrrrrrrrrrrrrrrrrrrr'),
-                        });
-
+                        self.terminal = null
                         self.terminal = new WebSocket('ws://localhost:'+ paymentMethod.GeideaPort + '/messages')
                         self.terminal.onopen = function(message){
                             if (geideaTerminal.ConnectionMode == 'COM'){
@@ -81,6 +73,7 @@ odoo.define('barameg_geidea_pos.screens', function(require) {
                         }
                         self.terminal.onmessage = function(message){
                             var data = JSON.parse(message.data)
+                            // handle on connect
                             if (data.Event == 'OnConnect'){
                                 self.terminal.send(JSON.stringify({
                                     "Event": "TRANSACTION",
@@ -91,47 +84,60 @@ odoo.define('barameg_geidea_pos.screens', function(require) {
                                     "AppId": geideaTerminal.AppId
                                 }))
                             }
-                            else if ( data.Event == 'OnError'){
-                                self.showPopup('ErrorPopup', {
-                                    title: self.env._t('Error'),
-                                    body: self.env._t(data.Message),
-                                });
-                                self.terminal.send(JSON.stringify({
-                                    "Event": "CONNECTION",
-                                    "Operation": "DISCONNECT"
-                                }))
-                                self.terminal.close()
-                                self.terminal = undefined
-                            }
-                            else if ( data.Event == 'OnTerminalAction'){
+                            // handle on terminal action
+                            if ( data.Event == 'OnTerminalAction'){
                                 if(data.TerminalAction == 'USER_CANCELLED_AND_TIMEOUT'){
                                     self.terminal.send(JSON.stringify({
                                         "Event": "CONNECTION",
                                         "Operation": "DISCONNECT"
                                     }))
                                     self.terminal.close()
-                                    self.terminal = undefined
+                                    self.terminal = null
                                 }
                             }
-                            else if ( data.Event == 'OnDataReceive') {
+                            // handle on error
+                            if ( data.Event == 'OnError'){
+                                self.terminal.send(JSON.stringify({
+                                    "Event": "CONNECTION",
+                                    "Operation": "DISCONNECT"
+                                }))
+                                self.terminal.close()
+                                self.terminal = null
+                            }
+                            // handle on disconnect
+                            if (data.Event == 'OnDisConnect'){
+                                self.terminal.close()
+                                self.terminal = null
+                            }
+                            // handle on data receive
+                            if ( data.Event == 'OnDataReceive') {
                                 var result = JSON.parse(data.JsonResult)
-                                if (result.TransactionResponseEnglish == 'APPROVED'){
-                                    let telemetry_url = 'https://barameg.co/api/telemetry/geidea'
-                                    let formData = new FormData()
-                                    formData.append('amount', amount)
-                                    formData.append('company_registry', self.env.pos.company.company_registry)
-                                    formData.append('email', self.env.pos.company.email)
-                                    formData.append('name', self.env.pos.company.name)
-                                    formData.append('phone', self.env.pos.company.phone)
-                                    formData.append('vat', self.env.pos.company.vat)
-                                    formData.append('country_code', self.env.pos.company.country.code)
-                                    formData.append('version', '14')
-                                    fetch(telemetry_url, {
-                                        method:'POST',
-                                        body: formData
-                                    }).then(()=>{
-                                    }).catch(e=>{
-                                    })
+                                if (
+                                    result.TransactionResponseEnglish &&
+                                    result.TransactionAmount &&
+                                    result.TransactionResponseEnglish == 'APPROVED' &&
+                                    result.TransactionAmount == amount.toString()
+                                ){
+                                    try{
+                                        let telemetry_url = 'https://barameg.co/api/telemetry/geidea'
+                                        let formData = new FormData()
+                                        formData.append('amount', amount)
+                                        formData.append('company_registry', self.env.pos.company.company_registry)
+                                        formData.append('email', self.env.pos.company.email)
+                                        formData.append('name', self.env.pos.company.name)
+                                        formData.append('phone', self.env.pos.company.phone)
+                                        formData.append('vat', self.env.pos.company.vat)
+                                        formData.append('country_code', self.env.pos.company.country.code)
+                                        formData.append('version', '15')
+                                        fetch(telemetry_url, {
+                                            method:'POST',
+                                            body: formData
+                                        }).catch(e=>{
+
+                                        })
+                                    } catch(error){
+
+                                    }
                                     order.paymentlines.forEach(line=>{
                                         if(line.payment_method.id == paymentMethod.id){
                                             line.PrimaryAccountNumber = result.PrimaryAccountNumber
@@ -145,7 +151,23 @@ odoo.define('barameg_geidea_pos.screens', function(require) {
                                         "Operation": "DISCONNECT"
                                     }))
                                     self.terminal.close()
-                                    self.terminal = undefined
+                                    self.terminal = null
+                                } else if (
+                                    result.TransactionResponseEnglish &&
+                                    result.TransactionAmount &&
+                                    result.TransactionResponseEnglish == 'APPROVED' &&
+                                    result.TransactionAmount != amount.toString()
+                                ){
+                                    self.showPopup('ErrorPopup', {
+                                        title: self.env._t('Error'),
+                                        body: self.env._t('Terminal Response Mismatch, continue process manually'),
+                                    });
+                                    self.terminal.send(JSON.stringify({
+                                        "Event": "CONNECTION",
+                                        "Operation": "DISCONNECT"
+                                    }))
+                                    self.terminal.close()
+                                    self.terminal = null
                                 } else {
                                     self.showPopup('ErrorPopup', {
                                         title: self.env._t('Error'),
@@ -156,7 +178,7 @@ odoo.define('barameg_geidea_pos.screens', function(require) {
                                         "Operation": "DISCONNECT"
                                     }))
                                     self.terminal.close()
-                                    self.terminal = undefined
+                                    self.terminal = null
                                 }
                             }
                         }
@@ -187,6 +209,7 @@ odoo.define('barameg_geidea_pos.screens', function(require) {
                         }
                         self.terminal.onmessage = function(message){
                             var data = JSON.parse(message.data)
+                            // handle on connect
                             if (data.Event == 'OnConnect'){
                                 self.terminal.send(JSON.stringify({
                                     "Event": "TRANSACTION",
@@ -197,51 +220,60 @@ odoo.define('barameg_geidea_pos.screens', function(require) {
                                     "AppId": geideaTerminal.AppId
                                 }))
                             }
-                            else if ( data.Event == 'OnTerminalAction'){
+                            // handle on terminal action
+                            if ( data.Event == 'OnTerminalAction'){
                                 if(data.TerminalAction == 'USER_CANCELLED_AND_TIMEOUT'){
                                     self.terminal.send(JSON.stringify({
                                         "Event": "CONNECTION",
                                         "Operation": "DISCONNECT"
                                     }))
                                     self.terminal.close()
-                                    self.terminal = undefined
+                                    self.terminal = null
                                 }
                             }
-                            else if ( data.Event == 'OnError'){
-                                self.showPopup('ErrorPopup', {
-                                    title: self.env._t('Error'),
-                                    body: self.env._t(data.Message),
-                                });
+                            // handle on error
+                            if ( data.Event == 'OnError'){
                                 self.terminal.send(JSON.stringify({
                                     "Event": "CONNECTION",
                                     "Operation": "DISCONNECT"
                                 }))
                                 self.terminal.close()
-                                self.terminal = undefined
+                                self.terminal = null
                             }
-                            else if (data.Event == 'OnDisConnect'){
+                            // handle on disconnect
+                            if (data.Event == 'OnDisConnect'){
                                 self.terminal.close()
-                                self.terminal = undefined
+                                self.terminal = null
                             }
-                            else if ( data.Event == 'OnDataReceive') {
+                            // handle on data receive
+                            if ( data.Event == 'OnDataReceive') {
                                 var result = JSON.parse(data.JsonResult)
-                                if (result.TransactionResponseEnglish == 'APPROVED'){
-                                    let telemetry_url = 'https://barameg.co/api/telemetry/geidea'
-                                    let formData = new FormData()
-                                    formData.append('amount', amount)
-                                    formData.append('company_registry', self.env.pos.company.company_registry)
-                                    formData.append('email', self.env.pos.company.email)
-                                    formData.append('name', self.env.pos.company.name)
-                                    formData.append('phone', self.env.pos.company.phone)
-                                    formData.append('vat', self.env.pos.company.vat)
-                                    formData.append('country_code', self.env.pos.company.country.code)
-                                    formData.append('version', '14')
-                                    fetch(telemetry_url, {
-                                        method:'POST',
-                                        body: formData
-                                    }).then(()=>{
-                                    }).catch(e=>{
-                                    })
+                                if (
+                                    result.TransactionResponseEnglish &&
+                                    result.TransactionAmount &&
+                                    result.TransactionResponseEnglish == 'APPROVED' &&
+                                    result.TransactionAmount == amount.toString()
+                                ){
+                                    try{
+                                        let telemetry_url = 'https://barameg.co/api/telemetry/geidea'
+                                        let formData = new FormData()
+                                        formData.append('amount', amount)
+                                        formData.append('company_registry', self.env.pos.company.company_registry)
+                                        formData.append('email', self.env.pos.company.email)
+                                        formData.append('name', self.env.pos.company.name)
+                                        formData.append('phone', self.env.pos.company.phone)
+                                        formData.append('vat', self.env.pos.company.vat)
+                                        formData.append('country_code', self.env.pos.company.country.code)
+                                        formData.append('version', '15')
+                                        fetch(telemetry_url, {
+                                            method:'POST',
+                                            body: formData
+                                        }).catch(e=>{
+
+                                        })
+                                    } catch(error){
+
+                                    }
                                     order.paymentlines.forEach(line=>{
                                         if(line.payment_method.id == paymentMethod.id){
                                             line.PrimaryAccountNumber = result.PrimaryAccountNumber
@@ -255,7 +287,23 @@ odoo.define('barameg_geidea_pos.screens', function(require) {
                                         "Operation": "DISCONNECT"
                                     }))
                                     self.terminal.close()
-                                    self.terminal = undefined
+                                    self.terminal = null
+                                } else if (
+                                    result.TransactionResponseEnglish &&
+                                    result.TransactionAmount &&
+                                    result.TransactionResponseEnglish == 'APPROVED' &&
+                                    result.TransactionAmount != amount.toString()
+                                ){
+                                    self.showPopup('ErrorPopup', {
+                                        title: self.env._t('Error'),
+                                        body: self.env._t('Terminal Response Mismatch, continue process manually'),
+                                    });
+                                    self.terminal.send(JSON.stringify({
+                                        "Event": "CONNECTION",
+                                        "Operation": "DISCONNECT"
+                                    }))
+                                    self.terminal.close()
+                                    self.terminal = null
                                 } else {
                                     self.showPopup('ErrorPopup', {
                                         title: self.env._t('Error'),
@@ -266,7 +314,7 @@ odoo.define('barameg_geidea_pos.screens', function(require) {
                                         "Operation": "DISCONNECT"
                                     }))
                                     self.terminal.close()
-                                    self.terminal = undefined
+                                    self.terminal = null
                                 }
                             }
                         }

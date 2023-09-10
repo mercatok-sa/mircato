@@ -12,6 +12,7 @@ class PosOrder(models.Model):
     def _order_fields(self, ui_order):
         order_fields = super(PosOrder, self)._order_fields(ui_order)
         order_fields['ecr_number'] = ui_order.get('ecr_number')
+        print(order_fields)
         return order_fields
 
     @api.model
