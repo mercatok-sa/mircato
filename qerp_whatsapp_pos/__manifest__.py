@@ -10,9 +10,13 @@
         'views/pos_order_portal_template.xml',
     ],
     'assets': {
+        'web.assets_backend': [
+        ],
+        'web.assets_frontend': [
+        ],
         'point_of_sale.assets': [
-            'qerp_whatsapp_pos/static/src/js/ClientDetailsEdit.js',
-            'qerp_whatsapp_pos/static/src/js/ProductScreen.js',
+            '/qerp_whatsapp_pos/static/src/js/ClientDetailsEdit.js',
+            '/qerp_whatsapp_pos/static/src/js/ProductScreen.js',
         ],
     }
 }
