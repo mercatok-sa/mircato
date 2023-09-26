@@ -56,10 +56,10 @@ odoo.define('qerp_whatsapp_pos.ProductScreen', function (require) {
                     return false;
                 }
 //                    check for a customer
-                if (this.currentOrder.get_client() === null){
-                    this.showPopup('ErrorPopup', {title: this.env._t('Invalid action no client'),body: this.env._t('Please select a client before proceeding'), });
-                    return false;
-                }
+//                if (this.currentOrder.get_client() === null){
+//                    this.showPopup('ErrorPopup', {title: this.env._t('Invalid action no client'),body: this.env._t('Please select a client before proceeding'), });
+//                    return false;
+//                }
 
                 if (this.env.pos.get_order().orderlines.any(line => line.get_product().tracking !== 'none' && !line.has_valid_product_lot() && (this.env.pos.picking_type.use_create_lots || this.env.pos.picking_type.use_existing_lots))) {
                     const {
