@@ -4,5 +4,15 @@
         <!-- This Menu Item must have a parent and an action -->
         <menuitem id="point_of_sale.menu_point_ofsale" parent="point_of_sale.menu_point_of_sale" action="point_of_sale.action_pos_pos_form" sequence="2" groups="pos_order_restrict.show_all_orders"/>
 
+        <record id="view_pos_order_kanban_inherit" model="ir.ui.view">
+            <field name="name">pos.order.kanban</field>
+            <field name="model">pos.order</field>
+            <field name="inherit_id" ref="point_of_sale.view_pos_config_kanban"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[hasclass('o_kanban_card_manage_pane')]" position="replace">
+                    <div></div>
+                </xpath>
+            </field>
+        </record>
     </data>
 </odoo>
