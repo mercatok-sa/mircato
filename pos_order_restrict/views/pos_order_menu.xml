@@ -14,7 +14,6 @@
                     <attribute name="invisible">1</attribute>
                     <attribute name="readonly">1</attribute>
                 </xpath>
-
             </field>
         </record>
     </data>
