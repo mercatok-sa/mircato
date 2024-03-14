@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<odoo>
-
-    <record id="group_access_reading_close_sassion" model="res.groups">
-        <field name="name">Access reading close sassion</field>
-        <field name="category_id" ref="base.module_category_hidden" />
-    </record>
-
-</odoo>

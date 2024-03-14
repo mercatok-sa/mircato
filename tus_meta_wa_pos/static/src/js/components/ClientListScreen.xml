@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<template id="template">
-    <t t-name="ClientListScreen" t-inherit="point_of_sale.ClientListScreen" t-inherit-mode="extension" owl="1">
-        <xpath expr="//table[hasclass('client-list')]/thead/tr/th[3]" position="after">
-            <th t-if="!env.isMobile">Mobile</th>
-        </xpath>
-    </t>
-</template>
