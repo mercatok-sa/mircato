@@ -1,0 +1,358 @@
+<odoo>
+    <template id="portal_my_home_menu_invoice" name="Portal layout : invoice menu entries"
+              inherit_id="portal.portal_breadcrumbs" priority="30">
+        <xpath expr="//ol[hasclass('o_portal_submenu')]" position="inside">
+            <li t-if="page_name == 'penalty'" t-attf-class="breadcrumb-item #{'active ' if not penalty else ''}">
+                <a t-if="penalties" t-attf-href="/my/penalties?{{ keep_query() }}">Penalties</a>
+                <t t-else="">Penalties</t>
+            </li>
+        </xpath>
+    </template>
+
+    <template id="portal_my_home_penalty" name="Show Penalties" inherit_id="portal.portal_my_home"
+              customize_show="True" priority="104">
+        <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
+            <t t-call="portal.portal_docs_entry">
+                <t t-set="title">My Penalties</t>
+                <t t-set="text">Display your penalties</t>
+                <t t-set="url" t-value="'/my/penalties'"/>
+                <t t-set="config_card" t-value="True"/>
+            </t>
+        </xpath>
+    </template>
+
+    <template id="portal_my_penalties" name="My Penalties">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True"/>
+            <t t-call="portal.portal_searchbar">
+                <t t-set="title">Penalties</t>
+            </t>
+            <t t-if="not penalties">
+                <p>There are currently no penalties for your account.</p>
+            </t>
+            <t t-if="penalties" t-call="portal.portal_table">
+                <thead>
+                    <tr class="active">
+                        <th>Penalty #</th>
+                        <th>Penalty Date</th>
+                        <th class="text-center">Penalty Type</th>
+                        <th class="text-center">Penalty Rule</th>
+                        <th class="text-end">Status</th>
+                        <th class="text-end"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <t t-foreach="penalties" t-as="penalty">
+                        <tr>
+                            <td>
+                                <span t-esc="penalty.name"/>
+                            </td>
+                            <td>
+                                <span t-field="penalty.request_date"/>
+                            </td>
+                            <td class="text-center">
+                                <span t-field="penalty.penalty_type"/>
+                            </td>
+                            <td class="text-center">
+                                <span t-field="penalty.penalty_rule_id.name"/>
+                            </td>
+
+
+                            <td class="tx_s text-center">
+                                <t t-if="penalty.state == 'draft'">
+                                    <span class="badge rounded-pill text-bg-info">
+                                        <span class="d-none d-md-inline">Draft</span>
+                                    </span>
+                                </t>
+                                <t t-if="penalty.state == 'confirmed'">
+                                    <span class="badge rounded-pill text-bg-success">
+                                        <span class="d-none d-md-inline">Confirmed</span>
+                                    </span>
+                                </t>
+                                <t t-if="penalty.state == 'rejected'">
+                                    <span class="badge rounded-pill text-bg-warning">
+                                        <span class="d-none d-md-inline">Rejected</span>
+                                    </span>
+                                </t>
+                            </td>
+                            <td>
+
+                                <a class="btn btn-primary btn-sm" t-attf-href="/my/penalty/#{penalty.id}">
+                                    <span>Edit&lt;View</span>
+                                </a>
+
+                            </td>
+                        </tr>
+                    </t>
+                </tbody>
+                <div>
+
+                </div>
+            </t>
+        </t>
+    </template>
+
+
+    <template id="portal_my_penalty" name="My Penalty Request">
+        <t t-call="portal.portal_layout">
+            <t t-call="portal.portal_record_layout">
+                <t t-set="card_header">
+                    <div class="row no-gutters">
+                        <div class="col-md">
+                            <h5 class="mb-2 mb-md-0">
+                                <small class="text-muted">Penalty Request -</small>
+                                <span t-field="penalty.name"/>
+                            </h5>
+                        </div>
+                        <div class="col-md text-md-center">
+                            <button type="button" data-toggle="modal" style="width:90px;height:50px;font-size:18px;"
+                                    data-target=".modal_edit_penalty" class="btn btn-primary btn-sm"><i
+                                    class="fa fa-pencil mr-1"/>Edit
+                            </button>
+                        </div>
+                        <div class="col-md text-md-right">
+                            <div class="d-inline-block">
+                                <small class="mr-2 mt-1 float-left">
+                                    <b>State:</b>
+                                </small>
+                                <div t-foreach="penalty" t-as="tf" class="float-left">
+                                    <span t-att-class="'badge badge-success' if tf.state=='validate' else ''
+                                                                               'badge badge-primary' if tf.state=='confirmed' else ''
+                                                                               'badge badge-danger' if tf.state=='rejected' else ''
+                                                                               'badge badge-warning' if tf.state=='refuse' else ''
+                                                                               'badge badge-light' if tf.state=='draft' else ''
+                                                                               'badge badge-info' if tf.state=='approved' else ''
+                                                                               'badge badge-info' if tf.state=='employee_submit' else ''
+                                                                               'badge badge-info' if tf.state=='emp_mang_submit' else ''
+                                                                               'badge badge-info' if tf.state=='hr_mang_submit' else ''
+                                                                               " t-field="tf.state"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+
+                <t t-set="card_body">
+                    <div>
+                        <div class="border-bottom d-flex justify-content-between py-2 mb-3 align-items-center">
+                            <strong>
+                                Penalty Name :
+                                <span class="text-nowrap" t-esc="penalty.name"/>
+                            </strong>
+                        </div>
+
+                        <h5 style="font-weight: bold;color: cornflowerblue;">Manger Employee FeedBack
+                        </h5>
+                        <hr></hr>
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label class="col-form-label" for="emp_manager_feedback">
+                                        <strong>
+                                            Manager FeedBack :
+                                        </strong>
+                                    </label>
+                                    <t t-esc="penalty.emp_manager_feedback"/>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group col-md-3 mt16 from_period_div"
+                                     id="to_manager_opinion">
+                                    <label class="control-label">
+                                        <strong>Manager Opinion :</strong>
+                                    </label>
+                                    <!--                                                            <t t-esc="dict(penalty.fields_get(allfields=['emp_manager_opinion'])['emp_manager_opinion']['selection'])[penalty.emp_manager_opinion]"/>-->
+                                </div>
+                            </div>
+                        </div>
+                        <hr></hr>
+                        <h5 style="font-weight: bold;color: cornflowerblue;">Employee FeedBack</h5>
+                        <hr></hr>
+
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label class="col-form-label" for="employee_cause_of_penalty">
+                                        <strong>
+                                            ماهو
+                                            سبب
+                                            اقترافك للمخالفة :
+                                        </strong>
+                                    </label>
+                                    <t t-esc="penalty.employee_cause_of_penalty"/>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label class="col-form-label" for="employee_approve_of_cause">
+                                        <strong>
+                                            هل
+                                            لديك
+                                            مايثبت صحة اقوالك :
+                                        </strong>
+                                    </label>
+                                    <t t-esc="penalty.employee_approve_of_cause"/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-form-label" for="employee_other_approve">
+                                <strong>
+                                    هل لديك اقوال
+                                    أخرى :
+                                </strong>
+                            </label>
+                            <t t-esc="penalty.employee_other_approve"/>
+
+                        </div>
+                        <hr></hr>
+                        <h5 style="font-weight: bold;color: cornflowerblue;">HR Manager FeedBack
+                        </h5>
+                        <hr></hr>
+                        <div class="form-group">
+                            <label class="col-form-label" for="hr_manager_feedback">
+                                <strong>Hr Manager
+                                    FeedBack :
+                                </strong>
+                            </label>
+                            <t t-esc="penalty.hr_manager_feedback"/>
+
+                        </div>
+
+
+                    </div>
+                    <div>
+                        <div role="dialog" class="modal fade modal_edit_penalty">
+                            <div class="modal-dialog" style="background-color: cornsilk;height:auto;">
+                                <form method="POST" style="background-color: cornsilk;"
+                                      class="js_accept_json modal-content js_website_submit_form edit_penalty_form">
+                                    <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                                    <input type="hidden" name="penalty_id" class="penalty_id"
+                                           t-att-value="penalty.id"/>
+                                    <header class="modal-header">
+                                        <h4 class="modal-title">Edit Penalty :
+                                            <t t-esc="penalty.name"/>
+                                        </h4>
+                                    </header>
+                                    <main class="modal-body" id="sign-dialog">
+
+                                        <h5 style="font-weight: bold;color: cornflowerblue;">Manger Employee FeedBack
+                                        </h5>
+                                        <hr></hr>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <div class="form-group">
+                                                    <label class="col-form-label" for="emp_manager_feedback">Manager
+                                                        FeedBack
+                                                    </label>
+                                                    <input style="height:80px;width:100%;" type="text"
+                                                           class="form-control emp_manager_feedback"
+                                                           name="emp_manager_feedback"
+                                                           t-att-value="penalty.emp_manager_feedback"
+                                                           placeholder="Manager FeedBack"/>
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="form-group col-md-3 mt16 from_period_div"
+                                                     id="to_manager_opinion">
+                                                    <label class="control-label">Manager Opinion</label>
+                                                    <select name="emp_manager_opinion" style="width:250px;"
+                                                            t-att-value="penalty.emp_manager_opinion"
+                                                            t-att-selected="emp_manager_opinion == penalty.emp_manager_opinion"
+                                                            class="form-control emp_manager_opinion"
+                                                            id="emp_manager_opinion">
+                                                        <option value="approved">غير مخالف</option>
+                                                        <option value="not_approved">مخالف</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <h5 style="font-weight: bold;color: cornflowerblue;">Employee FeedBack</h5>
+                                        <hr></hr>
+
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <div class="form-group">
+                                                    <label class="col-form-label" for="employee_cause_of_penalty">
+                                                        ماهو
+                                                        سبب
+                                                        اقترافك للمخالفة
+                                                    </label>
+                                                    <input style="height:80px;width:100%;" type="text"
+                                                           class="form-control employee_cause_of_penalty"
+                                                           name="employee_cause_of_penalty"
+                                                           t-att-value="penalty.employee_cause_of_penalty"
+                                                           placeholder="ماهو سبب اقترافك للمخالفة"/>
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="form-group">
+                                                    <label class="col-form-label" for="employee_approve_of_cause">هل
+                                                        لديك
+                                                        مايثبت صحة اقوالك
+                                                    </label>
+                                                    <input style="height:80px;width:100%;" type="text"
+                                                           class="form-control employee_approve_of_cause"
+                                                           name="employee_approve_of_cause"
+                                                           t-att-value="penalty.employee_approve_of_cause"
+                                                           placeholder="هل لديك مايثبت صحة اقوالك"/>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-form-label" for="employee_other_approve">هل لديك اقوال
+                                                أخرى
+                                            </label>
+                                            <input style="height:80px;" type="text"
+                                                   class="form-control employee_other_approve"
+                                                   name="employee_other_approve"
+                                                   t-att-value="penalty.employee_other_approve"
+                                                   placeholder="هل لديك اقوال أخرى"/>
+                                        </div>
+                                        <h5 style="font-weight: bold;color: cornflowerblue;">HR Manager FeedBack
+                                        </h5>
+                                        <hr></hr>
+                                        <div class="form-group">
+                                            <label class="col-form-label" for="hr_manager_feedback">Hr Manager
+                                                FeedBack
+                                            </label>
+                                            <input style="height:80px;" type="text"
+                                                   class="form-control hr_manager_feedback"
+                                                   name="hr_manager_feedback"
+                                                   t-att-value="penalty.hr_manager_feedback"
+                                                   placeholder="HR manager FeedBack"/>
+                                        </div>
+
+
+                                    </main>
+                                    <footer class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                                            Cancel
+                                        </button>
+                                        <button t-attf-class="btn btn-primary edit_penalty_confirm">Confirm</button>
+                                    </footer>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                </t>
+            </t>
+
+        </t>
+    </template>
+
+
+    <template id="portal_penalty_page" name="Invoice Portal Template" inherit_id="portal.portal_sidebar" primary="True">
+        <xpath expr="//div[hasclass('o_portal_sidebar')]" position="inside">
+            <t t-set="o_portal_fullwidth_alert">
+                <t t-call="portal.portal_back_in_edit_mode">
+                    <t t-set="backend_url"
+                       t-value="'/web#model=%s&amp;id=%s&amp;action=%s&amp;view_type=form' % (penalty._name, penalty.id, penalty.env.ref('penalty_request.penalty_request_action').id)"/>
+                </t>
+            </t>
+        </xpath>
+    </template>
+</odoo>

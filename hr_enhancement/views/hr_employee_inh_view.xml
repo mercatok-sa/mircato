@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="hr_hr_employee_inherited_form_view" model="ir.ui.view">
+        <field name="name">hr.employee.form.inherited.view</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='pin']" position="after">
+                <field name="delegation_required"/>
+            </xpath>
+            <xpath expr="//field[@name='passport_id']" position="after">
+                <field name="passport_expiry_date"/>
+                <field name="passport_location"/>
+            </xpath>
+            <xpath expr="//field[@name='identification_id']" position="after">
+                <field name="identification_expiry_date"/>
+            </xpath>
+            <xpath expr="//page[@name='personal_information']/group/group[3]" position="after">
+                <group string="Medical Info.">
+                    <field name="medical_card_number"/>
+                    <field name="medical_card_expiry_date"/>
+                </group>
+            </xpath>
+            <xpath expr="//field[@name='bank_account_id']" position="after">
+                <field name="bank_card_expiry_date"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="report_request_salary_doc_document">
+            <t t-call="web.external_layout">
+                <t t-set="o" t-value="o.with_context(lang=o.lang or o.company_id.partner_id.lang)"/>
+                <div class="page" dir="rtl">
+                    <div class="row" style="margin-top:60px;">
+                        <div class="col-4">
+                            <table style="width:100%;">
+                                <tr>
+                                    <td>
+                                        <strong>
+                                            <span style="text-align:right;">التـاريـخ:</span>
+                                        </strong>
+                                    </td>
+                                    <td class="text-center">
+                                        <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%d-%m-%Y')"/>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="text-center" style="margin-top:20px;">
+                        <h3>
+                            <center>
+                                <u>
+                                    <span style="text-align:right;">
+                                        <strong style="font-size:20px;">الموضوع: شهادة لمن يهمه الأمر</strong>
+                                    </span>
+                                </u>
+                            </center>
+                        </h3>
+                    </div>
+
+                    <p style="font-size:20px;text-align:right;margin-top:30px;">
+                        <strong>تشهد شركة بهمن للتجارة العامة والمقاولات
+                            بأن المذكور
+                            يعمل لديها ومستمر في العمل ولايزال يتقاضى
+                            راتبه وفقا للبيانات التالية :
+                        </strong>
+                    </p>
+                    <table style="border: 1px solid black;width:100%;margin-top:40px;">
+                        <tr>
+                            <td style="border: 1px solid black;width:20%">
+                                <span class="pull-right" style="text-align:right;">
+                                    <strong>الأســــم:
+                                    </strong>
+                                </span>
+                            </td>
+                            <td class="text-center" style="border: 1px solid black;width:80%">
+                                <strong>
+                                    <span t-field="o.name"/>
+                                </strong>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid black;">&#160;&#160;</td>
+                            <td style="border: 1px solid black;">&#160;&#160;</td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid black;">
+                                <span class="pull-right" style="text-align:right;">
+                                    <strong>الرقــم الـمـدنـى:</strong>
+                                </span>
+                            </td>
+                            <td class="text-center" style="border: 1px solid black;" colspan="2">
+                                <strong>
+                                    <span t-field="o.identification_id"/>
+                                </strong>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid black;">&#160;&#160;</td>
+                            <td style="border: 1px solid black;">&#160;&#160;</td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid black;">
+                                <span class="pull-right" style="text-align:right;">
+                                    <strong>الـوظـيـفــة:</strong>
+                                </span>
+                            </td>
+                            <td class="text-center" style="border: 1px solid black;">
+                                <strong>
+                                    <span t-field="o.job_title"/>
+                                </strong>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid black;">&#160;&#160;</td>
+                            <td style="border: 1px solid black;">&#160;&#160;</td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid black;">
+                                <span class="pull-right" style="text-align:right;">
+                                    <strong>تـاريـخ الالـتـحـاق:</strong>
+                                </span>
+                            </td>
+                            <td class="text-center" style="border: 1px solid black;">
+                                <strong>
+                                    <span t-field="o.first_contract_date"/>
+                                </strong>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid black;">&#160;&#160;</td>
+                            <td style="border: 1px solid black;">&#160;&#160;</td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid black;">
+                                <span class="pull-right" style="text-align:right;">
+                                    <strong>الراتـــــب:</strong>
+                                </span>
+                            </td>
+                            <td class="text-center" style="border: 1px solid black;" colspan="3">
+                                <strong>
+                                    <span t-field="o.contract_id.wage"/>
+                                </strong>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <p style="font-size:20px;text-align:right;margin-top:30px;">
+                        <strong>وقد أعطيت له هذه الشهادة بناء على طلبه ودون أدنى
+                            مسؤولية على الشركة لتقديمها لمن يهمه الأمر.
+                        </strong>
+                    </p>
+                    <p style="font-size: 16px;margin-top:40px;">
+                        <center>وتفضلوا بقبول فائق الإحترام ،،،</center>
+                    </p>
+                    <p style="font-size: 16px;text-align:right;margin-top:30px;">
+                        <strong>هذه الشهادة صالحة لمدة 3 أشهر.</strong>
+                    </p>
+                    <p style="font-size: 20px;text-align:left;margin-top:30px;">
+                        <strong>شركة بهمن للتجارة العامة والمقاولات
+                        </strong>
+                    </p>
+                    <p style="font-size: 20px;text-align:left;margin-top:10px;margin-left:160px;">
+                        <strong>
+                            المفوض بالتوقيع :
+                        </strong>
+                    </p>
+                </div>
+            </t>
+        </template>
+
+        <template id="report_request_salary_doc">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-set="lang" t-value="o.lang"/>
+                    <t t-call="hr_enhancement.report_request_salary_doc_document" t-lang="lang"/>
+                </t>
+            </t>
+        </template>
+
+        <record id="action_request_salary_doc_report" model="ir.actions.report">
+            <field name="name">Request Salary Doc.</field>
+            <field name="model">hr.employee</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">hr_enhancement.report_request_salary_doc</field>
+            <field name="report_file">hr_enhancement.report_request_salary_doc</field>
+            <field name="binding_model_id" ref="hr.model_hr_employee"/>
+            <field name="binding_type">report</field>
+            <field name="groups_id" eval="[(4, ref('hr_enhancement.group_employee_request_salary_doc'))]"/>
+        </record>
+
+        <record id="paperformat_request_salary_doc_report" model="report.paperformat">
+            <field name="name">Request Salary Doc Paper Format</field>
+            <field name="default" eval="True"/>
+            <field name="format">A4</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">0</field>
+            <field name="margin_bottom">18</field>
+            <field name="margin_left">7</field>
+            <field name="margin_right">7</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">40</field>
+            <field name="dpi">90</field>
+        </record>
+
+        <record id="hr_enhancement.action_request_salary_doc_report" model="ir.actions.report">
+            <field name="paperformat_id" ref="hr_enhancement.paperformat_request_salary_doc_report"/>
+        </record>
+    </data>
+</odoo>

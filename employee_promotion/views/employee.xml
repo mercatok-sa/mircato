@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="hr_hr_employee_view_form_promotion" model="ir.ui.view">
+        <field name="name">hr.employee.view.form.inherit</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Promotions">
+                    <field name="promotion_ids" readonly="1">
+                        <tree>
+                            <field name="new_job_id"/>
+                            <field name="new_department_id"/>
+                            <field name="new_manager_id"/>
+                            <field name="contract_id"/>
+                            <field name="coach_id"/>
+                        </tree>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

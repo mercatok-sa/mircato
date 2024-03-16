@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_penalty_request_user,penalty.request,model_penalty_request,base.group_user,1,0,0,0
+access_penalty_request_hr_officer,penalty.request,model_penalty_request,hr.group_hr_user,1,1,1,1
+access_penalty_request_hr_manager,penalty.request,model_penalty_request,hr.group_hr_manager,1,1,1,1
+access_penalty_request_payment_user,penalty.request.payment,model_penalty_request_payment,base.group_user,1,0,0,0
+access_penalty_request_payment_hr_officer,penalty.request.payment,model_penalty_request_payment,hr.group_hr_user,1,1,1,1

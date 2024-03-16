@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.sequence" id="seq_penalty_request">
+            <field name="name">Penalty Request Sequence</field>
+            <field name="code">penalty.request</field>
+            <field name="padding">5</field>
+            <field name="prefix">penalty/request/</field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Breadcrumbs of attendance -->
+    <template id="portal_payroll_menu" name="Portal layout : Payroll menu entry"
+              inherit_id="portal.portal_breadcrumbs" priority="25">
+        <xpath expr="//ol[hasclass('o_portal_submenu')]" position="inside">
+            <li t-if="page_name == 'payslips' or payslips"
+                t-attf-class="breadcrumb-item #{'active ' if not payslips else ''}">
+                <a t-attf-href="/my/payslips?{{ keep_query() }}">
+                    Payroll
+                </a>
+            </li>
+        </xpath>
+    </template>
+
+    <!-- My attendance menu in Main portal document page -->
+    <template id="portal_my_payroll" name="Portal My Payroll : Payroll entries"
+              inherit_id="portal.portal_my_home" priority="102">
+        <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
+            <t t-call="portal.portal_docs_entry">
+                <t t-set="title">My Payroll</t>
+                <t t-set="text">Display your payslips</t>
+                <t t-set="url" t-value="'/my/payslips'"/>
+                <t t-set="config_card" t-value="True"/>
+            </t>
+        </xpath>
+    </template>
+
+    <template id="payslip_portal_template" name="Payslip Portal Template" inherit_id="portal.portal_sidebar"
+              primary="True">
+        <xpath expr="//div[hasclass('o_portal_sidebar')]" position="inside">
+            <t t-set="o_portal_fullwidth_alert">
+                <t t-call="portal.portal_back_in_edit_mode">
+                    <t t-set="backend_url"
+                       t-value="'/web#model=%s&amp;id=%s&amp;action=%s&amp;view_type=form' % (payslip._name, payslip.id, action.id)"/>
+                </t>
+            </t>
+
+            <div class="row mt16 o_portal_payslip_sidebar">
+                <!-- Sidebar -->
+                <t t-call="portal.portal_record_sidebar">
+                    <t t-set="classes" t-value="'col-lg-auto d-print-none'"/>
+
+                    <t t-set="title">
+                        <h2 class="mb-0">
+                            <strong style="font-size: 18px;">Net Salary</strong>
+                            <br/>
+                            <t t-foreach="payslip.line_ids" t-as="line">
+                                <t t-if="line.code == 'NET'">
+                                    <b style="font-size: 15px;" t-field="line.amount"/>
+                                </t>
+                            </t>
+                        </h2>
+                        <br/>
+                        <div class="o_download_pdf btn-toolbar flex-sm-nowrap">
+
+                            <div class="o_download_pdf btn-toolbar flex-sm-nowrap">
+                                <div class="btn-group flex-grow-1 mr-1 mb-1">
+                                    <a class="btn btn-secondary btn-block o_download_btn"
+                                       t-att-href="'/report/pdf/hr_payroll.report_payslip/%s?download=1' % payslip.id"
+                                       title="Download">
+                                        <i class="fa fa-download"/>
+                                        Download
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="o_download_pdf btn-toolbar flex-sm-nowrap">
+                                <div class="btn-group flex-grow-1 mr-1 mb-1">
+                                    <a class="btn btn-secondary btn-block o_print_btn o_portal_invoice_print"
+                                       t-att-href="'/report/pdf/hr_payroll.report_payslip/%s' % payslip.id"
+                                       id="print_payslip_report" title="Print" target="_blank">
+                                        <i class="fa fa-print"/>
+                                        Print
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <br/>
+                        <ul class="list-group list-group-flush flex-wrap flex-row flex-lg-column">
+                            <li class="list-group-item flex-grow-1">
+                                <div class="small mb-1">
+                                    <strong class="text-muted">Responsible</strong>
+                                </div>
+                                <div class="row flex-nowrap">
+                                    <div class="col flex-grow-0 pr-2">
+                                        <img class="rounded-circle mr4 float-left o_portal_contact_img"
+                                             t-if="payslip.create_uid.image_1024"
+                                             t-att-src="image_data_uri(payslip.create_uid.image_1024)" alt="Contact"/>
+                                        <img class="rounded-circle mr4 float-left o_portal_contact_img"
+                                             t-if="not payslip.create_uid.image_1024"
+                                             src="/web/static/src/img/placeholder.png" alt="Contact"/>
+                                    </div>
+                                    <div class="col pl-0" style="min-width: 150px">
+                                        <span t-field="payslip.create_uid"
+                                              t-options='{"widget": "contact", "fields": ["name", "phone"], "no_marker": True}'/>
+                                        <a href="#discussion" class="small">
+                                            <i class="fa fa-comment"></i>
+                                            Send message
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </t>
+                </t>
+
+                <!-- Page content -->
+                <div id="payslip_content" class="col-12 col-lg justify-content-end" style="background-color: #ffffff;">
+                    <div class="mt-4">
+                        <header class="modal-header">
+                            <h5 class="modal-title">
+                                <strong>Payslip Reference:</strong>
+                                <span style="font-size:18px;" t-esc="payslip.number"/>
+                            </h5>
+                            <h5 class="modal-title">
+                                <strong>Payslip Name:</strong>
+                                <span style="font-size:18px;" t-esc="payslip.name"/>
+                            </h5>
+                        </header>
+                    </div>
+
+                    <br/>
+                    <table class="table table-sm table-condensed table-bordered"
+                           style="width:100%; border:1px solid black;">
+                        <tr class="text-center">
+                            <th style="border:1px solid black;background-color: #ffffff;">Employee</th>
+                            <th style="border:1px solid black;background-color: #ffffff;">Marital Status</th>
+                            <th style="border:1px solid black;background-color: #ffffff;">Designation</th>
+                            <th style="border:1px solid black;background-color: #ffffff;">Pay Period</th>
+                        </tr>
+                        <tr class="text-center">
+                            <td style="border:1px solid black;">
+                                <span t-field="payslip.employee_id.name"/>
+                            </td>
+                            <td style="border:1px solid black;">
+                                <span t-field="payslip.employee_id.marital"/>
+                            </td>
+                            <td style="border:1px solid black;">
+                                <span t-field="payslip.employee_id.job_id.name"/>
+                            </td>
+                            <td style="border:1px solid black;">
+                                <span t-field="payslip.date_from"/>
+                                -
+                                <span t-field="payslip.date_to"/>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <table class="table table-sm table-condensed table-bordered"
+                           style="width:100%; border:1px solid black;">
+                        <tr class="text-center">
+                            <th style="border:1px solid black;background-color: #ffffff;">Email</th>
+                            <th style="border:1px solid black;background-color: #ffffff;">Base Salary</th>
+                            <th style="border:1px solid black;background-color: #ffffff;">Identification</th>
+                            <th style="border:1px solid black;background-color: #ffffff;">Computed on</th>
+                        </tr>
+                        <tr class="text-center">
+                            <td style="border:1px solid black;">
+                                <span t-field="payslip.employee_id.work_email"/>
+                            </td>
+                            <td style="border:1px solid black;">
+                                <span t-field="payslip.contract_id.wage"/>
+                            </td>
+                            <td style="border:1px solid black;">
+                                <span t-field="payslip.employee_id.identification_id"/>
+                            </td>
+                            <td style="border:1px solid black;">
+                                <span t-field="payslip.compute_date"/>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <h5 style="font-size: 17px;">
+                        <strong>Details by Salary Rule Category</strong>
+                    </h5>
+                    <table class="table table-sm mb32">
+                        <thead>
+                            <tr class="text-center">
+                                <th style="background-color: #ffffff;">Name</th>
+                                <th style="background-color: #ffffff;">Salary Rule Category</th>
+                                <th style="background-color: #ffffff;">Total</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-center">
+                            <tr t-foreach="payslip.line_ids" t-as="h">
+                                <td>
+                                    <span t-esc="h.name"/>
+                                </td>
+                                <td>
+                                    <span t-esc="h.category_id.name"/>
+                                </td>
+                                <td class="text-center">
+                                    <span t-esc="h.total"
+                                          t-esc-options='{"widget": "monetary", "display_currency": o.company_id.currency_id}'/>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h5 style="font-size: 18px;">
+                        <strong>Bank Account for</strong>
+                        <span t-esc="payslip.employee_id.name"/>
+                        <strong>is</strong>
+                        <span t-esc="payslip.employee_id.bank_account_id.acc_number"/>
+                    </h5>
+
+                    <!-- chatter -->
+                    <div class="mt-4">
+                        <h2>History</h2>
+                        <t t-call="portal.message_thread">
+                            <t t-set="object" t-value="payslip"/>
+                        </t>
+                    </div>
+                </div><!-- // #quote_content -->
+            </div>
+        </xpath>
+    </template>
+</odoo>

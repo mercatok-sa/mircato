@@ -1,0 +1,68 @@
+<odoo>
+    <data>
+        <record id="hr_contract_inherited_view_form" model="ir.ui.view">
+            <field name="name">hr.contract.inherited.view.form</field>
+            <field name="model">hr.contract</field>
+            <field name="inherit_id" ref="hr_contract.hr_contract_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='employee_id']" position="after">
+                    <field name="contract_join_date"/>
+                    <field name="contract_start_training"/>
+                    <field name="contract_end_training"/>
+                </xpath>
+                <xpath expr="//div[@name='wage']" position="after">
+                    <label for="housing_allowance"/>
+                    <div class="o_row mw-50" name="housing_allowance">
+                        <field name="housing_allowance" class="oe_inline o_hr_narrow_field" nolabel="1"/>
+                        <div class="mb-3" name="wage_period_label">/ month</div>
+                    </div>
+
+                    <label for="transportation_allowance"/>
+                    <div class="o_row mw-50" name="transportation_allowance">
+                        <field name="transportation_allowance" class="oe_inline o_hr_narrow_field" nolabel="1"/>
+                        <div class="mb-3" name="wage_period_label">/ month</div>
+                    </div>
+
+
+                    <label for="other_allowances"/>
+                    <div class="o_row mw-50" name="other_allowances">
+                        <field name="other_allowances" class="oe_inline o_hr_narrow_field" nolabel="1"/>
+                        <div class="mb-3" name="wage_period_label">/ month</div>
+                    </div>
+
+                    <label for="total_amount"/>
+                    <div class="o_row mw-50" name="total_amount">
+                        <field name="total_amount" class="oe_inline o_hr_narrow_field" nolabel="1"/>
+                        <div class="mb-3" name="wage_period_label">/ month</div>
+                    </div>
+                </xpath>
+                <xpath expr="//page[@name='other']" position="after">
+                    <page string="Days &amp; Hours">
+                        <group>
+                            <group>
+                                <field name="workdays_hour"/>
+                                <field name="number_of_month_days"/>
+                            </group>
+                            <group>
+                                <field name="hour_value"/>
+                                <field name="day_value"/>
+                            </group>
+                        </group>
+                    </page>
+                    <page string="Medical Insurance">
+                        <group>
+                            <group>
+                                <field name="medical_details"/>
+                                <field name="insurance_company" invisible="medical_details == False"/>
+                                <field name="insurance_number" invisible="medical_details == False"/>
+                                <field name="insurance_start_date" invisible="medical_details == False"/>
+                                <field name="insurance_end_date" invisible="medical_details == False"/>
+                            </group>
+                            <group></group>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

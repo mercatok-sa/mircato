@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="view_time_off_policy_form" model="ir.ui.view">
+            <field name="name">view.time.off.policy.form</field>
+            <field name="model">time.off.policy</field>
+            <field name="arch" type="xml">
+                <form string="Time Off Policy">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="line_ids">
+                                <tree>
+                                    <field name="time_off_id" required="1"/>
+                                </tree>
+                                <form>
+                                    <sheet>
+                                        <group>
+                                            <field name="time_off_id" required="1"/>
+                                        </group>
+                                    </sheet>
+                                </form>
+                            </field>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_time_off_policy_tree" model="ir.ui.view">
+            <field name="name">view.time.off.policy.tree</field>
+            <field name="model">time.off.policy</field>
+            <field name="arch" type="xml">
+                <tree string="Time Off Policy">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_time_off_policy_view" model="ir.actions.act_window">
+            <field name="name">Time Off Policy</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">time.off.policy</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="menu_time_off_policy_view"
+                  name="Time Off Policy"
+                  parent="hr.menu_human_resources_configuration"
+                  action="action_time_off_policy_view"
+                  sequence="101"/>
+    </data>
+</odoo>

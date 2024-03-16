@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+
+        <record id="hr_employee_commen_inherit" model="ir.ui.view">
+            <field name="name">hr.employee.commen.inherit</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='user_id']" position="after">
+                    <field name="annual_leave_compute_type" invisible="1"/>
+                    <field name="sick_leave_remaining_days" invisible="1"/>
+                </xpath>
+                <xpath expr="//form/sheet/notebook" position="inside">
+                    <page string="Termination And Resignation">
+                        <group>
+                            <field name="rule_id" invisible="1"/>
+                            <field name="termination_amount" readonly="1"/>
+                            <field name="resignation_amount" readonly="1"/>
+                        </group>
+                        <group>
+                            <field name="indemnity_liability" readonly="1"/>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="hr_employee_tree_inherit" model="ir.ui.view">
+            <field name="name">hr.employee.inherit</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='parent_id']" position="after">
+                    <field name="all_leaves_count"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

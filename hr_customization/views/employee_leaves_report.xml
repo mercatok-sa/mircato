@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="employee_leaves_tree_view" model="ir.ui.view">
+            <field name="name">employee.leaves.tree.view</field>
+            <field name="model">hr.employee</field>
+            <field name="priority">100</field>
+            <field name="arch" type="xml">
+                <tree string="Employee Leaves" create="false" edit="false">
+                    <field name="check_report_leave" invisible="1"/>
+                    <field name="name"/>
+                    <field name="all_leaves_from_report" string="Expected Numer Of Leaves"/>
+                    <field name="leaves_count" string="Current Numer Of Leaves"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="employee_leaves_action_view" model="ir.actions.act_window">
+            <field name="name">Employee Leaves</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hr.employee</field>
+            <field name="view_mode">tree</field>
+        </record>
+    </data>
+</odoo>

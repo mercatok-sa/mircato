@@ -1,0 +1,25 @@
+<odoo>
+    <data>
+        <record id="purchase_order_inherited_form" model="ir.ui.view">
+            <field name="name">purchase.order.form.inherited.view</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='currency_id']" position="after">
+                    <field name="change_qty"/>
+                    <field name="change_price"/>
+                    <field name="change_taxes"/>
+                </xpath>
+                <xpath expr="//field[@name='order_line']/tree/field[@name='product_qty']" position="attributes">
+                    <attribute name="readonly">not parent.change_qty</attribute>
+                </xpath>
+                <xpath expr="//field[@name='order_line']/tree/field[@name='price_unit']" position="attributes">
+                    <attribute name="readonly">not parent.change_price</attribute>
+                </xpath>
+                <xpath expr="//field[@name='order_line']/tree/field[@name='taxes_id']" position="attributes">
+                    <attribute name="readonly">not parent.change_taxes</attribute>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

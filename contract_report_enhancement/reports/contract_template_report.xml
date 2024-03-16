@@ -1,0 +1,476 @@
+<odoo>
+    <data>
+        <template id="template_work_contract_document">
+            <t t-call="web.basic_layout">
+                <t t-set="o" t-value="o.with_context({'lang':o.employee_id.lang})"/>
+                <div class="page" dir="rtl">
+                    <div>
+                        <div class="row" style="padding-left:5px;padding-right:5px">
+                            <div class="col-6" dir="rtl" align="right"
+                                 style="font-size:15px;direction:rtl;border:1px solid black;">
+                                <div class="text-center">
+                                    <strong>
+                                        <span style="font-size:18px;color:blue;">
+                                            <u>عقـد عمـل</u>
+                                        </span>
+                                    </strong>
+                                </div>
+                                <br/>
+                                <div align="right">
+                                    <strong>إنه في يوم الموافق
+                                        <span t-field="o.date_start"/>
+                                    </strong>
+                                </div>
+                                <br/>
+                                <span>
+                                    <strong>تم الاتفاق بين كل من :</strong>
+                                </span>
+                                <br/>
+                                <span>
+                                    <strong>١- السادة /</strong>
+                                </span>
+                                <br/>
+                                <span>
+                                    <strong>طـرف أول</strong>
+                                </span>
+                                <br/>
+                                <br/>
+                                <span>
+                                    <strong>۲- السيد /</strong>
+                                    <span t-field="o.employee_id.name"/>
+                                </span>
+                                <br/>
+                                <span>
+                                    <strong>الجنسية:</strong>
+                                    <span t-field="o.employee_id.country_id.name"/>
+                                </span>
+                                <br/>
+                                <span>
+                                    <strong>بطاقة مدنية:</strong>
+                                    <span t-field="o.employee_id.identification_id"/>
+                                    &#160;&#160;&#160;&#160;
+                                    <strong>طرف ثاني</strong>
+                                </span>
+                                <br/>
+                                <span>
+                                    <strong>محله المختار :</strong>
+                                    <span t-field="o.employee_id.private_street"/>,<span
+                                        t-field="o.employee_id.private_street2"/>,
+                                    <span t-field="o.employee_id.private_city"/>,<span
+                                        t-field="o.employee_id.private_state_id.name"/>,
+                                    <span t-field="o.employee_id.private_country_id.name"/>
+                                </span>
+                                <br/>
+                                <div align="rigth">
+                                    <strong>
+                                        على ما يـأتي :-
+                                    </strong>
+                                </div>
+                                <br/>
+                                <span style="font-size:15px;">
+                                    ١- يتعاقد الطرف الاول مع الطرف الثاني بمهنة
+                                    <strong>
+                                        <span t-field="o.job_id.name"/>
+                                    </strong>
+                                </span>
+                                <span style="font-size:15px;">
+                                    إبتـداءً من تاريخ
+                                    <strong>
+                                        <span t-field="o.date_start"/>
+                                    </strong>
+                                </span>
+                                <span style="font-size:15px;">براتب شهري
+                                    <strong>
+                                        <span t-field="o.wage"/>
+                                    </strong>
+                                </span>
+                                <br/>
+                                <br/>
+                                <span style="font-size:15px;">
+                                    ۲- هذا العقد غير مُحدَّد المدة ، وفي حالة رغبة أحد
+                                    الطرفين في إنهائه ، أن يبلّغ الطرف الآخر بالمدة
+                                    المنصوص عليها في قانون العمل في القطاع الأهلي .
+                                </span>
+                                <br/>
+                                <br/>
+                                <span style="font-size:15px;">
+                                    ٣- يكون الطرف الثاني تحت الإختبار لمدة <strong>مائة يوم</strong> من
+                                    تاريخ إستلامه العمل إستلاماً فعلياً ، ويكون للطرف الأول
+                                    الحق في فصله من الخدمة خلال فترة الإختبار دون إنذار
+                                    وبدون إبداء الأسباب .
+                                </span>
+                                <br/>
+                                <br/>
+                                <span style="font-size:15px;">
+                                    ٤- الطرف الأول غير مُلتزم بمُواصلات الطرف الثاني من
+                                    وإلى مكان العمل .
+                                </span>
+                                <br/>
+                                <br/>
+                                <span style="font-size:15px;">
+                                    ٥- للطرف الثاني الحق في إجازة سنوية قدرها
+                                    <strong>ثلاثون يوماً</strong>
+                                    عن كل سنة عمل بأجر كامل ، على أن يكون للطرف
+                                    الأول الحق في تحديد موعد القيام بالإجازة وفقاً لما تقضي
+                                    به نُظُم وحالة العمل ، ويتقيَّد الطرف الثاني بمُباشرة العمل
+                                    فور إنتهاء إجازته دون تأخير .
+                                </span>
+                                <br/>
+                                <br/>
+                                <span style="font-size:15px;">
+                                    ٦- يلتزم الطرف الثاني بأداء الأعمال الموكولة إليه بكفاءة
+                                    تامة وأداء حسن ، على أن يكون مُلزماً بتعويض ما يتسبَّب
+                                    فيه من أضرار نتيجة خطئه أو إهماله .
+                                </span>
+                                <br/>
+                                <br/>
+                                <span style="font-size:15px;">
+                                    ٧- يُقِرّ الطرف الثاني أنه إطّلع على نظام العمل لدى
+                                    الطرف الأول ولائحة الدوام بمقر العمل ، ولائحة
+                                    الجزاءات المُعتمدة والمُعلنة بمكان العمل ، وأنه يلتزم
+                                    إلتزاماً تاماً بها ، وأنه يحق للطرف الأول - في حالة
+                                    مُخالفة الطرف الثاني لنظام العمل أو أحكام تلك اللوائح
+                                    والنظم أو أوامر رُؤسائه - إنهاء عقده بدون بدل مُهلة
+                                    إنذار ، وفقاً لما يقضي به قانون العمل بالقطاع الأهلي.
+                                </span>
+                                <br/>
+                                <br/>
+                                <span style="font-size:15px;">
+                                    ٨- للطرف الأول الحق في أن يسند إلى الطرف الثاني
+                                    أيّ عمل يكون قادراً على أدائه ، كما يحق له نقله إلى
+                                    أيّ جهة يحتاج إليه العمل فيها .
+                                </span>
+                                <br/>
+                                <br/>
+                                <span style="font-size:15px;">
+                                    ٩- يحظر على الطرف الثاني - خلال فترة عمله لدى
+                                    الطرف الأول - العمل لدى أيّة جهة أُخرى ، سواءً
+                                    بأجر أو بدون أجر ، أو مُمارسة أيّ نشاط مُماثل
+                                    للنشاط يُمارسه الطرف الأول ، وفي حالة مُخالفة
+                                    الطرف الثاني لهذا البند يحق للطرف الأول إنهاءعقده
+                                    فوراً دون مكافأة أو بدل مُهلة إنذار مع الرجوع عليه
+                                    بالتعويض .
+                                </span>
+                                <br/>
+                                <br/>
+                                <span style="font-size:15px;">
+                                    ١٠- يُقِر الطرف الثاني بأنه على عِلْم بأن ساعات العمل
+                                    الإسبوعية هي <strong>48 ساعة</strong> ، وأن يوم <strong>الجمعة</strong> هو يوم
+                                    راحة ، ويحق للطرف الأول تكليف العامل بالعمل
+                                    خلال أيام الراحة مع مُراعاة حقه بالأجر وبما لا
+                                    يُجاوز الساعات المُحددة إسبوعياً وفقاً للقانون .
+                                </span>
+                                <br/>
+                                <br/>
+                                <span style="font-size:15px;">
+                                    ١١- يحظر على الطرف الثاني إفشاء أسرار العمل
+                                    الخاصّة بالطرف الأول ، أو إطّلاع الغير على طُرق
+                                    أدائه لها ، وفي حالة مُخالفته لهذا البند ، فإنه يحق
+                                    للطرف الأول إنهاء عقده فوراً دون مكافأة ولا مُقابل
+                                    بدل إنذار ، مع حقه في الرجوع عليه بالتعويض عن
+                                    الأضرار الناشئة عن هذا التصرُّف .
+                                </span>
+                                <br/>
+                                <br/>
+                                <span style="font-size:15px;">
+                                    ١٢- يكون قانون العمل بالقطاع الأهلي هو الواجب
+                                    التطبيق فيما لم يرد به نص في هذا العقد ، ويكون
+                                    العنوان الوارد بصدر هذا العقد هو المحل المُختار
+                                    للطرف الثاني .
+                                </span>
+                                <br/>
+                                <br/>
+                                <span style="font-size:15px;">
+                                    ١٣- الطرف الثاني ملزم بعدم الكشف عن المعلومات السرية المتعلقة بالعمل خلال فترة
+                                    التدريب ، وفترة التوظيف وحتى بعد إنتهاء علاقة العمل .
+                                </span>
+                                <br/>
+                                <br/>
+                                <span style="font-size:15px;">
+                                    ١٤- حُرِّر هذا العقد من ثلاث نُسَخ ، بِيَد كُلّ طرف نُسخة للعمل بموجبها .
+                                </span>
+                                <br/>
+                                <br/>
+                                <br/>
+                                <br/>
+                                <br/>
+                                <br/>
+                                <br/>
+                                <br/>
+                                <div class="text-center">
+                                    <strong>
+                                        طرف أول
+                                        &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+                                        &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+                                        &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+                                        طرف ثان
+                                        <br/>
+                                        <br/>
+                                        ----------------------------
+                                        &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+                                        ----------------------------
+                                    </strong>
+                                </div>
+                            </div>
+                             
+                            <div class="col-6" dir="ltr"
+                                 style="font-size:15px;border:1px solid black;text-align: justify;">
+                                <div class="text-center">
+                                    <strong>
+                                        <span style="font-size:18px;color:blue;">
+                                            <u>Employment Contract</u>
+                                        </span>
+                                    </strong>
+                                </div>
+                                <br/>
+                                <div align="left">
+                                    <strong>On this day of
+                                        <span t-field="o.date_start"/>
+                                    </strong>
+                                </div>
+                                <br/>
+                                <span>
+                                    <strong>an agreement is made by and between:</strong>
+                                </span>
+                                <br/>
+                                <span>
+                                    <strong>hereinafter called (First party)</strong>
+                                </span>
+                                <br/>
+                                <br/>
+                                <span>
+                                    <strong>Mr.</strong>
+                                    <span t-field="o.employee_id.name"/>
+                                </span>
+                                <br/>
+                                <span>
+                                    <strong>Nationality:</strong>
+                                    <span t-field="o.employee_id.country_id.name"/>
+                                </span>
+                                <br/>
+                                <span>
+                                    <strong>holding civil id no.:</strong>
+                                    <span t-field="o.employee_id.identification_id"/>
+                                    &#160;&#160;&#160;&#160;
+                                    <strong>hereinafter called (second party)</strong>
+                                </span>
+                                <br/>
+                                <span>
+                                    <strong>domicile of choice located at:</strong>
+                                    <span t-field="o.employee_id.private_street"/>,<span
+                                        t-field="o.employee_id.private_street2"/>,
+                                    <span t-field="o.employee_id.private_city"/>,<span
+                                        t-field="o.employee_id.private_state_id.name"/>,
+                                    <span t-field="o.employee_id.private_country_id.name"/>
+                                </span>
+                                <br/>
+                                <div align="rigth">
+                                    <strong>
+                                        on the following :-
+                                    </strong>
+                                </div>
+                                <br/>
+                                <span style="font-size:15px;">
+                                    1. The Second Party shall join the First Party to
+                                    work for them as
+                                    <strong>
+                                        <span t-field="o.job_id.name"/>
+                                    </strong>
+                                </span>
+                                <span style="font-size:15px;">
+                                    effective
+                                    <strong>
+                                        <span t-field="o.date_start"/>
+                                    </strong>
+                                </span>
+                                <span style="font-size:15px;">against the monthly salary of K.D.
+                                    <strong>
+                                        <span t-field="o.wage"/>
+                                    </strong>
+                                </span>
+                                <br/>
+                                <br/>
+                                <span style="font-size:15px;">
+                                    2. This contract shall be for an indefinite term.
+                                    When either party desires to terminate hereof he
+                                    shall notify the other party within the period
+                                    stipulated by the Labor Law of Private
+                                    Sector.
+                                </span>
+                                <br/>
+                                <br/>
+                                <span style="font-size:15px;">
+                                    3. The Second Party shall be under probation
+                                    period for <strong>(100) days</strong> from the actual date of
+                                    employment and the Second Party shall be
+                                    entitled to discharge him during the probation
+                                    period without notice or giving causes thereto.
+
+                                </span>
+                                <br/>
+                                <br/>
+                                <span style="font-size:15px;">
+                                    4. The First Party shall not be held liable for the
+                                    Second Party's transportation to and from the
+                                    work place.
+                                </span>
+                                <br/>
+                                <br/>
+                                <span style="font-size:15px;">
+                                    5. The Second Party shall be entitled to annual
+                                    fully paid leave for <strong>30 days</strong> per business year,
+                                    provided that the First Party has the right to
+                                    determine the leave timing as may be required
+                                    by the regulation and status of work. The Second
+                                    party shall resume duty forthwith as his leave
+                                    ends.
+                                </span>
+                                <br/>
+                                <br/>
+                                <span style="font-size:15px;">
+                                    6. The Second Party shall carry out the
+                                    design at duties in full proficiency and well
+                                    performance, and he shall be held responsible
+                                    for damages resulting from his omission or negligence.
+                                </span>
+                                <br/>
+                                <br/>
+                                <span style="font-size:15px;">
+                                    7. The Second Party acknowledges that he has
+                                    made himself acquainted with the work
+                                    regulation, in house office hours list and the
+                                    penalty bill of the First Party as approved and
+                                    posted in the work place and that he fully
+                                    Commits to the same. In case of breaching by
+                                    Second Party of work regulations, or the
+                                    orders of his senior executives, the First Party
+                                    shall be entitled to terminate his contract
+                                    without allowance or notice payment as
+                                    Provided in the Labor Law of Private Sector.
+                                </span>
+                                <br/>
+                                <br/>
+                                <span style="font-size:15px;">
+                                    8. The First Party has the right to assign the
+                                    Second Party with any job within his ability to
+                                    carry out, and he may remove the Second Party
+                                    to any place as may be required by the First Party
+                                    To work there in .
+                                </span>
+                                <br/>
+                                <br/>
+                                <span style="font-size:15px;">
+                                    9. During the period of employment with the
+                                    First Party, the Second Party for or without
+                                    Remuneration shall not join any other entity or
+                                    Conduct any similar activity as the First Party. The
+                                    First Party has the right to terminate the contract
+                                    forthwith without any allowance or notice
+                                    payment should the Second Party breach this
+                                    clause.
+                                </span>
+                                <br/>
+                                <br/>
+                                <span style="font-size:15px;">
+                                    10. The Second Party acknowledges that the
+                                    weekly office hours shall be 48 hours and Friday will
+                                    be the weekly rest day, and the First Party may at
+                                    any time disallow the said rest day and render it
+                                    business day, provided weekly limited hours shall
+                                    be maintained.
+                                </span>
+                                <br/>
+                                <br/>
+                                <span style="font-size:15px;">
+                                    11. It shall be prohibited for the Second Party
+                                    to disclose the respective business secrets of the
+                                    First Party or divulge to third parties the
+                                    performance there of . The First Party shall be
+                                    entitled to terminate the contract forthwith
+                                    without any allowance or notice payment with
+                                    recourse right for any damages arising out of
+                                    such act should the Second Party be in breach of
+                                    this clause.
+                                </span>
+                                <br/>
+                                <br/>
+                                <span style="font-size:15px;">
+                                    12. Unless otherwise herein provided, the Labor
+                                    Law of Private Sector shall be applicable, and the
+                                    above stated address herein shall be the Second Party's domicile of choice.
+                                </span>
+                                <br/>
+                                <br/>
+                                <span style="font-size:15px;">
+                                    13- Second party is committed to not disclose information related to work during his
+                                    training period, employment time, and even after the expiration of work
+                                    relationship.
+                                </span>
+                                <br/>
+                                <br/>
+                                <span style="font-size:15px;">
+                                    14-This contract is made in two counterparts,
+                                    each party has one copy to act accordingly.
+                                </span>
+                                <br/>
+                                <div class="text-center">
+                                    <strong>
+                                        First Party
+                                        &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+                                        &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+                                        &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+                                        Second Party
+                                        <br/>
+                                        <br/>
+                                        ----------------------------
+                                        &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+                                        ----------------------------
+                                    </strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </template>
+
+        <template id="report_employee_template_work_contract_enh">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="contract_report_enhancement.template_work_contract_document"
+                       t-lang="o.employee_id.lang"/>
+                </t>
+            </t>
+        </template>
+
+        <record id="action_employee_template_work_contract_enh_report" model="ir.actions.report">
+            <field name="name">نموذج عـقـد عـمــل</field>
+            <field name="model">hr.contract</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">contract_report_enhancement.report_employee_template_work_contract_enh</field>
+            <field name="report_file">contract_report_enhancement.report_employee_template_work_contract_enh</field>
+            <field name="binding_model_id" ref="hr_contract.model_hr_contract"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <record id="paperformat_template_work_contract_report" model="report.paperformat">
+            <field name="name">Template Work Contract Paper Format</field>
+            <field name="default" eval="True"/>
+            <field name="format">A4</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">10</field>
+            <field name="margin_bottom">10</field>
+            <field name="margin_left">7</field>
+            <field name="margin_right">7</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">40</field>
+            <field name="dpi">90</field>
+        </record>
+
+
+        <record id="contract_report_enhancement.action_employee_template_work_contract_enh_report"
+                model="ir.actions.report">
+            <field name="paperformat_id" ref="contract_report_enhancement.paperformat_template_work_contract_report"/>
+        </record>
+    </data>
+</odoo>

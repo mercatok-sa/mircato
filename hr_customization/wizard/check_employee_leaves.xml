@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="check_employee_leaves_form_view" model="ir.ui.view">
+            <field name="name">check employee leaves</field>
+            <field name="model">check.employee.leaves</field>
+            <field name="arch" type="xml">
+                <form string="Employee Leaves">
+                    <group>
+                        <field name="employee_id" required="1"/>
+                        <field name="date" required="1"/>
+                    </group>
+                    <footer>
+                        <button name="get_employee_leaves" string="Check Employee Leaves" type="object"
+                                class="oe_highlight"/>
+                        or
+                        <button string="Cancel" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="chech_leaves_employee_action" model="ir.actions.act_window">
+            <field name="name">Check Employee Leaves</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">check.employee.leaves</field>
+            <field name="view_mode">form</field>
+            <!--            <field name="view_type">form</field>-->
+            <field name="target">new</field>
+        </record>
+
+
+        <menuitem id="hr_check_employee_leaves_reporting" name="Reporting" parent="hr.menu_hr_root" sequence="8"/>
+        <menuitem id="hr_check_employee_leaves" name="Check Employee Leaves" parent="hr.hr_menu_hr_reports"
+                  action="chech_leaves_employee_action" sequence="1"/>
+    </data>
+</odoo>

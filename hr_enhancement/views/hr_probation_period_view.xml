@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="contract_probation_period_form" model="ir.ui.view">
+            <field name="name">contract.probation.period.form</field>
+            <field name="model">contract.probation.period</field>
+            <field name="arch" type="xml">
+                <form string="Probation Period">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="contract_probation_period_tree" model="ir.ui.view">
+            <field name="name">contract.probation.period.tree</field>
+            <field name="model">contract.probation.period</field>
+            <field name="arch" type="xml">
+                <tree string="Probation Period">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_contract_probation_period" model="ir.actions.act_window">
+            <field name="name">Probation Period</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">contract.probation.period</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="menu_contract_probation_period"
+                  name="Probation Period"
+                  parent="hr_payroll.menu_hr_salary_configuration"
+                  action="action_contract_probation_period"
+                  sequence="200"/>
+    </data>
+</odoo>

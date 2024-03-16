@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="check_employee_document_expiry_date_form_view" model="ir.ui.view">
+            <field name="name">check expiry date</field>
+            <field name="model">check.document.expiry.date</field>
+            <field name="arch" type="xml">
+                <form string="Check Employee Expiry Date">
+                    <group>
+                        <field name="date_from" required="1"/>
+                        <field name="date_to" required="1"/>
+                    </group>
+                    <footer>
+                        <button name="get_employee_document_expiry_date" string="Check Employee Document Expiry Date"
+                                type="object" class="oe_highlight"/>
+                        or
+                        <button string="Cancel" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="check_employee_document_expiry_date_action" model="ir.actions.act_window">
+            <field name="name">Check Employee Document Expiry Date</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">check.document.expiry.date</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem id="check_employee_document_expiry_date_menu" name="Employee Document Expiry Date"
+                  parent="hr.hr_menu_hr_reports" action="check_employee_document_expiry_date_action" sequence="2"/>
+
+
+    </data>
+</odoo>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Copyright (C) 2015 DevIntelle Consulting Service Pvt.Ltd (<http://www.devintellecs.com>).
+
+For Module Support : devintelle@gmail.com  or Skype : devintelle 
+ -->
+<odoo>
+
+    <record id="view_dev_loan_reject_reason_form" model="ir.ui.view">
+        <field name="name">view.loan.reject.reason.form</field>
+        <field name="model">loan.reject.reason</field>
+        <field name="arch" type="xml">
+            <form string="Reject Reason">
+                <label for="reason"/>
+                <field name="reason"/>
+                <footer>
+                    <button string="Reject" name="reject_loan" type="object" class="oe_highlight"/>
+                    or
+                    <button string="Cancel" class="oe_link" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_reject_loan_reason" model="ir.actions.act_window">
+        <field name="name">Loan Reject Reason</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">loan.reject.reason</field>
+        <field name="view_id" ref="view_dev_loan_reject_reason_form"/>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+
+    <record id="view_skip_installment_reject_reason_form" model="ir.ui.view">
+        <field name="name">view.skip.installment.reject.reason.form</field>
+        <field name="model">skip.installment.reject.reason</field>
+        <field name="arch" type="xml">
+            <form string="Skip Instalment Reject Reason">
+                <label for="reason"/>
+                <field name="reason"/>
+                <footer>
+                    <button string="Reject" name="reject_skip_installment" type="object" class="oe_highlight"/>
+                    or
+                    <button string="Cancel" class="oe_link" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_reject_skip_installment_reason" model="ir.actions.act_window">
+        <field name="name">Skip Instalment Reject Reason</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">skip.installment.reject.reason</field>
+        <field name="view_id" ref="view_skip_installment_reject_reason_form"/>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+</odoo>

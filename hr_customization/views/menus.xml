@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+
+        <menuitem id="menu_eos_view" name="EOS" parent="hr.menu_hr_root" sequence="12"/>
+        <menuitem id="employee_resignation_request_action_menu" name="Employee Resignation Request"
+                  parent="menu_eos_view"
+                  action="employee_resignation_request_action_view" sequence="1"/>
+        <menuitem id="employee_termination_request_rules_menu" name="Employee Termination Request"
+                  parent="menu_eos_view"
+                  action="employee_termination_request_action_view" sequence="2"/>
+
+        <menuitem id="eos_recognition" name="EOS Recognition"
+                  parent="menu_eos_view"
+                  action="action_end_of_service_recognition" sequence="3"/>
+
+        <menuitem id="menu_indemnity_view" name="Indemnity" parent="hr.menu_human_resources_configuration"
+                  sequence="10"/>
+        <menuitem id="employee_termination_and_resignation_rules_menu" name="Termination And Resignation Rules"
+                  parent="menu_indemnity_view"
+                  action="employee_termination_and_resignation_rules_action_view" sequence="1"/>
+    </data>
+</odoo>

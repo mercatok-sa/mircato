@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="ir_seq_attendance_sheet_batch" model="ir.sequence">
+            <field name="name">Attendance Sheet Batch</field>
+            <field name="code">attendance.sheet.batch</field>
+            <field name="prefix">ASB</field>
+            <field name="padding">6</field>
+        </record>
+    </data>
+</odoo>

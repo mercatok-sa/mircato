@@ -1,0 +1,61 @@
+<odoo>
+
+    <template id="portal_my_promotions" name="Portal My Promotion" inherit_id="portal.portal_my_home" priority="103">
+        <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
+            <t t-call="portal.portal_docs_entry">
+                <t t-set="title">My Promotions</t>
+                <t t-set="text">Display your Promotions</t>
+                <t t-set="url" t-value="'/my/promotions'"/>
+                <t t-set="config_card" t-value="True"/>
+            </t>
+        </xpath>
+    </template>
+
+    <template id="portal_my_promotion" name="My Promotions">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True"/>
+
+            <t t-call="portal.portal_searchbar">
+                <t t-set="title">Promotions</t>
+            </t>
+            <t t-call="portal.portal_table">
+                <thead>
+                    <tr class="active">
+                        <th class="text-center">Name</th>
+                        <th class="text-center">Employee</th>
+                        <th class="text-center">prev. Department</th>
+                        <th class="text-center">New Department</th>
+                        <th class="text-center">Prev. Job</th>
+                        <th class="text-center">New Job</th>
+                        <th class="text-center">Status</th>
+                    </tr>
+                </thead>
+                <t t-foreach="promotions" t-as="prom">
+                    <tr>
+                        <td class="text-center">
+                            <span t-field="prom.name"/>
+                        </td>
+                        <td class="text-center">
+                            <span t-field="prom.employee_id"/>
+                        </td>
+                        <td class="text-center">
+                            <span t-field="prom.department_id.name"/>
+                        </td>
+                        <td class="text-center">
+                            <span t-field="prom.new_department_id.name"/>
+                        </td>
+                        <td class="text-center">
+                            <span t-field="prom.job_id.name"/>
+                        </td>
+                        <td class="text-center">
+                            <span t-field="prom.new_job_id.name"/>
+                        </td>
+                        <td class="text-center">
+                            <span t-field="prom.state"/>
+                        </td>
+                    </tr>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

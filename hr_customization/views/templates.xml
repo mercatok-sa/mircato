@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Breadcrumbs of Timeoff -->
+    <template id="portal_reg_menu" name="Portal layout : Resignations menu entry" inherit_id="portal.portal_breadcrumbs"
+              priority="25">
+        <xpath expr="//ol[hasclass('o_portal_submenu')]" position="inside">
+            <li t-if="page_name == 'loans' or loans" t-attf-class="breadcrumb-item #{'active ' if not loans else ''}">
+                <a t-if="resignation" t-attf-href="/my/resignation?{{ keep_query() }}">
+                    Resignations
+                </a>
+            </li>
+            <li t-if="resignation" class="breadcrumb-item active">
+                <span t-field="resignation.employee_id.name"/>
+            </li>
+        </xpath>
+    </template>
+
+    <!-- My Leaves menu in Main portal document page -->
+    <template id="portal_my_resignation" name="Portal My Loans : Loans entries"
+              inherit_id="portal.portal_my_home" priority="20">
+        <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
+            <t t-call="portal.portal_docs_entry">
+                <t t-set="title">My Resignation</t>
+                <t t-set="url" t-value="'/my/resignation'"/>
+                <t t-set="placeholder_count" t-value="'reg_count'"/>
+            </t>
+        </xpath>
+    </template>
+
+    <!-- Timeoff template -->
+    <template id="portal_my_reg_details" name="My Leaves">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True"/>
+            <t t-call="portal.portal_searchbar">
+                <t t-set="title">Resignation</t>
+                <div class="form-inline ml-lg-4" t-if="request.env.user.employee_id">
+                    <button class="btn btn-success btn-sm" name='new_regist' data-toggle="modal"
+                            data-target=".modal_new_reg" title="Add New Resignation" aria-label="Add New Resignation">
+                        <i class="fa fa-plus"/>
+                        Create New
+                    </button>
+                </div>
+            </t>
+            <div class="modal fade modal_new_reg" role="form">
+                <div class="modal-dialog">
+                    <form method="POST" class="modal-content js_website_submit_form new_reg_form">
+                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                        <header class="modal-header">
+                            <h4 class="modal-title">New Resignation Request</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">&amp;times;
+                            </button>
+                        </header>
+                        <main class="modal-body" id="new-opp-dialog">
+                            <div class="form-group">
+                                <label for="employee_id">Employee</label>
+                                <select name="employee_id" class="form-control employee_select employee_id"
+                                        required="True">
+                                    <option t-att-value="emp_id">
+                                        <t t-esc="emp_name"/>
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-6">
+                                    <label class="control-label" for="last_date">Last Date</label>
+                                    <div class="input-group date">
+                                        <input type="date" name="last_date" class="form-control date_from last_date"
+                                               data-date-format="YYYY-MM-DD" placeholder="YYYY-MM-DD"/>
+                                        <div class="input-group-append">
+                                            <span class="input-group-text">
+                                                <span class="fa fa-calendar" role="img" aria-label="Calendar"></span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+                                <div class="form-group col-md-8">
+                                    <label class="control-label" for="request_notes">Resignation Request Reason</label>
+                                    <input type="text" class="form-control request_notes" name="request_notes" id=""
+                                           placeholder=""/>
+                                </div>
+                            </div>
+
+                        </main>
+                        <footer class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                            <button t-attf-class="btn btn-primary new_reg_confirm">Confirm</button>
+                        </footer>
+                    </form>
+                </div>
+            </div>
+
+            <t t-if="not grouped_reg">
+                <div class="alert alert-warning mt8" role="alert">
+                    There are no Resignation
+                </div>
+            </t>
+            <t t-if="grouped_reg">
+                <t t-call="portal.portal_table">
+                    <t t-foreach="grouped_reg" t-as="leave">
+                        <thead>
+                            <tr t-attf-class="{{'thead-light' if not groupby == 'none' else ''}}">
+                                <th>Employee</th>
+                                <th>Last Date</th>
+                                <th>Rule Name</th>
+                                <th>Registration Reason</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="resignation" t-as="reg">
+                                <tr>
+                                    <td>
+                                        <a t-if="reg.employee_id.name" t-attf-href="/my/resignation/#{reg.id}">
+                                            <span t-field="reg.employee_id.name"/>
+                                        </a>
+                                        <a t-else="" class="btn btn-primary btn-sm"
+                                           t-attf-href="/my/resignation/#{reg.id}">
+                                            <span>Add Employee</span>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <span t-field="reg.last_date"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="reg.rule_id.name"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="reg.notes"/>
+                                    </td>
+                                    <td>
+                                        <span t-att-class="'badge badge-info' if reg.state=='draft' else ''
+                                                           'badge badge-primary' if reg.state=='resigned' else ''
+                                                           'badge badge-danger' if reg.state=='canceled' else ''
+                                                           " t-field="reg.state"/>
+                                    </td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </t>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <!-- Edit Timeoff template -->
+    <template id="portal_my_reg_edit" name="My Resignation">
+        <t t-call="portal.portal_layout">
+            <t t-call="portal.portal_record_layout">
+                <t t-set="card_header">
+                    <div class="row no-gutters">
+                        <div class="col-md">
+                            <h5 class="mb-2 mb-md-0">
+                                <small class="text-muted">Resignation Request -</small>
+                                <span t-field="resignation.employee_id.name"/>
+                            </h5>
+                        </div>
+                        <div class="col-md text-md-right">
+                            <div class="d-inline-block">
+                                <small class="mr-2 mt-1 float-left">
+                                    <b>State:</b>
+                                </small>
+                                <div t-foreach="resignation" t-as="reg" class="float-left">
+                                    <span t-att-class="'badge badge-info' if reg.state=='draft' else ''
+                                                           'badge badge-primary' if reg.state=='resigned' else ''
+                                                           'badge badge-danger' if reg.state=='canceled' else ''
+                                                           " t-field="reg.state"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+                <!---->
+                <t t-set="card_body">
+                    <div class="row">
+                        <div class="col-lg-5 mb-4 mb-lg-0">
+                            <div class="border-bottom d-flex justify-content-between py-2 mb-3 align-items-center">
+                                <h5 class="mb-0">
+                                    <span class="text-nowrap" t-esc="resignation.employee_id.name"/>
+                                </h5>
+                                <!--                                <button t-if="timeoff.state == 'confirm'" type="button" data-toggle="modal" data-target=".modal_edit_timeoff" class="btn btn-link btn-sm"><i class="fa fa-pencil mr-1"/>Edit</button>-->
+                            </div>
+
+                            <div class="row mb-2">
+                                <strong class="col-12 col-sm-4">Rule Name</strong>
+                                <div class="col">
+                                    <span t-if="resignation.rule_id" t-field="resignation.rule_id.name"/>
+                                    <span t-else="" class="text-muted">-</span>
+                                </div>
+                            </div>
+
+                            <div class="row mb-2">
+                                <strong class="col-12 col-sm-4">Last Date</strong>
+                                <div class="col">
+                                    <span t-if="resignation.employee_id" t-field="resignation.last_date"/>
+                                    <span t-else="" class="text-muted">-</span>
+                                </div>
+                            </div>
+
+                            <div class="row mb-2">
+                                <strong class="col-12 col-sm-4">Request Notes</strong>
+                                <div class="col">
+                                    <span t-if="resignation.notes" t-field="resignation.notes"/>
+                                    <span t-else="" class="text-muted">-</span>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div>
+
+                        </div>
+                    </div>
+                </t>
+            </t>
+
+        </t>
+    </template>
+
+    <template id="portal_my_home_resignations" name="My Resignations" inherit_id="portal.portal_my_details">
+        <xpath expr="//button[@id='register_button']" position="replace">
+            <button type="button" data-dismiss="modal" style="width: 150px !important;border:none;"
+                    class="btn btn-primary">
+                <t t-call="portal.portal_docs_entry" style="width: 110%;">
+                    <t t-set="title">Resignations</t>
+                    <t t-set="url" t-value="'/my/resignation'"/>
+                </t>
+            </button>
+        </xpath>
+    </template>
+
+</odoo>

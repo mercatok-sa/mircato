@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_hr_payslip_form" model="ir.ui.view">
+            <field name="name">hr.payslip.form</field>
+            <field name="model">hr.payslip</field>
+            <field name="inherit_id" ref="hr_payroll.view_hr_payslip_form"/>
+            <field name="arch" type="xml">
+                <button name="compute_sheet" position="after">
+                    <button name="action_payslip_send" string="Send by Email" type="object"
+                            invisible="state != 'done'"/>
+                </button>
+                <xpath expr="//field[@name='input_line_ids']" position="before">
+                    <group>
+                        <group>
+                            <field name="annual_leaves_count" invisible="1"/>
+                        </group>
+                    </group>
+                </xpath>
+
+            </field>
+        </record>
+    </data>
+</odoo>

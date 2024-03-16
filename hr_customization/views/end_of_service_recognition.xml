@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="view_end_of_service_recognition_form" model="ir.ui.view">
+            <field name="name">view.end.of.service.recognition.form</field>
+            <field name="model">eos.recognition</field>
+            <field name="arch" type="xml">
+                <form string="End Of service Recognition">
+                    <header>
+                        <button string="Compute" name="action_compute" type="object"
+                                inviaible="state != 'draft'" class="oe_highlight"/>
+                        <button string="Confirm" name="action_confirm" type="object" class="oe_highlight"
+                                inviaible="state != 'draft'"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,confirmed"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <b>
+                                <button name="view_journal_entry" type="object" class="oe_stat_button"
+                                        icon="fa-external-link" string="Journal Entry" groups="hr.group_hr_manager"
+                                        inviaible="state != 'confirmed'"/>
+                            </b>
+                        </div>
+                        <group>
+                            <field name="name" required="1" inviaible="state != 'confirmed'"/>
+                            <field name="type" required="1" inviaible="state != 'confirmed'"/>
+                            <field name="department_id"
+                                   inviaible="type != 'department'" required="type == 'department'"
+                                   readonly="state == 'confirmed'"/>
+                            <field name="employee_ids" readonly="0" force_save="1">
+                                <tree>
+                                    <field name="employee_id"/>
+                                    <field name="contract_id"/>
+                                    <field name="contract_start_date"/>
+                                    <field name="period"/>
+                                    <field name="indemnity"/>
+                                </tree>
+                                <form>
+                                    <sheet>
+                                        <group>
+                                            <field name="employee_id" readonly="1"/>
+                                            <field name="contract_id"/>
+                                            <field name="contract_start_date"/>
+                                            <field name="period"/>
+                                            <field name="indemnity"/>
+                                        </group>
+                                    </sheet>
+                                </form>
+                            </field>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_end_of_service_recognition_tree" model="ir.ui.view">
+            <field name="name">view.end.of.service.recognition.tree</field>
+            <field name="model">eos.recognition</field>
+            <field name="arch" type="xml">
+                <tree string="End Of service Recognition">
+                    <field name="type"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_end_of_service_recognition" model="ir.actions.act_window">
+            <field name="name">End Of Service Recognition</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">eos.recognition</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+</odoo>

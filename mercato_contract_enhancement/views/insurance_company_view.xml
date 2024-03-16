@@ -1,0 +1,49 @@
+<odoo>
+    <record id="insurance_company_form_view" model="ir.ui.view">
+        <field name="name">insurance.company.form.view</field>
+        <field name="model">insurance.company</field>
+        <field name="arch" type="xml">
+            <form string="Insurance Company">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="insurance_company_tree_view" model="ir.ui.view">
+        <field name="name">insurance.company.tree.view</field>
+        <field name="model">insurance.company</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="insurance_company_search_view" model="ir.ui.view">
+        <field name="name">insurance.company.search.view</field>
+        <field name="model">insurance.company</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="insurance_company_action" model="ir.actions.act_window">
+        <field name="name">Insurance Companies</field>
+        <field name="res_model">insurance.company</field>
+        <field name="view_mode">form,tree</field>
+        <field name="view_id" ref="insurance_company_tree_view"/>
+    </record>
+
+    <menuitem id="menu_config_insurance_company" name="Insurance Companies"
+              parent="hr.menu_human_resources_configuration" sequence="100"/>
+
+    <menuitem id="insurance_company_menu" parent="menu_config_insurance_company" action="insurance_company_action"
+              sequence="1"/>
+
+
+</odoo>

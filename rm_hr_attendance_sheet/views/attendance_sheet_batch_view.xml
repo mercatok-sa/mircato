@@ -1,0 +1,82 @@
+<odoo>
+
+
+    <record id="attendance_sheet_batch_form_view" model="ir.ui.view">
+        <field name="name">attendance.sheet.batch.form.view</field>
+        <field name="model">attendance.sheet.batch</field>
+        <field name="arch" type="xml">
+            <form string="Attendance Sheet Batch">
+                <header>
+                    <button name="gen_att_sheet" string="Generate Sheets" class="oe_highlight" invisible="state != 'draft'"
+                            type="object"/>
+                    <button name="submit_att_sheet" string="Submit Sheets" class="oe_highlight" invisible="state != 'att_gen'"
+                            type="object"/>
+                    <button name="action_done" string="Approve Sheets" class="oe_highlight" invisible="state != 'att_sub'"
+                            type="object"/>
+                    <field name="state" widget="statusbar" statusbar_visible="new,att_gen,att_sub,done"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="department_id" class="oe_edit_only"/>
+                        <h1>
+                            <field name="department_id" placeholder="Department" readonly="state != 'draft'"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <label for="date_from" string="Period"/>
+                        <div>
+                            <field name="date_from" class="oe_inline" readonly="state != 'draft'"/>
+                            -
+                            <field name="date_to" class="oe_inline" readonly="state != 'draft'"/>
+                        </div>
+                    </group>
+                    <group>
+                        <field name="name" readonly="state != 'draft'"/>
+                    </group>
+                    <notebook>
+                        <page string="Attendance Sheets">
+                            <field name="att_sheet_ids" readonly="state != 'draft'">
+                                <tree create="0">
+                                    <field name="name"/>
+                                    <field name="employee_id"/>
+                                    <field name="payslip_id" column_invisible="parent.state != 'done'"/>
+                                    <field name="state"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="attendance_sheet_batch_tree_view" model="ir.ui.view">
+        <field name="name">attendance.sheet.batch.tree.view</field>
+        <field name="model">attendance.sheet.batch</field>
+        <field name="arch" type="xml">
+            <tree string="">
+                <field name="name"/>
+                <field name="state"/>
+
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="action_attendance_sheet_batch_action" model="ir.actions.act_window">
+        <field name="name">Attendance Sheet Batches</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">attendance.sheet.batch</field>
+        <field name="view_mode">tree,form</field>
+
+    </record>
+
+
+    <menuitem id="menu_hr_attendance_sheet_batch" name="Attendance sheet Batches"
+              parent="rm_hr_attendance_sheet.attendance_sheet_menu"
+              sequence="12" action="action_attendance_sheet_batch_action"
+              groups="rm_hr_attendance_sheet.group_attendance_sheet_user"/>
+
+
+</odoo>

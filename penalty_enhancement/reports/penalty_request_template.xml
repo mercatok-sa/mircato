@@ -1,0 +1,373 @@
+<odoo>
+    <data>
+        <template id="template_penalty_request_document">
+            <t t-call="web.basic_layout">
+                <t t-set="o" t-value="o.with_context({'lang':o.env.lang})"/>
+                <div class="page" dir="rtl">
+                    <table style="width:100%;border: 1px solid black;">
+                        <tr>
+                            <td colspan="7" style="border: 1px solid black;">
+                                <center>
+                                    <img src="/penalty_enhancement/static/src/description/icon.png"
+                                         class="img img-responsive" style="height: 80px;margin: 0 auto;"/>
+                                </center>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid black;" colspan="7">
+                                <center>
+                                    <strong>
+                                        <span style="color:red;">مـحـضـر تـحـقـيـق مـخـالـفـات</span>
+                                    </strong>
+                                </center>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid black;text-align:right;" colspan="2">
+                                <strong>اسم الموظف:</strong>
+                                <span t-field="o.employee_id.name"/>
+                            </td>
+                            <td style="border: 1px solid black;text-align:right;">
+                                <strong>الرقم المدنى:</strong>
+                                <span t-field="o.employee_id.identification_id"/>
+                            </td>
+                            <td style="border: 1px solid black;text-align:right;" colspan="2">
+                                <strong>الوظيفة:</strong>
+                                <span t-field="o.employee_id.job_title"/>
+                            </td>
+                            <td style="border: 1px solid black;text-align:right;" colspan="2">
+                                <strong>مركز العمل:</strong>
+                                <span t-field="o.employee_id.work_location_id.name"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid black;text-align:right;" colspan="2">
+                                <strong>التاريخ و الوقت:</strong>
+                                <span t-field="o.create_date"/>
+                            </td>
+                            <td colspan="5" style="border: 1px solid black;text-align:right;">
+                                <strong>نوع المخالفة:</strong>
+                                <span t-field="o.penalty_rule_id.name"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid black;" colspan="7">
+                                <center>
+                                    <strong>
+                                        <span style="color:red;">
+                                            تـكـرار المـخـالـفـة:
+                                        </span>
+                                    </strong>
+                                </center>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid black;text-align:right;" colspan="2">
+                                <strong>تاريخها:</strong>
+                                <span t-field="o.request_date"/>
+                            </td>
+                            <td colspan="5" style="border: 1px solid black;text-align:right;">
+                                <strong>شرح المخالفة:</strong>
+                                <span t-field="o.reason"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid black;" colspan="7">
+                                <center>
+                                    <strong>
+                                        <span style="color:red;">
+                                            تـعـلـيـق المـوظـف
+                                        </span>
+                                    </strong>
+                                </center>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid black;" colspan="7">
+                                <center>
+                                    <strong>
+                                        <span style="color:red;">
+                                            س1: ما هو سبب إقترافك المخالفة؟
+                                        </span>
+                                    </strong>
+                                </center>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid black;text-align:center;height:90px;" colspan="7">
+                                <t t-if="o.employee_cause_of_penalty">
+                                    <span t-field="o.employee_cause_of_penalty"/>
+                                </t>
+                                <t t-else="">
+                                    <span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+                                    </span>
+                                </t>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid black;" colspan="7">
+                                <center>
+                                    <strong>
+                                        <span style="color:red;">
+                                            س2: هل لديك ما يثبت صحة أقوالك؟
+                                        </span>
+                                    </strong>
+                                </center>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid black;text-align:center;height:90px;" colspan="7">
+                                <t t-if="o.employee_approve_of_cause">
+                                    <span t-field="o.employee_approve_of_cause"/>
+                                </t>
+                                <t t-else="">
+                                    <span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+                                    </span>
+                                </t>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid black;" colspan="7">
+                                <center>
+                                    <strong>
+                                        <span style="color:red;">
+                                            س3: هل لديك أقوال أخرى؟
+                                        </span>
+                                    </strong>
+                                </center>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid black;text-align:center;height:90px;" colspan="7">
+                                <t t-if="o.employee_other_approve">
+                                    <span t-field="o.employee_other_approve"/>
+                                </t>
+                                <t t-else="">
+                                    <span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+                                    </span>
+                                </t>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid black;text-align:right;" colspan="7">
+                                <strong>
+                                    <span style="color:red;">
+                                        تـوقـيـع المـوظـف
+                                    </span>
+                                </strong>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid black;" colspan="7">
+                                <center>
+                                    <strong>
+                                        <span style="color:red;">
+                                            إعـتـمـاد المـحـقـق
+                                        </span>
+                                    </strong>
+                                </center>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid black;text-align:right;" colspan="3">
+                                <strong>اسم المحقق:</strong>
+                                <span t-field="o.employee_id.parent_id.name"/>
+                            </td>
+                            <td style="border: 1px solid black;text-align:right;" colspan="2">
+                                <strong>التوقيع:</strong>
+                            </td>
+                            <td style="border: 1px solid black;text-align:right;" colspan="2">
+                                <strong>التاريخ:</strong>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid black;" colspan="7">
+                                <center>
+                                    <strong>
+                                        <span>
+                                            رأيــه:
+                                        </span>
+                                    </strong>
+                                </center>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid black;text-align:center;" colspan="2">
+                                <t t-if="o.emp_manager_opinion == 'not_approved'">
+                                    <strong>
+                                        <span style="color:green;">
+                                            مـخـالـف
+                                        </span>
+                                    </strong>
+                                </t>
+                                <t t-else="">
+                                    <strong>
+                                        <span style="color:red;">
+                                            مـخـالـف
+                                        </span>
+                                    </strong>
+                                </t>
+                            </td>
+                            <td style="border: 1px solid black;text-align:center;" colspan="5">
+                                <t t-if="o.emp_manager_opinion == 'approved'">
+                                    <strong>
+                                        <span style="color:green;">
+                                            غير مـخـالـف
+                                        </span>
+                                    </strong>
+                                </t>
+                                <t t-else="">
+                                    <strong>
+                                        <span style="color:red;">
+                                            غير مـخـالـف
+                                        </span>
+                                    </strong>
+                                </t>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid black;" colspan="7">
+                                <center>
+                                    <strong>
+                                        <span style="color:red;">
+                                            الجـزاءات
+                                        </span>
+                                    </strong>
+                                </center>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid black;text-align:right;" rowspan="4">
+                                <strong>
+                                    من واقع لائحة جزاءات الشركة،
+                                    <br/>
+                                    فقد تقرر مجازاتك بالتالي:
+                                </strong>
+                            </td>
+                            <td style="border: 1px solid black;text-align:right;">
+                                <strong>لـفـت نـظـر</strong>
+                            </td>
+                            <td style="border: 1px solid black;text-align:right;">
+                                <span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+                                </span>
+                            </td>
+                            <td style="border: 1px solid black;text-align:right;">
+                                <strong>إنـذار</strong>
+                            </td>
+                            <td style="border: 1px solid black;text-align:right;">
+                                <span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+                                </span>
+                            </td>
+                            <td style="border: 1px solid black;text-align:right;">
+                                <strong>خـصـم 10% من راتـب يـوم</strong>
+                            </td>
+                            <td style="border: 1px solid black;text-align:right;">
+                                <span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+                                </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid black;text-align:right;">
+                                <strong>خـصـم 25% من راتـب يـوم</strong>
+                            </td>
+                            <td style="border: 1px solid black;text-align:right;">
+                                <span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+                                </span>
+                            </td>
+                            <td style="border: 1px solid black;text-align:right;">
+                                <strong>خـصـم 50% من راتـب يـوم</strong>
+                            </td>
+                            <td style="border: 1px solid black;text-align:right;">
+                                <span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+                                </span>
+                            </td>
+                            <td style="border: 1px solid black;text-align:right;">
+                                <strong>خـصـم 75% من راتـب يـوم</strong>
+                            </td>
+                            <td style="border: 1px solid black;text-align:right;">
+                                <span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+                                </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid black;text-align:right;">
+                                <strong>خـصـم يـوم</strong>
+                            </td>
+                            <td style="border: 1px solid black;text-align:right;">
+                                <span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+                                </span>
+                            </td>
+                            <td style="border: 1px solid black;text-align:right;">
+                                <strong>خـصـم يـومـيـن</strong>
+                            </td>
+                            <td style="border: 1px solid black;text-align:right;">
+                                <span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+                                </span>
+                            </td>
+                            <td style="border: 1px solid black;text-align:right;">
+                                <strong>خـصـم ثلاثة ايـام</strong>
+                            </td>
+                            <td style="border: 1px solid black;text-align:right;">
+                                <span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+                                </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid black;text-align:right;">
+                                <strong>خـصـم اريعة ايـام</strong>
+                            </td>
+                            <td style="border: 1px solid black;text-align:right;">
+                                <span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+                                </span>
+                            </td>
+                            <td style="border: 1px solid black;text-align:right;">
+                                <strong>الفصل بدون مكافئة</strong>
+                            </td>
+                            <td style="border: 1px solid black;text-align:right;" colspan="3">
+                                <span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+                                </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid black;" colspan="7">
+                                <center>
+                                    <strong>
+                                        <span style="color:red;">
+                                            إعتماد المدير العام
+                                        </span>
+                                    </strong>
+                                </center>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid black;text-align:right;" colspan="2">
+                                <strong>التوقيع:</strong>
+                            </td>
+                            <td style="border: 1px solid black;text-align:right;" colspan="5">
+                                <strong>التاريخ:</strong>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </t>
+        </template>
+
+        <template id="report_template_penalty_request">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="penalty_enhancement.template_penalty_request_document" t-lang="o.env.lang"/>
+                </t>
+            </t>
+        </template>
+
+        <record id="action_template_penalty_request_report" model="ir.actions.report">
+            <field name="name">محـضر تـحـقـيـق مخالفات</field>
+            <field name="model">penalty.request</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">penalty_enhancement.report_template_penalty_request</field>
+            <field name="report_file">penalty_enhancement.report_template_penalty_request</field>
+            <field name="binding_model_id" ref="penalty_request.model_penalty_request"/>
+            <field name="binding_type">report</field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="back_work_wiz_form_view" model="ir.ui.view">
+            <field name="name">back.work.wiz.from.view</field>
+            <field name="model">back.work.wiz</field>
+            <field name="arch" type="xml">
+                <form string="Back To Work">
+                    <group>
+                        <field name="back_date" required="1"/>
+                        <field name="leave_to_date"/>
+                        <field name="check_back_date"/>
+                        <field name="holiday_type_id"
+                               invisible="check_back_date == False" required="check_back_date == True"/>
+                    </group>
+                    <footer>
+                        <button name="action_create_renew_leave" string="Check" type="object" class="oe_highlight"/>
+                        or
+                        <button string="Cancel" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="back_work_wiz_action" model="ir.actions.act_window">
+            <field name="name">Check Employee Leaves</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">back.work.wiz</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="check_employee_document_expiry_date_tree" model="ir.ui.view">
+            <field name="name">check.employee.document.expiry.date</field>
+            <field name="model">hr.employee.document</field>
+            <field name="priority">100</field>
+            <field name="arch" type="xml">
+                <tree string="Employee Documents Expiry Date" create="false" edit="false">
+                    <field name="employee_ref" string="Employee"/>
+                    <field name="name"/>
+                    <field name="expiry_date"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="check_employee_document_expiry_date_action" model="ir.actions.act_window">
+            <field name="name">Employee Document Expiry Date</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hr.employee.document</field>
+            <field name="view_mode">tree</field>
+        </record>
+    </data>
+</odoo>

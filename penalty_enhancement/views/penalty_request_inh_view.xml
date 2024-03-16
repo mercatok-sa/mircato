@@ -1,0 +1,79 @@
+<odoo>
+    <data>
+        <record id="penalty_request_inherited_form_view" model="ir.ui.view">
+            <field name="name">penalty.request.inherited.form.view</field>
+            <field name="model">penalty.request</field>
+            <field name="inherit_id" ref="penalty_request.penalty_request_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='employee_id']" position="after">
+                    <field name="penalty_rule_id"/>
+                    <field name="no_of_repetition"/>
+                </xpath>
+                <xpath expr="//field[@name='request_date']" position="after">
+                    <field name="last_penalty_date" invisible="last_penalty_date == False" force_save="1"/>
+                </xpath>
+                <xpath expr="//notebook/page[1]" position="after">
+                    <page string="Employee Feedback">
+                        <separator string="ما هو سبب إقترافك المخالفة؟"/>
+                        <newline/>
+                        <field name="employee_cause_of_penalty"/>
+                        <separator string="هل لديك ما يثبت صحة أقوالك؟"/>
+                        <newline/>
+                        <field name="employee_approve_of_cause"/>
+                        <separator string="هل لديك أقوال أخرى؟"/>
+                        <newline/>
+                        <field name="employee_other_approve"/>
+                    </page>
+                    <page string="Employee Manager Feedback">
+                        <field name="emp_manager_feedback" nolable="1"/>
+                        <separator/>
+                        <group>
+                            <group>
+                                <field name="emp_manager_opinion" widget="radio"/>
+                            </group>
+                        </group>
+                    </page>
+                    <page string="HR Manager Feedback">
+                        <field name="hr_manager_feedback" nolable="1"/>
+                    </page>
+                </xpath>
+                <xpath expr="//button[@name='confirm_button']" position="after">
+                    <button name="action_approve" string="Final Approve" class="oe_highlight"
+                            invisible="state != 'hr_mang_submit'" type="object" groups="hr.group_hr_manager"/>
+                </xpath>
+                <xpath expr="//field[@name='state']" position="replace">
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="draft,confirmed,employee_submit,emp_mang_submit,hr_mang_submit,approved,rejected"/>
+                </xpath>
+            </field>
+        </record>
+        <record id="penalty_request_inherited_tree_view" model="ir.ui.view">
+            <field name="name">penalty.request.inherited.tree.view</field>
+            <field name="model">penalty.request</field>
+            <field name="inherit_id" ref="penalty_request.penalty_request_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='request_date']" position="after">
+                    <field name="state" widget="badge"
+                           decoration-success="state in ('confirmed', 'approved')"
+                           decoration-warning="state == 'rejected'"
+                           decoration-info="state == 'draft'"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="penalty_request_search" model="ir.ui.view">
+            <field name="name">penalty.request.search.view</field>
+            <field name="model">penalty.request</field>
+            <field name="arch" type="xml">
+                <search string="Search Penalty Request">
+                    <field name="name" string="Penalty Request" filter_domain="[('name','ilike',self)]"/>
+                    <field name="employee_id"/>
+                    <group expand="0" string="Group By">
+                        <filter string="Employees" name="employee_id" context="{'group_by':'employee_id'}"/>
+                        <filter string="States" name="state" context="{'group_by':'state'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="hr_payroll_structure_base" model="hr.payroll.structure">
+        <field name="name">BASE</field>
+        <field name="name">Base for new structures</field>
+        <field name="type_id">1</field>
+    </record>
+
+    <record id="dev_emp_loan_installment" model="hr.salary.rule">
+        <field name="name">Loan Installment</field>
+        <field name="sequence" eval="190"/>
+        <field name="code">LOANINS</field>
+        <field name="category_id" ref="hr_payroll.DED"/>
+        <field name="struct_id">1</field>
+        <field name="condition_select">none</field>
+        <field name="amount_select">code</field>
+        <field name="amount_python_compute">result = (payslip.installment_amount*-1 or 0)</field>
+        <field name="struct_id" ref="dev_hr_loan.hr_payroll_structure_base"/>
+    </record>
+
+</odoo>

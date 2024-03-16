@@ -1,0 +1,94 @@
+<?xml version="1.0" ?>
+<odoo>
+    <data noupdate="0">
+        <!--Email template -->
+        <record id="email_template_payslip" model="mail.template">
+            <field name="name">Payslip - Send by Email</field>
+            <field name="subject">{{object.name or 'n/a' }}</field>
+            <field name="email_from">{{ user.email_formatted }}</field>
+            <field name="email_to">{{object.employee_id.work_email or ''}}</field>
+            <field name="partner_to">{{ object.employee_id.address_home_id.id}}</field>
+            <field name="model_id" ref="hr_payroll.model_hr_payslip"/>
+            <field name="auto_delete" eval="True"/>
+<!--            <field name="report_template" ref="hr_payroll.action_report_payslip"/>-->
+            <field name="body_html" type="html">
+                <div style="font-family: 'Lucica Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; ">
+
+                    <p>Hello <t t-esc="object.employee_id.name"></t>,
+                    </p>
+
+                    <p>Here is your payslip from <t t-esc="object.company_id.name"></t>:
+                    </p>
+
+                    <p style="border-left: 1px solid #8e0000; margin-left: 30px;">
+                        &#160;&#160;<strong>REFERENCES</strong>
+                        <br/>
+                        &#160;&#160;Ref Number:
+                        <strong>
+                            <t t-esc="object.number"></t>
+                        </strong>
+                        <br/>
+                        &#160;&#160;Period from:
+                        <t t-esc="object.date_from"></t>
+                        <br/>
+                        &#160;&#160;Period to:
+                        <t t-esc="object.date_to"></t>
+                        <br/>
+                    </p>
+                    <br/>
+                    <p>If you have any question, do not hesitate to contact us.</p>
+                    <p>Thank you!</p>
+                    <br/>
+                    <br/>
+                    <div style="width: 375px; margin: 0px; padding: 0px; background-color: #8E0000; border-top-left-radius: 5px 5px; border-top-right-radius: 5px 5px; background-repeat: repeat no-repeat;">
+                        <h3 style="margin: 0px; padding: 2px 14px; font-size: 12px; color: #DDD;">
+                            <strong style="text-transform:uppercase;">
+                                <t t-esc="object.company_id.name"></t>
+                            </strong>
+                        </h3>
+                    </div>
+                    <div style="width: 347px; margin: 0px; padding: 5px 14px; line-height: 16px; background-color: #F2F2F2;">
+                        <span style="color: #222; margin-bottom: 5px; display: block; ">
+                            <t t-if="object.company_id.street">
+                                <t t-esc="object.company_id.street"></t>
+                            </t>
+                            <br/>
+                            <t t-if="object.company_id.street2">
+                                <t t-esc="object.company_id.street2"></t>
+                            </t>
+
+                            <br/>
+                            <t t-if="object.company_id.city">
+                                <t t-esc=" object.company_id.city"></t>
+                            </t>
+
+                            <br/>
+                            <t t-if="object.company_id.country_id">
+                                <t t-esc="object.company_id.country_id.name"></t>
+                            </t>
+
+                            <br/>
+
+                        </span>
+                        <t t-if="object.company_id.phone">
+
+                            <div style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; ">
+                                Phone:&#160;
+                                <t t-esc="object.company_id.phone"></t>
+                            </div>
+                        </t>
+
+                        <t t-if="object.company_id.website">
+                            <div>
+                                Web :&#160;<a href="${object.company_id.website}">
+                                <t t-esc="object.company_id.website"></t>
+                            </a>
+                            </div>
+                        </t>
+                        <p></p>
+                    </div>
+                </div>
+            </field>
+        </record>
+    </data>
+</odoo>

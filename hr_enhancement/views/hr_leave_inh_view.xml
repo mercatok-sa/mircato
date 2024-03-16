@@ -1,0 +1,19 @@
+<odoo>
+    <data>
+        <record id="hr_leave_inherited_form_view" model="ir.ui.view">
+            <field name="name">hr.leave.inherited.form.view</field>
+            <field name="model">hr.leave</field>
+            <field name="inherit_id" ref="hr_holidays.hr_leave_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='holiday_status_id']" position="after">
+                    <field name="required_delegation" invisible="1"/>
+                    <field name="delegation_id" required="required_delegation == True"/>
+                </xpath>
+                <xpath expr="//header" position="inside">
+                    <button name="back_to_work" invisible="state != 'validate'" string="Back To Work" class="oe_highlight"
+                            type="object"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

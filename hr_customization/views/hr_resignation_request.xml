@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record id="employee_resignation_request_form_view" model="ir.ui.view">
+            <field name="name">employee.resignation.request.form.view</field>
+            <field name="model">hr.resignation.request</field>
+            <field name="arch" type="xml">
+                <form string="Employee Resignation Request">
+                    <header>
+                        <button name="get_employee_resignation" string="Confirm" type="object"
+                                invisible="state != 'draft'" class="oe_highlight"/>
+                        <button name="resignation_cancel" string="Cancel" type="object" invisible="state != 'draft'"
+                                class="oe_highlight"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,resigned"/>
+                    </header>
+                    <sheet>
+                        <group colspan="4">
+                            <field name="employee_id" readonly="state in ('resigned','canceled')"/>
+                            <field name="rule_id"/>
+                            <field name="last_date" readonly="state in ('resigned','canceled')"/>
+                            <field name="number_of_year" readonly="1"/>
+                            <field name="number_of_day" readonly="1"/>
+                            <field name="percentage_value" string="Percentage Value (%)" readonly="1"/>
+                        </group>
+                        <notebook>
+                            <page string="Resignation Reason">
+                                <field name="notes" invisible="state in ('resigned','canceled')"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="employee_resignation_request_tree_view" model="ir.ui.view">
+            <field name="name">employee.resignation.tree.view</field>
+            <field name="model">hr.resignation.request</field>
+            <field name="arch" type="xml">
+                <tree string="Employee Resignation Request">
+                    <field name="rule_id"/>
+                    <field name="employee_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="employee_resignation_request_action_view" model="ir.actions.act_window">
+            <field name="name">Employee Resignation Request</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hr.resignation.request</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+</odoo>

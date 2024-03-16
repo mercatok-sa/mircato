@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record id="employee_termination_and_resignation_rules_form_view" model="ir.ui.view">
+            <field name="name">employee.termination.and.resignation.rules.form.view</field>
+            <field name="model">hr.config.rules</field>
+            <field name="arch" type="xml">
+                <form string="Termination And Resignation Rules">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="month_work_days"/>
+                        </group>
+                        <group>
+                            <field name="terminations_rule_ids">
+                                <tree editable="bottom">
+                                    <field name="termination_rang_start"/>
+                                    <field name="termination_rang_end"/>
+                                    <field name="termination_days_per_year"/>
+                                </tree>
+                            </field>
+                        </group>
+                        <group>
+                            <field name="resignation_rule_ids">
+                                <tree editable="bottom">
+                                    <field name="resignation_rang_start"/>
+                                    <field name="resignation_rang_end"/>
+                                    <field name="resignation_days_per_year"/>
+                                </tree>
+                            </field>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="employee_termination_and_resignation_rules_tree_view" model="ir.ui.view">
+            <field name="name">employee.termination.and.resignation.rules.form.view</field>
+            <field name="model">hr.config.rules</field>
+            <field name="arch" type="xml">
+                <tree string="Termination And Resignation Rules">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="employee_termination_and_resignation_rules_action_view" model="ir.actions.act_window">
+            <field name="name">Termination And Resignation Rules</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hr.config.rules</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+    </data>
+</odoo>

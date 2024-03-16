@@ -1,0 +1,67 @@
+<odoo>
+    <data>
+        <record id="mail_penalty_request_template" model="mail.template">
+            <field name="name">Penalty Request Send Mail</field>
+            <field name="model_id" ref='penalty_request.model_penalty_request'/>
+            <field name='email_from'>${object.create_uid.login}</field>
+            <field name="lang">${object.lang}</field>
+            <field name="subject">Penalty Request ${object.name}</field>
+            <field name="body_html" type="html">
+                <div style="margin: 0px; padding: 0px;">
+                    <p>Dear,
+                        <br/>
+                    </p>
+                    <p>This document to inform you that this penalty
+                        <b>
+                            <i>${object.name}</i>
+                        </b>
+                        you get in
+                        <b>
+                            <i>${object.date}</i>
+                        </b>
+                        for
+                        <b>
+                            <i>${object.reason}</i>
+                        </b>
+                        .
+                    </p>
+                    <p>Best regards,
+                        <br/>
+                    </p>
+                </div>
+            </field>
+        </record>
+
+        <record id="mail_penalty_request_manager_template" model="mail.template">
+            <field name="name">M Penalty Request Send Mail</field>
+            <field name="model_id" ref='penalty_request.model_penalty_request'/>
+            <field name='email_from'>${object.create_uid.login}</field>
+            <field name="lang">${object.lang}</field>
+            <field name="subject">Penalty Request ${object.name}</field>
+            <field name="body_html" type="html">
+                <div style="margin: 0px; padding: 0px;">
+                    <p>Dear,
+                        <br/>
+                    </p>
+                    <p>This document to inform you that your employee <i>${object.employee_id.name}</i> gets this penalty
+                        <b>
+                            <i>${object.name}</i>
+                        </b>
+                        in
+                        <b>
+                            <i>${object.date}</i>
+                        </b>
+                        for
+                        <b>
+                            <i>${object.reason}</i>
+                        </b>
+                        .
+                    </p>
+                    <p>Best regards,
+                        <br/>
+                    </p>
+                </div>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,389 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* hr_enhancement
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-03-06 11:06+0000\n"
+"PO-Revision-Date: 2023-03-06 13:08+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
+"X-Generator: Poedit 2.3\n"
+"Language: ar\n"
+
+#. module: hr_enhancement
+#: model:mail.template,body_html:hr_enhancement.leave_delegation_send_mail
+msgid ""
+"\n"
+"                <div style=\"font-family: 'Lucica Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 14px; color: rgb(34, 34, 34); background-color: #FFF;\">\n"
+"               \t<p>Dear <b>${object.delegation_id.name}</b>,</p>\n"
+"               \t<p>There is delegation leave <b>${object.name}</b> for <b>${object.employee_id.name}</b> From <b>${object.date_from}</b> To <b>${object.date_to}</b>.</p>\n"
+"           </div>\n"
+"\n"
+"            "
+msgstr ""
+
+#. module: hr_enhancement
+#: model_terms:ir.ui.view,arch_db:hr_enhancement.report_request_salary_doc_document
+msgid ""
+"<span class=\"pull-right\" style=\"text-align:right;\">\n"
+"                                    <strong>الأســــم:\n"
+"                                    </strong>\n"
+"                                </span>"
+msgstr ""
+
+#. module: hr_enhancement
+#: model_terms:ir.ui.view,arch_db:hr_enhancement.report_request_salary_doc_document
+msgid ""
+"<span class=\"pull-right\" style=\"text-align:right;\">\n"
+"                                    <strong>الراتـــــب:</strong>\n"
+"                                </span>"
+msgstr ""
+
+#. module: hr_enhancement
+#: model_terms:ir.ui.view,arch_db:hr_enhancement.report_request_salary_doc_document
+msgid ""
+"<span class=\"pull-right\" style=\"text-align:right;\">\n"
+"                                    <strong>الرقــم الـمـدنـى:</strong>\n"
+"                                </span>"
+msgstr ""
+
+#. module: hr_enhancement
+#: model_terms:ir.ui.view,arch_db:hr_enhancement.report_request_salary_doc_document
+msgid ""
+"<span class=\"pull-right\" style=\"text-align:right;\">\n"
+"                                    <strong>الـوظـيـفــة:</strong>\n"
+"                                </span>"
+msgstr ""
+
+#. module: hr_enhancement
+#: model_terms:ir.ui.view,arch_db:hr_enhancement.report_request_salary_doc_document
+msgid ""
+"<span class=\"pull-right\" style=\"text-align:right;\">\n"
+"                                    <strong>تـاريـخ الالـتـحـاق:</strong>\n"
+"                                </span>"
+msgstr ""
+
+#. module: hr_enhancement
+#: model_terms:ir.ui.view,arch_db:hr_enhancement.hr_contract_inherited_view_form
+msgid "<span>/ month</span>"
+msgstr ""
+
+#. module: hr_enhancement
+#: model_terms:ir.ui.view,arch_db:hr_enhancement.report_request_salary_doc_document
+msgid ""
+"<strong>\n"
+"                                            <span style=\"text-align:right;\">التـاريـخ:</span>\n"
+"                                        </strong>"
+msgstr ""
+
+#. module: hr_enhancement
+#: model_terms:ir.ui.view,arch_db:hr_enhancement.report_request_salary_doc_document
+msgid ""
+"<strong>\n"
+"                            المفوض بالتوقيع :\n"
+"                        </strong>"
+msgstr ""
+
+#. module: hr_enhancement
+#: model_terms:ir.ui.view,arch_db:hr_enhancement.report_request_salary_doc_document
+msgid ""
+"<strong>تشهد شركة بهمن للتجارة العامة والمقاولات\n"
+"                            بأن المذكور\n"
+"                            يعمل لديها ومستمر في العمل ولايزال يتقاضى\n"
+"                            راتبه وفقا للبيانات التالية :\n"
+"                        </strong>"
+msgstr ""
+
+#. module: hr_enhancement
+#: model_terms:ir.ui.view,arch_db:hr_enhancement.report_request_salary_doc_document
+msgid ""
+"<strong>شركة بهمن للتجارة العامة والمقاولات\n"
+"                        </strong>"
+msgstr ""
+
+#. module: hr_enhancement
+#: model_terms:ir.ui.view,arch_db:hr_enhancement.report_request_salary_doc_document
+msgid "<strong>هذه الشهادة صالحة لمدة 3 أشهر.</strong>"
+msgstr ""
+
+#. module: hr_enhancement
+#: model_terms:ir.ui.view,arch_db:hr_enhancement.report_request_salary_doc_document
+msgid ""
+"<strong>وقد أعطيت له هذه الشهادة بناء على طلبه ودون أدنى\n"
+"                            مسؤولية على الشركة لتقديمها لمن يهمه الأمر.\n"
+"                        </strong>"
+msgstr ""
+
+#. module: hr_enhancement
+#: model_terms:ir.ui.view,arch_db:hr_enhancement.report_request_salary_doc_document
+msgid ""
+"<u>\n"
+"                                    <span style=\"text-align:right;\">\n"
+"                                        <strong style=\"font-size:20px;\">الموضوع: شهادة لمن يهمه الأمر</strong>\n"
+"                                    </span>\n"
+"                                </u>"
+msgstr ""
+
+#. module: hr_enhancement
+#: model:ir.model.fields,field_description:hr_enhancement.field_back_work_wiz__back_date
+msgid "Back Date"
+msgstr "تاريخ العودة"
+
+#. module: hr_enhancement
+#: code:addons/hr_enhancement/models/hr_leave.py:0
+#: model_terms:ir.ui.view,arch_db:hr_enhancement.back_work_wiz_form_view
+#: model_terms:ir.ui.view,arch_db:hr_enhancement.hr_leave_inherited_form_view
+#, python-format
+msgid "Back To Work"
+msgstr "العودة للعمل"
+
+#. module: hr_enhancement
+#: model:ir.model.fields,field_description:hr_enhancement.field_hr_employee__bank_card_expiry_date
+msgid "Bank Card Expiry Date"
+msgstr "صلاحية بطاقة البنك"
+
+#. module: hr_enhancement
+#: model_terms:ir.ui.view,arch_db:hr_enhancement.back_work_wiz_form_view
+msgid "Cancel"
+msgstr ""
+
+#. module: hr_enhancement
+#: model_terms:ir.ui.view,arch_db:hr_enhancement.back_work_wiz_form_view
+msgid "Check"
+msgstr ""
+
+#. module: hr_enhancement
+#: model:ir.model.fields,field_description:hr_enhancement.field_back_work_wiz__check_back_date
+msgid "Check Back Date"
+msgstr ""
+
+#. module: hr_enhancement
+#: model:ir.actions.act_window,name:hr_enhancement.back_work_wiz_action
+msgid "Check Employee Leaves"
+msgstr ""
+
+#. module: hr_enhancement
+#: model:ir.actions.server,name:hr_enhancement.contract_probation_period_end_reminder_ir_actions_server
+#: model:ir.cron,cron_name:hr_enhancement.contract_probation_period_end_reminder
+#: model:ir.cron,name:hr_enhancement.contract_probation_period_end_reminder
+msgid "Contract Probation Period Expiration"
+msgstr ""
+
+#. module: hr_enhancement
+#: model:ir.model,name:hr_enhancement.model_hr_contract_history
+msgid "Contract history"
+msgstr ""
+
+#. module: hr_enhancement
+#: code:addons/hr_enhancement/wizard/back_to_work_wiz.py:0
+#, python-format
+msgid "Created Leave"
+msgstr ""
+
+#. module: hr_enhancement
+#: model:ir.model.fields,field_description:hr_enhancement.field_back_work_wiz__create_uid
+#: model:ir.model.fields,field_description:hr_enhancement.field_contract_probation_period__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: hr_enhancement
+#: model:ir.model.fields,field_description:hr_enhancement.field_back_work_wiz__create_date
+#: model:ir.model.fields,field_description:hr_enhancement.field_contract_probation_period__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: hr_enhancement
+#: model:ir.model.fields,field_description:hr_enhancement.field_hr_leave__delegation_id
+msgid "Delegation"
+msgstr ""
+
+#. module: hr_enhancement
+#: model:ir.model.fields,field_description:hr_enhancement.field_hr_employee__delegation_required
+#: model:ir.model.fields,field_description:hr_enhancement.field_hr_employee_public__delegation_required
+#: model:ir.model.fields,field_description:hr_enhancement.field_hr_leave__required_delegation
+msgid "Delegation Required"
+msgstr ""
+
+#. module: hr_enhancement
+#: model:mail.template,subject:hr_enhancement.leave_delegation_send_mail
+msgid "Delegation for ${object.employee_id.name or object.employee_ids}"
+msgstr ""
+
+#. module: hr_enhancement
+#: model:ir.model.fields,field_description:hr_enhancement.field_back_work_wiz__display_name
+#: model:ir.model.fields,field_description:hr_enhancement.field_contract_probation_period__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: hr_enhancement
+#: code:addons/hr_enhancement/models/hr_contract.py:0
+#, python-format
+msgid "Document-%s Expired On %s"
+msgstr ""
+
+#. module: hr_enhancement
+#: model:ir.model,name:hr_enhancement.model_hr_employee
+msgid "Employee"
+msgstr ""
+
+#. module: hr_enhancement
+#: model:ir.model,name:hr_enhancement.model_hr_contract
+msgid "Employee Contract"
+msgstr ""
+
+#. module: hr_enhancement
+#: model:ir.model.fields,field_description:hr_enhancement.field_back_work_wiz__holiday_type_id
+msgid "Holiday Type"
+msgstr ""
+
+#. module: hr_enhancement
+#: model:ir.model.fields,field_description:hr_enhancement.field_back_work_wiz__id
+#: model:ir.model.fields,field_description:hr_enhancement.field_contract_probation_period__id
+msgid "ID"
+msgstr ""
+
+#. module: hr_enhancement
+#: model:ir.model.fields,field_description:hr_enhancement.field_hr_employee__identification_expiry_date
+msgid "Identification Expiry Date"
+msgstr "تاريخ انتهاء المدنية"
+
+#. module: hr_enhancement
+#: model:ir.model.fields,field_description:hr_enhancement.field_back_work_wiz____last_update
+#: model:ir.model.fields,field_description:hr_enhancement.field_contract_probation_period____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: hr_enhancement
+#: model:ir.model.fields,field_description:hr_enhancement.field_back_work_wiz__write_uid
+#: model:ir.model.fields,field_description:hr_enhancement.field_contract_probation_period__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: hr_enhancement
+#: model:ir.model.fields,field_description:hr_enhancement.field_back_work_wiz__write_date
+#: model:ir.model.fields,field_description:hr_enhancement.field_contract_probation_period__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: hr_enhancement
+#: model:mail.template,name:hr_enhancement.leave_delegation_send_mail
+msgid "Leave Delegation"
+msgstr ""
+
+#. module: hr_enhancement
+#: model:ir.model.fields,field_description:hr_enhancement.field_back_work_wiz__leave_to_date
+msgid "Leave To Date"
+msgstr ""
+
+#. module: hr_enhancement
+#: model:ir.model.fields,field_description:hr_enhancement.field_hr_employee__medical_card_expiry_date
+msgid "Medical Card Expiry Date"
+msgstr "تاريخ انتهاء كارت الصحة"
+
+#. module: hr_enhancement
+#: model:ir.model.fields,field_description:hr_enhancement.field_hr_employee__medical_card_number
+msgid "Medical Card Number"
+msgstr "كارت الصحة"
+
+#. module: hr_enhancement
+#: model_terms:ir.ui.view,arch_db:hr_enhancement.hr_hr_employee_inherited_form_view
+msgid "Medical Info."
+msgstr "بيانات الصحة."
+
+#. module: hr_enhancement
+#: model:ir.model.fields,field_description:hr_enhancement.field_hr_employee__passport_expiry_date
+msgid "Passport Expiry Date"
+msgstr "تاريخ انتهاء الجواز"
+
+#. module: hr_enhancement
+#: model:ir.model.fields,field_description:hr_enhancement.field_hr_employee__passport_location
+msgid "Passport Location"
+msgstr "مكان الجواز"
+
+#. module: hr_enhancement
+#: model:ir.actions.act_window,name:hr_enhancement.action_contract_probation_period
+#: model:ir.model.fields,field_description:hr_enhancement.field_contract_probation_period__name
+#: model:ir.model.fields,field_description:hr_enhancement.field_hr_contract__probation_period
+#: model:ir.ui.menu,name:hr_enhancement.menu_contract_probation_period
+#: model_terms:ir.ui.view,arch_db:hr_enhancement.contract_probation_period_form
+#: model_terms:ir.ui.view,arch_db:hr_enhancement.contract_probation_period_tree
+msgid "Probation Period"
+msgstr ""
+
+#. module: hr_enhancement
+#: model:ir.model.fields,field_description:hr_enhancement.field_hr_contract__probation_date_end
+#: model:ir.model.fields,field_description:hr_enhancement.field_hr_contract_history__probation_date_end
+#: model:ir.model.fields,field_description:hr_enhancement.field_hr_employee__probation_date_end
+#: model:ir.model.fields,field_description:hr_enhancement.field_hr_employee_public__probation_date_end
+msgid "Probation Period End"
+msgstr ""
+
+#. module: hr_enhancement
+#: model:ir.model,name:hr_enhancement.model_hr_employee_public
+msgid "Public Employee"
+msgstr ""
+
+#. module: hr_enhancement
+#: model:ir.model.fields,field_description:hr_enhancement.field_back_work_wiz__related_leave_id
+msgid "Related Leave"
+msgstr ""
+
+#. module: hr_enhancement
+#: model:ir.actions.report,name:hr_enhancement.action_request_salary_doc_report
+#: model:res.groups,name:hr_enhancement.group_employee_request_salary_doc
+msgid "Request Salary Doc."
+msgstr ""
+
+#. module: hr_enhancement
+#: model:ir.model,name:hr_enhancement.model_hr_leave
+msgid "Time Off"
+msgstr ""
+
+#. module: hr_enhancement
+#: model:ir.model,name:hr_enhancement.model_back_work_wiz
+msgid "back.work.wiz"
+msgstr ""
+
+#. module: hr_enhancement
+#: model:ir.model,name:hr_enhancement.model_contract_probation_period
+msgid "contract.probation.period"
+msgstr ""
+
+#. module: hr_enhancement
+#: model_terms:ir.ui.view,arch_db:hr_enhancement.back_work_wiz_form_view
+msgid "or"
+msgstr ""
+
+#. module: hr_enhancement
+#: model:ir.model.fields,field_description:hr_enhancement.field_hr_contract__salary_in_work
+msgid "الراتب في اذن العمل"
+msgstr ""
+
+#. module: hr_enhancement
+#: model:ir.model.fields.selection,name:hr_enhancement.selection__hr_employee__passport_location__with_comp
+#: model:ir.model.fields.selection,name:hr_enhancement.selection__hr_employee_public__passport_location__with_comp
+msgid "مع الشركة"
+msgstr ""
+
+#. module: hr_enhancement
+#: model:ir.model.fields.selection,name:hr_enhancement.selection__hr_employee__passport_location__with_emp
+#: model:ir.model.fields.selection,name:hr_enhancement.selection__hr_employee_public__passport_location__with_emp
+msgid "مع الموظف"
+msgstr ""
+
+#. module: hr_enhancement
+#: model:ir.model.fields,field_description:hr_enhancement.field_hr_employee_public__passport_location
+msgid "مكان الجواز"
+msgstr ""
+
+#. module: hr_enhancement
+#: model_terms:ir.ui.view,arch_db:hr_enhancement.report_request_salary_doc_document
+msgid "وتفضلوا بقبول فائق الإحترام ،،،"
+msgstr ""

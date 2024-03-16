@@ -1,0 +1,7 @@
+<odoo>
+    <data>
+        <record id="group_employee_request_salary_doc" model="res.groups">
+            <field name="name">Request Salary Doc.</field>
+        </record>
+    </data>
+</odoo>

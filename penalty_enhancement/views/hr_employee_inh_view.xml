@@ -1,0 +1,17 @@
+<odoo>
+    <data>
+        <record id="hr_employee_inherited_view_smart_button" model="ir.ui.view">
+            <field name="name">hr.employee.inherited.view.buttons</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+                <div name="button_box" position="inside">
+                    <button class="oe_stat_button" type="object" name="get_penalties"
+                            icon="fa-book">
+                        <field string="Penalties" name="penalty_count" widget="statinfo"/>
+                    </button>
+                </div>
+            </field>
+        </record>
+    </data>
+</odoo>

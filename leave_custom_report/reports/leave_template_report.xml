@@ -1,0 +1,440 @@
+<odoo>
+    <data>
+        <template id="template_leave_request_document">
+            <t t-call="web.basic_layout">
+                <t t-set="o" t-value="o.with_context({'lang':o.env.lang})"/>
+                <div class="page" dir="rtl">
+                    <h4>
+                        <center>
+                            <strong>
+                                نموذج طلب إجازة
+                                <br/>
+                                Vacation Form
+                            </strong>
+                        </center>
+                    </h4>
+                    <br/>
+                    <table style="width:100%;border: 1px solid black;">
+                        <tr>
+                            <td style="border: 1px solid black;width:25%;" class="text-center">
+                                <span>
+                                    <strong>التاريخ
+                                        <br/>
+                                        Date
+                                    </strong>
+                                </span>
+                            </td>
+                            <td style="border: 1px solid black;width:25%;" class="text-center">
+                                <span t-field="o.create_date"/>
+                            </td>
+                            <td style="border: 1px solid black;width:25%;" class="text-center">
+                                <span>
+                                    <strong>
+                                        تاريخ الالتحاق
+                                        <br/>
+                                        Joining Date
+                                    </strong>
+                                </span>
+                            </td>
+                            <td style="border: 1px solid black;width:25%;" class="text-center">
+                                <span t-field="o.contract_id.date_start"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid black;width:25%;" class="text-center">
+                                <span>
+                                    <strong>اسم مقدم الطلب
+                                        <br/>
+                                        Name of Applicant
+                                    </strong>
+                                </span>
+                            </td>
+                            <td style="border: 1px solid black;width:25%;" class="text-center">
+                                <span t-field="o.employee_id.name"/>
+                            </td>
+                            <td style="border: 1px solid black;width:25%;" class="text-center">
+                                <span>
+                                    <strong>
+                                        الرقم الوظيفي
+                                        <br/>
+                                        Employee Number
+                                    </strong>
+                                </span>
+                            </td>
+                            <td style="border: 1px solid black;width:25%;" class="text-center">
+                                <span t-field="o.employee_id.pin"/>
+                            </td>
+                        </tr>
+                    </table>
+                    <br/>
+                    <table style="width:100%;border: 1px solid black;">
+                        <tr>
+                            <td style="border: 1px solid black;" class="text-center">
+                                <span>
+                                    <strong>المسمى الوظيفي
+                                        <br/>
+                                        Job Title
+                                    </strong>
+                                </span>
+                            </td>
+                            <td style="border: 1px solid black;" class="text-center">
+                                <span t-field="o.employee_id.job_id.name"/>
+                            </td>
+                            <td style="border: 1px solid black;" class="text-center">
+                                <span>
+                                    <strong>
+                                        الإدارة
+                                        <br/>
+                                        Department
+                                    </strong>
+                                </span>
+                            </td>
+                            <td style="border: 1px solid black;" class="text-center">
+                                <span t-field="o.employee_id.department_id.name"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid black;" class="text-center">
+                                <span>
+                                    <strong>رقم الهاتف
+                                        <br/>
+                                        Tel
+                                    </strong>
+                                </span>
+                            </td>
+                            <td style="border: 1px solid black;" class="text-center">
+                                <span t-field="o.employee_id.private_phone"/>
+                            </td>
+                            <td style="border: 1px solid black;" class="text-center">
+                                <span>
+                                    <strong>
+                                        تاريخ العودة من اخر اجازة
+                                        <br/>
+                                        Last Leave Return
+                                    </strong>
+                                </span>
+                            </td>
+                            <td style="border: 1px solid black;" class="text-center">
+                                <span t-field="o.last_return_leave_date"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid black;" class="text-center">
+                                <span>
+                                    <strong>تاريخ بدء الإجازة
+                                        <br/>
+                                        Vacation Starting Date
+                                    </strong>
+                                </span>
+                            </td>
+                            <td style="border: 1px solid black;" class="text-center">
+                                <span t-field="o.request_date_from"/>
+                            </td>
+                            <td style="border: 1px solid black;" class="text-center">
+                                <span>
+                                    <strong>
+                                        تاريخ انتهاء الإجازة
+                                        <br/>
+                                        Vacation Ending Date
+                                    </strong>
+                                </span>
+                            </td>
+                            <td style="border: 1px solid black;" class="text-center">
+                                <span t-field="o.request_date_to"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid black;" class="text-center">
+                                <span>
+                                    <strong>رصيد الاجازات
+                                        <br/>
+                                        Leave Balance
+                                    </strong>
+                                </span>
+                            </td>
+                            <td style="border: 1px solid black;" class="text-center">
+                                <!--                                <span t-esc="round(o.expected_leave, 2)"/>-->
+                            </td>
+                            <td style="border: 1px solid black;" class="text-center">
+                                <span>
+                                    <strong>
+                                        عدد الايام
+                                        <br/>
+                                        Vacation Days
+                                    </strong>
+                                </span>
+                            </td>
+                            <td style="border: 1px solid black;" class="text-center">
+                                <span t-field="o.number_of_days_display"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid black;" class="text-center">
+                                <span>
+                                    <strong>نوع الإجازة
+                                        <br/>
+                                        Vacation Type
+                                    </strong>
+                                </span>
+                            </td>
+                            <td style="border: 1px solid black;" class="text-center" colspan="3">
+                                <span t-field="o.holiday_status_id.name"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid black;" class="text-center">
+                                <span>
+                                    <strong>العنوان اثناء الاجازة
+                                        <br/>
+                                        Address during leave
+                                    </strong>
+                                </span>
+                            </td>
+                            <td style="border: 1px solid black;" class="text-center" colspan="3">
+                                <span t-field="o.address_in_leave"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid black;" class="text-center" colspan="4">
+                                <strong>
+                                    واتعهد بمباشرة العمل فور انتهاء اجازتي التي يتم الموافقة عليها دون تأخير.
+                                    <br/>
+                                    I undertake to resume duty forthwith at the end of my leave, which is promptly
+                                    approved.
+                                </strong>
+                            </td>
+                        </tr>
+                    </table>
+                    <br/>
+                    <table style="width:100%;border: 1px solid black;">
+                        <tr>
+                            <td style="border: 1px solid black;width:25%;" class="text-center">
+                                <span>
+                                    <strong>توقيع الموظف
+                                        <br/>
+                                        Employee’s Signature
+                                    </strong>
+                                </span>
+                            </td>
+                            <td style="border: 1px solid black;width:25%;" class="text-center">
+                                &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+                                &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+                            </td>
+                            <td style="border: 1px solid black;width:25%;" class="text-center">
+                                <span>
+                                    <strong>
+                                        التاريخ
+                                        <br/>
+                                        Date
+                                    </strong>
+                                </span>
+                            </td>
+                            <td style="border: 1px solid black;width:25%;" class="text-center">
+                                &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+                                &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+                            </td>
+                        </tr>
+                    </table>
+                    <br/>
+                    <table style="width:100%;border: 1px solid black;">
+                        <tr>
+                            <td style="border: 1px solid black;" class="text-center" colspan="4">
+                                <strong>رأي المدير المباشر
+                                    <br/>
+                                    Immediate Supervisor’s recommendation
+                                </strong>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-center" style="border:1px solid black;width:5%;">
+                                &#160;&#160;&#160;&#160;&#160; ☐
+                            </td>
+                            <td class="text-right" style="border:1px solid black;width:95%;" colspan="3">
+                                <strong>موافق وقد تم تأمين البديل
+                                    <br/>
+                                    Approved and we covered his work
+                                </strong>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-center" style="border:1px solid black;width:5%;">
+                                &#160;&#160;&#160;&#160;&#160; ☐
+                            </td>
+                            <td class="text-right" style="border:1px solid black;width:95%;" colspan="3">
+                                <strong>موافق، ولكن نحتاج من يحل محله
+                                    <br/>
+                                    Approved and we need who
+                                    cover his position
+                                </strong>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-center" style="border:1px solid black;width:5%;">
+                                &#160;&#160;&#160;&#160;&#160; ☐
+                            </td>
+                            <td class="text-right" style="border:1px solid black;width:95%;" colspan="3">
+                                <strong>غير موافق
+                                    <br/>
+                                    Not approved
+                                </strong>
+                            </td>
+                        </tr>
+                    </table>
+                    <br/>
+                    <table style="width:100%;border: 1px solid black;">
+                        <tr>
+                            <td style="border: 1px solid black;width:25%;" class="text-center">
+                                <span>
+                                    <strong>الاسم
+                                        <br/>
+                                        Name
+                                    </strong>
+                                </span>
+                            </td>
+                            <td style="border: 1px solid black;width:25%;" class="text-center">
+                                &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+                                &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+                            </td>
+                            <td style="border: 1px solid black;width:25%;" class="text-center">
+                                <span>
+                                    <strong>
+                                        المسمى الوظيفي
+                                        <br/>
+                                        Job Title
+                                    </strong>
+                                </span>
+                            </td>
+                            <td style="border: 1px solid black;width:25%;" class="text-center">
+                                &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+                                &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+                            </td>
+                        </tr>
+                    </table>
+                    <br/>
+                    <table style="width:100%;border: 1px solid black;">
+                        <tr>
+                            <td style="border: 1px solid black;width:25%;" class="text-center">
+                                <span>
+                                    <strong>توقيع المدير المباشر
+                                        <br/>
+                                        Line Manger’s Signature
+                                    </strong>
+                                </span>
+                            </td>
+                            <td style="border: 1px solid black;width:25%;" class="text-center">
+                                &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+                                &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+                            </td>
+                            <td style="border: 1px solid black;width:25%;" class="text-center">
+                                <span>
+                                    <strong>
+                                        التاريخ
+                                        <br/>
+                                        Date
+                                    </strong>
+                                </span>
+                            </td>
+                            <td style="border: 1px solid black;width:25%;" class="text-center">
+                                &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+                                &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid black;width:25%;" class="text-center">
+                                <span>
+                                    <strong>توقيع مدير الموارد البشرية
+                                        <br/>
+                                        HR Manger’s Signature
+                                    </strong>
+                                </span>
+                            </td>
+                            <td style="border: 1px solid black;width:25%;" class="text-center">
+                                &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+                                &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+                            </td>
+                            <td style="border: 1px solid black;width:25%;" class="text-center">
+                                <span>
+                                    <strong>
+                                        التاريخ
+                                        <br/>
+                                        Date
+                                    </strong>
+                                </span>
+                            </td>
+                            <td style="border: 1px solid black;width:25%;" class="text-center">
+                                &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+                                &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid black;width:25%;" class="text-center">
+                                <span>
+                                    <strong>
+                                        توقيع المدير العام
+                                        <br/>
+                                        GM’s Signature
+                                    </strong>
+                                </span>
+                            </td>
+                            <td style="border: 1px solid black;width:25%;" class="text-center">
+                                &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+                                &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+                            </td>
+                            <td style="border: 1px solid black;width:25%;" class="text-center">
+                                <span>
+                                    <strong>
+                                        التاريخ
+                                        <br/>
+                                        Date
+                                    </strong>
+                                </span>
+                            </td>
+                            <td style="border: 1px solid black;width:25%;" class="text-center">
+                                &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+                                &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </t>
+        </template>
+
+        <template id="report_template_leave_request">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="leave_custom_report.template_leave_request_document"
+                       t-lang="o.env.lang"/>
+                </t>
+            </t>
+        </template>
+
+        <record id="action_template_leave_request_report" model="ir.actions.report">
+            <field name="name">نموذج طلب إجازة</field>
+            <field name="model">hr.leave</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">leave_custom_report.report_template_leave_request</field>
+            <field name="report_file">leave_custom_report.report_template_leave_request</field>
+            <field name="binding_model_id" ref="hr_holidays.model_hr_leave"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <record id="paperformat_template_leave_request_report" model="report.paperformat">
+            <field name="name">Template Leave Request Paper Format</field>
+            <field name="default" eval="True"/>
+            <field name="format">A4</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">20</field>
+            <field name="margin_bottom">10</field>
+            <field name="margin_left">7</field>
+            <field name="margin_right">7</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">40</field>
+            <field name="dpi">90</field>
+        </record>
+
+
+        <record id="leave_custom_report.action_template_leave_request_report" model="ir.actions.report">
+            <field name="paperformat_id" ref="leave_custom_report.paperformat_template_leave_request_report"/>
+        </record>
+    </data>
+</odoo>
