@@ -122,4 +122,3 @@ class HrLoanDatePayment(models.Model):
     penalty_id = fields.Many2one('penalty.request', "Loan")
     employee_id = fields.Many2one('hr.employee', related='penalty_id.employee_id', store=True)
     paid = fields.Boolean(string="", default=False)
-    paid_b = fields.Boolean(string="", default=False)
