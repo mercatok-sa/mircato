@@ -6,9 +6,9 @@
             <field name="inherit_id" ref="purchase.purchase_order_form"/>
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='currency_id']" position="after">
-                    <field name="change_qty"/>
-                    <field name="change_price"/>
-                    <field name="change_taxes"/>
+                    <field name="change_qty" invisible="1"/>
+                    <field name="change_price" invisible="1"/>
+                    <field name="change_taxes" invisible="1"/>
                 </xpath>
                 <xpath expr="//field[@name='order_line']/tree/field[@name='product_qty']" position="attributes">
                     <attribute name="readonly">not parent.change_qty</attribute>
