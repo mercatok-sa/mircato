@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="bi_generate_product_barcode_wizard_manually_form" model="ir.ui.view">
+        <field name="name">bi.generate.product.barcode.wizard.button.form</field>
+        <field name="model">bi.product.generate.barcode.manually</field>
+        <field name="arch" type="xml">
+            <form string="Generate Barcode">
+                <group>
+                    <field name="generate_type" widget="radio"/>
+                </group>
+                <footer>
+                    <button name="generate_barcode_manually" type="object" string="Generate Barcode"
+                            class="oe_highlight"/>
+                    or
+                    <button special="cancel" string="Close" class="oe_link"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_generate_barcode_manually_bi" model="ir.actions.act_window">
+        <field name="name">Generate Barcode</field>
+        <field name="res_model">bi.product.generate.barcode.manually</field>
+        <field name="binding_view_types">form</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <record model="ir.ui.view" id="bi_inherit_view_product_product_form">
+        <field name="name">bi.inherit.view.product.product.form</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_normal_form_view"/>
+        <field name="arch" type="xml">
+            <field name="barcode" position="after">
+                <field name="check_barcode_setting" invisible="1"/>
+                <!--					<button name="%(action_generate_barcode_manually_bi)d" type="action" string="Manually Generate Barcode" -->
+                <!--                                        class="btn-success"/><br/>-->
+
+                <field name="barcode_img" widget='image' width="200px" height="70px" nolabel="1"/>
+            </field>
+
+
+        </field>
+    </record>
+
+    <record id="bi_generate_product_barcode_wizard" model="ir.ui.view">
+        <field name="name">bi.generate.product.barcode.wizard</field>
+        <field name="model">bi.product.generate.barcode</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="overwrite"/>
+                    <field name="generate_type"/>
+                </group>
+                <footer>
+                    <button name="generate_barcode" type="object" string="Generate Barcode" class="oe_highlight"/>
+                    or
+                    <button special="cancel" string="Close" class="oe_link"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <act_window
+            id="action_generate_barcode_bi"
+            name="Generate Product Barcode"
+            res_model="bi.product.generate.barcode"
+            binding_model="product.product"
+            binding_views="list"
+            view_mode="form"
+            target="new"
+            view_id='bi_generate_product_barcode_wizard'/>
+
+
+    <record id="action_generate_barcode_man" model="ir.actions.server">
+        <field name="name">Generate Bulk Barcode</field>
+        <field name="type">ir.actions.server</field>
+        <field name="model_id" ref="model_product_template"/>
+        <field name="state">code</field>
+        <field name="code">
+            action = model.generate_bulk_barcode()
+        </field>
+        <field name="binding_model_id" ref="product.model_product_template"/>
+        <field name="binding_view_types">list,form</field>
+        <field name="groups_id" eval="[(4, ref('base.group_system'))]"/>
+    </record>
+
+    <record id="action_generate_barcode_variant" model="ir.actions.server">
+        <field name="name">Generate Bulk Barcode</field>
+        <field name="type">ir.actions.server</field>
+        <field name="model_id" ref="model_product_product"/>
+        <field name="state">code</field>
+        <field name="code">
+            action = model.v_generate_bulk_barcode()
+        </field>
+        <field name="binding_model_id" ref="product.model_product_product"/>
+        <field name="binding_view_types">list,form</field>
+        <field name="groups_id" eval="[(4, ref('base.group_system'))]"/>
+    </record>
+
+</odoo>
