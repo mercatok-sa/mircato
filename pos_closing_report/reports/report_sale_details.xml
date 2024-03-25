@@ -1,0 +1,275 @@
+<odoo>
+    <data>
+        <template id="custom_report_saledetails" inherit_id="point_of_sale.report_saledetails">
+            <xpath expr="//t/t/t" position="replace">
+                <t t-call="web.basic_layout">
+                    <div class="page">
+                        <div class="text-center">
+                            <img t-if="company.logo" t-att-src="image_data_uri(company.logo)"
+                                 style="max-height: 160px;max-width:100px;"
+                                 alt="Logo"/>
+                            <h6>
+                                <strong>
+                                    <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y-%m-%d %H:%M')"/>
+                                </strong>
+                            </h6>
+                            <h6>
+                                <strong>X OUT STATUS REPORT</strong>
+                            </h6>
+                        </div>
+                        <span>
+                            <h6>
+                                <div t-if="branch">
+                                    <strong>Branch:</strong>&#160;&#160;&#160;&#160;
+                                    <span t-esc="branch"/>
+                                </div>
+                                <div t-if="cahier">
+                                    <strong>Cashier:</strong>&#160;&#160;&#160;&#160;
+                                    <span t-esc="cahier"/>
+                                </div>
+                                <div t-if="date_start">
+                                    <strong>From:</strong>&#160;&#160;&#160;&#160;
+                                    <t t-esc="date_start" t-options="{'widget': 'datetime'}"/>
+                                </div>
+                                <div t-if="date_stop">
+                                    <strong>To:</strong>&#160;&#160;&#160;&#160;
+                                    <t t-esc="date_stop" t-options="{'widget': 'datetime'}"/>
+                                </div>
+                            </h6>
+                        </span>
+                        <br/>
+                        <div class="text-center">
+                            <h6>
+                                <strong>SALES</strong>
+                            </h6>
+                        </div>
+                        <span>
+                            <h6>
+                                <div>
+                                    <strong>Total Sales:</strong>&#160;&#160;&#160;&#160;
+                                    <span t-esc="round(total_sales,3)"/>
+                                </div>
+                                <div>
+                                    <strong>Total Discount:</strong>&#160;&#160;&#160;&#160;
+                                    <span t-esc="round(total_discount,3)"/>
+                                </div>
+                                <div>
+                                    <strong>Net Sales:</strong>&#160;&#160;&#160;&#160;
+                                    <t t-esc="round(net_sales,3)"/>
+                                </div>
+                                <div>
+                                    <strong>Invoice Counts:</strong>&#160;&#160;&#160;&#160;
+                                    <t t-esc="invoice_count"/>
+                                </div>
+                                <div>
+                                    <strong>Cancel Orders:</strong>&#160;&#160;&#160;&#160;
+                                    <t t-esc="cancel_orders"/>
+                                </div>
+                            </h6>
+                        </span>
+                        <br/>
+                        <div class="text-center">
+                            <h6>
+                                <strong>Returns</strong>
+                            </h6>
+                        </div>
+                        <span>
+                            <h6>
+                                <div>
+                                    <strong>Total Returns:</strong>&#160;&#160;&#160;&#160;
+                                    <span t-esc="round(total_return,3)"/>
+                                </div>
+                                <div>
+                                    <strong>Total Discount:</strong>&#160;&#160;&#160;&#160;
+                                    <span t-esc="round(total_return_discount,3)"/>
+                                </div>
+                                <div>
+                                    <strong>Net Returns:</strong>&#160;&#160;&#160;&#160;
+                                    <t t-esc="round(net_return,3)"/>
+                                </div>
+                                <div>
+                                    <strong>Return Counts:</strong>&#160;&#160;&#160;&#160;
+                                    <t t-esc="returns_count"/>
+                                </div>
+                            </h6>
+                        </span>
+                        <br/>
+                        <div class="text-center">
+                            <h6>
+                                <strong>Summary</strong>
+                            </h6>
+                        </div>
+                        <span>
+                            <h6>
+                                <div>
+                                    <strong>Total Net:</strong>&#160;&#160;&#160;&#160;
+                                    <span t-esc="round(total_net,3)"/>
+                                </div>
+                            </h6>
+                        </span>
+                        <br/>
+                        <div class="text-center">
+                            <h6>
+                                <strong>Total Sales Payment</strong>
+                            </h6>
+                        </div>
+                        <t t-set="payment_method" t-value=""/>
+                        <table style="width: 60%;border:1px solid black;">
+                            <tr>
+                                <th style="border:1px solid black;" class="text-center">Payment</th>
+                                <th style="border:1px solid black;" class="text-center">Sales</th>
+                                <th style="border:1px solid black;" class="text-center">Disc</th>
+                                <th style="border:1px solid black;" class="text-center">Count</th>
+                            </tr>
+                            <t t-foreach="payment_methods" t-as="pm">
+                                <tr>
+                                    <td style="border:1px solid black;" class="text-center">
+                                        <strong>
+                                            <span t-esc="pm"/>:
+                                        </strong>
+                                    </td>
+                                    <t t-set="payment_method" t-value="pm"/>
+                                    <t t-foreach="payment_sales_values" t-as="sale">
+                                        <t t-if="payment_method == sale">
+                                            <td style="border:1px solid black;" class="text-center">
+                                                <span t-esc="round(sale_value,3)"/>00
+                                            </td>
+                                        </t>
+                                    </t>
+                                    <t t-foreach="payment_discount_values" t-as="dis">
+                                        <t t-if="payment_method == dis">
+                                            <td style="border:1px solid black;" class="text-center">
+                                                <span t-esc="round(dis_value,3)"/>00
+                                            </td>
+                                        </t>
+                                    </t>
+                                    <t t-foreach="payment_count" t-as="count">
+                                        <t t-if="payment_method == count">
+                                            <td style="border:1px solid black;" class="text-center">
+                                                <span t-esc="count_value"/>
+                                            </td>
+                                        </t>
+                                    </t>
+                                </tr>
+                            </t>
+                        </table>
+                        <br/>
+                        <div class="text-center">
+                            <h6>
+                                <strong>Total Returns Payment</strong>
+                            </h6>
+                        </div>
+                        <t t-set="return_payment_method" t-value=""/>
+                        <table style="width: 60%;border:1px solid black;">
+                            <tr>
+                                <th style="border:1px solid black;" class="text-center">Payment</th>
+                                <th style="border:1px solid black;" class="text-center">Returns</th>
+                                <th style="border:1px solid black;" class="text-center">Count</th>
+                            </tr>
+                            <t t-foreach="return_payment_methods" t-as="rpm">
+                                <tr>
+                                    <td style="border:1px solid black;" class="text-center">
+                                        <strong>
+                                            <span t-esc="rpm"/>:
+                                        </strong>
+                                    </td>
+                                    <t t-set="return_payment_method" t-value="rpm"/>
+                                    <t t-foreach="payment_return_values" t-as="return">
+                                        <t t-if="return_payment_method == return">
+                                            <td style="border:1px solid black;" class="text-center">
+                                                <span t-esc="round(return_value,3)"/>
+                                            </td>
+                                        </t>
+                                    </t>
+                                    <t t-foreach="payment_returns_count" t-as="returns_count">
+                                        <t t-if="return_payment_method == returns_count">
+                                            <td style="border:1px solid black;" class="text-center">
+                                                <span t-esc="returns_count_value"/>
+                                            </td>
+                                        </t>
+                                    </t>
+                                </tr>
+                            </t>
+                        </table>
+                        <br/>
+                        <div class="text-center">
+                            <h6>
+                                <strong>Transaction Summary</strong>
+                            </h6>
+                        </div>
+                        <t t-set="total_payment_method" t-value=""/>
+                        <table style="width: 60%;border:1px solid black;">
+                            <tr>
+                                <th style="border:1px solid black;" class="text-center">Payment</th>
+                                <th style="border:1px solid black;" class="text-center">Sales</th>
+                                <th style="border:1px solid black;" class="text-center">Disc</th>
+                                <th style="border:1px solid black;" class="text-center">Net</th>
+                            </tr>
+                            <t t-foreach="total_payment_methods" t-as="tpm">
+                                <tr>
+                                    <td style="border:1px solid black;" class="text-center">
+                                        <strong>
+                                            <span t-esc="tpm"/>:
+                                        </strong>
+                                    </td>
+                                    <t t-set="total_payment_method" t-value="tpm"/>
+                                    <t t-foreach="t_total_sales_value" t-as="t_total_sale">
+                                        <t t-if="total_payment_method == t_total_sale">
+                                            <td style="border:1px solid black;" class="text-center">
+                                                <span t-esc="round(t_total_sale_value,3)"/>00
+                                            </td>
+                                        </t>
+                                    </t>
+                                    <t t-foreach="t_total_discount_value" t-as="t_total_disc">
+                                        <t t-if="total_payment_method == t_total_disc">
+                                            <td style="border:1px solid black;" class="text-center">
+                                                <span t-esc="round(t_total_disc_value,3)"/>00
+                                            </td>
+                                        </t>
+                                    </t>
+                                    <t t-foreach="t_net_values" t-as="t_net">
+                                        <t t-if="total_payment_method == t_net">
+                                            <td style="border:1px solid black;" class="text-center">
+                                                <span t-esc="round(t_net_value,3)"/>00
+                                            </td>
+                                        </t>
+                                    </t>
+                                </tr>
+                            </t>
+                            <tr>
+                                <th style="border:1px solid black;" class="text-center">TOTAL:</th>
+                                <td style="border:1px solid black;" class="text-center">
+                                    <span t-esc="round(t_total_sales, 4)"/>00
+                                </td>
+                                <td style="border:1px solid black;" class="text-center">
+                                    <span t-esc="round(t_total_discount, 4)"/>00
+                                </td>
+                                <td style="border:1px solid black;" class="text-center">
+                                    <span t-esc="round(t_total_nets, 4)"/>00
+                                </td>
+                            </tr>
+                        </table>
+                        <!--                        <table style="width: 60%;border-bottom: 2px solid black;border-top: 2px solid black;">-->
+                        <!--                          -->
+                        <!--                        </table>-->
+
+                        <!--                        <table style="width: 60%;border-bottom: 2px solid black;">-->
+                        <!--                            <tr>-->
+                        <!--                                <td style="border:1px solid black;" class="text-center">-->
+                        <!--                                    <strong>Petty Cash:</strong>&#160;&#160;&#160;&#160;-->
+                        <!--                                    <span t-esc="petty_cash"/>-->
+                        <!--                                </td>-->
+                        <!--                                <td style="border:1px solid black;" class="text-center">-->
+                        <!--                                </td>-->
+                        <!--                                <td style="border:1px solid black;" class="text-center">-->
+                        <!--                                    <strong>Drawer Cash:</strong>&#160;&#160;&#160;&#160;-->
+                        <!--                                    <span t-esc="round(drawer_cash,3)"/>-->
+                        <!--                                </td>-->
+                        <!--                            </tr>-->
+                        <!--                        </table>-->
+                    </div>
+                </t>
+            </xpath>
+        </template>
+    </data>
+</odoo>

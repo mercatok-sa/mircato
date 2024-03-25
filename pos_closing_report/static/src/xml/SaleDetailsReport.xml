@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="SaleDetailsReport" t-inherit="point_of_sale.SaleDetailsReport" t-inherit-mode="extension" owl="1">
+         <xpath expr="//div[hasclass('pos-receipt')]" position="replace">
+                <div class="pos-receipt">
+                    <center>
+<!--                        <img class="pos-receipt-logo" t-att-src="company_id.logo" alt="Logo"/>-->
+                        <div id="company_logo" style="text-align:center;">
+                            <img t-att-src="'data:image/png;base64,'+ pos.company.logo" height="130px" width="130px"/>
+                        </div>
+                        <br/>
+                        <strong><span style="font-size:21px;" t-esc="date"/></strong>
+                        <br/>
+                        <strong><span style="font-size:21px;">X OUT STATUS REPORT</span></strong>
+                    </center>
+                    <br/>
+                    <span style="font-size:21px;text-align:center;">
+                            <div t-if="branch">
+                                <strong>Branch:</strong>
+                                <span t-esc="branch"/>
+                            </div>
+                        <div t-if="cahier">
+                                <strong>Cashier:</strong>
+                            <span t-esc="cahier"/>
+                            </div>
+                        <div t-if="date_start">
+                                <strong>From:</strong>
+                            <t t-esc="date_start"/>
+                            </div>
+                        <div t-if="date_stop">
+                                <strong>To</strong>:
+                            <t t-esc="date_stop"/>
+                            </div>
+                    </span>
+
+                    <br/>
+                    <div style="font-size:21px;text-align:center;" class="text-center">
+                                <strong>SALES</strong>
+                        </div>
+                    <span style="font-size:21px;text-align:center;">
+                                <div>
+                                    <strong>Total Sales:</strong>
+                                    <span t-esc="pos.format_currency(total_sales)"/>
+                                </div>
+                        <div>
+                                    <strong>Total Discount:</strong>
+                            <span t-esc="pos.format_currency(total_discount)"/>
+                                </div>
+                        <div>
+                                    <strong>Net Sales:</strong>
+                            <t t-esc="pos.format_currency(net_sales)"/>
+                                </div>
+                        <div>
+                                    <strong>Invoice Counts:</strong>;
+                            <t t-esc="invoice_count"/>
+                                </div>
+                        <div>
+                                    <strong>Cancel Orders:</strong>
+                            <t t-esc="cancel_orders"/>
+                                </div>
+                        </span>
+                    <br/>
+                    <div class="text-center" style="font-size:21px;text-align:center;">
+                                <strong>Returns</strong>
+                        </div>
+                    <span style="font-size:21px;text-align:center;">
+                                <div>
+                                    <strong>Total Returns:</strong>
+                                    <span t-esc="pos.format_currency(total_return)"/>
+                                </div>
+                        <div>
+                                    <strong>Total Discount:</strong>
+                            <span t-esc="pos.format_currency(total_return_discount)"/>
+                                </div>
+                        <div>
+                                    <strong>Net Returns:</strong>
+                            <t t-esc="pos.format_currency(net_return)"/>
+                                </div>
+                        <div>
+                                    <strong>Return Counts:</strong>
+                            <t t-esc="returns_count"/>
+                                </div>
+                        </span>
+                    <br/>
+                    <div class="text-center" style="font-size:21px;text-align:center;">
+                                <strong><span>Summary</span></strong>
+                        </div>
+                    <span style="font-size:21px;text-align:center;">
+                                <div>
+                                    <strong>Total Net:</strong>
+                                    <span t-esc="pos.format_currency(total_net)"/>
+                                </div>
+                        </span>
+                    <br/>
+                    <div class="text-center" style="font-size:21px;text-align:center;">
+                        <strong>Total Sales Payment</strong>
+                        <br/>
+                        <t t-set="payment_method" t-value=""/>
+                        <table style="width: 60%;" align="center">
+                        <tr>
+                            <th style="font-size:21px;text-align:center;" class="text-center">Payment</th>
+                            <th style="font-size:21px;text-align:center;" class="text-center">Sales</th>
+                            <th style="font-size:21px;text-align:center;" class="text-center">Disc</th>
+                            <th style="font-size:21px;text-align:center;" class="text-center">Count</th>
+                        </tr>
+                            <t t-foreach="payment_methods" t-as="pm" t-key="pm_index">
+                            <tr>
+                                <td style="font-size:21px;text-align:center;" class="text-center">
+                                    <strong>
+                                        <span t-esc="pm"/>:
+                                    </strong>
+                                </td>
+                                <t t-set="payment_method" t-value="pm"/>
+                                <t t-foreach="payment_sales_values" t-as="sale" t-key="sale_index">
+                                    <t t-if="payment_method == sale">
+                                        <td style="text-align:center;" class="text-center">
+                                            <span style="font-size:21px;" t-esc="pos.format_currency(sale_value)"/>
+                                        </td>
+                                    </t>
+                                </t>
+                                <t t-foreach="payment_discount_values" t-as="dis" t-key="dis_index">
+                                    <t t-if="payment_method == dis">
+                                        <td style="text-align:center;" class="text-center">
+                                            <span style="font-size:21px;" t-esc="pos.format_currency(dis_value)"/>
+                                        </td>
+                                    </t>
+                                </t>
+                                <t t-foreach="payment_count" t-as="count" t-key="count_index">
+                                    <t t-if="payment_method == count">
+                                        <td style="text-align:center;" class="text-center">
+                                            <span style="font-size:21px;" t-esc="count_value"/>
+                                        </td>
+                                    </t>
+                                </t>
+                            </tr>
+                        </t>
+                    </table>
+                    </div>
+                    <br/>
+                    <div class="text-center" style="font-size:21px;text-align:center;">
+                        <strong>Total Returns Payment</strong>
+                        <br/>
+                        <t t-set="return_payment_method" t-value=""/>
+                        <table style="width: 60%;" align="center">
+                        <tr>
+                            <th style="font-size:21px;text-align:center;" class="text-center">Payment</th>
+                            <th style="font-size:21px;text-align:center;" class="text-center">Returns</th>
+                            <th style="font-size:21px;text-align:center;" class="text-center">Count</th>
+                        </tr>
+                            <t t-foreach="return_payment_methods" t-as="rpm" t-key="rpm_index">
+                            <tr>
+                                <td style="font-size:21px;text-align:center;" class="text-center">
+                                    <strong>
+                                        <span t-esc="rpm"/>:
+                                    </strong>
+                                </td>
+                                <t t-set="return_payment_method" t-value="rpm"/>
+                                <t t-foreach="payment_return_values" t-as="p_return" t-key="p_return_index">
+                                    <t t-if="return_payment_method == p_return">
+                                        <td style="text-align:center;" class="text-center">
+                                            <span style="font-size:21px;" t-esc="pos.format_currency(p_return_value)"/>
+                                        </td>
+                                    </t>
+                                </t>
+                                <t t-foreach="payment_returns_count" t-as="returns_count" t-key="returns_count_index">
+                                    <t t-if="return_payment_method == returns_count">
+                                        <td style="text-align:center;" class="text-center">
+                                            <span style="font-size:21px;" t-esc="returns_count_value"/>
+                                        </td>
+                                    </t>
+                                </t>
+                            </tr>
+                        </t>
+                    </table>
+                    </div>
+                    <br/>
+                    <div class="text-center" style="font-size:21px;text-align:center;">
+                        <strong>Transaction Summary</strong>
+                    </div>
+                    <t t-set="total_payment_method" t-value=""/>
+                    <table style="width: 80%;border:1px solid black;" align="center">
+                        <tr>
+                            <th style="font-size:21px;text-align:center;border:1px solid black;" class="text-center">Payment</th>
+                            <th style="font-size:21px;text-align:center;border:1px solid black;" class="text-center">Sales</th>
+                            <th style="font-size:21px;text-align:center;border:1px solid black;" class="text-center">Disc</th>
+                            <th style="font-size:21px;text-align:center;border:1px solid black;"
+                                class="text-center">Net</th>
+                        </tr>
+                        <t t-foreach="total_payment_methods" t-as="tpm" t-key="tpm_index">
+                            <tr>
+                                <td style="font-size:21px;text-align:center;border:1px solid black;"
+                                    class="text-center">
+                                    <strong>
+                                        <span t-esc="tpm"/>:
+                                    </strong>
+                                </td>
+                                <t t-set="total_payment_method" t-value="tpm"/>
+                                <t t-foreach="t_total_sales_value" t-as="t_total_sale" t-key="t_total_sale_index">
+                                    <t t-if="total_payment_method == t_total_sale">
+                                        <td style="border:1px solid black;text-align:center;" class="text-center">
+                                            <span style="font-size:21px;"
+                                                  t-esc="pos.format_currency(t_total_sale_value)"/>
+                                        </td>
+                                    </t>
+                                </t>
+                                <t t-foreach="t_total_discount_value" t-as="t_total_disc" t-key="t_total_disc_index">
+                                    <t t-if="total_payment_method == t_total_disc">
+                                        <td style="border:1px solid black;text-align:center;" class="text-center">
+                                            <span style="font-size:21px;"
+                                                  t-esc="pos.format_currency(t_total_disc_value)"/>
+                                        </td>
+                                    </t>
+                                </t>
+                                <t t-foreach="t_net_values" t-as="t_net" t-key="t_net_index">
+                                    <t t-if="total_payment_method == t_net">
+                                        <td style="border:1px solid black;text-align:center;" class="text-center">
+                                            <span style="font-size:21px;" t-esc="pos.format_currency(t_net_value)"/>
+                                        </td>
+                                    </t>
+                                </t>
+                            </tr>
+                        </t>
+                        <tr>
+                            <th style="border:1px solid black;text-align:center;" class="text-center">TOTAL:</th>
+                            <td style="border:1px solid black;text-align:center;" class="text-center">
+                                <span style="font-size:21px;" t-esc="pos.format_currency(t_total_sales)"/>
+                            </td>
+                            <td style="border:1px solid black;text-align:center;" class="text-center">
+                                <span style="font-size:21px;" t-esc="pos.format_currency(t_total_discount)"/>
+                            </td>
+                            <td style="border:1px solid black;text-align:center;" class="text-center">
+                                <span style="font-size:21px;" t-esc="pos.format_currency(t_total_nets)"/>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <!--                    <table style="width: 60%;border-bottom: 1px solid black;" align="center">-->
+                    <!--                        <tr>-->
+                    <!--                            <td class="text-center">-->
+                    <!--                                <strong>Petty Cash:</strong>-->
+                    <!--                                <span style="font-size:21px;text-align:center;"-->
+                    <!--                                      t-esc="pos.format_currency(petty_cash)"/>-->
+                    <!--                            </td>-->
+                    <!--                            <td class="text-center">-->
+                    <!--                            </td>-->
+                    <!--                            <td class="text-center">-->
+                    <!--                                <strong>Drawer Cash:</strong>-->
+                    <!--                                <span style="font-size:21px;text-align:center;"-->
+                    <!--                                      t-esc="pos.format_currency(drawer_cash)"/>-->
+                    <!--                            </td>-->
+                    <!--                        </tr>-->
+                    <!--                    </table>-->
+
+
+            </div>
+        </xpath>
+    </t>
+</templates>
