@@ -1,0 +1,7 @@
+<odoo>
+    <data>
+        <record id="group_control_entry_analytic_account" model="res.groups">
+            <field name="name">Change Analytic Distribution</field>
+        </record>
+    </data>
+</odoo>
