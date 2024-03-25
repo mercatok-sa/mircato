@@ -2,9 +2,9 @@
     'name': "Sale Details Report",
     'summary': """""",
     'description': """""",
-    'author': 'Eco-Tech, Omnya Rashwan',
+    'author': '',
     'category': 'Products',
-    'version': '16.0.1.1',
+    'version': '17.0.1.1',
     'depends': [
         'point_of_sale',
     ],
