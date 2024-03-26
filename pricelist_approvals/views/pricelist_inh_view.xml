@@ -1,0 +1,20 @@
+<odoo>
+    <data>
+        <record id="product_pricelist_inherited_form" model="ir.ui.view">
+            <field name="name">product.pricelist.form.inherited.view</field>
+            <field name="model">product.pricelist</field>
+            <field name="inherit_id" ref="product.product_pricelist_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//sheet" position="before">
+                    <header>
+                        <field name="check_pricelist_validity" invisible="1"/>
+                        <field name="validated" invisible="1"/>
+                        <button name="action_validate" string="Validate" class="btn-primary"
+                                invisible="check_pricelist_validity == False or validated == True" type="object"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,valid"/>
+                    </header>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
