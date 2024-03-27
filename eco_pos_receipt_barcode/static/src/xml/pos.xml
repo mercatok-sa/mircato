@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="OrderReceipt" t-inherit="point_of_sale.OrderReceipt" t-inherit-mode="extension" owl="1">
+        <xpath expr="//div[hasclass('before-footer')]" position="after">
+                    <div style="text-align: center;">
+                            <div id="barcode">
+                                <img style="margin-top: 15px;width: 100%;height: 95px;" t-att-src="props.data.barcode"/>
+                            </div>
+                    </div>
+        </xpath>
+    </t>
+</templates>
